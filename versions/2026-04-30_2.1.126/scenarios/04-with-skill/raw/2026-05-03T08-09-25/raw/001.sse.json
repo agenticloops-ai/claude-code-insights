@@ -1,0 +1,173 @@
+[
+  {
+    "event": "message_start",
+    "data": {
+      "type": "message_start",
+      "message": {
+        "model": "claude-opus-4-7",
+        "id": "msg_014Vt2kHtcYSG1w954oo4euE",
+        "type": "message",
+        "role": "assistant",
+        "content": [],
+        "stop_reason": null,
+        "stop_sequence": null,
+        "stop_details": null,
+        "usage": {
+          "input_tokens": 6,
+          "cache_creation_input_tokens": 7207,
+          "cache_read_input_tokens": 16191,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 7207
+          },
+          "output_tokens": 0,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        },
+        "diagnostics": null
+      }
+    }
+  },
+  {
+    "event": "content_block_start",
+    "data": {
+      "type": "content_block_start",
+      "index": 0,
+      "content_block": {
+        "type": "thinking",
+        "thinking": "",
+        "signature": ""
+      }
+    }
+  },
+  {
+    "event": "ping",
+    "data": {
+      "type": "ping"
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "signature_delta",
+        "signature": "Ep4CClkIDRgCKkC5CuiBY/8qScdg1vYVtOQ3GMljykd3LGdXGPQLMRb+YgszdlkgcEHdNYjp7cU5V3d9Gk7IiSIi1R060UBOcsUZMg9jbGF1ZGUtb3B1cy00LTc4ABIMqIKxwAflBJbxCHOSGgyaRuihQ6I4lhqWVHgiMHoHTmoSSSoQAlyYyd6axTErXrBLXfCk7qtmrQpOoESwRbyDK+qCBenP44uq73xLWSpze3Az2aTUIwu0fnBv4ORLpJdC8r4y3jl25+0sLqO0IbBfPbaf2X2xv2ggJ0zhFk66zcy0WmmqvZi9tkeZCl1pRdrTa8n7tutSpoXRdnsssOVlLNmCPfSluvH8JSwABCNn7aMYKPArYEF4FzbQRuTchIAVQhgB"
+      }
+    }
+  },
+  {
+    "event": "content_block_stop",
+    "data": {
+      "type": "content_block_stop",
+      "index": 0
+    }
+  },
+  {
+    "event": "content_block_start",
+    "data": {
+      "type": "content_block_start",
+      "index": 1,
+      "content_block": {
+        "type": "tool_use",
+        "id": "toolu_014CCMKS7igQtcuLhxPhdQH7",
+        "name": "Skill",
+        "input": {},
+        "caller": {
+          "type": "direct"
+        }
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": ""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "{\"skill\": \""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "say-hell"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "o\"}"
+      }
+    }
+  },
+  {
+    "event": "content_block_stop",
+    "data": {
+      "type": "content_block_stop",
+      "index": 1
+    }
+  },
+  {
+    "event": "message_delta",
+    "data": {
+      "type": "message_delta",
+      "delta": {
+        "stop_reason": "tool_use",
+        "stop_sequence": null,
+        "stop_details": null
+      },
+      "usage": {
+        "input_tokens": 6,
+        "cache_creation_input_tokens": 7207,
+        "cache_read_input_tokens": 16191,
+        "output_tokens": 118,
+        "iterations": [
+          {
+            "input_tokens": 6,
+            "output_tokens": 118,
+            "cache_read_input_tokens": 16191,
+            "cache_creation_input_tokens": 7207,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 7207
+            },
+            "type": "message"
+          }
+        ]
+      },
+      "context_management": {
+        "applied_edits": []
+      }
+    }
+  },
+  {
+    "event": "message_stop",
+    "data": {
+      "type": "message_stop"
+    }
+  }
+]

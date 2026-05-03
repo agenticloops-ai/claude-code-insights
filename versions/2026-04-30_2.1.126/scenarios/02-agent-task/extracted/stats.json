@@ -1,0 +1,27 @@
+{
+  "version": "2.1.126",
+  "dir_name": "2026-04-30_2.1.126",
+  "scenario": "02-agent-task",
+  "captured_at": "2026-05-03T08:09:08.463716",
+  "request_count": 6,
+  "models": [
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7"
+  ],
+  "tool_count_first_request": 10,
+  "deferred_tool_count": 17,
+  "mcp_tool_count_advertised": 0,
+  "mcp_tool_count_deferred": 1,
+  "system_prompt_chars": 26719,
+  "user_prompt_chars": 4284,
+  "skill_count": 11,
+  "reminder_count": 3,
+  "tokens": {
+    "input": 387,
+    "output": 6356,
+    "cache_read": 107641,
+    "cache_creation": 20791,
+    "total": 6743
+  },
+  "duration_ms_total": 64909
+}

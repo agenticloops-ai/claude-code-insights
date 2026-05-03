@@ -1,0 +1,143 @@
+[
+  {
+    "event": "message_start",
+    "data": {
+      "type": "message_start",
+      "message": {
+        "model": "claude-opus-4-20250514",
+        "id": "msg_01XH1NBXDoeiVCGX1gjcBK9z",
+        "type": "message",
+        "role": "assistant",
+        "content": [],
+        "stop_reason": null,
+        "stop_sequence": null,
+        "stop_details": null,
+        "usage": {
+          "input_tokens": 2,
+          "cache_creation_input_tokens": 16877,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 16877,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 1,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      }
+    }
+  },
+  {
+    "event": "content_block_start",
+    "data": {
+      "type": "content_block_start",
+      "index": 0,
+      "content_block": {
+        "type": "text",
+        "text": ""
+      }
+    }
+  },
+  {
+    "event": "ping",
+    "data": {
+      "type": "ping"
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": "m"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": "cp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\nmcp__fixture__tool_004\nmcp__fixture__tool_"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": "005\nmcp__fixture__tool_006\nmcp__fixture__tool_007\nmcp__fixture__tool_008\nmcp__fixture__tool_009\nmcp__fixture__tool_010\nmcp__fixture__tool_011\nmcp__fixture__tool_012"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": "\nmcp__fixture__tool_013\nmcp__fixture__tool_014\nmcp__fixture__tool_015\nmcp__fixture__tool_016\nmcp__fixture__tool_017\nmcp__fixture__tool_018\nmcp__fixture__tool_019"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": "\nmcp__fixture__tool_020\nmcp__fixture__tool_021\nmcp__fixture__tool_022\nmcp__fixture__tool_023\nmcp__fixture__tool_024\nmcp__fixture__tool_025\nmcp__fixture__tool_026\nm"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": "cp__fixture__tool_027\nmcp__fixture__tool_028\nmcp__fixture__tool_029\nmcp__fixture__tool_030"
+      }
+    }
+  },
+  {
+    "event": "content_block_stop",
+    "data": {
+      "type": "content_block_stop",
+      "index": 0
+    }
+  },
+  {
+    "event": "message_delta",
+    "data": {
+      "type": "message_delta",
+      "delta": {
+        "stop_reason": "end_turn",
+        "stop_sequence": null,
+        "stop_details": null
+      },
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16877,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 272
+      }
+    }
+  },
+  {
+    "event": "message_stop",
+    "data": {
+      "type": "message_stop"
+    }
+  }
+]

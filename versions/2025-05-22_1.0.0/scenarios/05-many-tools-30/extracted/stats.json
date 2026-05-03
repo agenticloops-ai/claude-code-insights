@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0",
+  "dir_name": "2025-05-22_1.0.0",
+  "scenario": "05-many-tools-30",
+  "captured_at": "2026-05-03T07:57:04.770165",
+  "request_count": 2,
+  "models": [
+    "claude-3-5-haiku-20241022",
+    "claude-opus-4-20250514"
+  ],
+  "tool_count_first_request": 15,
+  "deferred_tool_count": 0,
+  "mcp_tool_count_advertised": 31,
+  "mcp_tool_count_deferred": 0,
+  "system_prompt_chars": 12993,
+  "user_prompt_chars": 941,
+  "skill_count": 0,
+  "reminder_count": 1,
+  "tokens": {
+    "input": 2,
+    "output": 272,
+    "cache_read": 0,
+    "cache_creation": 16877,
+    "total": 274
+  },
+  "duration_ms_total": 5841
+}

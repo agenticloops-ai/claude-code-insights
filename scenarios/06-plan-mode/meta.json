@@ -1,0 +1,11 @@
+{
+  "name": "06-plan-mode",
+  "description": "Same agent prompt as 02-agent-task but launched with --permission-mode plan. Captures plan-mode <system-reminder> injection, ExitPlanMode tool surface, and the read-only restriction phrasing.",
+  "claude_args": [
+    "-p",
+    "--permission-mode",
+    "plan"
+  ],
+  "mcp": null,
+  "env": {}
+}

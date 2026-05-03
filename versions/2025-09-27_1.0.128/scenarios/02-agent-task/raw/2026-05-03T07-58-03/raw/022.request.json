@@ -1,0 +1,58 @@
+{
+  "index": 22,
+  "request_id": "96e6919a-d86b-4a33-9fb2-0f0f93b92d78",
+  "session_id": "cc40b986-30ab-4181-830a-02d7dc4d21bc",
+  "timestamp": "2026-05-03T08:00:43.538247",
+  "provider": "anthropic",
+  "method": "POST",
+  "url": "https://api.anthropic.com/v1/messages?beta=true",
+  "headers": {
+    "host": "api.anthropic.com",
+    "connection": "keep-alive",
+    "Accept": "application/json",
+    "X-Stainless-Retry-Count": "0",
+    "X-Stainless-Timeout": "600",
+    "X-Stainless-Lang": "js",
+    "X-Stainless-Package-Version": "0.60.0",
+    "X-Stainless-OS": "Linux",
+    "X-Stainless-Arch": "x64",
+    "X-Stainless-Runtime": "node",
+    "X-Stainless-Runtime-Version": "v20.20.2",
+    "anthropic-dangerous-direct-browser-access": "true",
+    "anthropic-version": "2023-06-01",
+    "authorization": "REDACTED",
+    "x-app": "cli",
+    "User-Agent": "claude-cli/1.0.128 (external, sdk-cli)",
+    "content-type": "application/json",
+    "anthropic-beta": "oauth-2025-04-20,fine-grained-tool-streaming-2025-05-14",
+    "x-stainless-helper-method": "stream",
+    "accept-language": "*",
+    "sec-fetch-mode": "cors",
+    "accept-encoding": "identity",
+    "content-length": "1644"
+  },
+  "body": {
+    "model": "claude-3-5-haiku-20241022",
+    "max_tokens": 512,
+    "messages": [
+      {
+        "role": "user",
+        "content": "Command: ls -la\nOutput: total 4\ndrwxr-xr-x 3 runner runner   96 May  3 00:08 .\ndrwxr-xr-x 1 root   root   4096 May  3 07:58 ..\n-rw-r--r-- 1 runner runner    0 May  3 00:08 .gitkeep\n\n"
+      }
+    ],
+    "system": [
+      {
+        "type": "text",
+        "text": "Extract any file paths that this command reads or modifies. For commands like \"git diff\" and \"cat\", include the paths of files being shown. Use paths verbatim -- don't add any slashes or try to resolve them. Do not try to infer paths that were not explicitly listed in the command output.\n\nIMPORTANT: Commands that do not display the contents of the files should not return any filepaths. For eg. \"ls\", pwd\", \"find\". Even more complicated commands that don't display the contents should not be considered: eg \"find . -type f -exec ls -la {} + | sort -k5 -nr | head -5\"\n\nFirst, determine if the command displays the contents of the files. If it does, then <is_displaying_contents> tag should be true. If it does not, then <is_displaying_contents> tag should be false.\n\nFormat your response as:\n<is_displaying_contents>\ntrue\n</is_displaying_contents>\n\n<filepaths>\npath/to/file1\npath/to/file2\n</filepaths>\n\nIf no files are read or modified, return empty filepaths tags:\n<filepaths>\n</filepaths>\n\nDo not include any other text in your response.",
+        "cache_control": {
+          "type": "ephemeral"
+        }
+      }
+    ],
+    "temperature": 0,
+    "metadata": {
+      "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_5a4e6589-80d5-4f3e-84dc-ee4c1ed57a61"
+    },
+    "stream": true
+  }
+}

@@ -1,0 +1,11 @@
+[
+  {
+    "index": 1,
+    "model": "claude-opus-4-7",
+    "duration_ms": 1290.752649307251,
+    "tool_count": 10,
+    "stop_reason": "end_turn",
+    "input_tokens": 6,
+    "output_tokens": 15
+  }
+]

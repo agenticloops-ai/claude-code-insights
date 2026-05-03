@@ -1,0 +1,9 @@
+{
+  "name": "04-with-skill",
+  "description": "One fixture skill ('say-hello') mounted at ~/.claude/skills/. Captures how skills appear in <system-reminder> blocks, whether a 'skill activated' / OTel event fires, and how the agent invokes them.",
+  "claude_args": [
+    "-p"
+  ],
+  "mcp": null,
+  "env": {}
+}

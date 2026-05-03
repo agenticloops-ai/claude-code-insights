@@ -1,0 +1,9 @@
+{
+  "name": "03-with-mcp-3tools",
+  "description": "Single fixture stdio MCP server exposing 3 tools (tool_001..tool_003). Captures how MCP tools land in the system prompt / tools array, what naming convention is used (e.g. mcp__<server>__<tool>), and how schemas are surfaced.",
+  "claude_args": [
+    "-p"
+  ],
+  "mcp": "scenarios/03-with-mcp-3tools/mcp.json",
+  "env": {}
+}

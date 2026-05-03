@@ -1,0 +1,220 @@
+{
+  "version": "1.0.128",
+  "dir_name": "2025-09-27_1.0.128",
+  "baseline_scenario": "01-bare",
+  "baseline": {
+    "models": [
+      "claude-3-5-haiku-20241022",
+      "claude-opus-4-1-20250805"
+    ],
+    "tool_count": 16,
+    "deferred_tool_count": 0,
+    "mcp_tool_count_advertised": 1,
+    "mcp_tool_count_deferred": 0,
+    "system_prompt_chars": 13878,
+    "reminder_count": 1
+  },
+  "scenarios": {
+    "01-bare": {
+      "version": "1.0.128",
+      "dir_name": "2025-09-27_1.0.128",
+      "scenario": "01-bare",
+      "captured_at": "2026-05-03T07:57:56.488842",
+      "request_count": 2,
+      "models": [
+        "claude-3-5-haiku-20241022",
+        "claude-opus-4-1-20250805"
+      ],
+      "tool_count_first_request": 16,
+      "deferred_tool_count": 0,
+      "mcp_tool_count_advertised": 1,
+      "mcp_tool_count_deferred": 0,
+      "system_prompt_chars": 13878,
+      "user_prompt_chars": 640,
+      "skill_count": 0,
+      "reminder_count": 1,
+      "tokens": {
+        "input": 2,
+        "output": 19,
+        "cache_read": 0,
+        "cache_creation": 15325,
+        "total": 21
+      },
+      "duration_ms_total": 2880
+    },
+    "02-agent-task": {
+      "version": "1.0.128",
+      "dir_name": "2025-09-27_1.0.128",
+      "scenario": "02-agent-task",
+      "captured_at": "2026-05-03T08:01:35.255831",
+      "request_count": 26,
+      "models": [
+        "claude-3-5-haiku-20241022",
+        "claude-opus-4-1-20250805"
+      ],
+      "tool_count_first_request": 16,
+      "deferred_tool_count": 0,
+      "mcp_tool_count_advertised": 1,
+      "mcp_tool_count_deferred": 0,
+      "system_prompt_chars": 13878,
+      "user_prompt_chars": 817,
+      "skill_count": 0,
+      "reminder_count": 1,
+      "tokens": {
+        "input": 86,
+        "output": 11256,
+        "cache_read": 347981,
+        "cache_creation": 12363,
+        "total": 11342
+      },
+      "duration_ms_total": 204230
+    },
+    "03-with-mcp-3tools": {
+      "version": "1.0.128",
+      "dir_name": "2025-09-27_1.0.128",
+      "scenario": "03-with-mcp-3tools",
+      "captured_at": "2026-05-03T08:01:50.562262",
+      "request_count": 2,
+      "models": [
+        "claude-3-5-haiku-20241022",
+        "claude-opus-4-1-20250805"
+      ],
+      "tool_count_first_request": 16,
+      "deferred_tool_count": 0,
+      "mcp_tool_count_advertised": 4,
+      "mcp_tool_count_deferred": 0,
+      "system_prompt_chars": 13878,
+      "user_prompt_chars": 759,
+      "skill_count": 0,
+      "reminder_count": 1,
+      "tokens": {
+        "input": 2,
+        "output": 38,
+        "cache_read": 0,
+        "cache_creation": 15677,
+        "total": 40
+      },
+      "duration_ms_total": 2745
+    },
+    "04-with-skill": {
+      "version": "1.0.128",
+      "dir_name": "2025-09-27_1.0.128",
+      "scenario": "04-with-skill",
+      "captured_at": "2026-05-03T08:02:04.979177",
+      "request_count": 2,
+      "models": [
+        "claude-3-5-haiku-20241022",
+        "claude-opus-4-1-20250805"
+      ],
+      "tool_count_first_request": 16,
+      "deferred_tool_count": 0,
+      "mcp_tool_count_advertised": 1,
+      "mcp_tool_count_deferred": 0,
+      "system_prompt_chars": 13878,
+      "user_prompt_chars": 647,
+      "skill_count": 0,
+      "reminder_count": 1,
+      "tokens": {
+        "input": 2,
+        "output": 16,
+        "cache_read": 15046,
+        "cache_creation": 280,
+        "total": 18
+      },
+      "duration_ms_total": 2070
+    },
+    "05-many-tools-30": {
+      "version": "1.0.128",
+      "dir_name": "2025-09-27_1.0.128",
+      "scenario": "05-many-tools-30",
+      "captured_at": "2026-05-03T08:02:22.926903",
+      "request_count": 2,
+      "models": [
+        "claude-3-5-haiku-20241022",
+        "claude-opus-4-1-20250805"
+      ],
+      "tool_count_first_request": 16,
+      "deferred_tool_count": 0,
+      "mcp_tool_count_advertised": 31,
+      "mcp_tool_count_deferred": 0,
+      "system_prompt_chars": 13878,
+      "user_prompt_chars": 751,
+      "skill_count": 0,
+      "reminder_count": 1,
+      "tokens": {
+        "input": 2,
+        "output": 295,
+        "cache_read": 0,
+        "cache_creation": 18596,
+        "total": 297
+      },
+      "duration_ms_total": 5874
+    },
+    "06-plan-mode": {
+      "version": "1.0.128",
+      "dir_name": "2025-09-27_1.0.128",
+      "scenario": "06-plan-mode",
+      "captured_at": "2026-05-03T08:03:33.675906",
+      "request_count": 11,
+      "models": [
+        "claude-3-5-haiku-20241022",
+        "claude-opus-4-1-20250805"
+      ],
+      "tool_count_first_request": 16,
+      "deferred_tool_count": 0,
+      "mcp_tool_count_advertised": 1,
+      "mcp_tool_count_deferred": 0,
+      "system_prompt_chars": 13878,
+      "user_prompt_chars": 1494,
+      "skill_count": 0,
+      "reminder_count": 2,
+      "tokens": {
+        "input": 14,
+        "output": 957,
+        "cache_read": 95606,
+        "cache_creation": 2461,
+        "total": 971
+      },
+      "duration_ms_total": 58585
+    },
+    "07-cli-help": {
+      "mode": "local",
+      "output_chars": 4966,
+      "output_lines": 46,
+      "exit_code": 0
+    },
+    "08-websearch": {
+      "version": "1.0.128",
+      "dir_name": "2025-09-27_1.0.128",
+      "scenario": "08-websearch",
+      "captured_at": "2026-05-03T08:17:23.976931",
+      "request_count": 4,
+      "models": [
+        "claude-3-5-haiku-20241022",
+        "claude-opus-4-1-20250805"
+      ],
+      "tool_count_first_request": 16,
+      "deferred_tool_count": 0,
+      "mcp_tool_count_advertised": 1,
+      "mcp_tool_count_deferred": 0,
+      "system_prompt_chars": 13954,
+      "user_prompt_chars": 782,
+      "skill_count": 0,
+      "reminder_count": 1,
+      "tokens": {
+        "input": 10,
+        "output": 632,
+        "cache_read": 15375,
+        "cache_creation": 18288,
+        "total": 642
+      },
+      "duration_ms_total": 23477
+    },
+    "09-mcp-help": {
+      "mode": "local",
+      "output_chars": 957,
+      "output_lines": 17,
+      "exit_code": 0
+    }
+  }
+}

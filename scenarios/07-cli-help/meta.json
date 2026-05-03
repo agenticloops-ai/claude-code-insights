@@ -1,0 +1,8 @@
+{
+  "name": "07-cli-help",
+  "mode": "local",
+  "description": "Captures the top-level `claude --help` output. No agentlens, no API call — just the CLI surface as it ships in this version. Diff between versions surfaces added / removed / renamed flags and changes to flag help text.",
+  "claude_args": ["--help"],
+  "mcp": null,
+  "env": {}
+}

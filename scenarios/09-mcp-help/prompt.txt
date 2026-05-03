@@ -1,0 +1,1 @@
+(local-mode scenario — no prompt; runs `claude mcp --help`)

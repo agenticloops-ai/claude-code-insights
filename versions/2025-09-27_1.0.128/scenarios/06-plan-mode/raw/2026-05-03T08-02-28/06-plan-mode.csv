@@ -1,0 +1,33 @@
+timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
+2026-05-03T08:02:30.049297,anthropic,claude-3-5-haiku-20241022,167.1290397644043,,success,,0,0,0,,False,False,False,quota
+2026-05-03T08:02:36.854787,anthropic,claude-opus-4-1-20250805,3932.8091144561768,1581.4921855926514,success,tool_use,2,124,126,0.040674,True,True,False,"<system-reminder>
+Plan mode is active. The user indicated that they do not want you to execute yet -- you MUST NOT make any edits, run any non-readonly tools (including changing configs or making comm"
+2026-05-03T08:02:37.072309,anthropic,claude-3-5-haiku-20241022,167.76037216186523,166.41831398010254,success,,0,0,0,,True,False,False,"Command: ls -la
+Output: total 4
+drwxr-xr-x 3 runner runner   96 May  3 00:08 .
+drwxr-xr-x 1 root   root   4096 May  3 08:02 ..
+-rw-r--r-- 1 runner runner    0 May  3 00:08 .gitkeep
+
+"
+2026-05-03T08:02:39.657122,anthropic,claude-opus-4-1-20250805,2596.869707107544,2427.706241607666,success,tool_use,4,72,76,0.0358185,True,True,False,"<system-reminder>
+Plan mode is active. The user indicated that they do not want you to execute yet -- you MUST NOT make any edits, run any non-readonly tools (including changing configs or making comm"
+2026-05-03T08:02:39.852256,anthropic,claude-3-5-haiku-20241022,170.61901092529297,169.70086097717285,success,,0,0,0,,True,False,False,"Command: pwd
+Output: /work
+
+"
+2026-05-03T08:02:42.302775,anthropic,claude-opus-4-1-20250805,2592.9195880889893,2266.085624694824,success,tool_use,3,75,78,0.0340455,True,True,False,"<system-reminder>
+Plan mode is active. The user indicated that they do not want you to execute yet -- you MUST NOT make any edits, run any non-readonly tools (including changing configs or making comm"
+2026-05-03T08:02:42.488523,anthropic,claude-3-5-haiku-20241022,161.787748336792,160.76016426086426,success,,0,0,0,,True,False,False,"Command: python3 --version
+Output: Python 3.11.2
+
+"
+2026-05-03T08:03:10.589180,anthropic,claude-opus-4-1-20250805,28239.05658721924,16829.657554626465,success,tool_use,2,83,85,0.03516225,True,True,False,"<system-reminder>
+Plan mode is active. The user indicated that they do not want you to execute yet -- you MUST NOT make any edits, run any non-readonly tools (including changing configs or making comm"
+2026-05-03T08:03:11.357344,anthropic,claude-3-5-haiku-20241022,163.54870796203613,162.56093978881836,success,,0,0,0,,True,False,False,"Command: pip list | grep -i anthropic
+Output: 
+
+"
+2026-05-03T08:03:29.741295,anthropic,claude-opus-4-1-20250805,18584.67173576355,1640.5730247497559,success,tool_use,1,601,602,0.074355,True,True,False,"<system-reminder>
+Plan mode is active. The user indicated that they do not want you to execute yet -- you MUST NOT make any edits, run any non-readonly tools (including changing configs or making comm"
+2026-05-03T08:03:31.640345,anthropic,claude-opus-4-1-20250805,1807.9187870025635,1806.4868450164795,success,end_turn,2,2,4,0.0414825,True,True,False,"<system-reminder>
+Plan mode is active. The user indicated that they do not want you to execute yet -- you MUST NOT make any edits, run any non-readonly tools (including changing configs or making comm"

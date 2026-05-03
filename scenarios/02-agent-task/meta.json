@@ -1,0 +1,9 @@
+{
+  "name": "02-agent-task",
+  "description": "The 'implement an agentic loop' prompt used in the original 2.1.59 capture (agentic-apps-internals). Multi-turn, exercises tool calls (Write, Read, Bash) and any haiku side-call pipeline. Reference baseline for cross-version regression.",
+  "claude_args": [
+    "-p"
+  ],
+  "mcp": null,
+  "env": {}
+}

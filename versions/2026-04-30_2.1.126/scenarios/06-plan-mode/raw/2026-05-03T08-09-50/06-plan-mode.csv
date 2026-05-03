@@ -1,0 +1,46 @@
+timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
+2026-05-03T08:09:52.921675,anthropic,claude-haiku-4-5-20251001,1044.9409484863281,752.0241737365723,success,end_turn,373,19,392,0.00037440000000000005,True,False,False,Create a plan to implement minimal agentic loop in Python using Anthropic API with a run bash tool and human confirmation before executing scripts. Explore current folder only.
+2026-05-03T08:09:59.653837,anthropic,claude-opus-4-7,7720.593690872192,1661.0844135284424,success,tool_use,6,519,525,0.228639,True,True,True,"<system-reminder>
+The following deferred tools are now available via ToolSearch. Their schemas are NOT loaded — calling them directly will fail with InputValidationError. Use ToolSearch with query ""se"
+2026-05-03T08:10:00.800015,anthropic,claude-haiku-4-5-20251001,1073.9893913269043,826.84326171875,success,tool_use,3,71,74,0.0148354,True,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# userEmail
+The user's email address is amrynsky@gmail.com.
+# currentDate
+Today's date is 2026-05-03.
+
+      IM"
+2026-05-03T08:10:02.362149,anthropic,claude-haiku-4-5-20251001,1479.776382446289,642.0841217041016,success,tool_use,5,103,108,0.00283992,True,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# userEmail
+The user's email address is amrynsky@gmail.com.
+# currentDate
+Today's date is 2026-05-03.
+
+      IM"
+2026-05-03T08:10:03.845760,anthropic,claude-haiku-4-5-20251001,1443.9582824707031,631.2077045440674,success,tool_use,4,111,115,0.0018339200000000002,True,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# userEmail
+The user's email address is amrynsky@gmail.com.
+# currentDate
+Today's date is 2026-05-03.
+
+      IM"
+2026-05-03T08:10:07.923058,anthropic,claude-haiku-4-5-20251001,3965.8992290496826,792.8049564361572,success,end_turn,4,256,260,0.0025246800000000005,True,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# userEmail
+The user's email address is amrynsky@gmail.com.
+# currentDate
+Today's date is 2026-05-03.
+
+      IM"
+2026-05-03T08:10:51.772000,anthropic,claude-opus-4-7,43826.70211791992,2231.388807296753,success,tool_use,1,2950,2951,0.2756535,True,True,True,"<system-reminder>
+The following deferred tools are now available via ToolSearch. Their schemas are NOT loaded — calling them directly will fail with InputValidationError. Use ToolSearch with query ""se"
+2026-05-03T08:10:54.871332,anthropic,claude-opus-4-7,3063.4562969207764,1685.852289199829,success,tool_use,1,129,130,0.104841,True,True,True,"<system-reminder>
+The following deferred tools are now available via ToolSearch. Their schemas are NOT loaded — calling them directly will fail with InputValidationError. Use ToolSearch with query ""se"
+2026-05-03T08:11:05.384155,anthropic,claude-opus-4-7,10442.183494567871,2804.245948791504,success,tool_use,6,539,545,0.35123475,True,True,True,"<system-reminder>
+The following deferred tools are now available via ToolSearch. Their schemas are NOT loaded — calling them directly will fail with InputValidationError. Use ToolSearch with query ""se"
+2026-05-03T08:11:09.472926,anthropic,claude-opus-4-7,4069.293737411499,2321.955919265747,success,tool_use,1,207,208,0.07365075,True,True,True,"<system-reminder>
+The following deferred tools are now available via ToolSearch. Their schemas are NOT loaded — calling them directly will fail with InputValidationError. Use ToolSearch with query ""se"
+2026-05-03T08:11:12.233445,anthropic,claude-opus-4-7,2740.1249408721924,1718.721628189087,success,end_turn,1,61,62,0.05718825,True,True,True,"<system-reminder>
+The following deferred tools are now available via ToolSearch. Their schemas are NOT loaded — calling them directly will fail with InputValidationError. Use ToolSearch with query ""se"

@@ -1,0 +1,206 @@
+[
+  {
+    "event": "message_start",
+    "data": {
+      "type": "message_start",
+      "message": {
+        "model": "claude-opus-4-7",
+        "id": "msg_01PyPqXpmLxVvAnMhaPkSRaN",
+        "type": "message",
+        "role": "assistant",
+        "content": [],
+        "stop_reason": null,
+        "stop_sequence": null,
+        "stop_details": null,
+        "usage": {
+          "input_tokens": 6,
+          "cache_creation_input_tokens": 7263,
+          "cache_read_input_tokens": 16191,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 7263
+          },
+          "output_tokens": 8,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        },
+        "diagnostics": null
+      }
+    }
+  },
+  {
+    "event": "content_block_start",
+    "data": {
+      "type": "content_block_start",
+      "index": 0,
+      "content_block": {
+        "type": "thinking",
+        "thinking": "",
+        "signature": ""
+      }
+    }
+  },
+  {
+    "event": "ping",
+    "data": {
+      "type": "ping"
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "signature_delta",
+        "signature": "EuADClkIDRgCKkB51RrImAXH6tZHaZPWWSYWELYOK2tJSvrS849oP4DimTtAGuWn1zxCQ6kfG2sgNlQ+KlXKMwJnegruxP0NpVvCMg9jbGF1ZGUtb3B1cy00LTc4ABIM55uZUa/pGN5HdsWaGgwOwzCEV1CBlrRiM88iMN/HlTCYpWxbsge5sXqf4Xs48JIdL7uilqxlbmkdPw4le85uaBKbu+tqMgkbrYkfZCq0AhFnXlyCGQCxcWhD3eYKfXmmUpgNnusuEMG2SlL9bZq9bFbjb1EZKF26Jgnrl81zVdQ7ssimue2lfUtgjaLnz9LNPtz0mXQVxhOmdWZgi6tBgpdZNsjMSlctNRkJxuAsq0la7f6lI9l3abyjkC94T4zM9zU0E24c6ms5B97KvRnGSxVwqEDgixjzHYJZ44RDy5ITJtg7NXpIlxo7v17JrcYK1Yq0brha0YOYYe0ATnWO1DkqgakEoH/4YLZwezVp3iYHfnhrz5wUrIUTu11Obt+7sUKYNhqYhLnoqwgrukTMbwbmdDeoQ5FnZY+Or26UeuktZNxuqtci4wsoPdurdKG7l+1EkG0quutn5VXrYIIUunFWBIvKBH0zWKUyc+3RmUII8q/0eXR6bPtu8SpshnmnHRHRGAE="
+      }
+    }
+  },
+  {
+    "event": "content_block_stop",
+    "data": {
+      "type": "content_block_stop",
+      "index": 0
+    }
+  },
+  {
+    "event": "content_block_start",
+    "data": {
+      "type": "content_block_start",
+      "index": 1,
+      "content_block": {
+        "type": "tool_use",
+        "id": "toolu_01MZgr6AqvfjB3rpdeoHBdcX",
+        "name": "Skill",
+        "input": {},
+        "caller": {
+          "type": "direct"
+        }
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": ""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "{\"skill\": \"c"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "la"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "ud"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "e-"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "ap"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "i\"}"
+      }
+    }
+  },
+  {
+    "event": "content_block_stop",
+    "data": {
+      "type": "content_block_stop",
+      "index": 1
+    }
+  },
+  {
+    "event": "message_delta",
+    "data": {
+      "type": "message_delta",
+      "delta": {
+        "stop_reason": "tool_use",
+        "stop_sequence": null,
+        "stop_details": null
+      },
+      "usage": {
+        "input_tokens": 6,
+        "cache_creation_input_tokens": 7263,
+        "cache_read_input_tokens": 16191,
+        "output_tokens": 179,
+        "iterations": [
+          {
+            "input_tokens": 6,
+            "output_tokens": 179,
+            "cache_read_input_tokens": 16191,
+            "cache_creation_input_tokens": 7263,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 7263
+            },
+            "type": "message"
+          }
+        ]
+      },
+      "context_management": {
+        "applied_edits": []
+      }
+    }
+  },
+  {
+    "event": "message_stop",
+    "data": {
+      "type": "message_stop"
+    }
+  }
+]

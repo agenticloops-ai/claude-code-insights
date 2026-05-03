@@ -1,0 +1,22 @@
+timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
+2026-05-03T08:17:32.930289,anthropic,claude-3-5-haiku-20241022,188.6746883392334,,success,,0,0,0,,False,False,False,quota
+2026-05-03T08:17:38.067444,anthropic,claude-sonnet-4-5-20250929,2319.8673725128174,1297.7454662322998,success,tool_use,2,81,83,0.05585475,True,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless"
+2026-05-03T08:17:38.302631,anthropic,claude-3-5-haiku-20241022,165.6949520111084,164.6571159362793,success,,0,0,0,,True,False,False,"<policy_spec>
+# Claude Code Code Bash command prefix detection
+
+This document defines risk levels for actions that the Claude Code agent may take. This classification system is part of a broader safet"
+2026-05-03T08:17:39.870541,anthropic,claude-sonnet-4-5-20250929,1536.6230010986328,1476.3383865356445,success,tool_use,6,60,66,0.0056711999999999995,True,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless"
+2026-05-03T08:17:50.153922,anthropic,claude-sonnet-4-5-20250929,10268.283128738403,1050.694465637207,success,end_turn,3,420,423,0.014769,True,True,False,Perform a web search for the query: claude-code npm latest version 2025
+2026-05-03T08:17:51.528875,anthropic,claude-sonnet-4-5-20250929,1291.0668849945068,1013.9913558959961,success,end_turn,4,8,12,0.0074395500000000005,True,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless"

@@ -1,0 +1,8 @@
+{
+  "name": "09-mcp-help",
+  "mode": "local",
+  "description": "Captures the `claude mcp --help` output (MCP subcommand surface). Diff between versions surfaces newly added / renamed MCP subcommands.",
+  "claude_args": ["mcp", "--help"],
+  "mcp": null,
+  "env": {}
+}

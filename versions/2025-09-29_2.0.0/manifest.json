@@ -1,0 +1,220 @@
+{
+  "version": "2.0.0",
+  "dir_name": "2025-09-29_2.0.0",
+  "baseline_scenario": "01-bare",
+  "baseline": {
+    "models": [
+      "claude-3-5-haiku-20241022",
+      "claude-sonnet-4-5-20250929"
+    ],
+    "tool_count": 15,
+    "deferred_tool_count": 0,
+    "mcp_tool_count_advertised": 1,
+    "mcp_tool_count_deferred": 0,
+    "system_prompt_chars": 12339,
+    "reminder_count": 1
+  },
+  "scenarios": {
+    "01-bare": {
+      "version": "2.0.0",
+      "dir_name": "2025-09-29_2.0.0",
+      "scenario": "01-bare",
+      "captured_at": "2026-05-03T08:05:21.165156",
+      "request_count": 2,
+      "models": [
+        "claude-3-5-haiku-20241022",
+        "claude-sonnet-4-5-20250929"
+      ],
+      "tool_count_first_request": 15,
+      "deferred_tool_count": 0,
+      "mcp_tool_count_advertised": 1,
+      "mcp_tool_count_deferred": 0,
+      "system_prompt_chars": 12339,
+      "user_prompt_chars": 640,
+      "skill_count": 0,
+      "reminder_count": 1,
+      "tokens": {
+        "input": 2,
+        "output": 12,
+        "cache_read": 0,
+        "cache_creation": 14519,
+        "total": 14
+      },
+      "duration_ms_total": 2308
+    },
+    "02-agent-task": {
+      "version": "2.0.0",
+      "dir_name": "2025-09-29_2.0.0",
+      "scenario": "02-agent-task",
+      "captured_at": "2026-05-03T08:05:54.181155",
+      "request_count": 3,
+      "models": [
+        "claude-3-5-haiku-20241022",
+        "claude-sonnet-4-5-20250929"
+      ],
+      "tool_count_first_request": 15,
+      "deferred_tool_count": 0,
+      "mcp_tool_count_advertised": 1,
+      "mcp_tool_count_deferred": 0,
+      "system_prompt_chars": 12339,
+      "user_prompt_chars": 817,
+      "skill_count": 0,
+      "reminder_count": 1,
+      "tokens": {
+        "input": 8,
+        "output": 1483,
+        "cache_read": 28614,
+        "cache_creation": 1986,
+        "total": 1491
+      },
+      "duration_ms_total": 21351
+    },
+    "03-with-mcp-3tools": {
+      "version": "2.0.0",
+      "dir_name": "2025-09-29_2.0.0",
+      "scenario": "03-with-mcp-3tools",
+      "captured_at": "2026-05-03T08:06:09.425915",
+      "request_count": 2,
+      "models": [
+        "claude-3-5-haiku-20241022",
+        "claude-sonnet-4-5-20250929"
+      ],
+      "tool_count_first_request": 15,
+      "deferred_tool_count": 0,
+      "mcp_tool_count_advertised": 4,
+      "mcp_tool_count_deferred": 0,
+      "system_prompt_chars": 12339,
+      "user_prompt_chars": 759,
+      "skill_count": 0,
+      "reminder_count": 1,
+      "tokens": {
+        "input": 2,
+        "output": 38,
+        "cache_read": 0,
+        "cache_creation": 14871,
+        "total": 40
+      },
+      "duration_ms_total": 3092
+    },
+    "04-with-skill": {
+      "version": "2.0.0",
+      "dir_name": "2025-09-29_2.0.0",
+      "scenario": "04-with-skill",
+      "captured_at": "2026-05-03T08:06:23.127051",
+      "request_count": 2,
+      "models": [
+        "claude-3-5-haiku-20241022",
+        "claude-sonnet-4-5-20250929"
+      ],
+      "tool_count_first_request": 15,
+      "deferred_tool_count": 0,
+      "mcp_tool_count_advertised": 1,
+      "mcp_tool_count_deferred": 0,
+      "system_prompt_chars": 12339,
+      "user_prompt_chars": 647,
+      "skill_count": 0,
+      "reminder_count": 1,
+      "tokens": {
+        "input": 2,
+        "output": 5,
+        "cache_read": 14057,
+        "cache_creation": 463,
+        "total": 7
+      },
+      "duration_ms_total": 1724
+    },
+    "05-many-tools-30": {
+      "version": "2.0.0",
+      "dir_name": "2025-09-29_2.0.0",
+      "scenario": "05-many-tools-30",
+      "captured_at": "2026-05-03T08:06:38.927282",
+      "request_count": 2,
+      "models": [
+        "claude-3-5-haiku-20241022",
+        "claude-sonnet-4-5-20250929"
+      ],
+      "tool_count_first_request": 15,
+      "deferred_tool_count": 0,
+      "mcp_tool_count_advertised": 31,
+      "mcp_tool_count_deferred": 0,
+      "system_prompt_chars": 12339,
+      "user_prompt_chars": 751,
+      "skill_count": 0,
+      "reminder_count": 1,
+      "tokens": {
+        "input": 2,
+        "output": 272,
+        "cache_read": 0,
+        "cache_creation": 17790,
+        "total": 274
+      },
+      "duration_ms_total": 4126
+    },
+    "06-plan-mode": {
+      "version": "2.0.0",
+      "dir_name": "2025-09-29_2.0.0",
+      "scenario": "06-plan-mode",
+      "captured_at": "2026-05-03T08:07:15.481560",
+      "request_count": 6,
+      "models": [
+        "claude-3-5-haiku-20241022",
+        "claude-sonnet-4-5-20250929"
+      ],
+      "tool_count_first_request": 15,
+      "deferred_tool_count": 0,
+      "mcp_tool_count_advertised": 1,
+      "mcp_tool_count_deferred": 0,
+      "system_prompt_chars": 12339,
+      "user_prompt_chars": 1494,
+      "skill_count": 0,
+      "reminder_count": 2,
+      "tokens": {
+        "input": 14,
+        "output": 923,
+        "cache_read": 43990,
+        "cache_creation": 1783,
+        "total": 937
+      },
+      "duration_ms_total": 24540
+    },
+    "07-cli-help": {
+      "mode": "local",
+      "output_chars": 4857,
+      "output_lines": 45,
+      "exit_code": 0
+    },
+    "08-websearch": {
+      "version": "2.0.0",
+      "dir_name": "2025-09-29_2.0.0",
+      "scenario": "08-websearch",
+      "captured_at": "2026-05-03T08:17:53.561245",
+      "request_count": 6,
+      "models": [
+        "claude-3-5-haiku-20241022",
+        "claude-sonnet-4-5-20250929"
+      ],
+      "tool_count_first_request": 15,
+      "deferred_tool_count": 0,
+      "mcp_tool_count_advertised": 1,
+      "mcp_tool_count_deferred": 0,
+      "system_prompt_chars": 12415,
+      "user_prompt_chars": 782,
+      "skill_count": 0,
+      "reminder_count": 1,
+      "tokens": {
+        "input": 15,
+        "output": 569,
+        "cache_read": 29240,
+        "cache_creation": 17702,
+        "total": 584
+      },
+      "duration_ms_total": 15770
+    },
+    "09-mcp-help": {
+      "mode": "local",
+      "output_chars": 957,
+      "output_lines": 17,
+      "exit_code": 0
+    }
+  }
+}

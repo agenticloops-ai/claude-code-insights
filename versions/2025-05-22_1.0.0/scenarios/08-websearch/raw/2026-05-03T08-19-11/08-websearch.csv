@@ -1,0 +1,29 @@
+timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
+2026-05-03T08:19:13.938759,anthropic,claude-3-5-haiku-20241022,128.65376472473145,,success,,0,0,0,,False,False,False,quota
+2026-05-03T08:19:18.448390,anthropic,claude-opus-4-20250514,4628.997325897217,3269.399404525757,success,tool_use,2,72,74,0.256155,True,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless"
+2026-05-03T08:19:18.692650,anthropic,claude-3-5-haiku-20241022,158.48183631896973,,success,,0,0,0,,False,False,False,quota
+2026-05-03T08:19:40.582705,anthropic,claude-opus-4-20250514,22040.96817970276,1411.4100933074951,success,end_turn,3,669,672,0.08901375,True,True,False,Perform a web search for the query: claude-code npm package latest version
+2026-05-03T08:19:40.856772,anthropic,claude-3-5-haiku-20241022,173.6910343170166,,success,,0,0,0,,False,False,False,quota
+2026-05-03T08:19:43.690914,anthropic,claude-opus-4-20250514,3009.627342224121,2342.2346115112305,success,tool_use,4,98,102,0.060393,True,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless"
+2026-05-03T08:19:43.904348,anthropic,claude-3-5-haiku-20241022,170.78375816345215,,success,,0,0,0,,False,False,False,quota
+2026-05-03T08:19:46.425622,anthropic,claude-opus-4-20250514,2693.5203075408936,1595.1879024505615,success,tool_use,5,80,85,0.03126075,True,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless"
+2026-05-03T08:19:46.624171,anthropic,claude-3-5-haiku-20241022,165.09366035461426,,success,,0,0,0,,False,False,False,quota
+2026-05-03T08:20:05.199513,anthropic,claude-opus-4-20250514,18741.130828857422,1384.059190750122,success,end_turn,3,587,590,0.05000025,True,True,False,"Perform a web search for the query: ""@anthropic-ai/claude-code"" ""2.1"" npm version"
+2026-05-03T08:20:05.465150,anthropic,claude-3-5-haiku-20241022,165.7857894897461,,success,,0,0,0,,False,False,False,quota
+2026-05-03T08:20:07.267845,anthropic,claude-opus-4-20250514,1970.8597660064697,1457.1609497070312,success,end_turn,3,8,11,0.04211775,True,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless"
