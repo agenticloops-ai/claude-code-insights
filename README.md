@@ -130,7 +130,6 @@ Nine probes, designed so a single capture exposes every interesting surface (sys
 | 06 | plan-mode | agent | `--permission-mode plan` injection |
 | 07 | cli-help | local | top-level `claude --help` flag/command surface |
 | 08 | websearch | agent | how the agent picks and calls a search tool unaided |
-| 09 | mcp-help | local | `claude mcp --help` MCP-subcommand surface |
 
 See `scenarios/README.md` for the full meta.json schema and isolation guarantees.
 

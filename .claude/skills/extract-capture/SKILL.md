@@ -19,7 +19,7 @@ The sandbox writes raw agentlens output to `versions/<v>/scenarios/<s>/raw/<time
 ```bash
 python3 scripts/extract.py versions/<version>/scenarios/<scenario>
 ```
-The script auto-resolves the most recent timestamp under `raw/`. Local-mode scenarios (those with `output.txt` and no `raw/`, e.g. `07-cli-help`, `09-mcp-help`) are detected and skipped — their captured stdout is already the final artifact.
+The script auto-resolves the most recent timestamp under `raw/`. Local-mode scenarios (those with `output.txt` and no `raw/`, e.g. `07-cli-help`) are detected and skipped — their captured stdout is already the final artifact.
 
 **Whole version** — loop every scenario:
 ```bash

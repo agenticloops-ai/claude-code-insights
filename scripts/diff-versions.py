@@ -28,7 +28,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _paths import dir_for, find_existing_dir, version_from_dir  # noqa: E402
 
 # Local-mode scenarios we always include in the diff (CLI help surface).
-CLI_SCENARIOS = ("07-cli-help", "09-mcp-help")
+CLI_SCENARIOS = ("07-cli-help",)
 
 
 def _resolve_dir(version_or_dir: str) -> str:

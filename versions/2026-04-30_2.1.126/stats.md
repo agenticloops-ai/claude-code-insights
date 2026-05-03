@@ -12,7 +12,6 @@ Baseline scenario: `01-bare` (its system-prompt / tools are mirrored at the vers
 | `06-plan-mode` | 11 | 10 | 17 | 0 | 0 | 10 | 26719 | 4 | 405 | 4965 | 80.9s |
 | `07-cli-help` | _local_ | — | — | — | — | — | 9545 chars / 74 lines | — | — | — | exit 0 |
 | `08-websearch` | 5 | 10 | 17 | 0 | 0 | 10 | 26719 | 3 | 389 | 452 | 13.5s |
-| `09-mcp-help` | _local_ | — | — | — | — | — | 1782 chars / 30 lines | — | — | — | exit 0 |
 
 ## Models seen across scenarios
 

@@ -209,12 +209,6 @@
         "total": 591
       },
       "duration_ms_total": 16128
-    },
-    "09-mcp-help": {
-      "mode": "local",
-      "output_chars": 957,
-      "output_lines": 17,
-      "exit_code": 0
     }
   }
 }

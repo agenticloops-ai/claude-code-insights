@@ -48,7 +48,7 @@ Each shared scenario gets:
 ### user prompt (incl. system-reminder blocks)   (unified diff)
 ```
 
-Local-mode scenarios (07-cli-help, 09-mcp-help) get a smaller block: byte/line delta, parsed-flag/command added/removed, plus the raw unified diff.
+The local-mode CLI scenario (`07-cli-help`) also gets diffed: parsed added/removed flags + commands, plus the raw unified diff inside a collapsed `<details>` block.
 
 ## Notes
 
