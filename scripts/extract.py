@@ -26,6 +26,25 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _paths import version_from_dir  # noqa: E402
 
 
+def _fixture_skill_names() -> set[str]:
+    """Skill directory names mounted by the sandbox — excluded from skills.json so
+    cross-version diffs reflect Anthropic-shipped skills only."""
+    root = REPO_DIR / "sandbox" / "fixtures" / "skills"
+    return {p.name for p in root.iterdir() if p.is_dir()} if root.exists() else set()
+
+
+def _fixture_mcp_server_names() -> set[str]:
+    """MCP server keys from the always-mounted default fixture — excluded from
+    MCP tool counts so cross-version diffs reflect non-fixture MCP only."""
+    cfg = REPO_DIR / "sandbox" / "fixtures" / "mcp-default.json"
+    if not cfg.exists():
+        return set()
+    try:
+        return set((json.loads(cfg.read_text()).get("mcpServers") or {}).keys())
+    except Exception:
+        return set()
+
+
 def _resolve_capture_dir(arg: Path) -> Path:
     """Find the timestamped agentlens capture dir.
 
@@ -289,7 +308,9 @@ def main(argv: list[str]) -> int:
         all_reminders.extend(_extract_reminders(r.get("messages", [])))
 
     deferred_all = _extract_deferred_tools(all_reminders)
-    skills = _extract_skills(all_reminders)
+    fixture_skills = _fixture_skill_names()
+    fixture_mcp_servers = _fixture_mcp_server_names()
+    skills = [s for s in _extract_skills(all_reminders) if s["name"] not in fixture_skills]
     (out_dir / "skills.json").write_text(json.dumps(skills, indent=2) + "\n")
     builtin_deferred = [n for n in deferred_all if not n.startswith("mcp__")]
     mcp_deferred = [n for n in deferred_all if n.startswith("mcp__")]
@@ -298,9 +319,19 @@ def main(argv: list[str]) -> int:
     )
     # MCP tools are excluded from tools.json / deferred-tools.json so
     # scenario-specific fixtures don't pollute the cross-version diff.
-    # Their counts still surface in stats.json for visibility.
-    mcp_advertised_count = len(mcp_tools_advertised)
-    mcp_deferred_count = len(mcp_deferred)
+    # Their counts in stats.json also exclude the always-mounted default
+    # fixture servers (e.g. "demo") for the same reason.
+    def _is_fixture_mcp(name: str | None) -> bool:
+        if not name or not name.startswith("mcp__"):
+            return False
+        # mcp__<server>__<tool>
+        parts = name.split("__", 2)
+        return len(parts) >= 2 and parts[1] in fixture_mcp_servers
+
+    mcp_advertised_count = sum(
+        1 for t in mcp_tools_advertised if not _is_fixture_mcp(t.get("name"))
+    )
+    mcp_deferred_count = sum(1 for n in mcp_deferred if not _is_fixture_mcp(n))
 
     # Token totals across the conversation (from agentlens' parsed usage).
     def _u(r, k):

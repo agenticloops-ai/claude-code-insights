@@ -11,10 +11,10 @@
   "tool_count_first_request": 10,
   "deferred_tool_count": 17,
   "mcp_tool_count_advertised": 0,
-  "mcp_tool_count_deferred": 1,
+  "mcp_tool_count_deferred": 0,
   "system_prompt_chars": 26719,
   "user_prompt_chars": 9067,
-  "skill_count": 11,
+  "skill_count": 10,
   "reminder_count": 4,
   "tokens": {
     "input": 405,

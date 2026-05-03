@@ -10,7 +10,7 @@
   ],
   "tool_count_first_request": 16,
   "deferred_tool_count": 0,
-  "mcp_tool_count_advertised": 1,
+  "mcp_tool_count_advertised": 0,
   "mcp_tool_count_deferred": 0,
   "system_prompt_chars": 13878,
   "user_prompt_chars": 640,
