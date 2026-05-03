@@ -69,15 +69,44 @@ claude /refresh-versions       # or: python3 scripts/refresh-versions.py
 
 ## Skills
 
-Three slash commands live in `.claude/skills/`:
+Three slash commands live in `.claude/skills/`. They're how the pipeline is meant to be driven — the LLM owns orchestration, the bash/Python scripts under `scripts/` are thin primitives the skills call via the Bash tool.
 
-| skill | what it does |
-|---|---|
-| `/process-version <v> [--diff-from <prev>]` | end-to-end orchestrator — capture, extract, summarize, fetch release notes, optional diff |
-| `/extract-capture <scenario-dir>` | turn a raw agentlens capture into the version-comparable extracted artifacts |
-| `/diff-versions <from> <to>` | generate the markdown diff between two captured versions |
+### `/process-version <version> [--diff-from <previous-version>]`
 
-`/process-version` drives the other two via the Skill tool, so the LLM owns orchestration and bash/Python scripts stay as thin primitives.
+End-to-end orchestrator. Runs all 9 scenarios through the sandbox, extracts each capture, promotes the baseline to the version root, fetches the upstream release notes, and (optionally) writes a diff against a prior version. Idempotent — re-running overwrites the extracted artifacts and the manifest.
+
+```bash
+# capture a single version
+claude -p "/process-version 2.1.126"
+
+# capture and immediately diff against a prior captured version
+claude -p "/process-version 2.1.126 --diff-from 2.0.77"
+```
+
+### `/extract-capture <scenario-dir>`
+
+Turn one raw agentlens capture into the version-comparable artifacts under the scenario's `extracted/` folder. Auto-resolves the most recent timestamp under `raw/`. Used internally by `/process-version`; invoke directly to re-extract a single scenario after editing `scripts/extract.py`.
+
+```bash
+claude -p "/extract-capture versions/2026-04-30_2.1.126/scenarios/01-bare"
+```
+
+### `/diff-versions <from-version> <to-version>`
+
+Generate a markdown diff between **any two captured versions**, regardless of whether they were captured in the same `/process-version` run or whether they're consecutive. Output lands at `versions/<to-dir>/diff-from-<from-dir>.md`. Each shared scenario gets a metric table (tool counts, token usage, durations), an added/removed/modified tool list, an added/removed/description-changed skill list, and unified diffs of the system prompt and the user-prompt-with-reminders block.
+
+```bash
+# any-to-any: jump straight from 1.0.0 to 2.1.126
+claude -p "/diff-versions 1.0.0 2.1.126"
+
+# direct CLI form (skips the skill, identical output)
+python3 scripts/diff-versions.py 1.0.0 2.1.126
+
+# either argument can also be the folder name itself
+python3 scripts/diff-versions.py 2025-05-22_1.0.0 2026-04-30_2.1.126
+```
+
+The script accepts either the npm version (`2.1.126`) or the dated folder name (`2026-04-30_2.1.126`), so you can copy-paste from `ls versions/`. List currently-captured versions with `ls versions/`.
 
 ## Scenarios
 
