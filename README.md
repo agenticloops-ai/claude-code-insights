@@ -85,9 +85,7 @@ claude /refresh-versions       # or: python3 scripts/refresh-versions.py
 
 Three slash commands live in `.claude/skills/`. They're how the pipeline is meant to be driven — the LLM owns orchestration, the bash/Python scripts under `scripts/` are thin primitives the skills call via the Bash tool.
 
-### `/process-version <version> [--diff-from <previous-version>]`
-
-End-to-end orchestrator. Runs all 9 scenarios through the sandbox, extracts each capture, promotes the baseline to the version root, fetches the upstream release notes, and (optionally) writes a diff against a prior version. Idempotent — re-running overwrites the extracted artifacts and the manifest.
+**`/process-version <version> [--diff-from <previous-version>]`** — end-to-end orchestrator. Runs all 9 scenarios through the sandbox, extracts each capture, promotes the baseline to the version root, fetches the upstream release notes, and (optionally) writes a diff against a prior version. Idempotent — re-running overwrites the extracted artifacts and the manifest.
 
 ```bash
 # capture a single version
@@ -97,17 +95,13 @@ claude -p "/process-version 2.1.126"
 claude -p "/process-version 2.1.126 --diff-from 2.0.77"
 ```
 
-### `/extract-capture <scenario-dir>`
-
-Turn one raw agentlens capture into the version-comparable artifacts under the scenario's `extracted/` folder. Auto-resolves the most recent timestamp under `raw/`. Used internally by `/process-version`; invoke directly to re-extract a single scenario after editing `scripts/extract.py`.
+**`/extract-capture <scenario-dir>`** — turn one raw agentlens capture into the version-comparable artifacts under the scenario's `extracted/` folder. Auto-resolves the most recent timestamp under `raw/`. Used internally by `/process-version`; invoke directly to re-extract a single scenario after editing `scripts/extract.py`.
 
 ```bash
 claude -p "/extract-capture versions/2026-04-30_2.1.126/scenarios/01-bare"
 ```
 
-### `/diff-versions <from-version> <to-version>`
-
-Generate a markdown diff between **any two captured versions**, regardless of whether they were captured in the same `/process-version` run or whether they're consecutive. Output lands at `versions/<to-dir>/diff-from-<from-dir>.md`. Each shared scenario gets a metric table (tool counts, token usage, durations), an added/removed/modified tool list, an added/removed/description-changed skill list, and unified diffs of the system prompt and the user-prompt-with-reminders block.
+**`/diff-versions <from-version> <to-version>`** — generate a markdown diff between **any two captured versions**, regardless of whether they were captured in the same `/process-version` run or whether they're consecutive. Output lands at `versions/<to-dir>/diff-from-<from-dir>.md`. Each shared scenario gets a metric table (tool counts, token usage, durations), an added/removed/modified tool list, an added/removed/description-changed skill list, and unified diffs of the system prompt and the user-prompt-with-reminders block.
 
 ```bash
 # any-to-any: jump straight from 1.0.0 to 2.1.126
