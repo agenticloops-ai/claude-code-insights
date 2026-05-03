@@ -4,7 +4,8 @@
 Usage:
     scripts/split-raw.py <session.json>
 
-Writes <session-dir>/raw/NNN.request.json, NNN.response.json, NNN.sse.json.
+Writes <session-dir>/NNN.request.json, NNN.response.json, NNN.sse.json
+alongside the session file.
 
 Temporary helper while the upstream agentlens "raw" export format ships.
 """
@@ -27,8 +28,7 @@ def main(args: list[str]) -> int:
         print("no raw_captures in session.json", file=sys.stderr)
         return 1
 
-    out_dir = src.parent / "raw"
-    out_dir.mkdir(parents=True, exist_ok=True)
+    out_dir = src.parent
 
     for idx, cap in enumerate(raw, start=1):
         prefix = f"{idx:03d}"

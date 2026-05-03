@@ -28,7 +28,7 @@
       "mcp_tool_count_advertised": 0,
       "mcp_tool_count_deferred": 0,
       "system_prompt_chars": 26719,
-      "user_prompt_chars": 4107,
+      "user_prompt_chars": 4100,
       "skill_count": 10,
       "reminder_count": 3,
       "tokens": {
@@ -55,7 +55,7 @@
       "mcp_tool_count_advertised": 0,
       "mcp_tool_count_deferred": 0,
       "system_prompt_chars": 26719,
-      "user_prompt_chars": 4284,
+      "user_prompt_chars": 4100,
       "skill_count": 10,
       "reminder_count": 3,
       "tokens": {
@@ -82,7 +82,7 @@
       "mcp_tool_count_advertised": 0,
       "mcp_tool_count_deferred": 3,
       "system_prompt_chars": 26719,
-      "user_prompt_chars": 4295,
+      "user_prompt_chars": 4169,
       "skill_count": 10,
       "reminder_count": 3,
       "tokens": {
@@ -108,7 +108,7 @@
       "mcp_tool_count_advertised": 0,
       "mcp_tool_count_deferred": 0,
       "system_prompt_chars": 26719,
-      "user_prompt_chars": 4114,
+      "user_prompt_chars": 4100,
       "skill_count": 10,
       "reminder_count": 3,
       "tokens": {
@@ -119,33 +119,6 @@
         "total": 148
       },
       "duration_ms_total": 3526
-    },
-    "05-many-tools-30": {
-      "version": "2.1.126",
-      "dir_name": "2026-04-30_2.1.126",
-      "scenario": "05-many-tools-30",
-      "captured_at": "2026-05-03T08:09:45.895404",
-      "request_count": 2,
-      "models": [
-        "claude-haiku-4-5-20251001",
-        "claude-opus-4-7"
-      ],
-      "tool_count_first_request": 10,
-      "deferred_tool_count": 17,
-      "mcp_tool_count_advertised": 0,
-      "mcp_tool_count_deferred": 30,
-      "system_prompt_chars": 26719,
-      "user_prompt_chars": 4908,
-      "skill_count": 10,
-      "reminder_count": 3,
-      "tokens": {
-        "input": 376,
-        "output": 406,
-        "cache_read": 16191,
-        "cache_creation": 7634,
-        "total": 782
-      },
-      "duration_ms_total": 4823
     },
     "06-plan-mode": {
       "version": "2.1.126",
@@ -162,7 +135,7 @@
       "mcp_tool_count_advertised": 0,
       "mcp_tool_count_deferred": 0,
       "system_prompt_chars": 26719,
-      "user_prompt_chars": 9067,
+      "user_prompt_chars": 8886,
       "skill_count": 10,
       "reminder_count": 4,
       "tokens": {
@@ -195,7 +168,7 @@
       "mcp_tool_count_advertised": 0,
       "mcp_tool_count_deferred": 0,
       "system_prompt_chars": 26719,
-      "user_prompt_chars": 4249,
+      "user_prompt_chars": 4100,
       "skill_count": 10,
       "reminder_count": 3,
       "tokens": {

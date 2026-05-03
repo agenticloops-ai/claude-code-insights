@@ -1,11 +1,11 @@
 ---
 name: extract-capture
-description: Process raw agentlens captures under versions/<v>/scenarios/<s>/raw/ and write version-comparable artifacts into versions/<v>/scenarios/<s>/extracted/. Accepts either a single scenario path or a whole version (loops every scenario). Use whenever new sandbox captures have landed and you need the diff-friendly extracted form.
+description: Process agentlens captures under versions/<v>/scenarios/<s>/raw/ and write version-comparable artifacts to the scenario root one level above. Accepts either a single scenario path or a whole version (loops every scenario). Use whenever new sandbox captures have landed and you need the diff-friendly extracted form.
 ---
 
 # extract-capture
 
-The sandbox writes raw agentlens output to `versions/<v>/scenarios/<s>/raw/<timestamp>/<scenario>.json`. To track changes across releases we extract a small canonical set of files into `versions/<v>/scenarios/<s>/extracted/`. This skill drives `scripts/extract.py` for one scenario or for every scenario in a version.
+The sandbox writes the agentlens session JSON to `versions/<v>/scenarios/<s>/raw/<scenario>.json` along with `agentlens.log` and per-request raw files. To track changes across releases we extract a small canonical set of files into the scenario root (one level above `raw/`). This skill drives `scripts/extract.py` for one scenario or for every scenario in a version.
 
 ## When to invoke
 
@@ -19,7 +19,7 @@ The sandbox writes raw agentlens output to `versions/<v>/scenarios/<s>/raw/<time
 ```bash
 python3 scripts/extract.py versions/<version>/scenarios/<scenario>
 ```
-The script auto-resolves the most recent timestamp under `raw/`. Local-mode scenarios (those with `output.txt` and no `raw/`, e.g. `07-cli-help`) are detected and skipped — their captured stdout is already the final artifact.
+Local-mode scenarios (those with `output.txt`, e.g. `07-cli-help`) are detected and skipped — their captured stdout is already the final artifact.
 
 **Whole version** — loop every scenario:
 ```bash
@@ -32,7 +32,7 @@ Report which scenarios were extracted, which were skipped (local mode), and whic
 
 ## What the extractor produces (per scenario)
 
-Written to `versions/<v>/scenarios/<s>/extracted/`:
+Written to the scenario root `versions/<v>/scenarios/<s>/`:
 
 | file | content |
 |---|---|
@@ -47,6 +47,6 @@ Written to `versions/<v>/scenarios/<s>/extracted/`:
 ## Notes
 
 - The script scrubs cache fingerprints (`cch=…`), UUIDs, ISO timestamps, and the user email so artifacts are safe to commit.
-- If multiple timestamp subdirs exist under `raw/`, the most recent one wins. Pass the full path (e.g. `versions/<v>/scenarios/<s>/raw/<ts>`) to pin a specific capture.
+- The capture pipeline always wipes the scenario dir before each run, so there is exactly one session JSON to extract from. To pin a specific historical capture, archive the directory before re-running.
 - Do not modify `scripts/extract.py` when the user just wants extraction; only edit it if they want to change *what* is extracted.
 - Built-in vs MCP separation is intentional — `tools.json` and `deferred-tools.json` exclude MCP tools so cross-version diffs aren't polluted by per-scenario fixtures. MCP counts still surface in `stats.json`.

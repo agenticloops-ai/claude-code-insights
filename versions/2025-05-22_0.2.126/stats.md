@@ -8,9 +8,7 @@ Baseline scenario: `01-bare` (its system-prompt / tools are mirrored at the vers
 | `02-agent-task` | 3 | 15 | 0 | 0 | 0 | 0 | 12996 | 0 | 0 | 0 | 0.7s |
 | `03-with-mcp-3tools` | 3 | 15 | 0 | 3 | 0 | 0 | 12996 | 0 | 0 | 0 | 0.7s |
 | `04-with-skill` | 3 | 15 | 0 | 0 | 0 | 0 | 12996 | 0 | 0 | 0 | 0.6s |
-| `05-many-tools-30` | 3 | 15 | 0 | 30 | 0 | 0 | 12996 | 0 | 0 | 0 | 0.7s |
 | `06-plan-mode` | — | — | — | — | — | — | — | — | — | — | _no API requests_ |
-| `07-cli-help` | _local_ | — | — | — | — | — | 2313 chars / 41 lines | — | — | — | exit 0 |
 | `08-websearch` | 3 | 15 | 0 | 0 | 0 | 0 | 12996 | 0 | 0 | 0 | 0.6s |
 
 ## Models seen across scenarios

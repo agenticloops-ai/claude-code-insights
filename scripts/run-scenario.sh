@@ -4,9 +4,10 @@
 #   scripts/run-scenario.sh <claude-version> <scenario-name>
 #
 # Reads scenarios/<scenario-name>/{prompt.txt,meta.json} and forwards the
-# right flags to sandbox/run.sh. Output lands in
-# versions/<version>/scenarios/<scenario-name>/raw/ (or .../output.txt for
-# local-mode scenarios).
+# right flags to sandbox/run.sh. Output layout:
+#   versions/<version>/scenarios/<scenario-name>/raw/   <- agentlens captures
+#   versions/<version>/scenarios/<scenario-name>/       <- extracted artifacts
+# Local-mode scenarios produce just output.txt + exit-code.txt at the root.
 
 set -euo pipefail
 
@@ -113,11 +114,29 @@ if [[ "$MODE" == "local" ]]; then
     exit "$rc"
 fi
 
-OUT_DIR="${SCEN_OUT_DIR}/raw"
-mkdir -p "$OUT_DIR"
-exec "${REPO_DIR}/sandbox/run.sh" \
+# Every capture run replaces the prior contents of raw/. Extracted artifacts
+# at the scenario root are overwritten by extract.py downstream.
+RAW_DIR="${SCEN_OUT_DIR}/raw"
+rm -rf "$RAW_DIR"
+mkdir -p "$RAW_DIR"
+
+"${REPO_DIR}/sandbox/run.sh" \
     "$VERSION" \
-    -o "$OUT_DIR" \
+    -o "$RAW_DIR" \
     -s "$SCENARIO" \
     ${EXTRA_FLAGS[@]+"${EXTRA_FLAGS[@]}"} \
     -- ${CLAUDE_ARGS[@]+"${CLAUDE_ARGS[@]}"} "$PROMPT"
+
+# agentlens drops its export under a timestamped subdir of raw/; lift its
+# files (and any nested per-request raw/) up to RAW_DIR. Since we wiped
+# RAW_DIR above, exactly one timestamp subdir exists.
+shopt -s nullglob
+for ts in "$RAW_DIR"/*/; do
+    if [[ -d "${ts}raw" ]]; then
+        mv "${ts}raw"/* "$RAW_DIR/"
+        rmdir "${ts}raw"
+    fi
+    mv "${ts}"* "$RAW_DIR/" 2>/dev/null || true
+    rmdir "${ts%/}"
+done
+shopt -u nullglob

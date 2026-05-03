@@ -84,7 +84,6 @@ debugging, set `CAPTURE_KEEP_STATE=1` on the docker run env.
 | 02 | agent-task | agent | multi-turn agent loop (the historical 2.1.59 reference prompt) |
 | 03 | with-mcp-3tools | agent | MCP tool registration & naming convention |
 | 04 | with-skill | agent | skill discovery via `<system-reminder>` |
-| 05 | many-tools-30 | agent | ToolSearch / deferred-tools threshold |
 | 06 | plan-mode | agent | `--permission-mode plan` reminder injection |
 | 07 | cli-help | local | top-level `claude --help` flag/command surface |
 | 08 | websearch | agent | how the agent picks and calls a web-search tool unaided |

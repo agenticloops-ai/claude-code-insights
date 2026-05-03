@@ -18,6 +18,9 @@ TodoWrite
 WebFetch
 WebSearch
 mcp__demo__tool_001
+mcp__fixture__tool_001
+mcp__fixture__tool_002
+mcp__fixture__tool_003
 </system-reminder>
 
 <system-reminder>

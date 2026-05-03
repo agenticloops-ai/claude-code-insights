@@ -1,16 +1,13 @@
 #!/usr/bin/env python3
 """Extract version-comparable artifacts from an agentlens capture.
 
-Reads versions/<version>/scenarios/<scenario>/raw/<timestamp>/<scenario>.json
-and writes canonical artifacts into versions/<version>/scenarios/<scenario>/extracted/.
-The split-out files are designed to diff cleanly between releases.
+Reads versions/<version>/scenarios/<scenario>/raw/<scenario>.json (the
+agentlens session export) and writes canonical artifacts to the scenario
+root, one level above. The split-out files are designed to diff cleanly
+between releases.
 
 Usage:
-    scripts/extract.py versions/2.1.126/scenarios/01-bare
-    scripts/extract.py versions/2.1.126/scenarios/01-bare/raw/2026-05-03T05-15-45
-
-The argument can be the scenario dir (most recent raw capture is picked) or
-a specific timestamped raw capture dir.
+    scripts/extract.py versions/2026-04-30_2.1.126/scenarios/01-bare
 """
 from __future__ import annotations
 
@@ -45,33 +42,26 @@ def _fixture_mcp_server_names() -> set[str]:
         return set()
 
 
-def _resolve_capture_dir(arg: Path) -> Path:
-    """Find the timestamped agentlens capture dir.
+def _load_session(scen_dir: Path) -> dict:
+    """Load the agentlens session JSON from <scen_dir>/raw/.
 
-    Accepts either:
-    - the timestamped dir itself (versions/<v>/<s>/raw/<ts>/)
-    - the scenario's raw/ dir (versions/<v>/<s>/raw/) — picks newest ts
-    - the scenario dir (versions/<v>/<s>/) — uses raw/ subdir
+    Prefer ``raw/<scenario>.json``; otherwise fall back to the largest JSON
+    in raw/ that isn't a per-request split file.
     """
-    if not arg.exists():
-        sys.exit(f"capture dir not found: {arg}")
-    if (arg / "raw").is_dir() and any((arg / "raw").iterdir()):
-        arg = arg / "raw"
-    json_files = [p for p in arg.glob("*.json") if p.parent.name != "raw"]
-    if json_files:
-        return arg
-    candidates = sorted([p for p in arg.iterdir() if p.is_dir()])
+    raw_dir = scen_dir / "raw"
+    if not raw_dir.exists():
+        sys.exit(f"no raw/ dir under {scen_dir}")
+    preferred = raw_dir / f"{scen_dir.name}.json"
+    if preferred.exists():
+        return json.loads(preferred.read_text())
+    candidates = [
+        p for p in raw_dir.glob("*.json")
+        if not p.name.endswith((".request.json", ".response.json", ".sse.json"))
+    ]
     if not candidates:
-        sys.exit(f"no timestamped subdir in {arg}")
-    return candidates[-1]
-
-
-def _load_session(capture_dir: Path) -> dict:
-    json_files = list(capture_dir.glob("*.json"))
-    json_files = [p for p in json_files if not p.parent.name == "raw"]
-    if not json_files:
-        sys.exit(f"no session.json in {capture_dir}")
-    return json.loads(json_files[0].read_text())
+        sys.exit(f"no agentlens session JSON in {raw_dir}")
+    candidates.sort(key=lambda p: p.stat().st_size, reverse=True)
+    return json.loads(candidates[0].read_text())
 
 
 def _system_prompt_text(prompt: Any) -> str:
@@ -147,13 +137,22 @@ def _walk_text(messages: list[dict]) -> list[str]:
     return out
 
 
-def _first_user_prompt_text(messages: list[dict]) -> str:
-    """Concatenate every text block of the first user message verbatim.
+_INJECTED_TAG_RX = re.compile(
+    r"<([a-zA-Z][\w\-]*)(?:\s[^>]*)?>.*?</\1>",
+    re.DOTALL,
+)
 
-    Claude Code packs skill lists, project context, and other context into
-    `<system-reminder>` blocks alongside the actual user prompt. We keep
-    them all so user-prompt.md is a faithful record of what claude-code
-    actually sent on the user's behalf.
+
+def _first_user_prompt_text(messages: list[dict]) -> str:
+    """Return only the Claude Code-injected blocks from the first user message.
+
+    Claude Code wraps every piece of context it adds — skill lists, deferred
+    tool catalogs, project metadata, command output — in tag blocks like
+    ``<system-reminder>…</system-reminder>``, ``<command-name>…</command-name>``,
+    ``<local-command-stdout>…</local-command-stdout>``. The user's typed prompt
+    is the only naked text. We keep just the tag blocks so user-prompt.md
+    diffs reflect changes to claude-code's injection behavior, not changes
+    to scenario prompts.
     """
     for m in messages:
         if (m.get("role") or "").lower() != "user":
@@ -166,7 +165,9 @@ def _first_user_prompt_text(messages: list[dict]) -> str:
             if isinstance(txt, str):
                 parts.append(txt)
         if parts:
-            return "\n\n".join(parts)
+            full = "\n\n".join(parts)
+            blocks = [m.group(0) for m in _INJECTED_TAG_RX.finditer(full)]
+            return "\n\n".join(blocks)
     return ""
 
 
@@ -239,29 +240,26 @@ def main(argv: list[str]) -> int:
         print("usage: extract.py <results-dir>", file=sys.stderr)
         return 1
 
-    arg = Path(argv[1]).resolve()
+    scen_dir = Path(argv[1]).resolve()
+    if not scen_dir.is_dir():
+        sys.exit(f"scenario dir not found: {scen_dir}")
     # Local-mode scenarios already have their final artifact (output.txt).
-    if arg.is_dir() and (arg / "output.txt").exists() and not (arg / "raw").exists():
-        print(f"skipping {arg} (local-mode scenario, output.txt is final)")
+    if (scen_dir / "output.txt").exists():
+        print(f"skipping {scen_dir} (local-mode scenario, output.txt is final)")
         return 0
 
-    capture_arg = arg
-    capture_dir = _resolve_capture_dir(capture_arg)
-
     # Infer <version>/<scenario> from the path:
-    # versions/<version>/scenarios/<scenario>/raw/<timestamp>/
-    rel = capture_dir.relative_to(REPO_DIR / "versions").parts
-    if len(rel) < 5 or rel[1] != "scenarios" or rel[3] != "raw":
+    # versions/<dir-name>/scenarios/<scenario>/
+    rel = scen_dir.relative_to(REPO_DIR / "versions").parts
+    if len(rel) < 3 or rel[1] != "scenarios":
         sys.exit(
-            f"capture dir not under versions/<dir>/scenarios/<scenario>/raw/<ts>/: {capture_dir}"
+            f"scenario dir not under versions/<dir>/scenarios/<scenario>/: {scen_dir}"
         )
     dir_name, scenario = rel[0], rel[2]
     version = version_from_dir(dir_name)
 
-    out_dir = REPO_DIR / "versions" / dir_name / "scenarios" / scenario / "extracted"
-    out_dir.mkdir(parents=True, exist_ok=True)
-
-    session = _load_session(capture_dir)
+    out_dir = scen_dir
+    session = _load_session(scen_dir)
     requests = session.get("requests", [])
     if not requests:
         sys.exit("no requests in session")

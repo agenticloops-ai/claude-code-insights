@@ -45,7 +45,7 @@ mutate it between runs.
 # 1. one-time OAuth login (creates the cch-auth volume)
 ./sandbox/login.sh 2.1.126
 
-# 2. run a capture scenario (defaults to versions/<version>/scenarios/<session>/raw/)
+# 2. run a capture scenario (defaults to versions/<version>/scenarios/<session>/)
 ./sandbox/run.sh 2.1.126 -- -p "hi"
 
 # 3. or with custom paths
@@ -102,17 +102,25 @@ default and the scenario file as two flags would silently drop the default.
 ## Output
 
 ```
-versions/<version>/scenarios/<scenario>/raw/
-├── agentlens.log
-└── <timestamp>/
+versions/<version>/scenarios/<scenario>/
+├── system-prompt.md      # extract.py outputs at the scenario root
+├── user-prompt.md
+├── tools.json
+├── deferred-tools.json
+├── skills.json
+├── requests.json
+├── stats.json
+└── raw/                  # everything captured by agentlens
+    ├── agentlens.log
     ├── <scenario>.json   # full captured traffic
     ├── <scenario>.md
     ├── <scenario>.csv
-    └── raw/
-        ├── 001.request.json
-        ├── 001.response.json
-        └── 001.sse.json
+    ├── 001.request.json  # per-request raw (split-raw.py)
+    ├── 001.response.json
+    └── 001.sse.json
 ```
 
-`scripts/extract.py` then turns the raw JSON into the version-comparable
-artifacts under `versions/<version>/scenarios/<scenario>/extracted/`.
+`run-scenario.sh` lifts agentlens' timestamped subdirectory up to `raw/`
+after each capture, so the layout above is what you see on disk regardless
+of when the run happened. `scripts/extract.py` reads `raw/<scenario>.json`
+and writes the version-comparable artifacts to the scenario root.

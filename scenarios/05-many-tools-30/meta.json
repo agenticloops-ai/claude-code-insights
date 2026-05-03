@@ -1,9 +1,0 @@
-{
-  "name": "05-many-tools-30",
-  "description": "Fixture MCP server advertising 30 tools. Probes whether claude-code triggers its deferred-tools / ToolSearch mechanism, and at what tool-count threshold. Compare loaded-tool-count vs 30 to see how many got deferred.",
-  "claude_args": [
-    "-p"
-  ],
-  "mcp": "scenarios/05-many-tools-30/mcp.json",
-  "env": {}
-}

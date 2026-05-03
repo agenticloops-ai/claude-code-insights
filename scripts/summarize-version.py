@@ -42,10 +42,10 @@ def main() -> int:
     if not sroot.exists():
         sys.exit(f"no scenarios at {sroot} — run capture+extract first")
 
-    baseline_ext = sroot / args.baseline / "extracted"
-    if not baseline_ext.exists():
+    baseline_dir = sroot / args.baseline
+    if not (baseline_dir / "stats.json").exists():
         sys.exit(
-            f"baseline scenario {args.baseline!r} not extracted at {baseline_ext}"
+            f"baseline scenario {args.baseline!r} not extracted at {baseline_dir}"
         )
 
     # Promote baseline files to version root (overwrite each time).
@@ -56,14 +56,14 @@ def main() -> int:
         "deferred-tools.json",
         "skills.json",
     ):
-        src = baseline_ext / fname
+        src = baseline_dir / fname
         if src.exists():
             shutil.copy2(src, vroot / fname)
 
     # Aggregate per-scenario stats into one root manifest.
     scenarios = {}
     for scen_dir in sorted(sroot.iterdir()):
-        s_path = scen_dir / "extracted" / "stats.json"
+        s_path = scen_dir / "stats.json"
         if s_path.exists():
             scenarios[scen_dir.name] = json.loads(s_path.read_text())
         elif (scen_dir / "output.txt").exists():
@@ -108,10 +108,8 @@ def main() -> int:
     ]
     for name, m in scenarios.items():
         if m.get("mode") == "local":
-            lines.append(
-                f"| `{name}` | _local_ | — | — | — | — | — | "
-                f"{m.get('output_chars')} chars / {m.get('output_lines')} lines | — | — | — | exit {m.get('exit_code')} |"
-            )
+            # CLI introspection scenarios (e.g. `claude --help`) aren't model
+            # interactions, so they don't belong in the per-scenario stats table.
             continue
         if m.get("empty"):
             lines.append(f"| `{name}` | — | — | — | — | — | — | — | — | — | — | _no API requests_ |")
