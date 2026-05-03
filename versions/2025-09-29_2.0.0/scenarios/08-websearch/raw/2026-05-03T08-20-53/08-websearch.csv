@@ -1,0 +1,27 @@
+timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
+2026-05-03T08:20:55.652019,anthropic,claude-3-5-haiku-20241022,172.18375205993652,,success,,0,0,0,,False,False,False,quota
+2026-05-03T08:21:01.026212,anthropic,claude-sonnet-4-5-20250929,2383.420705795288,1047.9176044464111,success,tool_use,2,81,83,0.0055917,True,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless"
+2026-05-03T08:21:01.328511,anthropic,claude-3-5-haiku-20241022,265.7325267791748,264.6453380584717,success,,0,0,0,,True,False,False,"<policy_spec>
+# Claude Code Code Bash command prefix detection
+
+This document defines risk levels for actions that the Claude Code agent may take. This classification system is part of a broader safet"
+2026-05-03T08:21:02.943073,anthropic,claude-sonnet-4-5-20250929,1582.543134689331,1487.7400398254395,success,tool_use,6,60,66,0.0053193,True,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless"
+2026-05-03T08:21:11.440793,anthropic,claude-sonnet-4-5-20250929,8411.720275878906,994.0292835235596,success,end_turn,3,321,324,0.0055008,True,True,False,Perform a web search for the query: claude-code npm latest version 2025
+2026-05-03T08:21:13.670789,anthropic,claude-sonnet-4-5-20250929,2130.682945251465,1341.7887687683105,success,tool_use,4,100,104,0.0083082,True,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless"
+2026-05-03T08:21:14.896404,anthropic,claude-sonnet-4-5-20250929,1181.7491054534912,944.6208477020264,success,end_turn,6,8,14,0.0074367,True,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless"

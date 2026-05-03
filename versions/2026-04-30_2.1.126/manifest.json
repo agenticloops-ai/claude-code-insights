@@ -184,7 +184,7 @@
       "version": "2.1.126",
       "dir_name": "2026-04-30_2.1.126",
       "scenario": "08-websearch",
-      "captured_at": "2026-05-03T08:18:13.510433",
+      "captured_at": "2026-05-03T08:21:41.548233",
       "request_count": 5,
       "models": [
         "claude-haiku-4-5-20251001",
@@ -201,11 +201,11 @@
       "tokens": {
         "input": 389,
         "output": 452,
-        "cache_read": 80468,
-        "cache_creation": 15897,
+        "cache_read": 87728,
+        "cache_creation": 8654,
         "total": 841
       },
-      "duration_ms_total": 10400
+      "duration_ms_total": 13451
     },
     "09-mcp-help": {
       "mode": "local",

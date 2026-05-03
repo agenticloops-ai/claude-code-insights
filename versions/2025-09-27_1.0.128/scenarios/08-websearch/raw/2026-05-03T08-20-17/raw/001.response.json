@@ -1,0 +1,33 @@
+{
+  "index": 1,
+  "request_id": "a20fbb53-d338-4488-9c3a-59df3f4ff49a",
+  "status": 404,
+  "headers": {
+    "Date": "Sun, 03 May 2026 08:20:18 GMT",
+    "Content-Type": "application/json",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "x-should-retry": "false",
+    "request-id": "req_011CafJtgGiGrtSkgTpbjZgR",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
+    "traceresponse": "00-65494fb6d4e7eb64aab9cf21cff1b57e-7744ad5d6844c905-01",
+    "Server": "cloudflare",
+    "x-envoy-upstream-service-time": "93",
+    "X-Robots-Tag": "none",
+    "vary": "Accept-Encoding",
+    "cf-cache-status": "DYNAMIC",
+    "set-cookie": "REDACTED",
+    "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
+    "CF-RAY": "9f5dd8819fa4ce84-SJC"
+  },
+  "is_streaming": false,
+  "body": {
+    "type": "error",
+    "error": {
+      "type": "not_found_error",
+      "message": "model: claude-3-5-haiku-20241022"
+    },
+    "request_id": "req_011CafJtgGiGrtSkgTpbjZgR"
+  }
+}
