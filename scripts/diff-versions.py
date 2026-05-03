@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 """Generate a markdown diff report between two extracted versions.
 
-Reads versions/<a>/<scenario>/extracted/ and versions/<b>/<scenario>/extracted/
-for every shared scenario and writes the comparison to
-versions/<b>/diff-from-<a>.md (i.e. the diff is colocated with the *newer*
-version's artifacts).
+Compares the *baseline* artifacts promoted to each version's root
+(system-prompt.md, user-prompt.md, tools.json, deferred-tools.json,
+skills.json) plus the local-mode CLI scenarios (07-cli-help, 09-mcp-help).
+
+Per-scenario diffs are intentionally not included — the cross-version surface
+that matters is what every session sees, and that lives at the version root.
+
+Output: versions/<to>/diff-from-<from>.md (colocated with the newer version).
 
 Usage:
     scripts/diff-versions.py 2.1.59 2.1.126
@@ -23,6 +27,9 @@ VERSIONS_DIR = REPO_DIR / "versions"
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _paths import dir_for, find_existing_dir, version_from_dir  # noqa: E402
 
+# Local-mode scenarios we always include in the diff (CLI help surface).
+CLI_SCENARIOS = ("07-cli-help", "09-mcp-help")
+
 
 def _resolve_dir(version_or_dir: str) -> str:
     """Accept either an npm version (2.1.126) or a directory name (2026-04-30_2.1.126)."""
@@ -33,29 +40,6 @@ def _resolve_dir(version_or_dir: str) -> str:
     if existing:
         return existing.name
     return dir_for(version_or_dir)
-
-
-def _scenarios(version: str) -> set[str]:
-    base = VERSIONS_DIR / version / "scenarios"
-    if not base.exists():
-        sys.exit(f"no extracted artifacts at {base}")
-    return {
-        p.name
-        for p in base.iterdir()
-        if p.is_dir() and ((p / "extracted").is_dir() or (p / "output.txt").exists())
-    }
-
-
-def _ext(version: str, scenario: str) -> Path:
-    return VERSIONS_DIR / version / "scenarios" / scenario / "extracted"
-
-
-def _scen_dir(version: str, scenario: str) -> Path:
-    return VERSIONS_DIR / version / "scenarios" / scenario
-
-
-def _is_local(version: str, scenario: str) -> bool:
-    return (_scen_dir(version, scenario) / "output.txt").exists() and not _ext(version, scenario).exists()
 
 
 def _read(path: Path) -> str:
@@ -79,48 +63,35 @@ def _diff(a: str, b: str, *, label_a: str, label_b: str) -> str:
     return "".join(lines)
 
 
-def _tool_delta(
-    a: list,
-    b: list,
-    a_def: list[str],
-    b_def: list[str],
-) -> dict:
+def _tool_delta(a: list, b: list, a_def: list[str], b_def: list[str]) -> dict:
     """Compare advertised + deferred tool sets.
 
     A tool that left the advertised list but is in the new deferred set is
-    NOT removed — it's just been moved behind ToolSearch. We treat the union
-    of advertised+deferred as the version's full tool surface.
+    NOT removed — it's been moved behind ToolSearch. We treat the union of
+    advertised+deferred as the version's full tool surface.
     """
     if a is None or b is None:
-        return {"added": [], "removed": [], "modified": [], "deferred_in_b_only": [], "moved_to_deferred": []}
-
+        return {}
     a_by = {t["name"]: t for t in (a or [])}
     b_by = {t["name"]: t for t in (b or [])}
     a_def_set = set(a_def or [])
     b_def_set = set(b_def or [])
-
     a_all = set(a_by) | a_def_set
     b_all = set(b_by) | b_def_set
-
-    truly_added = sorted(b_all - a_all)
-    truly_removed = sorted(a_all - b_all)
-    moved_to_deferred_set = (set(a_by) - set(b_by)) & b_def_set
+    moved_to_deferred = sorted((set(a_by) - set(b_by)) & b_def_set)
     moved_to_advertised = sorted((set(b_by) - set(a_by)) & a_def_set)
-    deferred_only_in_b = sorted(b_def_set - a_def_set - moved_to_deferred_set)
-    moved_to_deferred = sorted(moved_to_deferred_set)
-
+    deferred_added = sorted(b_def_set - a_def_set - set(moved_to_deferred))
     modified = sorted(
-        n
-        for n in set(a_by) & set(b_by)
+        n for n in set(a_by) & set(b_by)
         if json.dumps(a_by[n], sort_keys=True) != json.dumps(b_by[n], sort_keys=True)
     )
     return {
-        "added": truly_added,
-        "removed": truly_removed,
+        "added": sorted(b_all - a_all),
+        "removed": sorted(a_all - b_all),
         "modified": modified,
         "moved_to_deferred": moved_to_deferred,
         "moved_to_advertised": moved_to_advertised,
-        "deferred_added": deferred_only_in_b,
+        "deferred_added": deferred_added,
     }
 
 
@@ -129,14 +100,7 @@ _HELP_LINE_RX = re.compile(r"^  ([^\s]+(?:,\s+[^\s]+)?)")
 
 
 def _parse_cli_help(text: str) -> dict[str, list[str]]:
-    """Extract identifier lists from a Commander-style `--help` output.
-
-    Returns ``{"options": [...], "commands": [...], "arguments": [...]}``.
-    Identifiers are taken from the first whitespace-delimited token (or
-    comma-separated alias pair) of each indented line under the matching
-    section. Wrapped description lines are ignored because they don't start
-    with exactly two spaces + a flag/command-like token.
-    """
+    """Extract identifier lists from a Commander-style `--help` output."""
     sections: dict[str, list[str]] = {"options": [], "commands": [], "arguments": []}
     current: str | None = None
     for line in text.splitlines():
@@ -159,24 +123,85 @@ def _parse_cli_help(text: str) -> dict[str, list[str]]:
     return sections
 
 
-def _local_section(scenario: str, va: str, vb: str, la: str | None = None, lb: str | None = None) -> str:
-    la = la or version_from_dir(va)
-    lb = lb or version_from_dir(vb)
-    """Diff a local-mode scenario (claude --help, etc.)."""
-    out: list[str] = [f"## scenario: `{scenario}` _(local)_", ""]
-    a_out = _read(_scen_dir(va, scenario) / "output.txt")
-    b_out = _read(_scen_dir(vb, scenario) / "output.txt")
+def _tools_section(va: str, vb: str) -> str:
+    a_dir = VERSIONS_DIR / va
+    b_dir = VERSIONS_DIR / vb
+    delta = _tool_delta(
+        _read_json(a_dir / "tools.json") or [],
+        _read_json(b_dir / "tools.json") or [],
+        _read_json(a_dir / "deferred-tools.json") or [],
+        _read_json(b_dir / "deferred-tools.json") or [],
+    )
+    if not any(delta.values()):
+        return ""
+    lines = ["## tools", ""]
+    if delta["added"]:
+        lines.append("- **added:** " + ", ".join(f"`{n}`" for n in delta["added"]))
+    if delta["removed"]:
+        lines.append("- **removed:** " + ", ".join(f"`{n}`" for n in delta["removed"]))
+    if delta["moved_to_deferred"]:
+        lines.append(
+            "- **moved to deferred (now lazy-loaded via ToolSearch):** "
+            + ", ".join(f"`{n}`" for n in delta["moved_to_deferred"])
+        )
+    if delta["moved_to_advertised"]:
+        lines.append(
+            "- **moved to advertised (no longer deferred):** "
+            + ", ".join(f"`{n}`" for n in delta["moved_to_advertised"])
+        )
+    if delta["deferred_added"]:
+        lines.append(
+            "- **new deferred tools:** "
+            + ", ".join(f"`{n}`" for n in delta["deferred_added"])
+        )
+    if delta["modified"]:
+        lines.append("- **modified:** " + ", ".join(f"`{n}`" for n in delta["modified"]))
+    lines.append("")
+    return "\n".join(lines)
+
+
+def _skills_section(va: str, vb: str) -> str:
+    sa = _read_json(VERSIONS_DIR / va / "skills.json") or []
+    sb = _read_json(VERSIONS_DIR / vb / "skills.json") or []
+    sa_by = {s["name"]: s for s in sa}
+    sb_by = {s["name"]: s for s in sb}
+    added = sorted(set(sb_by) - set(sa_by))
+    removed = sorted(set(sa_by) - set(sb_by))
+    modified = sorted(
+        n for n in set(sa_by) & set(sb_by)
+        if sa_by[n].get("description") != sb_by[n].get("description")
+    )
+    if not (added or removed or modified):
+        return ""
+    lines = ["## skills", ""]
+    if added:
+        lines.append("- **added:** " + ", ".join(f"`{n}`" for n in added))
+    if removed:
+        lines.append("- **removed:** " + ", ".join(f"`{n}`" for n in removed))
+    if modified:
+        lines.append("- **description changed:** " + ", ".join(f"`{n}`" for n in modified))
+    lines.append("")
+    return "\n".join(lines)
+
+
+def _file_diff_section(title: str, a: Path, b: Path, label_a: str, label_b: str) -> str:
+    text = _diff(_read(a), _read(b), label_a=label_a, label_b=label_b)
+    if not text:
+        return ""
+    return "## " + title + "\n\n```diff\n" + text.rstrip() + "\n```\n"
+
+
+def _cli_section(scenario: str, va: str, vb: str, la: str, lb: str) -> str:
+    a_path = VERSIONS_DIR / va / "scenarios" / scenario / "output.txt"
+    b_path = VERSIONS_DIR / vb / "scenarios" / scenario / "output.txt"
+    if not (a_path.exists() and b_path.exists()):
+        return ""
+    a_out = _read(a_path)
+    b_out = _read(b_path)
     if a_out == b_out:
-        out.append("_no change_")
-        out.append("")
-        return "\n".join(out)
+        return ""
+    out: list[str] = [f"## cli: `{scenario}`", ""]
 
-    out.append(f"- chars: {len(a_out)} → {len(b_out)}")
-    out.append(f"- lines: {a_out.count(chr(10))} → {b_out.count(chr(10))}")
-    out.append("")
-
-    # Structured added/removed flags + commands when the output looks like
-    # a CLI help page.
     a_parsed = _parse_cli_help(a_out)
     b_parsed = _parse_cli_help(b_out)
     for section, label in (("options", "flags"), ("commands", "commands"), ("arguments", "arguments")):
@@ -195,131 +220,14 @@ def _local_section(scenario: str, va: str, vb: str, la: str | None = None, lb: s
 
     text_diff = _diff(
         a_out, b_out,
-        label_a=f"{la}/scenarios/{scenario}/output.txt",
-        label_b=f"{lb}/scenarios/{scenario}/output.txt",
+        label_a=f"{la}/{scenario}/output.txt",
+        label_b=f"{lb}/{scenario}/output.txt",
     )
-    out.append("### full diff")
+    out.append("<details><summary>full diff</summary>\n")
     out.append("```diff")
     out.append(text_diff.rstrip())
     out.append("```")
-    out.append("")
-    return "\n".join(out)
-
-
-def _scenario_section(scenario: str, va: str, vb: str, la: str | None = None, lb: str | None = None) -> str:
-    la = la or version_from_dir(va)
-    lb = lb or version_from_dir(vb)
-    if _is_local(va, scenario) and _is_local(vb, scenario):
-        return _local_section(scenario, va, vb, la, lb)
-
-    a_dir = _ext(va, scenario)
-    b_dir = _ext(vb, scenario)
-
-    out: list[str] = [f"## scenario: `{scenario}`", ""]
-
-    ma = _read_json(a_dir / "stats.json")
-    mb = _read_json(b_dir / "stats.json")
-    if ma and mb:
-        out.append("| metric | " + la + " | " + lb + " |")
-        out.append("|---|---|---|")
-        for k in (
-            "request_count",
-            "tool_count_first_request",
-            "deferred_tool_count",
-            "skill_count",
-            "system_prompt_chars",
-            "user_prompt_chars",
-            "reminder_count",
-            "duration_ms_total",
-        ):
-            out.append(f"| {k} | {ma.get(k)} | {mb.get(k)} |")
-        for k in ("input", "output", "total"):
-            out.append(
-                f"| tokens.{k} | {(ma.get('tokens') or {}).get(k)} | {(mb.get('tokens') or {}).get(k)} |"
-            )
-        out.append(f"| models | {', '.join(ma.get('models') or [])} | {', '.join(mb.get('models') or [])} |")
-        out.append("")
-
-    sa = _read_json(a_dir / "skills.json") or []
-    sb = _read_json(b_dir / "skills.json") or []
-    sa_by = {s["name"]: s for s in sa}
-    sb_by = {s["name"]: s for s in sb}
-    s_added = sorted(set(sb_by) - set(sa_by))
-    s_removed = sorted(set(sa_by) - set(sb_by))
-    s_modified = sorted(
-        n for n in set(sa_by) & set(sb_by)
-        if sa_by[n].get("description") != sb_by[n].get("description")
-    )
-    if s_added or s_removed or s_modified:
-        out.append("### built-in skills")
-        if s_added:
-            out.append("- **added:** " + ", ".join(f"`{n}`" for n in s_added))
-        if s_removed:
-            out.append("- **removed:** " + ", ".join(f"`{n}`" for n in s_removed))
-        if s_modified:
-            out.append("- **description changed:** " + ", ".join(f"`{n}`" for n in s_modified))
-        out.append("")
-
-    ta = _read_json(a_dir / "tools.json") or []
-    tb = _read_json(b_dir / "tools.json") or []
-    a_def = _read_json(a_dir / "deferred-tools.json") or []
-    b_def = _read_json(b_dir / "deferred-tools.json") or []
-    delta = _tool_delta(ta, tb, a_def, b_def)
-    if any(delta.values()):
-        out.append("### tools")
-        if delta["added"]:
-            out.append("- **added:** " + ", ".join(f"`{n}`" for n in delta["added"]))
-        if delta["removed"]:
-            out.append("- **removed:** " + ", ".join(f"`{n}`" for n in delta["removed"]))
-        if delta["moved_to_deferred"]:
-            out.append(
-                "- **moved to deferred (now lazy-loaded via ToolSearch):** "
-                + ", ".join(f"`{n}`" for n in delta["moved_to_deferred"])
-            )
-        if delta["moved_to_advertised"]:
-            out.append(
-                "- **moved to advertised (no longer deferred):** "
-                + ", ".join(f"`{n}`" for n in delta["moved_to_advertised"])
-            )
-        if delta["deferred_added"]:
-            out.append(
-                "- **new deferred tools:** "
-                + ", ".join(f"`{n}`" for n in delta["deferred_added"])
-            )
-        if delta["modified"]:
-            out.append("- **modified:** " + ", ".join(f"`{n}`" for n in delta["modified"]))
-        out.append("")
-
-    sys_diff = _diff(
-        _read(a_dir / "system-prompt.md"),
-        _read(b_dir / "system-prompt.md"),
-        label_a=f"{la}/system-prompt.md",
-        label_b=f"{lb}/system-prompt.md",
-    )
-    if sys_diff:
-        out.append("### system prompt")
-        out.append("```diff")
-        out.append(sys_diff.rstrip())
-        out.append("```")
-        out.append("")
-
-    user_diff = _diff(
-        _read(a_dir / "user-prompt.md"),
-        _read(b_dir / "user-prompt.md"),
-        label_a=f"{la}/user-prompt.md",
-        label_b=f"{lb}/user-prompt.md",
-    )
-    if user_diff:
-        out.append("### user prompt (incl. system-reminder blocks)")
-        out.append("```diff")
-        out.append(user_diff.rstrip())
-        out.append("```")
-        out.append("")
-
-    if len(out) == 2:
-        out.append("_no observable change_")
-        out.append("")
-
+    out.append("</details>\n")
     return "\n".join(out)
 
 
@@ -328,32 +236,58 @@ def main(argv: list[str]) -> int:
         print("usage: diff-versions.py <from-version> <to-version>", file=sys.stderr)
         return 1
 
-    # Accept either npm version (2.1.126) or folder name (2026-04-30_2.1.126).
     va = _resolve_dir(argv[1])
     vb = _resolve_dir(argv[2])
     va_label = version_from_dir(va)
     vb_label = version_from_dir(vb)
-    scens_a = _scenarios(va)
-    scens_b = _scenarios(vb)
-    shared = sorted(scens_a & scens_b)
-    only_a = sorted(scens_a - scens_b)
-    only_b = sorted(scens_b - scens_a)
 
     out_path = VERSIONS_DIR / vb / f"diff-from-{va}.md"
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
-    parts: list[str] = [
-        f"# claude-code: {va_label} → {vb_label}",
-        "",
-        f"- shared scenarios: {len(shared)}",
-        f"- only in {va_label}: {only_a or '—'}",
-        f"- only in {vb_label}: {only_b or '—'}",
-        "",
-    ]
-    for s in shared:
-        parts.append(_scenario_section(s, va, vb, va_label, vb_label))
+    parts: list[str] = [f"# claude-code: {va_label} → {vb_label}", ""]
 
-    out_path.write_text("\n".join(parts) + "\n")
+    # Manifest delta — small numeric overview.
+    ma = _read_json(VERSIONS_DIR / va / "manifest.json") or {}
+    mb = _read_json(VERSIONS_DIR / vb / "manifest.json") or {}
+    ba = ma.get("baseline") or {}
+    bb = mb.get("baseline") or {}
+    parts.append("| metric | " + va_label + " | " + vb_label + " |")
+    parts.append("|---|---|---|")
+    for k in ("models", "tool_count", "deferred_tool_count", "system_prompt_chars", "reminder_count"):
+        av, bv = ba.get(k), bb.get(k)
+        if isinstance(av, list):
+            av = ", ".join(av)
+        if isinstance(bv, list):
+            bv = ", ".join(bv)
+        parts.append(f"| {k} | {av} | {bv} |")
+    parts.append("")
+
+    sections = [
+        _tools_section(va, vb),
+        _skills_section(va, vb),
+        _file_diff_section(
+            "system prompt",
+            VERSIONS_DIR / va / "system-prompt.md",
+            VERSIONS_DIR / vb / "system-prompt.md",
+            f"{va_label}/system-prompt.md", f"{vb_label}/system-prompt.md",
+        ),
+        _file_diff_section(
+            "user prompt (incl. system-reminder blocks)",
+            VERSIONS_DIR / va / "user-prompt.md",
+            VERSIONS_DIR / vb / "user-prompt.md",
+            f"{va_label}/user-prompt.md", f"{vb_label}/user-prompt.md",
+        ),
+    ]
+    for scen in CLI_SCENARIOS:
+        sections.append(_cli_section(scen, va, vb, va_label, vb_label))
+
+    non_empty = [s for s in sections if s]
+    if non_empty:
+        parts.extend(non_empty)
+    else:
+        parts.append("_no observable change at the version-root or CLI surface_\n")
+
+    out_path.write_text("\n".join(parts) + ("\n" if not parts[-1].endswith("\n") else ""))
     print(f"wrote {out_path}")
     return 0
 
