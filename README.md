@@ -4,6 +4,20 @@ Black-box capture and diff of [`@anthropic-ai/claude-code`](https://www.npmjs.co
 
 For each pinned version we run a fixed set of scenarios inside a Docker sandbox, route the API traffic through [AgentLens](https://pypi.org/project/agentlens-proxy/) (an MITM proxy that records prompts, tools, and reminders), and produce diff-friendly artifacts so changes between versions become obvious.
 
+## Why this exists
+
+Most of what makes Claude Code feel different from one release to the next never lands in the upstream `CHANGELOG.md`. The system prompt is rewritten paragraph by paragraph. Tools appear, disappear, get renamed, or quietly slip behind `ToolSearch`. New `<system-reminder>` blocks change how the model picks tools; the default model rolls forward; permission-mode wording shifts; the skill discovery surface expands. Users notice the *behavior* — "it stopped doing X", "it's suddenly more cautious about Y" — but the *cause* lives inside a minified npm tarball that nobody reads.
+
+This repo is a microscope for those silent changes. Pin a version, run nine probe scenarios under a controlled sandbox, capture every byte of the API conversation through a MITM proxy, then extract the parts that travel: the system prompt, the tool catalog, the reminder blocks, the skill listing, the model id, the per-request shape. A second version. A diff. The result is the changelog Anthropic doesn't publish — what *actually* shipped, line by line, scrubbed of volatile fingerprints so the diffs read cleanly across machines and months.
+
+It pays off in three places:
+
+- **Pinning with eyes open.** Before you upgrade your team's `claude-code`, see what's about to change in the prompt that drives every response. Compare your current version to the candidate; decide whether the new behavior is worth it.
+- **Prompt and tool craft.** Anthropic ships some of the best-tuned agent prompts in production. Reading the diffs is a free apprenticeship in how a real shop iterates on tool descriptions, reminder phrasing, deferred-tool thresholds, and model routing.
+- **Reproducible forensics.** When something behaves oddly, you can replay any past version against the same probes and watch where the regression entered. The capture is byte-comparable; the sandbox is deterministic; the artifacts are committed to git.
+
+Captures are reproducible from any host with Docker — no Anthropic insider knowledge required. The tooling is small, the format is plain text, and every assumption is visible in `scenarios/`, `sandbox/`, and `scripts/`. Fork it, point it at the next release, and you have your own running record.
+
 ## What's captured per version
 
 ```
