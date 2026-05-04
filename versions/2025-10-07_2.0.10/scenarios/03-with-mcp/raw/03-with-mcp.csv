@@ -1,0 +1,3 @@
+timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
+2026-05-04T05:34:54.621188,anthropic,claude-3-5-haiku-20241022,596.745491027832,,success,,0,0,0,,False,False,False,quota
+2026-05-04T05:34:56.861164,anthropic,claude-sonnet-4-5-20250929,2246.619462966919,1509.6096992492676,success,end_turn,2,29,31,0.006166649999999999,True,True,False,"List every MCP tool that is currently available to you. Print just the tool names, one per line. Do not call any of them."
