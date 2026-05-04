@@ -167,7 +167,7 @@ def v(s): return tuple(int(x) for x in s.split(".") if x.isdigit())
 sys.exit(0 if v(sys.argv[1]) >= v(sys.argv[2]) else 1)
 PY
 }
-if [[ "$(_raw_has_model_404)" == "yes" ]] && _version_gte "0.2.98"; then
+if [[ "$(_raw_has_model_404)" == "yes" ]] && _version_gte "1.0.0"; then
     echo "[retry] model 404 — retrying with --model claude-sonnet-4-5"
     rm -rf "$RAW_DIR"
     mkdir -p "$RAW_DIR"
