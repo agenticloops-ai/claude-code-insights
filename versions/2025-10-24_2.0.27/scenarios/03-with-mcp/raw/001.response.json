@@ -1,0 +1,68 @@
+{
+  "index": 1,
+  "request_id": "8ca9c2e6-d151-4607-951a-fd7df688c1ab",
+  "status": 200,
+  "headers": {
+    "Date": "Mon, 04 May 2026 05:55:53 GMT",
+    "Content-Type": "application/json",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "anthropic-ratelimit-unified-status": "rejected",
+    "anthropic-ratelimit-unified-5h-status": "rejected",
+    "anthropic-ratelimit-unified-5h-reset": "1777875000",
+    "anthropic-ratelimit-unified-5h-utilization": "1.01",
+    "anthropic-ratelimit-unified-5h-surpassed-threshold": "1.0",
+    "anthropic-ratelimit-unified-7d-status": "allowed",
+    "anthropic-ratelimit-unified-7d-reset": "1778126400",
+    "anthropic-ratelimit-unified-7d-utilization": "0.35",
+    "anthropic-ratelimit-unified-overage-status": "allowed",
+    "anthropic-ratelimit-unified-overage-reset": "1780272000",
+    "anthropic-ratelimit-unified-overage-utilization": "0.0",
+    "anthropic-ratelimit-unified-representative-claim": "five_hour",
+    "anthropic-ratelimit-unified-fallback-percentage": "0.5",
+    "anthropic-ratelimit-unified-reset": "1777875000",
+    "anthropic-ratelimit-unified-upgrade-paths": "overage",
+    "anthropic-ratelimit-unified-overage-in-use": "true",
+    "request-id": "req_011Cah1gncu2bu8oA6491FJJ",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
+    "traceresponse": "00-0ae29a045fc84cf28be1ed8fdebddfb9-3302521fcaafa1a2-01",
+    "Server": "cloudflare",
+    "x-envoy-upstream-service-time": "398",
+    "X-Robots-Tag": "none",
+    "vary": "Accept-Encoding",
+    "server-timing": "x-originResponse;dur=400",
+    "cf-cache-status": "DYNAMIC",
+    "set-cookie": "REDACTED",
+    "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
+    "CF-RAY": "9f65424f4d55ca3e-SJC"
+  },
+  "is_streaming": false,
+  "body": {
+    "model": "claude-haiku-4-5-20251001",
+    "id": "msg_012BnHFR9dpaKM7aXJSWpDpM",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "#"
+      }
+    ],
+    "stop_reason": "max_tokens",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 8,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 1,
+      "service_tier": "standard",
+      "inference_geo": "not_available"
+    }
+  }
+}
