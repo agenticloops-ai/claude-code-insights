@@ -1,0 +1,46 @@
+{
+  "index": 1,
+  "request_id": "536c573e-561c-45ff-b087-b43b8d4efe9b",
+  "session_id": "12819fa9-5663-43e9-a0ea-91b69f935ce8",
+  "timestamp": "2026-05-04T04:13:09.615971",
+  "provider": "anthropic",
+  "method": "POST",
+  "url": "https://api.anthropic.com/v1/messages?beta=true",
+  "headers": {
+    "host": "api.anthropic.com",
+    "connection": "keep-alive",
+    "Accept": "application/json",
+    "X-Stainless-Retry-Count": "0",
+    "X-Stainless-Timeout": "60",
+    "X-Stainless-Lang": "js",
+    "X-Stainless-Package-Version": "0.55.1",
+    "X-Stainless-OS": "Linux",
+    "X-Stainless-Arch": "x64",
+    "X-Stainless-Runtime": "node",
+    "X-Stainless-Runtime-Version": "v20.20.2",
+    "anthropic-dangerous-direct-browser-access": "true",
+    "anthropic-version": "2023-06-01",
+    "authorization": "REDACTED",
+    "x-app": "cli",
+    "User-Agent": "claude-cli/1.0.51 (external, cli)",
+    "content-type": "application/json",
+    "anthropic-beta": "oauth-2025-04-20,fine-grained-tool-streaming-2025-05-14",
+    "accept-language": "*",
+    "sec-fetch-mode": "cors",
+    "accept-encoding": "identity",
+    "content-length": "189"
+  },
+  "body": {
+    "model": "claude-3-5-haiku-20241022",
+    "max_tokens": 1,
+    "messages": [
+      {
+        "role": "user",
+        "content": "quota"
+      }
+    ],
+    "metadata": {
+      "user_id": "dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82"
+    }
+  }
+}
