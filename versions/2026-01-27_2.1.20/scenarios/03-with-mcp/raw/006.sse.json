@@ -1,0 +1,940 @@
+[
+  {
+    "event": "message_start",
+    "data": {
+      "type": "message_start",
+      "message": {
+        "model": "claude-opus-4-5-20251101",
+        "id": "msg_0178Lqh5yo5Epdv8bGuDD7R4",
+        "type": "message",
+        "role": "assistant",
+        "content": [],
+        "stop_reason": null,
+        "stop_sequence": null,
+        "stop_details": null,
+        "usage": {
+          "input_tokens": 1,
+          "cache_creation_input_tokens": 18375,
+          "cache_read_input_tokens": 46574,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 18375
+          },
+          "output_tokens": 1,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      }
+    }
+  },
+  {
+    "event": "content_block_start",
+    "data": {
+      "type": "content_block_start",
+      "index": 0,
+      "content_block": {
+        "type": "text",
+        "text": ""
+      }
+    }
+  },
+  {
+    "event": "ping",
+    "data": {
+      "type": "ping"
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": "Let"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": " me search for more remaining MCP tools:"
+      }
+    }
+  },
+  {
+    "event": "content_block_stop",
+    "data": {
+      "type": "content_block_stop",
+      "index": 0
+    }
+  },
+  {
+    "event": "content_block_start",
+    "data": {
+      "type": "content_block_start",
+      "index": 1,
+      "content_block": {
+        "type": "tool_use",
+        "id": "toolu_014rPuH3KJkfhJukELQRBRJe",
+        "name": "ToolSearch",
+        "input": {},
+        "caller": {
+          "type": "direct"
+        }
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": ""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "{\""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "query\": \"w"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "hoami get"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": " libraries"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": " search des"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "ign sys"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "tem variable"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "\""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": ", \"m"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "ax_res"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "ults\": 5}"
+      }
+    }
+  },
+  {
+    "event": "content_block_stop",
+    "data": {
+      "type": "content_block_stop",
+      "index": 1
+    }
+  },
+  {
+    "event": "content_block_start",
+    "data": {
+      "type": "content_block_start",
+      "index": 2,
+      "content_block": {
+        "type": "tool_use",
+        "id": "toolu_01Ko8iFRLjAUAuyHvs444aTu",
+        "name": "ToolSearch",
+        "input": {},
+        "caller": {
+          "type": "direct"
+        }
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 2,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": ""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 2,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "{\"query\":"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 2,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": " \"list "
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 2,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "fol"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 2,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "der "
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 2,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "items replie"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 2,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "s permiss"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 2,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "ions\""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 2,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": ", \"max_"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 2,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "resul"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 2,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "ts\""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 2,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": ": 5}"
+      }
+    }
+  },
+  {
+    "event": "content_block_stop",
+    "data": {
+      "type": "content_block_stop",
+      "index": 2
+    }
+  },
+  {
+    "event": "content_block_start",
+    "data": {
+      "type": "content_block_start",
+      "index": 3,
+      "content_block": {
+        "type": "tool_use",
+        "id": "toolu_01BHsppSUXd28fDgbj7tXPWU",
+        "name": "ToolSearch",
+        "input": {},
+        "caller": {
+          "type": "direct"
+        }
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 3,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": ""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 3,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "{\"query\": \""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 3,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "cre"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 3,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "ate design"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 3,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": " can"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 3,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "di"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 3,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "date requ"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 3,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "es"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 3,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "t out"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 3,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "line"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 3,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": " re"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 3,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "view\""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 3,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": ", \""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 3,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "max_result"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 3,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "s\": 5}"
+      }
+    }
+  },
+  {
+    "event": "content_block_stop",
+    "data": {
+      "type": "content_block_stop",
+      "index": 3
+    }
+  },
+  {
+    "event": "content_block_start",
+    "data": {
+      "type": "content_block_start",
+      "index": 4,
+      "content_block": {
+        "type": "tool_use",
+        "id": "toolu_01N7Rbkt3pb4ofjwjenLXt38",
+        "name": "ToolSearch",
+        "input": {},
+        "caller": {
+          "type": "direct"
+        }
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 4,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": ""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 4,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "{\"qu"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 4,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "ery\": \""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 4,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "perform edit"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 4,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "ing operat"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 4,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "ions ge"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 4,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "t th"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 4,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "umbnail "
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 4,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "assets m"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 4,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "erge\""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 4,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": ", \""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 4,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "max_"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 4,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "re"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 4,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "sult"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 4,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "s\": 5}"
+      }
+    }
+  },
+  {
+    "event": "content_block_stop",
+    "data": {
+      "type": "content_block_stop",
+      "index": 4
+    }
+  },
+  {
+    "event": "content_block_start",
+    "data": {
+      "type": "content_block_start",
+      "index": 5,
+      "content_block": {
+        "type": "tool_use",
+        "id": "toolu_018xtPKhz4f6a5omPr7Hyq9j",
+        "name": "ToolSearch",
+        "input": {},
+        "caller": {
+          "type": "direct"
+        }
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 5,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": ""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 5,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "{\"qu"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 5,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "ery\": \""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 5,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "tldraw "
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 5,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "checkpoint"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 5,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": " canvas s"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 5,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "tate figja"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 5,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "m\""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 5,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": ", \"m"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 5,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "ax_r"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 5,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "esults\": "
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 5,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "5}"
+      }
+    }
+  },
+  {
+    "event": "content_block_stop",
+    "data": {
+      "type": "content_block_stop",
+      "index": 5
+    }
+  },
+  {
+    "event": "message_delta",
+    "data": {
+      "type": "message_delta",
+      "delta": {
+        "stop_reason": "tool_use",
+        "stop_sequence": null,
+        "stop_details": null
+      },
+      "usage": {
+        "input_tokens": 1,
+        "cache_creation_input_tokens": 18375,
+        "cache_read_input_tokens": 46574,
+        "output_tokens": 333
+      }
+    }
+  },
+  {
+    "event": "message_stop",
+    "data": {
+      "type": "message_stop"
+    }
+  }
+]
