@@ -1,15 +1,12 @@
 # claude-code 1.0.0 — capture summary
 
-Baseline scenario: `01-bare` (its system-prompt / tools are mirrored at the version root).
+Baseline scenario: `03-bare` (its system-prompt / tools are mirrored at the version root).
 
 | scenario | requests | tools | deferred | mcp adv | mcp def | skills | sys-prompt | reminders | input | output | duration |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| `01-bare` | 2 | 15 | 0 | 0 | 0 | 0 | 12993 | 1 | 2 | 27 | 3.0s |
-| `02-agent-task` | 6 | 15 | 0 | 0 | 0 | 0 | 12993 | 1 | 14 | 5505 | 93.4s |
-| `03-with-mcp-3tools` | 2 | 15 | 0 | 3 | 0 | 0 | 12993 | 1 | 2 | 38 | 2.9s |
-| `04-with-skill` | 2 | 15 | 0 | 0 | 0 | 0 | 12993 | 1 | 2 | 16 | 1.9s |
-| `06-plan-mode` | — | — | — | — | — | — | — | — | — | — | _no API requests_ |
-| `08-websearch` | 12 | 15 | 0 | 0 | 0 | 0 | 12993 | 1 | 20 | 1514 | 54.0s |
+| `03-bare` | 2 | 15 | 0 | 0 | 0 | 0 | 12993 | 1 | 2 | 19 | 2.2s |
+| `04-agent-task` | 8 | 15 | 0 | 0 | 0 | 0 | 12993 | 1 | 20 | 5793 | 96.5s |
+| `05-with-mcp` | 2 | 15 | 0 | 0 | 0 | 0 | 12993 | 1 | 2 | 29 | 2.7s |
 
 ## Models seen across scenarios
 

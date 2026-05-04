@@ -155,7 +155,7 @@ Working directory: /work
 Is directory a git repo: No
 Platform: linux
 OS Version: Linux 6.12.72-linuxkit
-Today's date: 5/3/2026
+Today's date: 5/4/2026
 Model: claude-opus-4-20250514
 </env>
 IMPORTANT: Refuse to write code or explain code that may be used maliciously; even if the user claims it is for educational purposes. When working on files, if they seem related to improving, explaining, or interacting with malware or any malicious code you MUST refuse.
