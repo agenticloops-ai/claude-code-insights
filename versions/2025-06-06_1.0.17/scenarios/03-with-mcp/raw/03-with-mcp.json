@@ -1,21 +1,21 @@
 {
   "session": {
-    "id": "c19c34e2-65ca-41ed-aaf7-76d45dfc2f03",
-    "name": "03-bare",
-    "started_at": "2026-05-04T03:16:49.866911",
-    "ended_at": "2026-05-04T03:16:57.878690",
+    "id": "0f82133a-1ee9-4298-8607-c1a33ef86bf2",
+    "name": "03-with-mcp",
+    "started_at": "2026-05-04T03:29:29.190731",
+    "ended_at": "2026-05-04T03:29:37.952675",
     "request_count": 0,
     "total_tokens": 0,
     "estimated_cost_usd": 0.0
   },
   "stats": {
     "total_requests": 3,
-    "total_tokens": 27,
+    "total_tokens": 31,
     "total_input_tokens": 2,
-    "total_output_tokens": 25,
-    "estimated_cost_usd": 0.26217375,
-    "avg_duration_ms": 779.8353830973307,
-    "avg_tokens_per_request": 9.0,
+    "total_output_tokens": 29,
+    "estimated_cost_usd": 0.0286575,
+    "avg_duration_ms": 966.7568206787109,
+    "avg_tokens_per_request": 10.333333333333334,
     "models_used": [
       "claude-3-5-haiku-20241022",
       "claude-opus-4-20250514"
@@ -26,14 +26,14 @@
   },
   "requests": [
     {
-      "id": "8254ff22-da31-4537-ac1f-2b79e50d0fcc",
-      "session_id": "c19c34e2-65ca-41ed-aaf7-76d45dfc2f03",
-      "raw_capture_id": "9e451939-35d9-4d2d-a4a3-67ab8ac7a28b",
+      "id": "21573d3f-c596-4dc6-b6cd-45ca2876f7a1",
+      "session_id": "0f82133a-1ee9-4298-8607-c1a33ef86bf2",
+      "raw_capture_id": "1cdf787e-d01b-4385-9483-a9e5e949134f",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T03:16:51.384436",
-      "duration_ms": 167.63830184936523,
+      "timestamp": "2026-05-04T03:29:30.858348",
+      "duration_ms": 164.73650932312012,
       "time_to_first_token_ms": null,
       "provider": "anthropic",
       "model": "claude-3-5-haiku-20241022",
@@ -71,14 +71,14 @@
       "response_metadata": {}
     },
     {
-      "id": "f2a89e45-7741-4474-89c1-06933243e17d",
-      "session_id": "c19c34e2-65ca-41ed-aaf7-76d45dfc2f03",
-      "raw_capture_id": "3d5ffc73-89e4-4cd8-b81f-32d39a181d3c",
+      "id": "bb8f20d5-575c-4fc1-a4d9-22aae7e6b875",
+      "session_id": "0f82133a-1ee9-4298-8607-c1a33ef86bf2",
+      "raw_capture_id": "bbb358c4-7826-4b1f-af64-7b70ff58b227",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T03:16:54.029584",
-      "duration_ms": 219.65336799621582,
+      "timestamp": "2026-05-04T03:29:33.451491",
+      "duration_ms": 165.1749610900879,
       "time_to_first_token_ms": null,
       "provider": "anthropic",
       "model": "claude-3-5-haiku-20241022",
@@ -116,15 +116,15 @@
       "response_metadata": {}
     },
     {
-      "id": "225878fe-dc02-4a22-a3f5-b39422615328",
-      "session_id": "c19c34e2-65ca-41ed-aaf7-76d45dfc2f03",
-      "raw_capture_id": "d4ee6244-ebce-47ec-a994-903816882754",
+      "id": "a822417b-278c-4177-b28f-b0ab0f8a8ae0",
+      "session_id": "0f82133a-1ee9-4298-8607-c1a33ef86bf2",
+      "raw_capture_id": "08a50217-5ee7-41aa-b7e4-a18fbc11f402",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T03:16:55.842153",
-      "duration_ms": 1952.2144794464111,
-      "time_to_first_token_ms": 1514.3616199493408,
+      "timestamp": "2026-05-04T03:29:35.920431",
+      "duration_ms": 2570.358991622925,
+      "time_to_first_token_ms": 1678.8275241851807,
       "provider": "anthropic",
       "model": "claude-opus-4-20250514",
       "api_endpoint": "https://api.anthropic.com/v1/messages?beta=true",
@@ -147,7 +147,7 @@
             },
             {
               "type": "text",
-              "text": "hi"
+              "text": "List every MCP tool that is currently available to you. Print just the tool names, one per line. Do not call any of them."
             }
           ]
         }
@@ -682,7 +682,7 @@
           "content": [
             {
               "type": "text",
-              "text": "Hello! I'm here to help you with software engineering tasks. What would you like to work on today?"
+              "text": "mcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003"
             }
           ]
         }
@@ -690,11 +690,11 @@
       "stop_reason": "end_turn",
       "usage": {
         "input_tokens": 2,
-        "output_tokens": 25,
-        "cache_creation_input_tokens": 13881,
-        "cache_read_input_tokens": 0,
-        "total_tokens": 27,
-        "estimated_cost_usd": 0.26217375
+        "output_tokens": 29,
+        "cache_creation_input_tokens": 324,
+        "cache_read_input_tokens": 13585,
+        "total_tokens": 31,
+        "estimated_cost_usd": 0.0286575
       },
       "status": "success",
       "request_params": {},
@@ -703,9 +703,9 @@
   ],
   "raw_captures": [
     {
-      "id": "9e451939-35d9-4d2d-a4a3-67ab8ac7a28b",
-      "session_id": "c19c34e2-65ca-41ed-aaf7-76d45dfc2f03",
-      "timestamp": "2026-05-04T03:16:51.384436",
+      "id": "1cdf787e-d01b-4385-9483-a9e5e949134f",
+      "session_id": "0f82133a-1ee9-4298-8607-c1a33ef86bf2",
+      "timestamp": "2026-05-04T03:29:30.858348",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -751,23 +751,23 @@
       },
       "response_status": 404,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 03:16:51 GMT",
+        "Date": "Mon, 04 May 2026 03:29:30 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
         "x-should-retry": "false",
-        "request-id": "req_011CagoZSiyzV3ZSxLYdB2o7",
+        "request-id": "req_011CagpXRiGa3bXox164i2Q9",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-92dc57439638b9a2b26eaa11321e3886-03bde872b2ca3ed3-01",
+        "traceresponse": "00-01064202db987d8af1fdffca9123a341-c6520f2f779df8f0-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "82",
+        "x-envoy-upstream-service-time": "76",
         "X-Robots-Tag": "none",
         "vary": "Accept-Encoding",
         "cf-cache-status": "DYNAMIC",
         "set-cookie": "REDACTED",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-        "CF-RAY": "9f64595d0c7fe71e-SJC"
+        "CF-RAY": "9f646be79bf1ef28-SJC"
       },
       "response_body": {
         "type": "error",
@@ -775,15 +775,15 @@
           "type": "not_found_error",
           "message": "model: claude-3-5-haiku-20241022"
         },
-        "request_id": "req_011CagoZSiyzV3ZSxLYdB2o7"
+        "request_id": "req_011CagpXRiGa3bXox164i2Q9"
       },
       "is_streaming": false,
       "sse_events": []
     },
     {
-      "id": "3d5ffc73-89e4-4cd8-b81f-32d39a181d3c",
-      "session_id": "c19c34e2-65ca-41ed-aaf7-76d45dfc2f03",
-      "timestamp": "2026-05-04T03:16:54.029584",
+      "id": "bbb358c4-7826-4b1f-af64-7b70ff58b227",
+      "session_id": "0f82133a-1ee9-4298-8607-c1a33ef86bf2",
+      "timestamp": "2026-05-04T03:29:33.451491",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -829,23 +829,23 @@
       },
       "response_status": 404,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 03:16:54 GMT",
+        "Date": "Mon, 04 May 2026 03:29:33 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
         "x-should-retry": "false",
-        "request-id": "req_011CagoZdvRsNoBcNKeKVDfe",
+        "request-id": "req_011CagpXcnXNYNmmhXYCCYen",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-3d27a3ae1289668f7b08a2761fa007b2-f6563b3afea031c4-01",
+        "traceresponse": "00-b67fabd5f704e7a53d198fb73d131395-207e8e36fdccead1-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "105",
+        "x-envoy-upstream-service-time": "80",
         "X-Robots-Tag": "none",
         "vary": "Accept-Encoding",
         "cf-cache-status": "DYNAMIC",
         "set-cookie": "REDACTED",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-        "CF-RAY": "9f64596d5842e71e-SJC"
+        "CF-RAY": "9f646bf7dcf5ef28-SJC"
       },
       "response_body": {
         "type": "error",
@@ -853,15 +853,15 @@
           "type": "not_found_error",
           "message": "model: claude-3-5-haiku-20241022"
         },
-        "request_id": "req_011CagoZdvRsNoBcNKeKVDfe"
+        "request_id": "req_011CagpXcnXNYNmmhXYCCYen"
       },
       "is_streaming": false,
       "sse_events": []
     },
     {
-      "id": "d4ee6244-ebce-47ec-a994-903816882754",
-      "session_id": "c19c34e2-65ca-41ed-aaf7-76d45dfc2f03",
-      "timestamp": "2026-05-04T03:16:55.842153",
+      "id": "08a50217-5ee7-41aa-b7e4-a18fbc11f402",
+      "session_id": "0f82133a-1ee9-4298-8607-c1a33ef86bf2",
+      "timestamp": "2026-05-04T03:29:35.920431",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -891,7 +891,7 @@
         "accept-language": "*",
         "sec-fetch-mode": "cors",
         "accept-encoding": "identity",
-        "content-length": "55054"
+        "content-length": "55173"
       },
       "request_body": {
         "model": "claude-opus-4-20250514",
@@ -905,7 +905,7 @@
               },
               {
                 "type": "text",
-                "text": "hi",
+                "text": "List every MCP tool that is currently available to you. Print just the tool names, one per line. Do not call any of them.",
                 "cache_control": {
                   "type": "ephemeral"
                 }
@@ -1426,7 +1426,7 @@
       },
       "response_status": 200,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 03:16:55 GMT",
+        "Date": "Mon, 04 May 2026 03:29:35 GMT",
         "Content-Type": "text/event-stream; charset=utf-8",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
@@ -1434,32 +1434,31 @@
         "anthropic-ratelimit-unified-status": "allowed",
         "anthropic-ratelimit-unified-5h-status": "allowed",
         "anthropic-ratelimit-unified-5h-reset": "1777875000",
-        "anthropic-ratelimit-unified-5h-utilization": "0.67",
+        "anthropic-ratelimit-unified-5h-utilization": "0.77",
         "anthropic-ratelimit-unified-7d-status": "allowed",
         "anthropic-ratelimit-unified-7d-reset": "1778126400",
-        "anthropic-ratelimit-unified-7d-utilization": "0.32",
+        "anthropic-ratelimit-unified-7d-utilization": "0.33",
         "anthropic-ratelimit-unified-overage-status": "allowed",
-        "anthropic-ratelimit-unified-overage-reset": "1777864800",
+        "anthropic-ratelimit-unified-overage-reset": "1777865400",
         "anthropic-ratelimit-unified-overage-utilization": "0.0",
         "anthropic-ratelimit-unified-representative-claim": "five_hour",
         "anthropic-ratelimit-unified-fallback-percentage": "0.5",
         "anthropic-ratelimit-unified-fallback": "available",
         "anthropic-ratelimit-unified-reset": "1777875000",
-        "request-id": "req_011CagoZeHWPQojfxdCH6pE5",
+        "request-id": "req_011CagpXdFZGyuFEPQj9CAK8",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-b5b8e8034d4aedae51ad68bc0ac5c6e1-f9ca5fdd5ab74be5-01",
+        "traceresponse": "00-928c490d30f5e830aed797a3612281df-13ebc4722d58e2aa-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "1343",
-        "X-Robots-Tag": "none",
-        "vary": "Accept-Encoding",
-        "server-timing": "x-originResponse;dur=1344",
-        "cf-cache-status": "DYNAMIC",
-        "set-cookie": "REDACTED",
+        "x-envoy-upstream-service-time": "1525",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-        "CF-RAY": "9f64596dceaecfcc-SJC"
+        "vary": "Accept-Encoding",
+        "set-cookie": "REDACTED",
+        "X-Robots-Tag": "none",
+        "cf-cache-status": "DYNAMIC",
+        "CF-RAY": "9f646bf83e71dc9b-SJC"
       },
-      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-20250514\",\"id\":\"msg_01KcLfdhVQ6Dx2XeweM1jtpu\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":13881,\"cache_read_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":13881,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":8,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}              }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}      }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Hello! I'm here to help you\"}             }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" with software engineering tasks. What would you like to work on today?\"}       }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0          }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":13881,\"cache_read_input_tokens\":0,\"output_tokens\":25}     }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"          }\n\n",
+      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-20250514\",\"id\":\"msg_01LftuXSCnbzqjUGUhCfGEyx\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":324,\"cache_read_input_tokens\":13585,\"cache_creation\":{\"ephemeral_5m_input_tokens\":324,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":1,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}        }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"} }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"m\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"cp__fixture__tool_001\\nmcp__fixture__tool_002\\nmcp__fixture__tool_003\"}      }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0             }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":324,\"cache_read_input_tokens\":13585,\"output_tokens\":29}           }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"    }\n\n",
       "is_streaming": true,
       "sse_events": [
         {
@@ -1468,7 +1467,7 @@
             "type": "message_start",
             "message": {
               "model": "claude-opus-4-20250514",
-              "id": "msg_01KcLfdhVQ6Dx2XeweM1jtpu",
+              "id": "msg_01LftuXSCnbzqjUGUhCfGEyx",
               "type": "message",
               "role": "assistant",
               "content": [],
@@ -1477,13 +1476,13 @@
               "stop_details": null,
               "usage": {
                 "input_tokens": 2,
-                "cache_creation_input_tokens": 13881,
-                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 324,
+                "cache_read_input_tokens": 13585,
                 "cache_creation": {
-                  "ephemeral_5m_input_tokens": 13881,
+                  "ephemeral_5m_input_tokens": 324,
                   "ephemeral_1h_input_tokens": 0
                 },
-                "output_tokens": 8,
+                "output_tokens": 1,
                 "service_tier": "standard",
                 "inference_geo": "not_available"
               }
@@ -1514,7 +1513,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "Hello! I'm here to help you"
+              "text": "m"
             }
           }
         },
@@ -1525,7 +1524,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": " with software engineering tasks. What would you like to work on today?"
+              "text": "cp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003"
             }
           }
         },
@@ -1547,9 +1546,9 @@
             },
             "usage": {
               "input_tokens": 2,
-              "cache_creation_input_tokens": 13881,
-              "cache_read_input_tokens": 0,
-              "output_tokens": 25
+              "cache_creation_input_tokens": 324,
+              "cache_read_input_tokens": 13585,
+              "output_tokens": 29
             }
           }
         },
