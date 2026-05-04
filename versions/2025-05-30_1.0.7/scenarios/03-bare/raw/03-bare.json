@@ -1,9 +1,9 @@
 {
   "session": {
-    "id": "5bd16aa3-9656-4cfd-95a7-3c5b01135b91",
+    "id": "1e6c8427-267e-4e88-9b44-71ee09302ad1",
     "name": "03-bare",
-    "started_at": "2026-05-04T02:18:17.767246",
-    "ended_at": "2026-05-04T02:18:25.780097",
+    "started_at": "2026-05-04T02:58:41.553541",
+    "ended_at": "2026-05-04T02:58:49.514959",
     "request_count": 0,
     "total_tokens": 0,
     "estimated_cost_usd": 0.0
@@ -14,7 +14,7 @@
     "total_input_tokens": 2,
     "total_output_tokens": 12,
     "estimated_cost_usd": 0.25966125,
-    "avg_duration_ms": 834.0494632720947,
+    "avg_duration_ms": 729.3224334716797,
     "avg_tokens_per_request": 4.666666666666667,
     "models_used": [
       "claude-3-5-haiku-20241022",
@@ -26,14 +26,14 @@
   },
   "requests": [
     {
-      "id": "f285a111-9f11-4205-988b-4af152907007",
-      "session_id": "5bd16aa3-9656-4cfd-95a7-3c5b01135b91",
-      "raw_capture_id": "d0ade1f2-665d-4b9e-9ef6-1e0b29f03241",
+      "id": "ef670262-47d4-4f87-a3f8-4c427c490624",
+      "session_id": "1e6c8427-267e-4e88-9b44-71ee09302ad1",
+      "raw_capture_id": "94de891b-58bd-4495-8c22-86ea09787ff2",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T02:18:19.152770",
-      "duration_ms": 171.86450958251953,
+      "timestamp": "2026-05-04T02:58:43.095353",
+      "duration_ms": 117.97499656677246,
       "time_to_first_token_ms": null,
       "provider": "anthropic",
       "model": "claude-3-5-haiku-20241022",
@@ -71,14 +71,14 @@
       "response_metadata": {}
     },
     {
-      "id": "2bf6e628-4e44-4305-a3bf-faee31177cab",
-      "session_id": "5bd16aa3-9656-4cfd-95a7-3c5b01135b91",
-      "raw_capture_id": "84851bbd-ea67-404d-9d98-50a782a888e5",
+      "id": "bc049ba4-14b7-4cda-9584-267142408c5c",
+      "session_id": "1e6c8427-267e-4e88-9b44-71ee09302ad1",
+      "raw_capture_id": "d51b594b-0bcb-4650-9c12-10eae8da3369",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T02:18:21.674179",
-      "duration_ms": 169.05641555786133,
+      "timestamp": "2026-05-04T02:58:45.697970",
+      "duration_ms": 173.38991165161133,
       "time_to_first_token_ms": null,
       "provider": "anthropic",
       "model": "claude-3-5-haiku-20241022",
@@ -116,15 +116,15 @@
       "response_metadata": {}
     },
     {
-      "id": "aef81cd7-f529-4213-b5c2-ff44cc22ea81",
-      "session_id": "5bd16aa3-9656-4cfd-95a7-3c5b01135b91",
-      "raw_capture_id": "6130560a-1c5d-4719-9c32-b106338d3887",
+      "id": "1ab549ca-76c5-4d38-83bd-cc97c52118bf",
+      "session_id": "1e6c8427-267e-4e88-9b44-71ee09302ad1",
+      "raw_capture_id": "84ea2319-dfd7-4b68-811f-a029b53f8459",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T02:18:23.745335",
-      "duration_ms": 2161.2274646759033,
-      "time_to_first_token_ms": 1753.0782222747803,
+      "timestamp": "2026-05-04T02:58:47.479266",
+      "duration_ms": 1896.6023921966553,
+      "time_to_first_token_ms": 1583.5633277893066,
       "provider": "anthropic",
       "model": "claude-opus-4-20250514",
       "api_endpoint": "https://api.anthropic.com/v1/messages?beta=true",
@@ -682,7 +682,7 @@
           "content": [
             {
               "type": "text",
-              "text": "Hello! How can I help you today?"
+              "text": "Hi! How can I help you today?"
             }
           ]
         }
@@ -703,9 +703,9 @@
   ],
   "raw_captures": [
     {
-      "id": "d0ade1f2-665d-4b9e-9ef6-1e0b29f03241",
-      "session_id": "5bd16aa3-9656-4cfd-95a7-3c5b01135b91",
-      "timestamp": "2026-05-04T02:18:19.152770",
+      "id": "94de891b-58bd-4495-8c22-86ea09787ff2",
+      "session_id": "1e6c8427-267e-4e88-9b44-71ee09302ad1",
+      "timestamp": "2026-05-04T02:58:43.095353",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -751,23 +751,24 @@
       },
       "response_status": 404,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 02:18:19 GMT",
+        "Date": "Mon, 04 May 2026 02:58:43 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
         "x-should-retry": "false",
-        "request-id": "req_011Cagj6YY1XAdedwkcG13L9",
+        "request-id": "req_011CagnBE4Fii9cNqhQGVeda",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-2fe321b11987de7e7e0569334c4dc7e1-4ff7542e849e7b30-01",
+        "traceresponse": "00-8d164e6177c6bda67e261dc39b60a5ee-77a7cf161c125c80-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "80",
-        "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-        "vary": "Accept-Encoding",
-        "set-cookie": "REDACTED",
+        "x-envoy-upstream-service-time": "29",
         "X-Robots-Tag": "none",
+        "vary": "Accept-Encoding",
+        "server-timing": "x-originResponse;dur=31",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "9f64039db87dad84-SJC"
+        "set-cookie": "REDACTED",
+        "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
+        "CF-RAY": "9f643ecbac7eb917-SJC"
       },
       "response_body": {
         "type": "error",
@@ -775,15 +776,15 @@
           "type": "not_found_error",
           "message": "model: claude-3-5-haiku-20241022"
         },
-        "request_id": "req_011Cagj6YY1XAdedwkcG13L9"
+        "request_id": "req_011CagnBE4Fii9cNqhQGVeda"
       },
       "is_streaming": false,
       "sse_events": []
     },
     {
-      "id": "84851bbd-ea67-404d-9d98-50a782a888e5",
-      "session_id": "5bd16aa3-9656-4cfd-95a7-3c5b01135b91",
-      "timestamp": "2026-05-04T02:18:21.674179",
+      "id": "d51b594b-0bcb-4650-9c12-10eae8da3369",
+      "session_id": "1e6c8427-267e-4e88-9b44-71ee09302ad1",
+      "timestamp": "2026-05-04T02:58:45.697970",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -829,23 +830,23 @@
       },
       "response_status": 404,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 02:18:21 GMT",
+        "Date": "Mon, 04 May 2026 02:58:45 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
         "x-should-retry": "false",
-        "request-id": "req_011Cagj6jKQa6F5iwZBRvosL",
+        "request-id": "req_011CagnBR1ZcTZo5DRzugeHQ",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-d8003d368f6ac9e8275460ecc389a6b2-544cf35cdc70e4b8-01",
+        "traceresponse": "00-3eea4f4e75fa5c160d5ee99f7598a6b0-d6bc5d35139a748d-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "81",
+        "x-envoy-upstream-service-time": "89",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
         "vary": "Accept-Encoding",
         "set-cookie": "REDACTED",
         "X-Robots-Tag": "none",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "9f6403ad8c20ad84-SJC"
+        "CF-RAY": "9f643edb9a0cb917-SJC"
       },
       "response_body": {
         "type": "error",
@@ -853,15 +854,15 @@
           "type": "not_found_error",
           "message": "model: claude-3-5-haiku-20241022"
         },
-        "request_id": "req_011Cagj6jKQa6F5iwZBRvosL"
+        "request_id": "req_011CagnBR1ZcTZo5DRzugeHQ"
       },
       "is_streaming": false,
       "sse_events": []
     },
     {
-      "id": "6130560a-1c5d-4719-9c32-b106338d3887",
-      "session_id": "5bd16aa3-9656-4cfd-95a7-3c5b01135b91",
-      "timestamp": "2026-05-04T02:18:23.745335",
+      "id": "84ea2319-dfd7-4b68-811f-a029b53f8459",
+      "session_id": "1e6c8427-267e-4e88-9b44-71ee09302ad1",
+      "timestamp": "2026-05-04T02:58:47.479266",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -1426,7 +1427,7 @@
       },
       "response_status": 200,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 02:18:23 GMT",
+        "Date": "Mon, 04 May 2026 02:58:47 GMT",
         "Content-Type": "text/event-stream; charset=utf-8",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
@@ -1434,30 +1435,31 @@
         "anthropic-ratelimit-unified-status": "allowed",
         "anthropic-ratelimit-unified-5h-status": "allowed",
         "anthropic-ratelimit-unified-5h-reset": "1777875000",
-        "anthropic-ratelimit-unified-5h-utilization": "0.28",
+        "anthropic-ratelimit-unified-5h-utilization": "0.53",
         "anthropic-ratelimit-unified-7d-status": "allowed",
         "anthropic-ratelimit-unified-7d-reset": "1778126400",
-        "anthropic-ratelimit-unified-7d-utilization": "0.29",
+        "anthropic-ratelimit-unified-7d-utilization": "0.31",
         "anthropic-ratelimit-unified-overage-status": "allowed",
-        "anthropic-ratelimit-unified-overage-reset": "1777861200",
+        "anthropic-ratelimit-unified-overage-reset": "1777863600",
         "anthropic-ratelimit-unified-overage-utilization": "0.0",
         "anthropic-ratelimit-unified-representative-claim": "five_hour",
         "anthropic-ratelimit-unified-fallback-percentage": "0.5",
+        "anthropic-ratelimit-unified-fallback": "available",
         "anthropic-ratelimit-unified-reset": "1777875000",
-        "request-id": "req_011Cagj6jqQevirqxa2HyMjo",
+        "request-id": "req_011CagnBRRsKS5bEai1NNbz6",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-7d31f7045d666c35db0bf1f1555a77e1-94fbd1b7822c32d3-01",
+        "traceresponse": "00-6f2531dffd5e8e181d259e194e2e8a2f-13744583b0648866-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "1533",
-        "X-Robots-Tag": "none",
-        "vary": "Accept-Encoding",
-        "cf-cache-status": "DYNAMIC",
-        "set-cookie": "REDACTED",
+        "x-envoy-upstream-service-time": "1383",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-        "CF-RAY": "9f6403ae0d21f457-SJC"
+        "vary": "Accept-Encoding",
+        "set-cookie": "REDACTED",
+        "X-Robots-Tag": "none",
+        "cf-cache-status": "DYNAMIC",
+        "CF-RAY": "9f643edbf8c4f31f-SJC"
       },
-      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-20250514\",\"id\":\"msg_013qvfaiPMcbb1RKtMs5KQjf\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":13799,\"cache_read_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":13799,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":1,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}} }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}     }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Hello\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"! How can I help you today?\"}              }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0            }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":13799,\"cache_read_input_tokens\":0,\"output_tokens\":12}   }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"        }\n\n",
+      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-20250514\",\"id\":\"msg_01Uyu9h726nfLc7J2hPkqKck\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":13799,\"cache_read_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":13799,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":2,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}          }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}         }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Hi!\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" How can I help you today?\"}  }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0     }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":13799,\"cache_read_input_tokens\":0,\"output_tokens\":12}}\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"      }\n\n",
       "is_streaming": true,
       "sse_events": [
         {
@@ -1466,7 +1468,7 @@
             "type": "message_start",
             "message": {
               "model": "claude-opus-4-20250514",
-              "id": "msg_013qvfaiPMcbb1RKtMs5KQjf",
+              "id": "msg_01Uyu9h726nfLc7J2hPkqKck",
               "type": "message",
               "role": "assistant",
               "content": [],
@@ -1481,7 +1483,7 @@
                   "ephemeral_5m_input_tokens": 13799,
                   "ephemeral_1h_input_tokens": 0
                 },
-                "output_tokens": 1,
+                "output_tokens": 2,
                 "service_tier": "standard",
                 "inference_geo": "not_available"
               }
@@ -1512,7 +1514,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "Hello"
+              "text": "Hi!"
             }
           }
         },
@@ -1523,7 +1525,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "! How can I help you today?"
+              "text": " How can I help you today?"
             }
           }
         },

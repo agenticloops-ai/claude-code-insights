@@ -1,19 +1,19 @@
 timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
-2026-05-04T02:18:30.845727,anthropic,claude-3-5-haiku-20241022,129.34136390686035,,success,,0,0,0,,False,False,False,quota
-2026-05-04T02:18:33.517471,anthropic,claude-3-5-haiku-20241022,162.20903396606445,,success,,0,0,0,,False,False,False,quota
-2026-05-04T02:19:04.405716,anthropic,claude-opus-4-20250514,30951.656103134155,1525.7947444915771,success,tool_use,2,1768,1770,0.159147,True,True,False,"<system-reminder>
+2026-05-04T02:58:55.157677,anthropic,claude-3-5-haiku-20241022,486.74631118774414,,success,,0,0,0,,False,False,False,quota
+2026-05-04T02:58:57.479242,anthropic,claude-3-5-haiku-20241022,262.6783847808838,,success,,0,0,0,,False,False,False,quota
+2026-05-04T02:59:28.985654,anthropic,claude-opus-4-20250514,31686.352491378784,1564.868450164795,success,tool_use,2,1861,1863,0.166122,True,True,False,"<system-reminder>
 As you answer the user's questions, you can use the following context:
 # important-instruction-reminders
 Do what has been asked; nothing more, nothing less.
 NEVER create files unless"
-2026-05-04T02:19:04.836593,anthropic,claude-3-5-haiku-20241022,248.81315231323242,,success,,0,0,0,,False,False,False,quota
-2026-05-04T02:19:31.132728,anthropic,claude-opus-4-20250514,26525.821685791016,1552.5574684143066,success,tool_use,6,1762,1768,0.220458,True,True,False,"<system-reminder>
+2026-05-04T02:59:29.326795,anthropic,claude-3-5-haiku-20241022,127.2118091583252,,success,,0,0,0,,False,False,False,quota
+2026-05-04T02:59:57.702009,anthropic,claude-opus-4-20250514,28480.693101882935,1987.450361251831,success,tool_use,6,1846,1852,0.2302455,True,True,False,"<system-reminder>
 As you answer the user's questions, you can use the following context:
 # important-instruction-reminders
 Do what has been asked; nothing more, nothing less.
 NEVER create files unless"
-2026-05-04T02:19:31.810461,anthropic,claude-3-5-haiku-20241022,172.30558395385742,,success,,0,0,0,,False,False,False,quota
-2026-05-04T02:19:36.701623,anthropic,claude-opus-4-20250514,5209.655046463013,1785.8161926269531,success,end_turn,6,97,103,0.0671925,True,True,False,"<system-reminder>
+2026-05-04T02:59:57.945403,anthropic,claude-3-5-haiku-20241022,121.92702293395996,,success,,0,0,0,,False,False,False,quota
+2026-05-04T03:00:05.710653,anthropic,claude-opus-4-20250514,7873.5105991363525,1729.980230331421,success,end_turn,6,229,235,0.0789465,True,True,False,"<system-reminder>
 As you answer the user's questions, you can use the following context:
 # important-instruction-reminders
 Do what has been asked; nothing more, nothing less.
