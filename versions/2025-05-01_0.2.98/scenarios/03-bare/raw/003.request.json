@@ -1,0 +1,41 @@
+{
+  "index": 3,
+  "request_id": "3322ed67-2e1d-4c76-8631-5a7266025dd0",
+  "session_id": "4dfbde42-9cb8-4076-b9f0-5e8a27be705a",
+  "timestamp": "2026-05-04T02:01:59.601139",
+  "provider": "anthropic",
+  "method": "POST",
+  "url": "https://api.anthropic.com/v1/messages?beta=true",
+  "headers": {
+    "content-length": "141",
+    "accept": "application/json",
+    "content-type": "application/json",
+    "user-agent": "claude-cli/0.2.98 (external)",
+    "x-stainless-lang": "js",
+    "x-stainless-package-version": "0.40.1",
+    "x-stainless-os": "Linux",
+    "x-stainless-arch": "x64",
+    "x-stainless-runtime": "node",
+    "x-stainless-runtime-version": "v20.20.2",
+    "authorization": "REDACTED",
+    "anthropic-dangerous-direct-browser-access": "true",
+    "anthropic-version": "2023-06-01",
+    "x-app": "cli",
+    "anthropic-beta": "oauth-2025-04-20",
+    "x-stainless-retry-count": "0",
+    "x-stainless-timeout": "60",
+    "Accept-Encoding": "identity",
+    "Host": "api.anthropic.com",
+    "Connection": "close"
+  },
+  "body": {
+    "model": "claude-3-5-haiku-20241022",
+    "max_tokens": 1,
+    "messages": [
+      {
+        "role": "user",
+        "content": "quota"
+      }
+    ]
+  }
+}

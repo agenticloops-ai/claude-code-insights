@@ -1,0 +1,12 @@
+timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
+2026-05-04T02:02:22.618348,anthropic,claude-3-5-haiku-20241022,168.57218742370605,166.48483276367188,success,,0,0,0,,True,False,False,"Please write a 5-10 word title the following conversation:
+
+User: Implement minimal agentic loop in Python using Anthropic API with a run bash tool and human confirmation before executing scripts. Imp"
+2026-05-04T02:02:22.672905,anthropic,claude-3-5-haiku-20241022,162.37950325012207,,success,,0,0,0,,False,False,False,quota
+2026-05-04T02:02:22.715710,anthropic,claude-3-7-sonnet-20250219,201.0362148284912,199.0060806274414,success,,0,0,0,,True,True,False,"List every MCP tool that is currently available to you. Print just the tool names, one per line. Do not call any of them."
+2026-05-04T02:02:22.895384,anthropic,claude-3-5-haiku-20241022,174.18622970581055,172.72663116455078,success,,0,0,0,,True,False,False,"Please write a 5-10 word title the following conversation:
+
+User: List every MCP tool that is currently available to you. Print just the tool names, one per line. Do not call any of them.
+
+Claude: API"
+2026-05-04T02:02:23.008004,anthropic,claude-3-7-sonnet-20250219,226.0758876800537,,success,,0,0,0,,False,True,False,"List every MCP tool that is currently available to you. Print just the tool names, one per line. Do not call any of them."
