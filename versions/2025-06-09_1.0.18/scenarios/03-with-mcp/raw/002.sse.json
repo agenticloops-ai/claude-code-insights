@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-20250514",
-        "id": "msg_01APn2phK19UGFF2bof6mBQH",
+        "id": "msg_01Y6pkyXxbgeNtN3tNtUojbL",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,13 +14,13 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 2,
-          "cache_creation_input_tokens": 13845,
-          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 324,
+          "cache_read_input_tokens": 13549,
           "cache_creation": {
-            "ephemeral_5m_input_tokens": 13845,
+            "ephemeral_5m_input_tokens": 324,
             "ephemeral_1h_input_tokens": 0
           },
-          "output_tokens": 2,
+          "output_tokens": 1,
           "service_tier": "standard",
           "inference_geo": "not_available"
         }
@@ -51,7 +51,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "Hi!"
+        "text": "Task"
       }
     }
   },
@@ -62,7 +62,40 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": " How can I help you with your coding project today?"
+        "text": "\nBash\nGlob\nGrep\nLS\nRead\nEdit\nMultiEdit\nWrite"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": "\nNotebookRead\nNotebookEdit\nWebFetch\nTodo"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": "Read\nTodoWrite\nWebSearch\nmcp__fixture__"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": "tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003"
       }
     }
   },
@@ -84,9 +117,9 @@
       },
       "usage": {
         "input_tokens": 2,
-        "cache_creation_input_tokens": 13845,
-        "cache_read_input_tokens": 0,
-        "output_tokens": 16
+        "cache_creation_input_tokens": 324,
+        "cache_read_input_tokens": 13549,
+        "output_tokens": 75
       }
     }
   },
