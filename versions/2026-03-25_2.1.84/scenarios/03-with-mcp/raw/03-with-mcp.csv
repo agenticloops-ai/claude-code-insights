@@ -1,0 +1,15 @@
+timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
+2026-05-04T09:34:06.179604,anthropic,claude-opus-4-6,15277.96220779419,2966.4323329925537,success,end_turn,3,1544,1547,0.2533005,True,True,True,"<available-deferred-tools>
+AskUserQuestion
+CronCreate
+CronDelete
+CronList
+EnterPlanMode
+EnterWorktree
+ExitPlanMode
+ExitWorktree
+ListMcpResourcesTool
+NotebookEdit
+ReadMcpResourceTool
+RemoteTrigger
+Task"

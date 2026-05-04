@@ -1,0 +1,20 @@
+[
+  {
+    "index": 1,
+    "model": "claude-opus-4-6",
+    "duration_ms": 2338.9980792999268,
+    "tool_count": 9,
+    "stop_reason": "tool_use",
+    "input_tokens": 3,
+    "output_tokens": 55
+  },
+  {
+    "index": 2,
+    "model": "claude-opus-4-6",
+    "duration_ms": 2092.5426483154297,
+    "tool_count": 9,
+    "stop_reason": "end_turn",
+    "input_tokens": 2,
+    "output_tokens": 12
+  }
+]
