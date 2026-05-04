@@ -1,0 +1,26 @@
+{
+  "version": "2.1.89",
+  "dir_name": "2026-03-31_2.1.89",
+  "scenario": "04-with-skill",
+  "captured_at": "2026-05-04T09:42:41.161716",
+  "request_count": 2,
+  "models": [
+    "claude-opus-4-6"
+  ],
+  "tool_count_first_request": 9,
+  "deferred_tool_count": 0,
+  "mcp_tool_count_advertised": 0,
+  "mcp_tool_count_deferred": 0,
+  "system_prompt_chars": 29258,
+  "user_prompt_chars": 3601,
+  "skill_count": 6,
+  "reminder_count": 2,
+  "tokens": {
+    "input": 5,
+    "output": 66,
+    "cache_read": 28753,
+    "cache_creation": 6659,
+    "total": 71
+  },
+  "duration_ms_total": 4469
+}
