@@ -1,0 +1,67 @@
+{
+  "index": 1,
+  "request_id": "4450c5f0-2383-41bb-8358-136de6f46a65",
+  "status": 200,
+  "headers": {
+    "Date": "Mon, 04 May 2026 07:50:03 GMT",
+    "Content-Type": "application/json",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "anthropic-ratelimit-unified-status": "allowed",
+    "anthropic-ratelimit-unified-5h-status": "allowed",
+    "anthropic-ratelimit-unified-5h-reset": "1777893000",
+    "anthropic-ratelimit-unified-5h-utilization": "0.34",
+    "anthropic-ratelimit-unified-7d-status": "allowed",
+    "anthropic-ratelimit-unified-7d-reset": "1778126400",
+    "anthropic-ratelimit-unified-7d-utilization": "0.37",
+    "anthropic-ratelimit-unified-overage-status": "allowed",
+    "anthropic-ratelimit-unified-overage-reset": "1780272000",
+    "anthropic-ratelimit-unified-overage-utilization": "0.0",
+    "anthropic-ratelimit-unified-representative-claim": "five_hour",
+    "anthropic-ratelimit-unified-fallback-percentage": "0.5",
+    "anthropic-ratelimit-unified-reset": "1777893000",
+    "request-id": "req_011CahAPiHHNXkShy9QfMwkY",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
+    "traceresponse": "00-f13cb9b62065b64fdc27f856742efdb9-75c8fce5edd854b7-01",
+    "Server": "cloudflare",
+    "x-envoy-upstream-service-time": "737",
+    "X-Robots-Tag": "none",
+    "vary": "Accept-Encoding",
+    "cf-cache-status": "DYNAMIC",
+    "set-cookie": "REDACTED",
+    "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
+    "CF-RAY": "9f65e98a0d6503c2-SJC"
+  },
+  "is_streaming": false,
+  "body": {
+    "model": "claude-haiku-4-5-20251001",
+    "id": "msg_015aiALDBky1F5zsQaJ3xjun",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "#"
+      }
+    ],
+    "stop_reason": "max_tokens",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 8,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 1,
+      "service_tier": "standard",
+      "inference_geo": "not_available"
+    },
+    "context_management": {
+      "applied_edits": []
+    }
+  }
+}
