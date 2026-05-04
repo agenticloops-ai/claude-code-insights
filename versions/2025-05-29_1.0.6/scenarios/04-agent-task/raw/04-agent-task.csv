@@ -1,0 +1,26 @@
+timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
+2026-05-04T02:15:22.407467,anthropic,claude-3-5-haiku-20241022,136.1844539642334,,success,,0,0,0,,False,False,False,quota
+2026-05-04T02:15:24.944131,anthropic,claude-3-5-haiku-20241022,191.86925888061523,,success,,0,0,0,,False,False,False,quota
+2026-05-04T02:15:50.969863,anthropic,claude-opus-4-20250514,26140.095949172974,3686.654567718506,success,tool_use,2,1375,1377,0.12936,True,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless"
+2026-05-04T02:15:51.307817,anthropic,claude-3-5-haiku-20241022,172.1189022064209,,success,,0,0,0,,False,False,False,quota
+2026-05-04T02:16:09.892828,anthropic,claude-opus-4-20250514,18698.19188117981,1633.6479187011719,success,tool_use,6,1367,1373,0.1757835,True,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless"
+2026-05-04T02:16:10.154134,anthropic,claude-3-5-haiku-20241022,151.11088752746582,,success,,0,0,0,,False,False,False,quota
+2026-05-04T02:16:31.198998,anthropic,claude-opus-4-20250514,21197.314023971558,1618.753433227539,success,tool_use,6,1421,1427,0.15759525,True,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless"
+2026-05-04T02:16:31.502889,anthropic,claude-3-5-haiku-20241022,163.28191757202148,,success,,0,0,0,,False,False,False,quota
+2026-05-04T02:16:36.949203,anthropic,claude-opus-4-20250514,5618.711948394775,1585.0505828857422,success,end_turn,6,131,137,0.063978,True,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless"
