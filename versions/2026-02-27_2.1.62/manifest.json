@@ -1,0 +1,102 @@
+{
+  "version": "2.1.62",
+  "dir_name": "2026-02-27_2.1.62",
+  "baseline_scenario": "02-bare",
+  "baseline": {
+    "models": [
+      "claude-opus-4-6"
+    ],
+    "tool_count": 21,
+    "deferred_tool_count": 0,
+    "mcp_tool_count_advertised": 0,
+    "mcp_tool_count_deferred": 0,
+    "system_prompt_chars": 18738,
+    "reminder_count": 2
+  },
+  "scenarios": {
+    "01-cli-help": {
+      "mode": "local",
+      "output_chars": 7436,
+      "output_lines": 65,
+      "exit_code": 0
+    },
+    "02-bare": {
+      "version": "2.1.62",
+      "dir_name": "2026-02-27_2.1.62",
+      "scenario": "02-bare",
+      "captured_at": "2026-05-04T08:52:42.700195",
+      "request_count": 1,
+      "models": [
+        "claude-opus-4-6"
+      ],
+      "tool_count_first_request": 21,
+      "deferred_tool_count": 0,
+      "mcp_tool_count_advertised": 0,
+      "mcp_tool_count_deferred": 0,
+      "system_prompt_chars": 18738,
+      "user_prompt_chars": 2028,
+      "skill_count": 2,
+      "reminder_count": 2,
+      "tokens": {
+        "input": 3,
+        "output": 13,
+        "cache_read": 0,
+        "cache_creation": 24058,
+        "total": 16
+      },
+      "duration_ms_total": 2040
+    },
+    "03-with-mcp": {
+      "version": "2.1.62",
+      "dir_name": "2026-02-27_2.1.62",
+      "scenario": "03-with-mcp",
+      "captured_at": "2026-05-04T08:53:19.569453",
+      "request_count": 1,
+      "models": [
+        "claude-opus-4-6"
+      ],
+      "tool_count_first_request": 21,
+      "deferred_tool_count": 0,
+      "mcp_tool_count_advertised": 0,
+      "mcp_tool_count_deferred": 0,
+      "system_prompt_chars": 18738,
+      "user_prompt_chars": 2028,
+      "skill_count": 2,
+      "reminder_count": 2,
+      "tokens": {
+        "input": 3,
+        "output": 1554,
+        "cache_read": 0,
+        "cache_creation": 24060,
+        "total": 1557
+      },
+      "duration_ms_total": 22189
+    },
+    "04-with-skill": {
+      "version": "2.1.62",
+      "dir_name": "2026-02-27_2.1.62",
+      "scenario": "04-with-skill",
+      "captured_at": "2026-05-04T08:53:57.942376",
+      "request_count": 2,
+      "models": [
+        "claude-opus-4-6"
+      ],
+      "tool_count_first_request": 21,
+      "deferred_tool_count": 0,
+      "mcp_tool_count_advertised": 0,
+      "mcp_tool_count_deferred": 0,
+      "system_prompt_chars": 18738,
+      "user_prompt_chars": 2028,
+      "skill_count": 2,
+      "reminder_count": 2,
+      "tokens": {
+        "input": 5,
+        "output": 66,
+        "cache_read": 24046,
+        "cache_creation": 24186,
+        "total": 71
+      },
+      "duration_ms_total": 24034
+    }
+  }
+}
