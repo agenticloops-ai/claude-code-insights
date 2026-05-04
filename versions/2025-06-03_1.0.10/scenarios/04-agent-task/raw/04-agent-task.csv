@@ -1,0 +1,26 @@
+timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
+2026-05-04T03:04:19.019587,anthropic,claude-3-5-haiku-20241022,181.22124671936035,,success,,0,0,0,,False,False,False,quota
+2026-05-04T03:04:21.506234,anthropic,claude-3-5-haiku-20241022,118.15142631530762,,success,,0,0,0,,False,False,False,quota
+2026-05-04T03:04:48.098835,anthropic,claude-opus-4-20250514,26638.72480392456,1235.318660736084,success,tool_use,2,1605,1607,0.141261,True,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless"
+2026-05-04T03:04:48.444262,anthropic,claude-3-5-haiku-20241022,115.4029369354248,,success,,0,0,0,,False,False,False,quota
+2026-05-04T03:05:12.937984,anthropic,claude-opus-4-20250514,24599.94101524353,1520.1873779296875,success,tool_use,6,1597,1603,0.202071,True,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless"
+2026-05-04T03:05:13.228827,anthropic,claude-3-5-haiku-20241022,176.48744583129883,,success,,0,0,0,,False,False,False,quota
+2026-05-04T03:05:37.763582,anthropic,claude-opus-4-20250514,24707.42440223694,1707.23295211792,success,tool_use,6,1589,1595,0.17561025,True,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless"
+2026-05-04T03:05:38.047075,anthropic,claude-3-5-haiku-20241022,178.0712604522705,,success,,0,0,0,,False,False,False,quota
+2026-05-04T03:06:46.010301,anthropic,claude-opus-4-20250514,8136.276006698608,,success,end_turn,6,174,180,0.07178175,False,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless"
