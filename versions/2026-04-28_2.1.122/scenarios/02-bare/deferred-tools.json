@@ -1,0 +1,21 @@
+[
+  "AskUserQuestion",
+  "CronCreate",
+  "CronDelete",
+  "CronList",
+  "EnterPlanMode",
+  "EnterWorktree",
+  "ExitPlanMode",
+  "ExitWorktree",
+  "ListMcpResourcesTool",
+  "Monitor",
+  "NotebookEdit",
+  "PushNotification",
+  "ReadMcpResourceTool",
+  "RemoteTrigger",
+  "TaskOutput",
+  "TaskStop",
+  "TodoWrite",
+  "WebFetch",
+  "WebSearch"
+]
