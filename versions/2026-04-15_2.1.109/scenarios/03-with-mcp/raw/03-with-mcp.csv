@@ -1,0 +1,16 @@
+timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
+2026-05-04T10:07:54.416318,anthropic,claude-haiku-4-5-20251001,660.2671146392822,509.1888904571533,success,end_turn,367,13,380,0.0003456,True,False,False,"List every MCP tool that is currently available to you. Print just the tool names, one per line. Do not call any of them."
+2026-05-04T10:08:08.497226,anthropic,claude-opus-4-6,14714.77484703064,2427.51407623291,success,end_turn,3,1580,1583,0.26748375,True,True,True,"<available-deferred-tools>
+AskUserQuestion
+CronCreate
+CronDelete
+CronList
+EnterPlanMode
+EnterWorktree
+ExitPlanMode
+ExitWorktree
+ListMcpResourcesTool
+Monitor
+NotebookEdit
+ReadMcpResourceTool
+RemoteTrig"
