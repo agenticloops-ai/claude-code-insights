@@ -1,0 +1,79 @@
+{
+  "version": "1.0.28",
+  "dir_name": "2025-06-18_1.0.28",
+  "baseline_scenario": "02-bare",
+  "baseline": {
+    "models": [
+      "claude-3-5-haiku-20241022",
+      "claude-opus-4-20250514"
+    ],
+    "tool_count": 16,
+    "deferred_tool_count": 0,
+    "mcp_tool_count_advertised": 0,
+    "mcp_tool_count_deferred": 0,
+    "system_prompt_chars": 13031,
+    "reminder_count": 1
+  },
+  "scenarios": {
+    "01-cli-help": {
+      "mode": "local",
+      "output_chars": 3183,
+      "output_lines": 54,
+      "exit_code": 0
+    },
+    "02-bare": {
+      "version": "1.0.28",
+      "dir_name": "2025-06-18_1.0.28",
+      "scenario": "02-bare",
+      "captured_at": "2026-05-04T03:41:44.751788",
+      "request_count": 2,
+      "models": [
+        "claude-3-5-haiku-20241022",
+        "claude-opus-4-20250514"
+      ],
+      "tool_count_first_request": 16,
+      "deferred_tool_count": 0,
+      "mcp_tool_count_advertised": 0,
+      "mcp_tool_count_deferred": 0,
+      "system_prompt_chars": 13031,
+      "user_prompt_chars": 715,
+      "skill_count": 0,
+      "reminder_count": 1,
+      "tokens": {
+        "input": 2,
+        "output": 12,
+        "cache_read": 13648,
+        "cache_creation": 0,
+        "total": 14
+      },
+      "duration_ms_total": 1784
+    },
+    "03-with-mcp": {
+      "version": "1.0.28",
+      "dir_name": "2025-06-18_1.0.28",
+      "scenario": "03-with-mcp",
+      "captured_at": "2026-05-04T03:41:59.409759",
+      "request_count": 2,
+      "models": [
+        "claude-3-5-haiku-20241022",
+        "claude-opus-4-20250514"
+      ],
+      "tool_count_first_request": 16,
+      "deferred_tool_count": 0,
+      "mcp_tool_count_advertised": 0,
+      "mcp_tool_count_deferred": 0,
+      "system_prompt_chars": 13031,
+      "user_prompt_chars": 715,
+      "skill_count": 0,
+      "reminder_count": 1,
+      "tokens": {
+        "input": 2,
+        "output": 81,
+        "cache_read": 13676,
+        "cache_creation": 0,
+        "total": 83
+      },
+      "duration_ms_total": 5133
+    }
+  }
+}
