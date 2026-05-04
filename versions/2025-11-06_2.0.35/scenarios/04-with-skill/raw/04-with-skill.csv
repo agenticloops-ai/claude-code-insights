@@ -1,0 +1,6 @@
+timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
+2026-05-04T06:08:47.768614,anthropic,claude-haiku-4-5-20251001,768.3682441711426,,success,max_tokens,8,1,9,1.04e-05,False,False,False,quota
+2026-05-04T06:08:51.324230,anthropic,claude-haiku-4-5-20251001,1762.4871730804443,762.5970840454102,success,end_turn,451,140,591,0.0009207999999999999,True,False,False,Warmup
+2026-05-04T06:08:51.843012,anthropic,claude-sonnet-4-5-20250929,2275.2931118011475,1653.2835960388184,success,tool_use,2,54,56,0.00663855,True,True,False,"Use the say-hello skill. Print only its output, nothing else."
+2026-05-04T06:08:52.679287,anthropic,claude-sonnet-4-5-20250929,3114.5308017730713,991.5993213653564,success,end_turn,462,100,562,0.002886,True,False,False,Warmup
+2026-05-04T06:08:55.047486,anthropic,claude-sonnet-4-5-20250929,3165.2822494506836,2547.896146774292,success,end_turn,6,14,20,0.00518355,True,True,False,"Use the say-hello skill. Print only its output, nothing else."
