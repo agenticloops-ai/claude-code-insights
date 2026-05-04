@@ -1,0 +1,143 @@
+[
+  {
+    "event": "message_start",
+    "data": {
+      "type": "message_start",
+      "message": {
+        "model": "claude-opus-4-6",
+        "id": "msg_0123dfgKtSBXwibYPmVBcKR2",
+        "type": "message",
+        "role": "assistant",
+        "content": [],
+        "stop_reason": null,
+        "stop_sequence": null,
+        "stop_details": null,
+        "usage": {
+          "input_tokens": 3,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 7359,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 30,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      }
+    }
+  },
+  {
+    "event": "content_block_start",
+    "data": {
+      "type": "content_block_start",
+      "index": 0,
+      "content_block": {
+        "type": "thinking",
+        "thinking": "",
+        "signature": ""
+      }
+    }
+  },
+  {
+    "event": "ping",
+    "data": {
+      "type": "ping"
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": "The user said \"hi\". I'll greet them briefly."
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "signature_delta",
+        "signature": "EucBClkIDRgCKkACnEffXAJXM+39EMeqM5z1euD28WFjdrxLoak9o9+6SpGE8ZAGuKr8OIYsYPXB7uW5IcMKkBTh4d1bpp0Ei6iAMg9jbGF1ZGUtb3B1cy00LTY4ABIM86OVD5JaYPNb1cuDGgzUgd4uyFwrVMYxBcMiMNvQkmcT+kVjiLF80kF2EtsfjH4FCTFRlkLUsh1PCO2JCI8QSeaezkUqSrH/1gtTbio8BIstmBzq8Asmp7Fo3ZjFl4OynIDSjpol1EZ/b14MTe9V+Y+1cKa/dq3E7BeddeYf8E481dG90/hkxgvyGAE="
+      }
+    }
+  },
+  {
+    "event": "content_block_stop",
+    "data": {
+      "type": "content_block_stop",
+      "index": 0
+    }
+  },
+  {
+    "event": "content_block_start",
+    "data": {
+      "type": "content_block_start",
+      "index": 1,
+      "content_block": {
+        "type": "text",
+        "text": ""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "Hi"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "! How can I help you today?"
+      }
+    }
+  },
+  {
+    "event": "content_block_stop",
+    "data": {
+      "type": "content_block_stop",
+      "index": 1
+    }
+  },
+  {
+    "event": "message_delta",
+    "data": {
+      "type": "message_delta",
+      "delta": {
+        "stop_reason": "end_turn",
+        "stop_sequence": null,
+        "stop_details": null
+      },
+      "usage": {
+        "input_tokens": 3,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 7359,
+        "output_tokens": 41
+      },
+      "context_management": {
+        "applied_edits": []
+      }
+    }
+  },
+  {
+    "event": "message_stop",
+    "data": {
+      "type": "message_stop"
+    }
+  }
+]
