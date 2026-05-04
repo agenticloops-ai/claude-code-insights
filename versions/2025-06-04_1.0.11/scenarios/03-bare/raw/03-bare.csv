@@ -1,0 +1,8 @@
+timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
+2026-05-04T03:08:28.198439,anthropic,claude-3-5-haiku-20241022,194.2157745361328,,success,,0,0,0,,False,False,False,quota
+2026-05-04T03:08:30.743174,anthropic,claude-3-5-haiku-20241022,168.19524765014648,,success,,0,0,0,,False,False,False,quota
+2026-05-04T03:08:32.378508,anthropic,claude-opus-4-20250514,1736.6011142730713,1654.5801162719727,success,end_turn,2,12,14,0.021729,True,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless"
