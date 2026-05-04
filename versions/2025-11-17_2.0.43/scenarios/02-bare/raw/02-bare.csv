@@ -1,0 +1,4 @@
+timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
+2026-05-04T06:17:26.429600,anthropic,claude-haiku-4-5-20251001,532.2387218475342,,success,max_tokens,8,1,9,1.04e-05,False,False,False,quota
+2026-05-04T06:17:30.181740,anthropic,claude-haiku-4-5-20251001,1738.8041019439697,530.9450626373291,success,end_turn,590,139,729,0.001028,True,False,False,Warmup
+2026-05-04T06:17:31.588732,anthropic,claude-sonnet-4-5-20250929,3141.6754722595215,1396.6004848480225,success,end_turn,2,89,91,0.0154797,True,True,False,hi
