@@ -1,8 +1,0 @@
-{
-  "name": "05-with-mcp",
-  "description": "Verifies the always-mounted sandbox MCP fixture (server 'fixture', 3 tools) is registered. The fixture is sandbox-permanent (sandbox/fixtures/mcp-default.json merged into ~/.claude.json by entrypoint.sh) — every agent scenario sees it. This probe asks the agent to enumerate available MCP tools so the diff captures naming convention (mcp__fixture__tool_NNN) and schema surfacing.",
-  "claude_args": [
-    "-p"
-  ],
-  "env": {}
-}

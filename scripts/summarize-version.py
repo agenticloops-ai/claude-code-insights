@@ -6,12 +6,12 @@ this script publishes the *baseline* artifacts (system prompt, tool list,
 reminders) at versions/<v>/ root so a reader can answer "what does this
 version look like?" without descending into a scenario folder.
 
-The baseline is the simplest scenario (``03-bare`` by default — single-turn
+The baseline is the simplest scenario (``02-bare`` by default — single-turn
 ``hi`` with no MCP and no skills). An aggregate manifest summarizes
 per-scenario stats.
 
 Usage:
-    scripts/summarize-version.py 2.1.126 [--baseline 03-bare]
+    scripts/summarize-version.py 2.1.126 [--baseline 02-bare]
 """
 from __future__ import annotations
 
@@ -31,7 +31,7 @@ from _paths import dir_for, find_existing_dir  # noqa: E402
 def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("version", help="npm version (e.g. 2.1.126); folder lookup uses <date>_<version>")
-    p.add_argument("--baseline", default="03-bare")
+    p.add_argument("--baseline", default="02-bare")
     args = p.parse_args()
 
     npm_version = args.version

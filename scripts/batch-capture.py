@@ -4,9 +4,9 @@
 For each version (oldest first):
     build → run all scenarios → extract → summarize → fetch-notes → prune image
 
-A version is marked "failed" and its directory deleted when 03-bare doesn't
+A version is marked "failed" and its directory deleted when 02-bare doesn't
 produce extracted artifacts (agent-mode timeouts, auth issues, etc.). Versions
-where 03-bare succeeds but other scenarios time-out are kept as partial captures.
+where 02-bare succeeds but other scenarios time-out are kept as partial captures.
 
 After all versions are processed, a sequential diff pass generates
 diff-from-<prev>.md for every consecutive pair of surviving versions.
@@ -184,10 +184,10 @@ def _process_version(version: str, scenario_timeout: int,
             tag = f"FAIL({rc})"
         print(f"[{version}]   {scen} → {tag} ({duration}s)", flush=True)
 
-        # If 03-bare hard-failed (not skipped, not timed out), skip remaining
+        # If 02-bare hard-failed (not skipped, not timed out), skip remaining
         # agent scenarios — the version likely has auth incompatibility.
-        if scen == "03-bare" and rc != 0 and not timed_out and not skipped:
-            print(f"[{version}]   03-bare failed — skipping remaining scenarios", flush=True)
+        if scen == "02-bare" and rc != 0 and not timed_out and not skipped:
+            print(f"[{version}]   02-bare failed — skipping remaining scenarios", flush=True)
             break
 
     # Extract every fresh agent-mode capture.
@@ -204,11 +204,11 @@ def _process_version(version: str, scenario_timeout: int,
         if rc != 0:
             print(f"[{version}]   extract failed for {scen} (non-fatal)", flush=True)
 
-    # Check 03-bare extraction. If the extract.py wrote a stub stats.json with
+    # Check 02-bare extraction. If the extract.py wrote a stub stats.json with
     # an "error" field, the agent never sent a request — keep the dir so the
     # captured cli-help scenario is still useful, but skip the
     # downstream summarize step (it requires baseline artifacts).
-    bare_stats = version_dir / "scenarios" / "03-bare" / "stats.json"
+    bare_stats = version_dir / "scenarios" / "02-bare" / "stats.json"
     bare_usable = False
     if bare_stats.exists():
         try:
@@ -217,7 +217,7 @@ def _process_version(version: str, scenario_timeout: int,
             bare_usable = False
 
     if not bare_usable:
-        reason = "03-bare extract missing" if not bare_stats.exists() else "03-bare captured no requests"
+        reason = "02-bare extract missing" if not bare_stats.exists() else "02-bare captured no requests"
         print(f"[{version}] PARTIAL — {reason}; keeping dir, skipping summarize", flush=True)
         _prune_image(version, keep_images)
         row = _failed_row(version, dir_name, started_at,
@@ -399,7 +399,7 @@ def main() -> int:
     parser.add_argument("--reverse", action="store_true",
                         help="process versions newest-first (default: oldest-first)")
     parser.add_argument("--stop-after-failures", type=int, default=0,
-                        help="stop after N consecutive 03-bare failures (0=never stop)")
+                        help="stop after N consecutive 02-bare failures (0=never stop)")
     args = parser.parse_args()
 
     versions = _load_versions(args)

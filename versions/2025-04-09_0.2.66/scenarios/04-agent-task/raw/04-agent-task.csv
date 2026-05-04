@@ -1,3 +1,0 @@
-timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
-2026-05-04T01:48:52.686785,anthropic,claude-3-7-sonnet-20250219,171.45824432373047,168.70570182800293,success,,0,0,0,,True,True,False,Implement minimal agentic loop in Python using Anthropic API with a run bash tool and human confirmation before executing scripts. Implement as a standalone script `agent-loop.py`
-2026-05-04T01:48:52.968938,anthropic,claude-3-7-sonnet-20250219,207.04078674316406,,success,,0,0,0,,False,True,False,Implement minimal agentic loop in Python using Anthropic API with a run bash tool and human confirmation before executing scripts. Implement as a standalone script `agent-loop.py`

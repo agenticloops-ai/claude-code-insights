@@ -34,13 +34,13 @@ change the fixture if you need different MCP behavior.
 
 ```bash
 # one scenario against one version
-scripts/run-scenario.sh 2.1.126 03-bare
+scripts/run-scenario.sh 2.1.126 02-bare
 
 # every scenario against one version
 scripts/capture-version.sh 2.1.126
 
 # extract version-comparable artifacts for one scenario after capturing
-python3 scripts/extract.py versions/2.1.126/scenarios/03-bare
+python3 scripts/extract.py versions/2.1.126/scenarios/02-bare
 
 # diff two versions once both are extracted
 python3 scripts/diff-versions.py 2.1.59 2.1.126
@@ -90,7 +90,7 @@ Ordered so the always-runnable static probe comes first (`01` works on every
 version), then the agent-mode probes. Scenarios that depend on a feature
 introduced later carry `min_version` and are skipped (not failed) on older
 targets. The MCP fixture (server `fixture`, 3 tools) and the skill fixture
-(`say-hello`) are sandbox-permanent — `05-with-mcp` and `06-with-skill`
+(`say-hello`) are sandbox-permanent — `03-with-mcp` and `04-with-skill`
 exercise those surfaces explicitly so the diff captures any change in how
 claude registers / surfaces them.
 

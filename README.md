@@ -97,7 +97,7 @@ versions/<release-date>_<version>/
         └── 001.sse.json
 ```
 
-The version-root files are the **baseline** scenario's extracted artifacts (`03-bare`, single-turn `hi`, with the always-mounted MCP fixture and skill fixture) promoted up. They're what every session sees regardless of how you invoke `claude`. Per-scenario folders dig into anything specific (multi-turn agent loop, MCP/skill probes).
+The version-root files are the **baseline** scenario's extracted artifacts (`02-bare`, single-turn `hi`, with the always-mounted MCP fixture and skill fixture) promoted up. They're what every session sees regardless of how you invoke `claude`. Per-scenario folders dig into anything specific (multi-turn agent loop, MCP/skill probes).
 
 ### How to read a diff
 
@@ -176,7 +176,7 @@ These will get fleshed out version-by-version once `/process-version` is re-run 
 
 ### Scenarios
 
-Five probes, ordered so the always-runnable static probe comes first (`01` works on every version) and the agent-mode probes follow. The MCP fixture (server `fixture`, 3 tools) and the skill fixture (`say-hello`) are sandbox-permanent, but `05-with-mcp` and `06-with-skill` exercise those surfaces explicitly so the diff captures any change in how claude registers and surfaces them. Scenarios that exercise a feature introduced later carry a `min_version` and are skipped (not failed) on older releases:
+Five probes, ordered so the always-runnable static probe comes first (`01` works on every version) and the agent-mode probes follow. The MCP fixture (server `fixture`, 3 tools) and the skill fixture (`say-hello`) are sandbox-permanent, but `03-with-mcp` and `04-with-skill` exercise those surfaces explicitly so the diff captures any change in how claude registers and surfaces them. Scenarios that exercise a feature introduced later carry a `min_version` and are skipped (not failed) on older releases:
 
 | # | name | mode | min_version | what it probes |
 |---|---|---|---|---|
@@ -186,7 +186,7 @@ Five probes, ordered so the always-runnable static probe comes first (`01` works
 | 05 | with-mcp | agent | — | MCP tool registration & naming convention (probes the always-mounted fixture) |
 | 06 | with-skill | agent | 2.0.28 | skill discovery via `<system-reminder>` and the `Skill` tool |
 
-`03-bare` is the **baseline** — its extracted artifacts are mirrored to the version root. Every other scenario adds one isolated probe surface on top. See `scenarios/README.md` for the full `meta.json` schema and isolation guarantees.
+`02-bare` is the **baseline** — its extracted artifacts are mirrored to the version root. Every other scenario adds one isolated probe surface on top. See `scenarios/README.md` for the full `meta.json` schema and isolation guarantees.
 
 ---
 

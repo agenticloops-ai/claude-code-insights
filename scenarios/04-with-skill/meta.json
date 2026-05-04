@@ -1,0 +1,9 @@
+{
+  "name": "04-with-skill",
+  "description": "Verifies the always-mounted sandbox skill fixture ('say-hello' under sandbox/fixtures/skills/) is discoverable. The skill set is sandbox-permanent \u2014 every agent scenario sees it bind-mounted at ~/.claude/skills/. This probe asks the agent to invoke the fixture skill so the diff captures how skills appear in <system-reminder> blocks and how the agent reaches them via the Skill tool.",
+  "claude_args": [
+    "-p"
+  ],
+  "env": {},
+  "min_version": "2.0.20"
+}

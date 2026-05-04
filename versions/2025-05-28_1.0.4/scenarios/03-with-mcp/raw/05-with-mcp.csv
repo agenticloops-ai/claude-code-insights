@@ -1,0 +1,7 @@
+timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
+2026-05-04T02:56:21.006960,anthropic,claude-3-5-haiku-20241022,202.5623321533203,,success,,0,0,0,,False,False,False,quota
+2026-05-04T02:56:23.293037,anthropic,claude-opus-4-20250514,2485.321283340454,1525.5560874938965,success,end_turn,2,29,31,0.028224,True,True,False,"<system-reminder>
+As you answer the user's questions, you can use the following context:
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless"

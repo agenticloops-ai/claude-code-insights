@@ -1,7 +1,7 @@
 {
   "version": "0.2.61",
   "dir_name": "2025-04-03_0.2.61",
-  "baseline_scenario": "03-bare",
+  "baseline_scenario": "02-bare",
   "baseline": {
     "models": [
       "claude-3-7-sonnet-20250219"
@@ -20,10 +20,10 @@
       "output_lines": 33,
       "exit_code": 0
     },
-    "03-bare": {
+    "02-bare": {
       "version": "0.2.61",
       "dir_name": "2025-04-03_0.2.61",
-      "scenario": "03-bare",
+      "scenario": "02-bare",
       "captured_at": "2026-05-04T01:47:08.614958",
       "request_count": 2,
       "models": [
@@ -72,10 +72,10 @@
       },
       "duration_ms_total": 395
     },
-    "05-with-mcp": {
+    "03-with-mcp": {
       "version": "0.2.61",
       "dir_name": "2025-04-03_0.2.61",
-      "scenario": "05-with-mcp",
+      "scenario": "03-with-mcp",
       "captured_at": "2026-05-04T01:47:27.582746",
       "request_count": 2,
       "models": [

@@ -7,7 +7,7 @@ root, one level above. The split-out files are designed to diff cleanly
 between releases.
 
 Usage:
-    scripts/extract.py versions/2026-04-30_2.1.126/scenarios/03-bare
+    scripts/extract.py versions/2026-04-30_2.1.126/scenarios/02-bare
 """
 from __future__ import annotations
 
