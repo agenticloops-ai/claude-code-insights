@@ -1,0 +1,101 @@
+[
+  {
+    "index": 1,
+    "model": "claude-3-5-haiku-20241022",
+    "duration_ms": 136.79170608520508,
+    "tool_count": 0,
+    "stop_reason": null,
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  {
+    "index": 2,
+    "model": "claude-3-5-haiku-20241022",
+    "duration_ms": 271.8636989593506,
+    "tool_count": 0,
+    "stop_reason": null,
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  {
+    "index": 3,
+    "model": "claude-opus-4-20250514",
+    "duration_ms": 6410.991430282593,
+    "tool_count": 18,
+    "stop_reason": "tool_use",
+    "input_tokens": 2,
+    "output_tokens": 268
+  },
+  {
+    "index": 4,
+    "model": "claude-3-5-haiku-20241022",
+    "duration_ms": 173.5062599182129,
+    "tool_count": 0,
+    "stop_reason": null,
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  {
+    "index": 5,
+    "model": "claude-opus-4-20250514",
+    "duration_ms": 4100.632905960083,
+    "tool_count": 18,
+    "stop_reason": "tool_use",
+    "input_tokens": 5,
+    "output_tokens": 194
+  },
+  {
+    "index": 6,
+    "model": "claude-3-5-haiku-20241022",
+    "duration_ms": 159.93690490722656,
+    "tool_count": 0,
+    "stop_reason": null,
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  {
+    "index": 7,
+    "model": "claude-opus-4-20250514",
+    "duration_ms": 35420.50266265869,
+    "tool_count": 18,
+    "stop_reason": "tool_use",
+    "input_tokens": 5,
+    "output_tokens": 1990
+  },
+  {
+    "index": 8,
+    "model": "claude-3-5-haiku-20241022",
+    "duration_ms": 166.08595848083496,
+    "tool_count": 0,
+    "stop_reason": null,
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  {
+    "index": 9,
+    "model": "claude-opus-4-20250514",
+    "duration_ms": 6433.982849121094,
+    "tool_count": 18,
+    "stop_reason": "tool_use",
+    "input_tokens": 6,
+    "output_tokens": 200
+  },
+  {
+    "index": 10,
+    "model": "claude-3-5-haiku-20241022",
+    "duration_ms": 300.7769584655762,
+    "tool_count": 0,
+    "stop_reason": null,
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  {
+    "index": 11,
+    "model": "claude-opus-4-20250514",
+    "duration_ms": 7815.364837646484,
+    "tool_count": 18,
+    "stop_reason": "end_turn",
+    "input_tokens": 5,
+    "output_tokens": 233
+  }
+]
