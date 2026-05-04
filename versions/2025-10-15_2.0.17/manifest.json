@@ -1,0 +1,79 @@
+{
+  "version": "2.0.17",
+  "dir_name": "2025-10-15_2.0.17",
+  "baseline_scenario": "02-bare",
+  "baseline": {
+    "models": [
+      "claude-haiku-4-5-20251001",
+      "claude-sonnet-4-5-20250929"
+    ],
+    "tool_count": 15,
+    "deferred_tool_count": 0,
+    "mcp_tool_count_advertised": 0,
+    "mcp_tool_count_deferred": 0,
+    "system_prompt_chars": 10177,
+    "reminder_count": 0
+  },
+  "scenarios": {
+    "01-cli-help": {
+      "mode": "local",
+      "output_chars": 5025,
+      "output_lines": 47,
+      "exit_code": 0
+    },
+    "02-bare": {
+      "version": "2.0.17",
+      "dir_name": "2025-10-15_2.0.17",
+      "scenario": "02-bare",
+      "captured_at": "2026-05-04T05:44:01.936443",
+      "request_count": 3,
+      "models": [
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-4-5-20250929"
+      ],
+      "tool_count_first_request": 15,
+      "deferred_tool_count": 0,
+      "mcp_tool_count_advertised": 0,
+      "mcp_tool_count_deferred": 0,
+      "system_prompt_chars": 10177,
+      "user_prompt_chars": 0,
+      "skill_count": 0,
+      "reminder_count": 0,
+      "tokens": {
+        "input": 406,
+        "output": 217,
+        "cache_read": 0,
+        "cache_creation": 14571,
+        "total": 623
+      },
+      "duration_ms_total": 6094
+    },
+    "03-with-mcp": {
+      "version": "2.0.17",
+      "dir_name": "2025-10-15_2.0.17",
+      "scenario": "03-with-mcp",
+      "captured_at": "2026-05-04T05:44:12.773233",
+      "request_count": 3,
+      "models": [
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-4-5-20250929"
+      ],
+      "tool_count_first_request": 15,
+      "deferred_tool_count": 0,
+      "mcp_tool_count_advertised": 0,
+      "mcp_tool_count_deferred": 0,
+      "system_prompt_chars": 10177,
+      "user_prompt_chars": 0,
+      "skill_count": 0,
+      "reminder_count": 0,
+      "tokens": {
+        "input": 406,
+        "output": 179,
+        "cache_read": 14250,
+        "cache_creation": 349,
+        "total": 585
+      },
+      "duration_ms_total": 4483
+    }
+  }
+}
