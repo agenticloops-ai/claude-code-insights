@@ -1,0 +1,26 @@
+{
+  "index": 1,
+  "request_id": "ec556798-a919-43b3-8509-c7d2f40c27eb",
+  "status": 404,
+  "headers": {
+    "Date": "Mon, 04 May 2026 01:37:16 GMT",
+    "Content-Type": "application/json",
+    "Transfer-Encoding": "chunked",
+    "Connection": "close",
+    "x-should-retry": "false",
+    "request-id": "req_011Cagfy23Qro4vwsf2HnSFM",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "anthropic-organization-id": "1cc9eaa6-8705-43d4-9970-f093d40e3ee3",
+    "traceresponse": "00-fec818e46d0c519ca4a18590b4186327-558bf5863a4b1fc8-01",
+    "Server": "cloudflare",
+    "x-envoy-upstream-service-time": "86",
+    "X-Robots-Tag": "none",
+    "vary": "Accept-Encoding",
+    "cf-cache-status": "DYNAMIC",
+    "set-cookie": "REDACTED",
+    "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
+    "CF-RAY": "9f63c77e7bbb5c1f-SJC"
+  },
+  "is_streaming": true,
+  "body": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-7-sonnet-20250219\"},\"request_id\":\"req_011Cagfy23Qro4vwsf2HnSFM\"}"
+}
