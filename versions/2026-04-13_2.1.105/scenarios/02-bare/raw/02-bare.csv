@@ -1,0 +1,16 @@
+timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
+2026-05-04T10:01:13.488900,anthropic,claude-haiku-4-5-20251001,797.6717948913574,633.1727504730225,success,end_turn,339,12,351,0.0003192,True,False,False,hi
+2026-05-04T10:01:15.108731,anthropic,claude-opus-4-6,2352.35333442688,2141.512870788574,success,end_turn,3,13,16,0.1485135,True,True,False,"<available-deferred-tools>
+AskUserQuestion
+CronCreate
+CronDelete
+CronList
+EnterPlanMode
+EnterWorktree
+ExitPlanMode
+ExitWorktree
+ListMcpResourcesTool
+Monitor
+NotebookEdit
+ReadMcpResourceTool
+RemoteTrig"
