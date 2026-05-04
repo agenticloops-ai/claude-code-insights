@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-20250514",
-        "id": "msg_01PjKNUqsPx5bYAFJ5jdn55y",
+        "id": "msg_01Qe6BR63sVzSsb4Nw922wq2",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,10 +14,10 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 2,
-          "cache_creation_input_tokens": 13570,
-          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 345,
+          "cache_read_input_tokens": 13253,
           "cache_creation": {
-            "ephemeral_5m_input_tokens": 13570,
+            "ephemeral_5m_input_tokens": 345,
             "ephemeral_1h_input_tokens": 0
           },
           "output_tokens": 1,
@@ -51,7 +51,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "Hello"
+        "text": "m"
       }
     }
   },
@@ -62,18 +62,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "! I'm Claude Code, ready to help with your software engineering tasks. What"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": " would you like to work on today?"
+        "text": "cp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003"
       }
     }
   },
@@ -95,9 +84,9 @@
       },
       "usage": {
         "input_tokens": 2,
-        "cache_creation_input_tokens": 13570,
-        "cache_read_input_tokens": 0,
-        "output_tokens": 28
+        "cache_creation_input_tokens": 345,
+        "cache_read_input_tokens": 13253,
+        "output_tokens": 29
       }
     }
   },

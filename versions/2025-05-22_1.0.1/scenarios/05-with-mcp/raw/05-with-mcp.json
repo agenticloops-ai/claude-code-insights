@@ -1,21 +1,21 @@
 {
   "session": {
-    "id": "79b56dfb-4852-41bc-a8e9-ff6cd4f9623f",
-    "name": "03-bare",
-    "started_at": "2026-05-04T02:49:07.982531",
-    "ended_at": "2026-05-04T02:49:14.354517",
+    "id": "22024544-0f36-4aaf-849a-7d5d61a5ff04",
+    "name": "05-with-mcp",
+    "started_at": "2026-05-04T02:50:32.456991",
+    "ended_at": "2026-05-04T02:50:38.448625",
     "request_count": 0,
     "total_tokens": 0,
     "estimated_cost_usd": 0.0
   },
   "stats": {
     "total_requests": 2,
-    "total_tokens": 30,
+    "total_tokens": 31,
     "total_input_tokens": 2,
-    "total_output_tokens": 28,
-    "estimated_cost_usd": 0.2565675,
-    "avg_duration_ms": 1443.8526630401611,
-    "avg_tokens_per_request": 15.0,
+    "total_output_tokens": 29,
+    "estimated_cost_usd": 0.02855325,
+    "avg_duration_ms": 1306.0622215270996,
+    "avg_tokens_per_request": 15.5,
     "models_used": [
       "claude-3-5-haiku-20241022",
       "claude-opus-4-20250514"
@@ -26,14 +26,14 @@
   },
   "requests": [
     {
-      "id": "ad0e4db2-9fcb-4840-8a38-74a582937694",
-      "session_id": "79b56dfb-4852-41bc-a8e9-ff6cd4f9623f",
-      "raw_capture_id": "13d1da9a-d01d-48f8-ae00-55a023c4fa2b",
+      "id": "64ea503c-15e3-40eb-957b-ddaed5566a0b",
+      "session_id": "22024544-0f36-4aaf-849a-7d5d61a5ff04",
+      "raw_capture_id": "8892f443-22ab-4068-99ee-99880eaf078f",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T02:49:09.664878",
-      "duration_ms": 116.40524864196777,
+      "timestamp": "2026-05-04T02:50:34.112144",
+      "duration_ms": 162.2626781463623,
       "time_to_first_token_ms": null,
       "provider": "anthropic",
       "model": "claude-3-5-haiku-20241022",
@@ -71,15 +71,15 @@
       "response_metadata": {}
     },
     {
-      "id": "8386432d-be10-48e5-a363-a6de72a3ee65",
-      "session_id": "79b56dfb-4852-41bc-a8e9-ff6cd4f9623f",
-      "raw_capture_id": "5fac65ef-6a31-43aa-8838-9e8a76ede5b8",
+      "id": "f6b3579f-e668-47a0-84b6-b5ea114e8422",
+      "session_id": "22024544-0f36-4aaf-849a-7d5d61a5ff04",
+      "raw_capture_id": "c330a6b3-a078-4bf9-9247-b9f777e442d3",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T02:49:12.317533",
-      "duration_ms": 2771.3000774383545,
-      "time_to_first_token_ms": 2450.526475906372,
+      "timestamp": "2026-05-04T02:50:36.406716",
+      "duration_ms": 2449.861764907837,
+      "time_to_first_token_ms": 1521.7280387878418,
       "provider": "anthropic",
       "model": "claude-opus-4-20250514",
       "api_endpoint": "https://api.anthropic.com/v1/messages?beta=true",
@@ -102,7 +102,7 @@
             },
             {
               "type": "text",
-              "text": "hi"
+              "text": "List every MCP tool that is currently available to you. Print just the tool names, one per line. Do not call any of them."
             }
           ]
         }
@@ -637,7 +637,7 @@
           "content": [
             {
               "type": "text",
-              "text": "Hello! I'm Claude Code, ready to help with your software engineering tasks. What would you like to work on today?"
+              "text": "mcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003"
             }
           ]
         }
@@ -645,11 +645,11 @@
       "stop_reason": "end_turn",
       "usage": {
         "input_tokens": 2,
-        "output_tokens": 28,
-        "cache_creation_input_tokens": 13570,
-        "cache_read_input_tokens": 0,
-        "total_tokens": 30,
-        "estimated_cost_usd": 0.2565675
+        "output_tokens": 29,
+        "cache_creation_input_tokens": 345,
+        "cache_read_input_tokens": 13253,
+        "total_tokens": 31,
+        "estimated_cost_usd": 0.02855325
       },
       "status": "success",
       "request_params": {},
@@ -658,9 +658,9 @@
   ],
   "raw_captures": [
     {
-      "id": "13d1da9a-d01d-48f8-ae00-55a023c4fa2b",
-      "session_id": "79b56dfb-4852-41bc-a8e9-ff6cd4f9623f",
-      "timestamp": "2026-05-04T02:49:09.664878",
+      "id": "8892f443-22ab-4068-99ee-99880eaf078f",
+      "session_id": "22024544-0f36-4aaf-849a-7d5d61a5ff04",
+      "timestamp": "2026-05-04T02:50:34.112144",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -706,24 +706,23 @@
       },
       "response_status": 404,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 02:49:09 GMT",
+        "Date": "Mon, 04 May 2026 02:50:34 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
         "x-should-retry": "false",
-        "request-id": "req_011CagmSxMWzUmBG7b6Sqs8v",
+        "request-id": "req_011CagmZBHooLbNGMUbUL49e",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-20585243fc884e6edec3c2bb00d40204-cb4e4c5d0925e7b5-01",
+        "traceresponse": "00-69ae677780adad9b7112d6be9d911000-410838fc4589f6f7-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "32",
+        "x-envoy-upstream-service-time": "78",
         "X-Robots-Tag": "none",
         "vary": "Accept-Encoding",
-        "server-timing": "x-originResponse;dur=34",
         "cf-cache-status": "DYNAMIC",
         "set-cookie": "REDACTED",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-        "CF-RAY": "9f6430cba8827587-SJC"
+        "CF-RAY": "9f6432db3c5deb30-SJC"
       },
       "response_body": {
         "type": "error",
@@ -731,15 +730,15 @@
           "type": "not_found_error",
           "message": "model: claude-3-5-haiku-20241022"
         },
-        "request_id": "req_011CagmSxMWzUmBG7b6Sqs8v"
+        "request_id": "req_011CagmZBHooLbNGMUbUL49e"
       },
       "is_streaming": false,
       "sse_events": []
     },
     {
-      "id": "5fac65ef-6a31-43aa-8838-9e8a76ede5b8",
-      "session_id": "79b56dfb-4852-41bc-a8e9-ff6cd4f9623f",
-      "timestamp": "2026-05-04T02:49:12.317533",
+      "id": "c330a6b3-a078-4bf9-9247-b9f777e442d3",
+      "session_id": "22024544-0f36-4aaf-849a-7d5d61a5ff04",
+      "timestamp": "2026-05-04T02:50:36.406716",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -769,7 +768,7 @@
         "accept-language": "*",
         "sec-fetch-mode": "cors",
         "accept-encoding": "identity",
-        "content-length": "53834"
+        "content-length": "53953"
       },
       "request_body": {
         "model": "claude-opus-4-20250514",
@@ -783,7 +782,7 @@
               },
               {
                 "type": "text",
-                "text": "hi",
+                "text": "List every MCP tool that is currently available to you. Print just the tool names, one per line. Do not call any of them.",
                 "cache_control": {
                   "type": "ephemeral"
                 }
@@ -1304,7 +1303,7 @@
       },
       "response_status": 200,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 02:49:11 GMT",
+        "Date": "Mon, 04 May 2026 02:50:35 GMT",
         "Content-Type": "text/event-stream; charset=utf-8",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
@@ -1312,7 +1311,7 @@
         "anthropic-ratelimit-unified-status": "allowed",
         "anthropic-ratelimit-unified-5h-status": "allowed",
         "anthropic-ratelimit-unified-5h-reset": "1777875000",
-        "anthropic-ratelimit-unified-5h-utilization": "0.35",
+        "anthropic-ratelimit-unified-5h-utilization": "0.38",
         "anthropic-ratelimit-unified-7d-status": "allowed",
         "anthropic-ratelimit-unified-7d-reset": "1778126400",
         "anthropic-ratelimit-unified-7d-utilization": "0.3",
@@ -1322,20 +1321,20 @@
         "anthropic-ratelimit-unified-representative-claim": "five_hour",
         "anthropic-ratelimit-unified-fallback-percentage": "0.5",
         "anthropic-ratelimit-unified-reset": "1777875000",
-        "request-id": "req_011CagmSxYvgtTP3QV1HKqfM",
+        "request-id": "req_011CagmZBavFr6ZfMcWLDicr",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-74f58a117b2b746fc86256af99d5d768-ee349ef01783bd8b-01",
+        "traceresponse": "00-f55dd5b7c3df419788fce05e25bdca4e-0134c968c9a32893-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "1555",
+        "x-envoy-upstream-service-time": "1377",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
         "vary": "Accept-Encoding",
         "set-cookie": "REDACTED",
         "X-Robots-Tag": "none",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "9f6430cba8f198ce-SJC"
+        "CF-RAY": "9f6432db4eda1fa8-SJC"
       },
-      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-20250514\",\"id\":\"msg_01PjKNUqsPx5bYAFJ5jdn55y\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":13570,\"cache_read_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":13570,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":1,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}           }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}         }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Hello\"}           }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"! I'm Claude Code, ready to help with your software engineering tasks. What\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" would you like to work on today?\"}             }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0        }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":13570,\"cache_read_input_tokens\":0,\"output_tokens\":28}           }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"        }\n\n",
+      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-20250514\",\"id\":\"msg_01Qe6BR63sVzSsb4Nw922wq2\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":345,\"cache_read_input_tokens\":13253,\"cache_creation\":{\"ephemeral_5m_input_tokens\":345,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":1,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}               }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}       }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"m\"}        }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"cp__fixture__tool_001\\nmcp__fixture__tool_002\\nmcp__fixture__tool_003\"}}\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0             }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":345,\"cache_read_input_tokens\":13253,\"output_tokens\":29}          }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"        }\n\n",
       "is_streaming": true,
       "sse_events": [
         {
@@ -1344,7 +1343,7 @@
             "type": "message_start",
             "message": {
               "model": "claude-opus-4-20250514",
-              "id": "msg_01PjKNUqsPx5bYAFJ5jdn55y",
+              "id": "msg_01Qe6BR63sVzSsb4Nw922wq2",
               "type": "message",
               "role": "assistant",
               "content": [],
@@ -1353,10 +1352,10 @@
               "stop_details": null,
               "usage": {
                 "input_tokens": 2,
-                "cache_creation_input_tokens": 13570,
-                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 345,
+                "cache_read_input_tokens": 13253,
                 "cache_creation": {
-                  "ephemeral_5m_input_tokens": 13570,
+                  "ephemeral_5m_input_tokens": 345,
                   "ephemeral_1h_input_tokens": 0
                 },
                 "output_tokens": 1,
@@ -1390,7 +1389,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "Hello"
+              "text": "m"
             }
           }
         },
@@ -1401,18 +1400,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "! I'm Claude Code, ready to help with your software engineering tasks. What"
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "text_delta",
-              "text": " would you like to work on today?"
+              "text": "cp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003"
             }
           }
         },
@@ -1434,9 +1422,9 @@
             },
             "usage": {
               "input_tokens": 2,
-              "cache_creation_input_tokens": 13570,
-              "cache_read_input_tokens": 0,
-              "output_tokens": 28
+              "cache_creation_input_tokens": 345,
+              "cache_read_input_tokens": 13253,
+              "output_tokens": 29
             }
           }
         },
