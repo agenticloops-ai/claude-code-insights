@@ -1,0 +1,26 @@
+{
+  "version": "2.1.49",
+  "dir_name": "2026-02-19_2.1.49",
+  "scenario": "02-bare",
+  "captured_at": "2026-05-04T08:28:05.481892",
+  "request_count": 1,
+  "models": [
+    "claude-opus-4-6"
+  ],
+  "tool_count_first_request": 21,
+  "deferred_tool_count": 0,
+  "mcp_tool_count_advertised": 0,
+  "mcp_tool_count_deferred": 0,
+  "system_prompt_chars": 18487,
+  "user_prompt_chars": 2437,
+  "skill_count": 2,
+  "reminder_count": 2,
+  "tokens": {
+    "input": 3,
+    "output": 13,
+    "cache_read": 0,
+    "cache_creation": 23906,
+    "total": 16
+  },
+  "duration_ms_total": 17456
+}
