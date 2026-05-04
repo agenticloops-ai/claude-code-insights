@@ -1,0 +1,13 @@
+# claude-code 1.0.68
+
+- **published:** 2025-08-04
+- **source:** [CHANGELOG.md#1068](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#1068)
+- **fetched:** 2026-05-03
+
+- Fix incorrect model names being used for certain commands like `/pr-comments`
+- Windows: improve permissions checks for allow / deny tools and project trust. This may create a new project entry in `.claude.json` - manually merge the history field if desired.
+- Windows: improve sub-process spawning to eliminate "No such file or directory" when running commands like pnpm
+- Enhanced /doctor command with CLAUDE.md and MCP tool context for self-serve debugging
+- SDK: Added canUseTool callback support for tool confirmation
+- Added `disableAllHooks` setting
+- Improved file suggestions performance in large repos

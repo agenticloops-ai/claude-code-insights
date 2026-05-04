@@ -1,0 +1,34 @@
+{
+  "index": 2,
+  "request_id": "d6ac9b9d-3c14-40a9-bee5-97b9a3afda04",
+  "status": 529,
+  "headers": {
+    "Date": "Mon, 04 May 2026 04:37:52 GMT",
+    "Content-Type": "application/json",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "x-should-retry": "true",
+    "request-id": "req_011CagujjFP3jtPW9NrSd889",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
+    "traceresponse": "00-91a9d0a1790862dfe64d7037660725c1-716bbd5b886720a6-01",
+    "Server": "cloudflare",
+    "x-envoy-upstream-service-time": "358",
+    "X-Robots-Tag": "none",
+    "vary": "Accept-Encoding",
+    "server-timing": "x-originResponse;dur=364",
+    "cf-cache-status": "DYNAMIC",
+    "set-cookie": "REDACTED",
+    "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
+    "CF-RAY": "9f64d0069adc67e3-SJC"
+  },
+  "is_streaming": false,
+  "body": {
+    "type": "error",
+    "error": {
+      "type": "overloaded_error",
+      "message": "Overloaded"
+    },
+    "request_id": "req_011CagujjFP3jtPW9NrSd889"
+  }
+}
