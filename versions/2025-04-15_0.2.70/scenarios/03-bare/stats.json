@@ -1,0 +1,26 @@
+{
+  "version": "0.2.70",
+  "dir_name": "2025-04-15_0.2.70",
+  "scenario": "03-bare",
+  "captured_at": "2026-05-04T01:53:37.892676",
+  "request_count": 2,
+  "models": [
+    "claude-3-7-sonnet-20250219"
+  ],
+  "tool_count_first_request": 12,
+  "deferred_tool_count": 0,
+  "mcp_tool_count_advertised": 0,
+  "mcp_tool_count_deferred": 0,
+  "system_prompt_chars": 10370,
+  "user_prompt_chars": 0,
+  "skill_count": 0,
+  "reminder_count": 0,
+  "tokens": {
+    "input": 0,
+    "output": 0,
+    "cache_read": 0,
+    "cache_creation": 0,
+    "total": 0
+  },
+  "duration_ms_total": 632
+}
