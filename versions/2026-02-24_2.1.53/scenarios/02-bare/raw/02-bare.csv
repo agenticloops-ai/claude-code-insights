@@ -1,0 +1,5 @@
+timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
+2026-05-04T08:37:54.097941,anthropic,claude-opus-4-6,3861.8602752685547,2623.90398979187,success,end_turn,3,12,15,0.2950575,True,True,False,"<system-reminder>
+The following skills are available for use with the Skill tool:
+
+- keybindings-help: Use when the user wants to customize keyboard shortcuts, rebind keys, add chord bindings, or modi"
