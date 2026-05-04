@@ -1,9 +1,9 @@
 {
   "session": {
-    "id": "44e69f29-076e-4b05-b9bc-947e415cfe8a",
+    "id": "ac81abaa-7831-4f0a-b42f-34e746c62d35",
     "name": "03-bare",
-    "started_at": "2026-05-04T02:15:09.283854",
-    "ended_at": "2026-05-04T02:15:16.776741",
+    "started_at": "2026-05-04T02:56:44.201678",
+    "ended_at": "2026-05-04T02:56:52.243139",
     "request_count": 0,
     "total_tokens": 0,
     "estimated_cost_usd": 0.0
@@ -14,7 +14,7 @@
     "total_input_tokens": 2,
     "total_output_tokens": 16,
     "estimated_cost_usd": 0.07859325,
-    "avg_duration_ms": 607.5700918833414,
+    "avg_duration_ms": 818.6269601186117,
     "avg_tokens_per_request": 6.0,
     "models_used": [
       "claude-3-5-haiku-20241022",
@@ -26,14 +26,14 @@
   },
   "requests": [
     {
-      "id": "6b8db9cf-7601-4669-97c5-85c178b5220e",
-      "session_id": "44e69f29-076e-4b05-b9bc-947e415cfe8a",
-      "raw_capture_id": "2af67233-f953-4d05-a9a0-5a2c6d1497b1",
+      "id": "dd1b2210-6e3f-419d-96da-07eb45c45e9a",
+      "session_id": "ac81abaa-7831-4f0a-b42f-34e746c62d35",
+      "raw_capture_id": "e0916c68-f027-4728-870b-59ce4ff65aff",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T02:15:10.881067",
-      "duration_ms": 165.77744483947754,
+      "timestamp": "2026-05-04T02:56:45.728352",
+      "duration_ms": 177.19173431396484,
       "time_to_first_token_ms": null,
       "provider": "anthropic",
       "model": "claude-3-5-haiku-20241022",
@@ -71,14 +71,14 @@
       "response_metadata": {}
     },
     {
-      "id": "9dd2bdc4-8e6e-47ff-b634-6b605942e6a0",
-      "session_id": "44e69f29-076e-4b05-b9bc-947e415cfe8a",
-      "raw_capture_id": "14db0167-7859-46d6-873c-f4324892bb0b",
+      "id": "f84488ed-111a-4e6e-8b36-f2f861827cff",
+      "session_id": "ac81abaa-7831-4f0a-b42f-34e746c62d35",
+      "raw_capture_id": "aa963c4a-cb22-4668-af67-063684c33b9e",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T02:15:13.410338",
-      "duration_ms": 187.6819133758545,
+      "timestamp": "2026-05-04T02:56:48.248927",
+      "duration_ms": 186.36655807495117,
       "time_to_first_token_ms": null,
       "provider": "anthropic",
       "model": "claude-3-5-haiku-20241022",
@@ -116,15 +116,15 @@
       "response_metadata": {}
     },
     {
-      "id": "d796730e-41a6-4344-a400-7a1c548d7e5d",
-      "session_id": "44e69f29-076e-4b05-b9bc-947e415cfe8a",
-      "raw_capture_id": "47f5a1f7-5d23-4a65-a517-841294f0283f",
+      "id": "fc77c585-aa98-47aa-8719-e504539a455d",
+      "session_id": "ac81abaa-7831-4f0a-b42f-34e746c62d35",
+      "raw_capture_id": "41880a99-c46c-41b0-b2f8-4c743bb857b0",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T02:15:14.739189",
-      "duration_ms": 1469.2509174346924,
-      "time_to_first_token_ms": 1412.2424125671387,
+      "timestamp": "2026-05-04T02:56:50.204343",
+      "duration_ms": 2092.322587966919,
+      "time_to_first_token_ms": 1658.146619796753,
       "provider": "anthropic",
       "model": "claude-opus-4-20250514",
       "api_endpoint": "https://api.anthropic.com/v1/messages?beta=true",
@@ -682,7 +682,7 @@
           "content": [
             {
               "type": "text",
-              "text": "Hello! How can I help you with your coding project today?"
+              "text": "Hello! How can I help you with your coding tasks today?"
             }
           ]
         }
@@ -703,9 +703,9 @@
   ],
   "raw_captures": [
     {
-      "id": "2af67233-f953-4d05-a9a0-5a2c6d1497b1",
-      "session_id": "44e69f29-076e-4b05-b9bc-947e415cfe8a",
-      "timestamp": "2026-05-04T02:15:10.881067",
+      "id": "e0916c68-f027-4728-870b-59ce4ff65aff",
+      "session_id": "ac81abaa-7831-4f0a-b42f-34e746c62d35",
+      "timestamp": "2026-05-04T02:56:45.728352",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -751,23 +751,23 @@
       },
       "response_status": 404,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 02:15:11 GMT",
+        "Date": "Mon, 04 May 2026 02:56:45 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
         "x-should-retry": "false",
-        "request-id": "req_011CagirfjxYuTBHNXxMD2HM",
+        "request-id": "req_011Cagn2a528J9SZGd7xLAwr",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-d569d7833561f1aab4e459751922e31e-18a6804b1df15118-01",
+        "traceresponse": "00-9b5dd3005d0315e213bc6b0688e41e19-75b495b45e4ae6af-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "78",
+        "x-envoy-upstream-service-time": "86",
         "X-Robots-Tag": "none",
         "vary": "Accept-Encoding",
         "cf-cache-status": "DYNAMIC",
         "set-cookie": "REDACTED",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-        "CF-RAY": "9f63ff054b52c8ce-SJC"
+        "CF-RAY": "9f643bedccb1ad01-SJC"
       },
       "response_body": {
         "type": "error",
@@ -775,15 +775,15 @@
           "type": "not_found_error",
           "message": "model: claude-3-5-haiku-20241022"
         },
-        "request_id": "req_011CagirfjxYuTBHNXxMD2HM"
+        "request_id": "req_011Cagn2a528J9SZGd7xLAwr"
       },
       "is_streaming": false,
       "sse_events": []
     },
     {
-      "id": "14db0167-7859-46d6-873c-f4324892bb0b",
-      "session_id": "44e69f29-076e-4b05-b9bc-947e415cfe8a",
-      "timestamp": "2026-05-04T02:15:13.410338",
+      "id": "aa963c4a-cb22-4668-af67-063684c33b9e",
+      "session_id": "ac81abaa-7831-4f0a-b42f-34e746c62d35",
+      "timestamp": "2026-05-04T02:56:48.248927",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -829,23 +829,23 @@
       },
       "response_status": 404,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 02:15:13 GMT",
+        "Date": "Mon, 04 May 2026 02:56:48 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
         "x-should-retry": "false",
-        "request-id": "req_011CagirrVs5Fc9t12kuvYrD",
+        "request-id": "req_011Cagn2kowSG1jge2Xr98QU",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-9e2448011148231dded32c8bd7af82b4-fb8899a6261060f7-01",
+        "traceresponse": "00-7f9e0fc381df4ce070fa89a399cb9f92-d425107e437c0fef-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "80",
+        "x-envoy-upstream-service-time": "90",
         "X-Robots-Tag": "none",
         "vary": "Accept-Encoding",
         "cf-cache-status": "DYNAMIC",
         "set-cookie": "REDACTED",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-        "CF-RAY": "9f63ff150f09c8ce-SJC"
+        "CF-RAY": "9f643bfd7eb7ad01-SJC"
       },
       "response_body": {
         "type": "error",
@@ -853,15 +853,15 @@
           "type": "not_found_error",
           "message": "model: claude-3-5-haiku-20241022"
         },
-        "request_id": "req_011CagirrVs5Fc9t12kuvYrD"
+        "request_id": "req_011Cagn2kowSG1jge2Xr98QU"
       },
       "is_streaming": false,
       "sse_events": []
     },
     {
-      "id": "47f5a1f7-5d23-4a65-a517-841294f0283f",
-      "session_id": "44e69f29-076e-4b05-b9bc-947e415cfe8a",
-      "timestamp": "2026-05-04T02:15:14.739189",
+      "id": "41880a99-c46c-41b0-b2f8-4c743bb857b0",
+      "session_id": "ac81abaa-7831-4f0a-b42f-34e746c62d35",
+      "timestamp": "2026-05-04T02:56:50.204343",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -1426,7 +1426,7 @@
       },
       "response_status": 200,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 02:15:14 GMT",
+        "Date": "Mon, 04 May 2026 02:56:49 GMT",
         "Content-Type": "text/event-stream; charset=utf-8",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
@@ -1434,31 +1434,31 @@
         "anthropic-ratelimit-unified-status": "allowed",
         "anthropic-ratelimit-unified-5h-status": "allowed",
         "anthropic-ratelimit-unified-5h-reset": "1777875000",
-        "anthropic-ratelimit-unified-5h-utilization": "0.22",
+        "anthropic-ratelimit-unified-5h-utilization": "0.51",
         "anthropic-ratelimit-unified-7d-status": "allowed",
         "anthropic-ratelimit-unified-7d-reset": "1778126400",
-        "anthropic-ratelimit-unified-7d-utilization": "0.28",
+        "anthropic-ratelimit-unified-7d-utilization": "0.31",
         "anthropic-ratelimit-unified-overage-status": "allowed",
-        "anthropic-ratelimit-unified-overage-reset": "1777861200",
+        "anthropic-ratelimit-unified-overage-reset": "1777863600",
         "anthropic-ratelimit-unified-overage-utilization": "0.0",
         "anthropic-ratelimit-unified-representative-claim": "five_hour",
         "anthropic-ratelimit-unified-fallback-percentage": "0.5",
+        "anthropic-ratelimit-unified-fallback": "available",
         "anthropic-ratelimit-unified-reset": "1777875000",
-        "request-id": "req_011CagirroxtprpEbw9qrkJ4",
+        "request-id": "req_011Cagn2mCkQ2a2t5rhLSQj2",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-85d00ff7f2ad6634ed3e484ad610483b-e4a01897ed0e6a7f-01",
+        "traceresponse": "00-d2790600c4689831cea60a3a02f5c712-a83419c9f2d0c3ef-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "1162",
+        "x-envoy-upstream-service-time": "1483",
         "X-Robots-Tag": "none",
         "vary": "Accept-Encoding",
-        "server-timing": "x-originResponse;dur=1165",
         "cf-cache-status": "DYNAMIC",
         "set-cookie": "REDACTED",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-        "CF-RAY": "9f63ff154b512271-SJC"
+        "CF-RAY": "9f643bfdcd589d09-SJC"
       },
-      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-20250514\",\"id\":\"msg_01MBJeFVhtJcBgq8iWLoERAU\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":3303,\"cache_read_input_tokens\":10288,\"cache_creation\":{\"ephemeral_5m_input_tokens\":3303,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":8,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}               }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}   }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Hello! How can I help you with\"}  }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" your coding project today?\"}             }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0            }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":3303,\"cache_read_input_tokens\":10288,\"output_tokens\":16}       }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"       }\n\n",
+      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-20250514\",\"id\":\"msg_01GoUGGh9KBphLu49HiQSSut\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":3303,\"cache_read_input_tokens\":10288,\"cache_creation\":{\"ephemeral_5m_input_tokens\":3303,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":1,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}          }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}  }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Hello\"}    }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"! How can I help you with your coding tasks today?\"}          }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0 }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":3303,\"cache_read_input_tokens\":10288,\"output_tokens\":16}       }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"          }\n\n",
       "is_streaming": true,
       "sse_events": [
         {
@@ -1467,7 +1467,7 @@
             "type": "message_start",
             "message": {
               "model": "claude-opus-4-20250514",
-              "id": "msg_01MBJeFVhtJcBgq8iWLoERAU",
+              "id": "msg_01GoUGGh9KBphLu49HiQSSut",
               "type": "message",
               "role": "assistant",
               "content": [],
@@ -1482,7 +1482,7 @@
                   "ephemeral_5m_input_tokens": 3303,
                   "ephemeral_1h_input_tokens": 0
                 },
-                "output_tokens": 8,
+                "output_tokens": 1,
                 "service_tier": "standard",
                 "inference_geo": "not_available"
               }
@@ -1513,7 +1513,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "Hello! How can I help you with"
+              "text": "Hello"
             }
           }
         },
@@ -1524,7 +1524,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": " your coding project today?"
+              "text": "! How can I help you with your coding tasks today?"
             }
           }
         },

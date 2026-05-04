@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-20250514",
-        "id": "msg_01MBJeFVhtJcBgq8iWLoERAU",
+        "id": "msg_01GoUGGh9KBphLu49HiQSSut",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -20,7 +20,7 @@
             "ephemeral_5m_input_tokens": 3303,
             "ephemeral_1h_input_tokens": 0
           },
-          "output_tokens": 8,
+          "output_tokens": 1,
           "service_tier": "standard",
           "inference_geo": "not_available"
         }
@@ -51,7 +51,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "Hello! How can I help you with"
+        "text": "Hello"
       }
     }
   },
@@ -62,7 +62,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": " your coding project today?"
+        "text": "! How can I help you with your coding tasks today?"
       }
     }
   },
