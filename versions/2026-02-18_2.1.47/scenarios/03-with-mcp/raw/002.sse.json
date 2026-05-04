@@ -1,0 +1,710 @@
+[
+  {
+    "event": "message_start",
+    "data": {
+      "type": "message_start",
+      "message": {
+        "model": "claude-opus-4-6",
+        "id": "msg_01DJSxnP9KCKet1bQjoJPoKH",
+        "type": "message",
+        "role": "assistant",
+        "content": [],
+        "stop_reason": null,
+        "stop_sequence": null,
+        "stop_details": null,
+        "usage": {
+          "input_tokens": 3,
+          "cache_creation_input_tokens": 23579,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 23579
+          },
+          "output_tokens": 26,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      }
+    }
+  },
+  {
+    "event": "content_block_start",
+    "data": {
+      "type": "content_block_start",
+      "index": 0,
+      "content_block": {
+        "type": "thinking",
+        "thinking": "",
+        "signature": ""
+      }
+    }
+  },
+  {
+    "event": "ping",
+    "data": {
+      "type": "ping"
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": "The user wants me to list all MCP tools available to me. I can see these"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": " from the deferred tools list in the ToolSearch description"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": ", plus any that are already loaded. Let me list all"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": " the MCP tools from the deferred tools list.\n\nLooking at the available deferred tools listed in"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": " the ToolSearch tool description:\n\nmcp__fixture__tool_001"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": "\nmcp__fixture__tool_002\nmcp__fixture__tool_003\nmcp__claude_ai_Google_Calendar__"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": "list_events\n"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": "\n\nmcp__claude_ai_Google"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": "_Calendar__get_event\nmcp__claude_ai_Google_Calendar__list_calendars\nmcp__claude_ai_Google_Calendar__suggest_time\nmcp__claude_ai_Google_Calendar__create_event\nmcp__claude_ai_Google_Calendar__"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": "update_event\nmcp__claude_ai_Google_Calendar__delete_event\nmcp__claude_ai_Google_Calendar__respond_to_event\nmcp__claude_ai_Google_Drive__copy_file\nmcp__claude_ai_Google_Drive__create_"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": "file\nmcp__claude_ai_Google_Drive__download_file_content\nmcp__claude_ai_Google_Drive__get_file_metadata\nmcp__claude_ai_Google_Drive__get"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": "\n\n_file_permissions"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": "\nmcp__claude_ai_Google_Drive__list_recent_files\nmcp__claude_ai_Google_Drive__read_file_content\nmcp__claude_ai_Google_Drive__search_files\nmcp__claude_ai_Excalidraw__read_"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": "me\nmcp__claude_ai_Excalidraw__create_view\nmcp__claude_ai_Excalidraw__export_to_excalidraw\nmcp__claude_ai_Excalidraw__save_checkpoint\nmcp__claude_ai"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": "_Excalidraw__read_checkpoint\nmcp__claude_ai_Gmail__create_draft\nmcp__claude_ai_Gmail__list_drafts\nmcp__claude_ai_Gmail__get_thread\nmcp__claude_ai_Gmail__search_threads"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": "\nmcp__claude_ai_Gmail__label_thread\n\nI'm looking at the available tools across"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": " Google Calendar, Drive, Excalidraw, and Gmail integrations to understand what capabilities are"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": " available for the user."
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": " I"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": "'m looking at the available Canva tools now\u2014there are options for managing"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": " folders, collaborating through comments and replies, generating designs with AI, working with brand kits, and res"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": "izing designs."
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": " Now"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": " I'm reviewing the available tools across Figma, continuing with screenshot"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": " capture, design system rules, metadata retrieval, variable definitions, and FigJam access"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": ", along with diagram generation, code connect mapping features, and context retrieval for code"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": " integration."
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "signature_delta",
+        "signature": "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"
+      }
+    }
+  },
+  {
+    "event": "content_block_stop",
+    "data": {
+      "type": "content_block_stop",
+      "index": 0
+    }
+  },
+  {
+    "event": "content_block_start",
+    "data": {
+      "type": "content_block_start",
+      "index": 1,
+      "content_block": {
+        "type": "text",
+        "text": ""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "Here are"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": " all the MCP tools currently available (as deferred tools that can be loaded via ToolSearch):\n\n```\nmcp"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\nmcp__claude_ai_Google_Calendar__list_events\nmcp__claude_ai_Google_Calendar__get_event\nmcp__claude_ai_Google_"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "Calendar__list_calendars\nmcp__claude_ai_Google_Calendar__suggest_time\nmcp__claude_ai_Google_Calendar__create_event\nmcp__claude_ai_Google_Calendar__update_event\nmcp__claude_ai_Google_Calendar__delete"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "_event\nmcp__claude_ai_Google_Calendar__respond_to_event\nmcp__claude_ai_Google_Drive__copy_file\nmcp__claude_ai_Google_Drive__create_file\nmcp__claude_ai_Google_Drive__download_file"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "_content\nmcp__claude_ai_Google_Drive__get_file_metadata\nmcp__claude_ai_Google_Drive__get_file_permissions\nmcp__claude_ai_Google_Drive__list_recent_files\nmcp__claude_ai_Google_Drive"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "__read_file_content\nmcp__claude_ai_Google_Drive__search_files\nmcp__claude_ai_Excalidraw__read_me\nmcp__claude_ai_Excalidraw__create_view\nmcp__claude_ai_"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "Excalidraw__export_to_excalidraw\nmcp__claude_ai_Excalidraw__save_checkpoint\nmcp__claude_ai_Excalidraw__read_checkpoint\nmcp__claude_ai_Gmail__create_draft\nmcp__"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "claude_ai_Gmail__list_drafts\nmcp__claude_ai_Gmail__get_thread\nmcp__claude_ai_Gmail__search_threads\nmcp__claude_ai_Gmail__label_thread\nmcp__claude_ai_Gmail__unlabel_thread"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "\nmcp__claude_ai_Gmail__list_labels\nmcp__claude_ai_Gmail__label_message\nmcp__claude_ai_Gmail__unlabel_message\nmcp__claude_ai_Gmail__create_label\nmcp__claude_ai_Canva__"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "upload-asset-from-url\nmcp__claude_ai_Canva__resolve-shortlink\nmcp__claude_ai_Canva__search-designs\nmcp__claude_ai_Canva__get-design\nmcp__claude_ai_Canva"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "__get-design-pages\nmcp__claude_ai_Canva__get-design-content\nmcp__claude_ai_Canva__get-presenter-notes\nmcp__claude_ai_Canva__import-design-from-url\nmcp__claude"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "_ai_Canva__export-design\nmcp__claude_ai_Canva__get-export-formats\nmcp__claude_ai_Canva__create-folder\nmcp__claude_ai_Canva__move-item-to-folder\nmcp"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "__claude_ai_Canva__list-folder-items\nmcp__claude_ai_Canva__search-folders\nmcp__claude_ai_Canva__comment-on-design\nmcp__claude_ai_Canva__list-replies\nmcp"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "__claude_ai_Canva__reply-to-comment\nmcp__claude_ai_Canva__list-comments\nmcp__claude_ai_Canva__generate-design\nmcp__claude_ai_Canva__generate-design-structured\nmcp"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "__claude_ai_Canva__create-design-from-candidate\nmcp__claude_ai_Canva__request-outline-review\nmcp__claude_ai_Canva__list-brand-kits\nmcp__claude_ai_Canva__help"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "\nmcp__claude_ai_Canva__resize-design\nmcp__claude_ai_Canva__start-editing-transaction\nmcp__claude_ai_Canva__perform-editing-operations\nmcp__claude_ai_Canva__commit-editing"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "-transaction\nmcp__claude_ai_Canva__cancel-editing-transaction\nmcp__claude_ai_Canva__get-design-thumbnail\nmcp__claude_ai_Canva__get-assets\nmcp__claude_ai_Canva__merge"
+      }
+    }
+  },
+  {
+    "event": "ping",
+    "data": {
+      "type": "ping"
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "-designs\nmcp__claude_ai_tldraw__search\nmcp__claude_ai_tldraw__exec\nmcp__claude_ai_tldraw___exec_callback\nmcp__claude_ai_tldraw___get_canvas_state\nmcp__"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "claude_ai_tldraw__read_checkpoint\nmcp__claude_ai_tldraw__save_checkpoint\nmcp__claude_ai_Mermaid_Chart__validate_and_render_mermaid_diagram\nmcp__claude_ai_Figma__"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "get_screenshot\nmcp__claude_ai_Figma__create_design_system_rules\nmcp__claude_ai_Figma__get_design_context\nmcp__claude_ai_Figma__get_metadata\nmcp__claude_ai_Fig"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "ma__get_variable_defs\nmcp__claude_ai_Figma__get_figjam\nmcp__claude_ai_Figma__generate_diagram\nmcp__claude_ai_Figma__get_code_connect_map\nmcp__claude"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "_ai_Figma__whoami\nmcp__claude_ai_Figma__add_code_connect_map\nmcp__claude_ai_Figma__get_code_connect_suggestions\nmcp__claude_ai_Figma__send_code_connect"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "_mappings\nmcp__claude_ai_Figma__get_context_for_code_connect\nmcp__claude_ai_Figma__use_figma\nmcp__claude_ai_Figma__get_libraries\nmcp__claude_ai_"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "Figma__search_design_system\nmcp__claude_ai_Figma__create_new_file\nmcp__claude_ai_Figma__upload_assets\n```\n\nThat's 78 M"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "CP tools total, spanning 8 servers: fixture,"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": " Google Calendar, Google Drive, Excalidraw, Gmail, Canva, tldraw, Mermaid Chart, and Figma."
+      }
+    }
+  },
+  {
+    "event": "content_block_stop",
+    "data": {
+      "type": "content_block_stop",
+      "index": 1
+    }
+  },
+  {
+    "event": "message_delta",
+    "data": {
+      "type": "message_delta",
+      "delta": {
+        "stop_reason": "end_turn",
+        "stop_sequence": null,
+        "stop_details": null
+      },
+      "usage": {
+        "input_tokens": 3,
+        "cache_creation_input_tokens": 23579,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 3070
+      },
+      "context_management": {
+        "applied_edits": []
+      }
+    }
+  },
+  {
+    "event": "message_stop",
+    "data": {
+      "type": "message_stop"
+    }
+  }
+]
