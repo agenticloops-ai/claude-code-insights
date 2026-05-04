@@ -6,12 +6,12 @@ this script publishes the *baseline* artifacts (system prompt, tool list,
 reminders) at versions/<v>/ root so a reader can answer "what does this
 version look like?" without descending into a scenario folder.
 
-The baseline is the simplest scenario (``01-bare`` by default — single-turn
+The baseline is the simplest scenario (``03-bare`` by default — single-turn
 ``hi`` with no MCP and no skills). An aggregate manifest summarizes
 per-scenario stats.
 
 Usage:
-    scripts/summarize-version.py 2.1.126 [--baseline 01-bare]
+    scripts/summarize-version.py 2.1.126 [--baseline 03-bare]
 """
 from __future__ import annotations
 
@@ -31,7 +31,7 @@ from _paths import dir_for, find_existing_dir  # noqa: E402
 def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("version", help="npm version (e.g. 2.1.126); folder lookup uses <date>_<version>")
-    p.add_argument("--baseline", default="01-bare")
+    p.add_argument("--baseline", default="03-bare")
     args = p.parse_args()
 
     npm_version = args.version
@@ -69,12 +69,13 @@ def main() -> int:
         elif (scen_dir / "output.txt").exists():
             text = (scen_dir / "output.txt").read_text()
             ec_path = scen_dir / "exit-code.txt"
-            scenarios[scen_dir.name] = {
+            entry = {
                 "mode": "local",
                 "output_chars": len(text),
                 "output_lines": text.count("\n") + (1 if text and not text.endswith("\n") else 0),
                 "exit_code": int(ec_path.read_text().strip()) if ec_path.exists() else None,
             }
+            scenarios[scen_dir.name] = entry
         else:
             scenarios[scen_dir.name] = {"empty": True, "note": "no captured artifact"}
 
@@ -140,6 +141,7 @@ def main() -> int:
             seen_models.add(mod)
     for mod in sorted(seen_models):
         lines.append(f"- `{mod}`")
+
     (vroot / "stats.md").write_text("\n".join(lines) + "\n")
 
     print(f"summarized {vroot.relative_to(REPO_DIR)} (baseline: {args.baseline})")

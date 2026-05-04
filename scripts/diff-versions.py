@@ -3,7 +3,7 @@
 
 Compares the *baseline* artifacts promoted to each version's root
 (system-prompt.md, user-prompt.md, tools.json, deferred-tools.json,
-skills.json) plus the local-mode CLI scenarios (07-cli-help, 09-mcp-help).
+skills.json) plus the stdout-capture scenario (01-cli-help).
 
 Per-scenario diffs are intentionally not included — the cross-version surface
 that matters is what every session sees, and that lives at the version root.
@@ -27,8 +27,9 @@ VERSIONS_DIR = REPO_DIR / "versions"
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _paths import dir_for, find_existing_dir, version_from_dir  # noqa: E402
 
-# Local-mode scenarios we always include in the diff (CLI help surface).
-CLI_SCENARIOS = ("07-cli-help",)
+# Stdout-capture scenarios we always include in the diff. `01-cli-help` is the
+# CLI surface (`claude --help`).
+CLI_SCENARIOS = ("01-cli-help",)
 
 
 def _resolve_dir(version_or_dir: str) -> str:

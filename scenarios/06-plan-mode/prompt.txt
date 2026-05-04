@@ -1,1 +1,0 @@
-Create a plan to implement minimal agentic loop in Python using Anthropic API with a run bash tool and human confirmation before executing scripts. Explore current folder only.

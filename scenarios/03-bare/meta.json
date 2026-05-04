@@ -1,5 +1,5 @@
 {
-  "name": "01-bare",
+  "name": "03-bare",
   "description": "Single-turn 'hi' prompt with no MCP servers and no skills. Captures the baseline system prompt, default tool list, and default model.",
   "claude_args": [
     "-p"

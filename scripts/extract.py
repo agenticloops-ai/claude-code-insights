@@ -7,7 +7,7 @@ root, one level above. The split-out files are designed to diff cleanly
 between releases.
 
 Usage:
-    scripts/extract.py versions/2026-04-30_2.1.126/scenarios/01-bare
+    scripts/extract.py versions/2026-04-30_2.1.126/scenarios/03-bare
 """
 from __future__ import annotations
 
@@ -42,15 +42,16 @@ def _fixture_mcp_server_names() -> set[str]:
         return set()
 
 
-def _load_session(scen_dir: Path) -> dict:
+def _load_session(scen_dir: Path) -> dict | None:
     """Load the agentlens session JSON from <scen_dir>/raw/.
 
     Prefer ``raw/<scenario>.json``; otherwise fall back to the largest JSON
-    in raw/ that isn't a per-request split file.
+    in raw/ that isn't a per-request split file. Returns None if no usable
+    session is present (caller writes a stub stats.json instead of failing).
     """
     raw_dir = scen_dir / "raw"
     if not raw_dir.exists():
-        sys.exit(f"no raw/ dir under {scen_dir}")
+        return None
     preferred = raw_dir / f"{scen_dir.name}.json"
     if preferred.exists():
         return json.loads(preferred.read_text())
@@ -59,7 +60,7 @@ def _load_session(scen_dir: Path) -> dict:
         if not p.name.endswith((".request.json", ".response.json", ".sse.json"))
     ]
     if not candidates:
-        sys.exit(f"no agentlens session JSON in {raw_dir}")
+        return None
     candidates.sort(key=lambda p: p.stat().st_size, reverse=True)
     return json.loads(candidates[0].read_text())
 
@@ -260,9 +261,22 @@ def main(argv: list[str]) -> int:
 
     out_dir = scen_dir
     session = _load_session(scen_dir)
-    requests = session.get("requests", [])
+    requests = (session or {}).get("requests", [])
     if not requests:
-        sys.exit("no requests in session")
+        # No session captured (claude CLI errored before agentlens saw a
+        # request, or the only request had no body). Write a stub stats.json
+        # so /summarize-version can still build the manifest entry.
+        stub = {
+            "version": version,
+            "dir_name": dir_name,
+            "scenario": scenario,
+            "captured_at": (session or {}).get("session", {}).get("ended_at"),
+            "request_count": 0,
+            "error": "no requests in session",
+        }
+        (out_dir / "stats.json").write_text(json.dumps(stub, indent=2) + "\n")
+        print(f"wrote stub {out_dir} (0 requests — no session captured)")
+        return 0
 
     # The first request is often a tools-less haiku side-call (warmup, file
     # path extraction, etc.). The "main" agent request is the first one with
@@ -315,10 +329,11 @@ def main(argv: list[str]) -> int:
     (out_dir / "deferred-tools.json").write_text(
         json.dumps(builtin_deferred, indent=2) + "\n"
     )
-    # MCP tools are excluded from tools.json / deferred-tools.json so
-    # scenario-specific fixtures don't pollute the cross-version diff.
-    # Their counts in stats.json also exclude the always-mounted default
-    # fixture servers (e.g. "demo") for the same reason.
+    # MCP tools are excluded from tools.json / deferred-tools.json so the
+    # always-mounted fixture (server "fixture", 3 tools) doesn't pollute the
+    # cross-version tool diff. Counts in stats.json also exclude it for the
+    # same reason — the value comparable across versions is "did MCP land in
+    # the tool list at all", not "how many fixture tools registered".
     def _is_fixture_mcp(name: str | None) -> bool:
         if not name or not name.startswith("mcp__"):
             return False

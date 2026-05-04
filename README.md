@@ -37,8 +37,7 @@ For each pinned version, this repo contains the parts of Claude Code that travel
 > 🤖 [**The default model swapped four times in twelve months**](versions/) — sonnet-3-7 → opus-4 → opus-4-1 → sonnet-4-5 → opus-4-7. Every release walks the metric table.\
 > 🪄 [**`ToolSearch` and the deferred-tools mechanism appeared in 2.1.x**](versions/2026-04-30_2.1.126/diff-from-2025-09-29_2.0.0.md#tools) — `WebFetch`, `WebSearch`, `NotebookEdit`, `TodoWrite`, `ExitPlanMode` all moved from advertised to deferred between 2.0.0 and 2.1.126.\
 > 📈 [**The system prompt more than doubled at 2.1**](versions/2026-04-30_2.1.126/diff-from-2025-09-29_2.0.0.md) — 12339 → 26719 chars. Most of the new bytes are tone, planning, and "executing actions with care" sections.\
-> 🛠️ [**16 new top-level tools at 2.1**](versions/2026-04-30_2.1.126/diff-from-2025-09-29_2.0.0.md#tools) — `Agent`, `AskUserQuestion`, `CronCreate`, `EnterPlanMode`, `Skill`, `ToolSearch`, `ScheduleWakeup`, `Monitor`, `RemoteTrigger`, `PushNotification`, and more. Built-in skills jumped from zero to ten.\
-> 🧠 [**Plan-mode is enforced by reminder injection, not by withholding tools**](versions/2026-04-30_2.1.126/scenarios/06-plan-mode/user-prompt.md) — the tool list is identical; a `<system-reminder>` block told the model not to write.
+> 🛠️ [**16 new top-level tools at 2.1**](versions/2026-04-30_2.1.126/diff-from-2025-09-29_2.0.0.md#tools) — `Agent`, `AskUserQuestion`, `CronCreate`, `EnterPlanMode`, `Skill`, `ToolSearch`, `ScheduleWakeup`, `Monitor`, `RemoteTrigger`, `PushNotification`, and more. Built-in skills jumped from zero to ten.
 
 **Useful for:**
 
@@ -57,7 +56,7 @@ New to the repo? Follow this reading path:
 2. **Open the newer version's `diff-from-<earlier>.md`** — start with the metric table at the top, then scan the section headers (`## tools`, `## skills`, `## system prompt`, …).
 3. **Drill into the unified diffs** — `## system prompt` and `## user prompt (incl. system-reminder blocks)` are where the prose-level changes live.
 4. **Compare the full extracted artifacts** — `versions/<v>/system-prompt.md`, `tools.json`, `skills.json`, `deferred-tools.json` are what every session sees regardless of how `claude` is invoked.
-5. **Dig into a scenario** — `versions/<v>/scenarios/<NN>-<name>/` holds the per-probe extraction (MCP wiring, plan-mode reminders, websearch tool selection, …) and the raw agentlens capture under `raw/`.
+5. **Dig into a scenario** — `versions/<v>/scenarios/<NN>-<name>/` holds the per-probe extraction (multi-turn agent loop, MCP/skill probes, …) and the raw agentlens capture under `raw/`.
 
 ---
 
@@ -98,7 +97,7 @@ versions/<release-date>_<version>/
         └── 001.sse.json
 ```
 
-The version-root files are the **baseline** scenario's extracted artifacts (`01-bare`, single-turn `hi`, no MCP, no skills) promoted up. They're what every session sees regardless of how you invoke `claude`. Per-scenario folders dig into anything specific (MCP wiring, plan-mode reminders, websearch tool selection).
+The version-root files are the **baseline** scenario's extracted artifacts (`03-bare`, single-turn `hi`, with the always-mounted MCP fixture and skill fixture) promoted up. They're what every session sees regardless of how you invoke `claude`. Per-scenario folders dig into anything specific (multi-turn agent loop, MCP/skill probes).
 
 ### How to read a diff
 
@@ -109,7 +108,7 @@ The version-root files are the **baseline** scenario's extracted artifacts (`01-
 3. **`## skills`** — skills added / removed / description-changed.
 4. **`## system prompt`** — unified diff of the system prompt.
 5. **`## user prompt (incl. system-reminder blocks)`** — unified diff of the injected user-message context.
-6. **`## cli: 07-cli-help`** — added/removed CLI flags & commands, with the full `claude --help` diff in a `<details>` block.
+6. **`## cli: 01-cli-help`** — added/removed CLI flags & commands, with the full `claude --help` diff in a `<details>` block.
 
 If a section is missing, nothing changed at that surface in this release.
 
@@ -123,7 +122,7 @@ If a section is missing, nothing changed at that surface in this release.
 | Did a built-in skill appear or change wording? | `## skills` in the diff; full descriptions in `skills.json` |
 | Did the system prompt grow / shrink / reorder? | metric table (`system_prompt_chars`) + `## system prompt` |
 | Did claude-code start injecting a new `<system-reminder>`? | `## user prompt (incl. system-reminder blocks)` |
-| Did a new CLI flag ship? | `## cli: 07-cli-help` |
+| Did a new CLI flag ship? | `## cli: 01-cli-help` |
 | How does scenario X behave on this version? | `versions/<v>/scenarios/<NN>-<name>/stats.json` and `requests.json` |
 
 ---
@@ -167,7 +166,7 @@ These will get fleshed out version-by-version once `/process-version` is re-run 
 
 ```
 .
-├── scenarios/             # one black-box probe per directory (prompt + meta + optional mcp.json)
+├── scenarios/             # one black-box probe per directory (prompt + meta)
 ├── sandbox/               # Docker image + entrypoint + run.sh + fixtures (mcp, skills, settings)
 ├── scripts/               # capture / extract / summarize / diff / release-notes / refresh-versions
 ├── .claude/skills/        # /process-version, /extract-capture, /diff-versions
@@ -177,19 +176,17 @@ These will get fleshed out version-by-version once `/process-version` is re-run 
 
 ### Scenarios
 
-Seven probes, designed so a single capture exposes every interesting surface (system prompt, tool registration, MCP, skills, plan-mode reminder injection, CLI surface, websearch selection):
+Five probes, ordered so the always-runnable static probe comes first (`01` works on every version) and the agent-mode probes follow. The MCP fixture (server `fixture`, 3 tools) and the skill fixture (`say-hello`) are sandbox-permanent, but `05-with-mcp` and `06-with-skill` exercise those surfaces explicitly so the diff captures any change in how claude registers and surfaces them. Scenarios that exercise a feature introduced later carry a `min_version` and are skipped (not failed) on older releases:
 
-| # | name | mode | what it probes |
-|---|---|---|---|
-| 01 | bare | agent | baseline system prompt, default tools, default model |
-| 02 | agent-task | agent | multi-turn loop with Write/Read/Bash + any haiku side-call pipeline |
-| 03 | with-mcp-3tools | agent | MCP tool registration & naming convention |
-| 04 | with-skill | agent | skill discovery via `<system-reminder>` |
-| 06 | plan-mode | agent | `--permission-mode plan` injection |
-| 07 | cli-help | local | top-level `claude --help` flag/command surface |
-| 08 | websearch | agent | how the agent picks and calls a search tool unaided |
+| # | name | mode | min_version | what it probes |
+|---|---|---|---|---|
+| 01 | cli-help | local | — | top-level `claude --help` flag/command surface |
+| 03 | bare | agent | — | baseline system prompt, default tools, default model |
+| 04 | agent-task | agent | — | multi-turn loop with Write/Read/Bash + any haiku side-call pipeline |
+| 05 | with-mcp | agent | — | MCP tool registration & naming convention (probes the always-mounted fixture) |
+| 06 | with-skill | agent | 2.0.28 | skill discovery via `<system-reminder>` and the `Skill` tool |
 
-`01-bare` is the **baseline** — its extracted artifacts are mirrored to the version root. Every other scenario adds one isolated probe surface on top. See `scenarios/README.md` for the full `meta.json` schema and isolation guarantees.
+`03-bare` is the **baseline** — its extracted artifacts are mirrored to the version root. Every other scenario adds one isolated probe surface on top. See `scenarios/README.md` for the full `meta.json` schema and isolation guarantees.
 
 ---
 
@@ -239,7 +236,7 @@ Three slash commands live in `.claude/skills/`. They're how the pipeline is mean
 ## 🛡️ Sandbox isolation
 
 - Every scenario runs in a fresh `docker run --rm` container; the `cch-auth` Docker volume is wiped of transient state at entrypoint (only OAuth credentials and the mitmproxy CA survive).
-- `--strict-mcp-config` keeps account-level claude.ai connectors out. The default fixture (`sandbox/fixtures/mcp-default.json`, one demo tool) is **merged** with the scenario's `mcp.json` into a single config file — repeated `--mcp-config` flags would otherwise drop the default due to last-wins replacement.
+- The MCP server is sandbox-permanent: `sandbox/fixtures/mcp-default.json` (single `fixture` server, 3 tools) is merged into `~/.claude.json` by `entrypoint.sh` on every container start. claude reads it natively, no `--mcp-config` flag. claude.ai account-level connectors don't bleed in because the auth volume only holds OAuth credentials.
 - The fixture skill set under `sandbox/fixtures/skills/` is bind-mounted at `~/.claude/skills/` so skill discovery is deterministic.
 - For older claude versions that lack `--strict-mcp-config`, `sandbox/run.sh` probes `claude --help` and conditionally drops unsupported flags.
 

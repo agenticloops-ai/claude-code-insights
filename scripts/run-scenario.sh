@@ -41,17 +41,17 @@ python3 - "$META" >"$META_TMP" <<'PY'
 import json, sys
 m = json.load(open(sys.argv[1]))
 print(m.get("mode") or "agent")
-print(m.get("mcp") or "")
 # claude_args separated by US (0x1f)
 print("\x1f".join(m.get("claude_args") or []))
+print(m.get("min_version") or "")
 # env as KEY=VALUE per line
 for k, v in (m.get("env") or {}).items():
     print(f"E={k}={v}")
 PY
 
 MODE="agent"
-MCP_PATH=""
 CLAUDE_ARGS_RAW=""
+MIN_VERSION=""
 ENV_LINES=()
 
 LINE_NUM=0
@@ -59,11 +59,29 @@ while IFS= read -r line; do
     LINE_NUM=$((LINE_NUM + 1))
     case $LINE_NUM in
         1) MODE="$line" ;;
-        2) MCP_PATH="$line" ;;
-        3) CLAUDE_ARGS_RAW="$line" ;;
+        2) CLAUDE_ARGS_RAW="$line" ;;
+        3) MIN_VERSION="$line" ;;
         *) [[ "$line" == E=* ]] && ENV_LINES+=("${line#E=}") ;;
     esac
 done <"$META_TMP"
+
+# Skip the scenario if its min_version is above the target. Exit code 125
+# signals "skipped" to capture-version.sh / batch-capture.py — distinct from
+# 124 (timeout) and 0/other (run/fail).
+if [[ -n "$MIN_VERSION" ]]; then
+    SKIP_REASON="$(python3 - "$VERSION" "$MIN_VERSION" <<'PY'
+import sys
+def parts(v): return tuple(int(x) for x in v.split(".") if x.isdigit())
+have, need = parts(sys.argv[1]), parts(sys.argv[2])
+if have < need:
+    print(f"target {sys.argv[1]} below scenario floor {sys.argv[2]}")
+PY
+)"
+    if [[ -n "$SKIP_REASON" ]]; then
+        echo "=== ${SCENARIO} @ claude-code-${VERSION} [SKIPPED] === ${SKIP_REASON}"
+        exit 125
+    fi
+fi
 
 # Split CLAUDE_ARGS_RAW on US (0x1f).
 CLAUDE_ARGS=()
@@ -77,7 +95,6 @@ fi
 PROMPT="$(cat "$PROMPT_FILE")"
 
 EXTRA_FLAGS=(--mode "$MODE")
-[[ -n "$MCP_PATH" ]] && EXTRA_FLAGS+=(--mcp "${REPO_DIR}/${MCP_PATH}")
 
 for env_kv in ${ENV_LINES[@]+"${ENV_LINES[@]}"}; do
     EXTRA_FLAGS+=(-e "$env_kv")
@@ -93,8 +110,8 @@ mkdir -p "$SCEN_OUT_DIR"
 echo "=== ${SCENARIO} @ claude-code-${VERSION} [${MODE}] ==="
 
 if [[ "$MODE" == "local" ]]; then
-    # Local-mode scenarios capture stdout from a non-API claude invocation
-    # (e.g. claude --help, claude mcp --help). No agentlens, no proxy.
+    # Stdout-capture scenarios. `local` runs `claude <args>` (e.g. --help) —
+    # no API call, no agentlens.
     OUT_FILE="${SCEN_OUT_DIR}/output.txt"
     EXIT_FILE="${SCEN_OUT_DIR}/exit-code.txt"
     set +e
@@ -127,16 +144,19 @@ mkdir -p "$RAW_DIR"
     ${EXTRA_FLAGS[@]+"${EXTRA_FLAGS[@]}"} \
     -- ${CLAUDE_ARGS[@]+"${CLAUDE_ARGS[@]}"} "$PROMPT"
 
-# agentlens drops its export under a timestamped subdir of raw/; lift its
-# files (and any nested per-request raw/) up to RAW_DIR. Since we wiped
-# RAW_DIR above, exactly one timestamp subdir exists.
+# Defensive flatten — entrypoint.sh already lifts files out of agentlens'
+# timestamped subdir before the container exits, so this should be a no-op.
+# Kept here for older container images / orphans from interrupted prior runs.
 shopt -s nullglob
 for ts in "$RAW_DIR"/*/; do
+    case "$(basename "$ts")" in
+        raw) continue ;;
+    esac
     if [[ -d "${ts}raw" ]]; then
-        mv "${ts}raw"/* "$RAW_DIR/"
-        rmdir "${ts}raw"
+        mv "${ts}raw"/* "$RAW_DIR/" 2>/dev/null || true
+        rmdir "${ts}raw" 2>/dev/null || true
     fi
     mv "${ts}"* "$RAW_DIR/" 2>/dev/null || true
-    rmdir "${ts%/}"
+    rmdir "${ts%/}" 2>/dev/null || true
 done
 shopt -u nullglob

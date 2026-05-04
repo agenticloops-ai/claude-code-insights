@@ -60,6 +60,14 @@ RUN groupmod -n runner node \
     && mkdir -p /home/runner /work /results \
     && chown -R runner:runner /home/runner /work /results
 
+# Make the global npm prefix writable to runner. Older claude versions (0.2.x)
+# show an interactive "Enable automatic updates?" Ink prompt the first time
+# they run with a read-only npm prefix; without a TTY it crashes the agent
+# with "Raw mode is not supported on the current process.stdin". The prompt's
+# own recommended fix is `chown -R $USER /usr/local && chmod -R u+w /usr/local`,
+# so we apply exactly that scope at build time.
+RUN chown -R runner:runner /usr/local && chmod -R u+w /usr/local
+
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 

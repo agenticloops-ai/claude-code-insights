@@ -19,7 +19,7 @@ The sandbox writes the agentlens session JSON to `versions/<v>/scenarios/<s>/raw
 ```bash
 python3 scripts/extract.py versions/<version>/scenarios/<scenario>
 ```
-Local-mode scenarios (those with `output.txt`, e.g. `07-cli-help`) are detected and skipped — their captured stdout is already the final artifact.
+Local-mode scenarios (those with `output.txt`, e.g. `01-cli-help`) are detected and skipped — their captured stdout is already the final artifact.
 
 **Whole version** — loop every scenario:
 ```bash

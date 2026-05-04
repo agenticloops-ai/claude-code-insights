@@ -49,7 +49,7 @@ mutate it between runs.
 ./sandbox/run.sh 2.1.126 -- -p "hi"
 
 # 3. or with custom paths
-./sandbox/run.sh 2.1.126 -o versions/2.1.126/scenarios/01-bare/raw -s 01-bare -- -p "hi"
+./sandbox/run.sh 2.1.126 -o versions/2.1.126/scenarios/03-bare/raw -s 03-bare -- -p "hi"
 ```
 
 The first invocation for a given version builds the image (`cch:<version>`);

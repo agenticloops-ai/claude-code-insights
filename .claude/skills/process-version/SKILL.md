@@ -22,9 +22,9 @@ Run these steps in order. Each step runs via the Bash tool unless otherwise note
 scripts/capture-version.sh <version>
 ```
 
-Runs each `scenarios/<NN>-<name>/` against the pinned `cch:<version>` Docker image. Continues on per-scenario failure; final summary line lists `passed:` and `failed:` scenario names. Capture the exit code and the summary lines for the final report.
+Runs each `scenarios/<NN>-<name>/` against the pinned `cch:<version>` Docker image. Continues on per-scenario failure; final summary line lists `passed:`, `skipped:`, and `failed:` scenario names. `skipped:` means the scenario's `min_version` is above the target — that's expected on older releases (e.g. `06-with-skill` pre-2.0.28) and is not an error. Capture the exit code and the three summary lines for the final report.
 
-If `01-bare` is among `failed:`, the rest of the pipeline (specifically `summarize-version.py`) cannot run — abort with a clear message naming the failed scenarios.
+If `03-bare` is among `failed:`, the rest of the pipeline (specifically `summarize-version.py`) cannot run — abort with a clear message naming the failed scenarios.
 
 ### 2. Extract every fresh capture
 
@@ -36,7 +36,7 @@ Invoke the **`extract-capture`** skill via the Skill tool, passing the version. 
 python3 scripts/summarize-version.py <version>
 ```
 
-Promotes the baseline scenario's extracted artifacts to `versions/<version>/` root and writes `manifest.json` + `stats.md`. If `01-bare` extraction is missing this script will `sys.exit`; that's why step 1 must guarantee it's present.
+Promotes the baseline scenario's extracted artifacts to `versions/<version>/` root and writes `manifest.json` + `stats.md`. If `03-bare` extraction is missing this script will `sys.exit`; that's why step 1 must guarantee it's present.
 
 ### 4. Fetch upstream release notes
 

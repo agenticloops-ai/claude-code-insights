@@ -1,11 +1,11 @@
 {
   "mcpServers": {
-    "demo": {
+    "fixture": {
       "command": "python3",
       "args": ["/opt/fixtures/mcp/fixture-mcp.py"],
       "env": {
-        "FIXTURE_SERVER_NAME": "demo",
-        "FIXTURE_TOOL_COUNT": "1"
+        "FIXTURE_SERVER_NAME": "fixture",
+        "FIXTURE_TOOL_COUNT": "3"
       }
     }
   }

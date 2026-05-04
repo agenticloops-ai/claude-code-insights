@@ -9,6 +9,35 @@ set -euo pipefail
 
 MODE="${CAPTURE_MODE:-capture}"
 
+# Disable interactive prompts. Older claude versions (0.2.x) try to show an
+# Ink-based "Enable automatic updates?" picker the first time they run with a
+# writable npm prefix; without a TTY this crashes with "Raw mode is not
+# supported on the current process.stdin". Newer versions honor CI=1 too.
+export DISABLE_AUTOUPDATER=1
+export CI=1
+
+# Sandbox MCP fixture: merge servers from /opt/fixtures/mcp-default.json
+# into ~/.claude.json so claude reads them natively on startup — no
+# --mcp-config flag. Idempotent. Auth fields (oauth tokens, account info)
+# in .claude.json are preserved; only the mcpServers map is updated.
+FIXTURE_MCP="/opt/fixtures/mcp-default.json"
+if [[ -d "$HOME" && -f "$FIXTURE_MCP" ]]; then
+    FIXTURE_MCP="$FIXTURE_MCP" python3 - <<'PY'
+import json, os, pathlib
+home = pathlib.Path(os.environ["HOME"])
+cfg_path = home / ".claude.json"
+fixture = json.loads(pathlib.Path(os.environ["FIXTURE_MCP"]).read_text())
+cfg = {}
+if cfg_path.exists():
+    try:
+        cfg = json.loads(cfg_path.read_text() or "{}")
+    except Exception:
+        cfg = {}
+cfg.setdefault("mcpServers", {}).update(fixture.get("mcpServers", {}))
+cfg_path.write_text(json.dumps(cfg, indent=2))
+PY
+fi
+
 if [[ "$MODE" == "login" || "$MODE" == "local" ]]; then
     # No agentlens — used for `claude login` and for "local" scenarios that
     # capture deterministic stdout (--help, --version, mcp subcommands, etc.).
@@ -85,12 +114,49 @@ export NO_PROXY="localhost,127.0.0.1"
 export NODE_EXTRA_CA_CERTS="$CA_CERT"
 export SSL_CERT_FILE="$CA_CERT"
 
+flatten_output() {
+    # agentlens writes session files into $OUTPUT_DIR/<timestamp>/ (and a
+    # nested raw/ for per-request files). Lift everything up one level so
+    # consumers find <scenario>.json + per-request *.json directly under
+    # $OUTPUT_DIR. Idempotent; safe to call multiple times.
+    shopt -s nullglob
+    for ts in "$OUTPUT_DIR"/*/; do
+        # Skip a non-timestamp subdir (e.g. raw/ that we already lifted).
+        case "$(basename "$ts")" in
+            raw) continue ;;
+        esac
+        if [[ -d "${ts}raw" ]]; then
+            mv "${ts}raw"/* "$OUTPUT_DIR/" 2>/dev/null || true
+            rmdir "${ts}raw" 2>/dev/null || true
+        fi
+        mv "${ts}"* "$OUTPUT_DIR/" 2>/dev/null || true
+        rmdir "${ts%/}" 2>/dev/null || true
+    done
+    shopt -u nullglob
+}
+
 cleanup() {
     if kill -0 "$AGENTLENS_PID" 2>/dev/null; then
         kill -INT "$AGENTLENS_PID" 2>/dev/null || true
+        # Bound the wait — agentlens normally flushes in <2s. If it hangs
+        # (proxy mid-stream), give it 12s then SIGTERM, then move on.
+        for _ in $(seq 1 24); do
+            kill -0 "$AGENTLENS_PID" 2>/dev/null || break
+            sleep 0.5
+        done
+        kill -TERM "$AGENTLENS_PID" 2>/dev/null || true
         wait "$AGENTLENS_PID" 2>/dev/null || true
     fi
+    flatten_output
 }
 trap cleanup EXIT
+# docker stop sends SIGTERM to PID 1; without an explicit handler bash exits
+# without running the EXIT trap. Forward TERM to the agent (so it can shut
+# down cleanly) then let cleanup() flush agentlens on the way out.
+trap 'kill -TERM "$AGENT_PID" 2>/dev/null || true' TERM INT
 
-"$@"
+"$@" &
+AGENT_PID=$!
+wait "$AGENT_PID" 2>/dev/null
+AGENT_RC=$?
+exit "$AGENT_RC"
