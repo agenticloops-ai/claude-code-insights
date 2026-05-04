@@ -1,0 +1,3 @@
+timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
+2026-05-04T01:47:06.350515,anthropic,claude-3-7-sonnet-20250219,225.08811950683594,223.6952781677246,success,,0,0,0,,True,True,False,hi
+2026-05-04T01:47:06.582643,anthropic,claude-3-7-sonnet-20250219,165.69137573242188,,success,,0,0,0,,False,True,False,hi

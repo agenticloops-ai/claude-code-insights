@@ -1,0 +1,3 @@
+timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
+2026-05-04T01:47:25.312634,anthropic,claude-3-7-sonnet-20250219,224.03645515441895,222.13315963745117,success,,0,0,0,,True,True,False,"List every MCP tool that is currently available to you. Print just the tool names, one per line. Do not call any of them."
+2026-05-04T01:47:25.555327,anthropic,claude-3-7-sonnet-20250219,167.1288013458252,,success,,0,0,0,,False,True,False,"List every MCP tool that is currently available to you. Print just the tool names, one per line. Do not call any of them."

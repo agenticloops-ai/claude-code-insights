@@ -1,0 +1,20 @@
+[
+  {
+    "index": 1,
+    "model": "claude-3-7-sonnet-20250219",
+    "duration_ms": 225.08811950683594,
+    "tool_count": 15,
+    "stop_reason": null,
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  {
+    "index": 2,
+    "model": "claude-3-7-sonnet-20250219",
+    "duration_ms": 165.69137573242188,
+    "tool_count": 15,
+    "stop_reason": null,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+]
