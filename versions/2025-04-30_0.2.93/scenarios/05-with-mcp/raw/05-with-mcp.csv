@@ -1,0 +1,4 @@
+timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
+2026-05-04T01:58:49.959923,anthropic,claude-3-5-haiku-20241022,169.16298866271973,,success,,0,0,0,,False,False,False,quota
+2026-05-04T01:58:50.295439,anthropic,claude-3-7-sonnet-20250219,507.24029541015625,506.0434341430664,success,,0,0,0,,True,True,False,"List every MCP tool that is currently available to you. Print just the tool names, one per line. Do not call any of them."
+2026-05-04T01:58:50.590759,anthropic,claude-3-7-sonnet-20250219,227.70452499389648,,success,,0,0,0,,False,True,False,"List every MCP tool that is currently available to you. Print just the tool names, one per line. Do not call any of them."

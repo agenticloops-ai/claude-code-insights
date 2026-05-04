@@ -1,0 +1,29 @@
+[
+  {
+    "index": 1,
+    "model": "claude-3-5-haiku-20241022",
+    "duration_ms": 184.77797508239746,
+    "tool_count": 0,
+    "stop_reason": null,
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  {
+    "index": 2,
+    "model": "claude-3-7-sonnet-20250219",
+    "duration_ms": 279.07776832580566,
+    "tool_count": 17,
+    "stop_reason": null,
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  {
+    "index": 3,
+    "model": "claude-3-7-sonnet-20250219",
+    "duration_ms": 219.51913833618164,
+    "tool_count": 17,
+    "stop_reason": null,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+]
