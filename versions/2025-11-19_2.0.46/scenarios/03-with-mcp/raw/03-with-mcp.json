@@ -1,0 +1,194 @@
+{
+  "session": {
+    "id": "c399ade1-8c18-4706-aa69-e50865870950",
+    "name": "03-with-mcp",
+    "started_at": "2026-05-04T06:21:14.471474",
+    "ended_at": "2026-05-04T06:21:20.784431",
+    "request_count": 0,
+    "total_tokens": 0,
+    "estimated_cost_usd": 0.0
+  },
+  "stats": {
+    "total_requests": 1,
+    "total_tokens": 9,
+    "total_input_tokens": 8,
+    "total_output_tokens": 1,
+    "estimated_cost_usd": 1.04e-05,
+    "avg_duration_ms": 546.658992767334,
+    "avg_tokens_per_request": 9.0,
+    "models_used": [
+      "claude-haiku-4-5-20251001"
+    ],
+    "providers_used": [
+      "anthropic"
+    ]
+  },
+  "requests": [
+    {
+      "id": "e33f7bec-04c4-42dd-a39b-cfe5f0ce51a0",
+      "session_id": "c399ade1-8c18-4706-aa69-e50865870950",
+      "raw_capture_id": "a343d9e8-8069-427b-9465-6c2b64142414",
+      "capture_mode": "explicit_proxy",
+      "capture_label": null,
+      "capture_metadata": {},
+      "timestamp": "2026-05-04T06:21:16.716464",
+      "duration_ms": 546.658992767334,
+      "time_to_first_token_ms": null,
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-20251001",
+      "api_endpoint": "https://api.anthropic.com/v1/messages?beta=true",
+      "temperature": null,
+      "max_tokens": 1,
+      "top_p": null,
+      "is_streaming": false,
+      "tool_choice": null,
+      "system_prompt": null,
+      "messages": [
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "quota"
+            }
+          ]
+        }
+      ],
+      "tools": [],
+      "response_messages": [
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "#"
+            }
+          ]
+        }
+      ],
+      "stop_reason": "max_tokens",
+      "usage": {
+        "input_tokens": 8,
+        "output_tokens": 1,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "total_tokens": 9,
+        "estimated_cost_usd": 1.04e-05
+      },
+      "status": "success",
+      "request_params": {},
+      "response_metadata": {}
+    }
+  ],
+  "raw_captures": [
+    {
+      "id": "a343d9e8-8069-427b-9465-6c2b64142414",
+      "session_id": "c399ade1-8c18-4706-aa69-e50865870950",
+      "timestamp": "2026-05-04T06:21:16.716464",
+      "capture_mode": "explicit_proxy",
+      "capture_label": null,
+      "capture_metadata": {},
+      "provider": "anthropic",
+      "request_url": "https://api.anthropic.com/v1/messages?beta=true",
+      "request_method": "POST",
+      "request_headers": {
+        "host": "api.anthropic.com",
+        "connection": "keep-alive",
+        "Accept": "application/json",
+        "X-Stainless-Retry-Count": "0",
+        "X-Stainless-Timeout": "600",
+        "X-Stainless-Lang": "js",
+        "X-Stainless-Package-Version": "0.70.0",
+        "X-Stainless-OS": "Linux",
+        "X-Stainless-Arch": "x64",
+        "X-Stainless-Runtime": "node",
+        "X-Stainless-Runtime-Version": "v20.20.2",
+        "anthropic-dangerous-direct-browser-access": "true",
+        "anthropic-version": "2023-06-01",
+        "authorization": "REDACTED",
+        "x-app": "cli",
+        "User-Agent": "claude-cli/2.0.46 (external, sdk-cli)",
+        "content-type": "application/json",
+        "anthropic-beta": "oauth-2025-04-20,interleaved-thinking-2025-05-14,fine-grained-tool-streaming-2025-05-14",
+        "accept-language": "*",
+        "sec-fetch-mode": "cors",
+        "accept-encoding": "identity",
+        "content-length": "284"
+      },
+      "request_body": {
+        "model": "claude-haiku-4-5-20251001",
+        "max_tokens": 1,
+        "messages": [
+          {
+            "role": "user",
+            "content": "quota"
+          }
+        ],
+        "metadata": {
+          "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_99ecd3cc-7180-47af-8815-5b6626f0b29f"
+        }
+      },
+      "response_status": 200,
+      "response_headers": {
+        "Date": "Mon, 04 May 2026 06:21:16 GMT",
+        "Content-Type": "application/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "anthropic-ratelimit-unified-status": "allowed",
+        "anthropic-ratelimit-unified-5h-status": "allowed",
+        "anthropic-ratelimit-unified-5h-reset": "1777893000",
+        "anthropic-ratelimit-unified-5h-utilization": "0.04",
+        "anthropic-ratelimit-unified-7d-status": "allowed",
+        "anthropic-ratelimit-unified-7d-reset": "1778126400",
+        "anthropic-ratelimit-unified-7d-utilization": "0.35",
+        "anthropic-ratelimit-unified-overage-status": "allowed",
+        "anthropic-ratelimit-unified-overage-reset": "1780272000",
+        "anthropic-ratelimit-unified-overage-utilization": "0.0",
+        "anthropic-ratelimit-unified-representative-claim": "five_hour",
+        "anthropic-ratelimit-unified-fallback-percentage": "0.5",
+        "anthropic-ratelimit-unified-reset": "1777893000",
+        "request-id": "req_011Cah3d68UaKBVD8zQBYDXU",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
+        "traceresponse": "00-a4e0942c7f8ecbea687ebdbb75a181a4-e64adabdb0e1aa47-01",
+        "Server": "cloudflare",
+        "x-envoy-upstream-service-time": "457",
+        "X-Robots-Tag": "none",
+        "vary": "Accept-Encoding",
+        "cf-cache-status": "DYNAMIC",
+        "set-cookie": "REDACTED",
+        "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
+        "CF-RAY": "9f656780fe3312a1-SJC"
+      },
+      "response_body": {
+        "model": "claude-haiku-4-5-20251001",
+        "id": "msg_01V7trbnuvkYMgGFsHtFfQvh",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "text",
+            "text": "#"
+          }
+        ],
+        "stop_reason": "max_tokens",
+        "stop_sequence": null,
+        "stop_details": null,
+        "usage": {
+          "input_tokens": 8,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 1,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "is_streaming": false,
+      "sse_events": []
+    }
+  ]
+}
