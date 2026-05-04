@@ -97,11 +97,38 @@ def _version_already_captured(version: str) -> bool:
 
 
 # ---------------------------------------------------------------------------
+# Git commit helper
+# ---------------------------------------------------------------------------
+
+def _git_commit_version(version: str, dir_name: str) -> bool:
+    version_dir = VERSIONS_DIR / dir_name
+    print(f"[{version}] committing …", flush=True)
+    rc, _, err = _run(
+        ["git", "add", str(version_dir), str(STATUS_FILE)],
+        capture_output=True,
+    )
+    if rc != 0:
+        print(f"[{version}]   git add failed: {err[:200]}", flush=True)
+        return False
+    msg = (
+        f"Capture: {version}\n\n"
+        "Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"
+    )
+    rc, out, err = _run(["git", "commit", "-m", msg], capture_output=True)
+    if rc == 0:
+        print(f"[{version}]   {out.splitlines()[0] if out else 'committed'}", flush=True)
+        return True
+    print(f"[{version}]   git commit failed: {err[:200]}", flush=True)
+    return False
+
+
+# ---------------------------------------------------------------------------
 # Per-version pipeline
 # ---------------------------------------------------------------------------
 
 def _process_version(version: str, scenario_timeout: int,
-                     keep_images: bool) -> dict:
+                     keep_images: bool, prev_version: str | None = None,
+                     no_diff: bool = False) -> dict:
     started_at = _now()
     print(f"\n{'='*60}", flush=True)
     print(f"[{version}] starting", flush=True)
@@ -217,6 +244,18 @@ def _process_version(version: str, scenario_timeout: int,
     )
     release_notes_ok = rc == 0
 
+    # Diff against previous successful version (inline, before commit).
+    diff_ok = False
+    if prev_version and not no_diff:
+        print(f"[{version}] diffing from {prev_version} …", flush=True)
+        rc, _, err = _run(
+            [sys.executable, str(SCRIPTS_DIR / "diff-versions.py"), prev_version, version],
+            capture_output=True,
+        )
+        diff_ok = rc == 0
+        if not diff_ok:
+            print(f"[{version}]   diff failed (non-fatal): {err[:200]}", flush=True)
+
     # Prune image.
     _prune_image(version, keep_images)
 
@@ -231,10 +270,12 @@ def _process_version(version: str, scenario_timeout: int,
         "scenarios": scenario_results,
         "summarize_ok": summarize_ok,
         "release_notes_ok": release_notes_ok,
+        "diff_ok": diff_ok,
         "deleted": False,
         "image_pruned": not keep_images,
     }
     _append_status(row)
+    _git_commit_version(version, dir_name)
     return row
 
 
@@ -277,13 +318,18 @@ def _run_diffs() -> None:
         return
 
     prev = None
-    ok = fail = 0
+    ok = fail = skip = 0
     for vdir in surviving:
         if prev is None:
             prev = vdir
             continue
         prev_v = prev.name.split("_", 1)[1] if "_" in prev.name else prev.name
         curr_v = vdir.name.split("_", 1)[1] if "_" in vdir.name else vdir.name
+        # Skip if the diff file already exists (written inline during capture).
+        if list(vdir.glob(f"diff-from-{prev_v}.md")):
+            skip += 1
+            prev = vdir
+            continue
         print(f"[diff] {prev_v} → {curr_v} …", flush=True)
         rc, _, err = _run(
             [sys.executable, str(SCRIPTS_DIR / "diff-versions.py"), prev_v, curr_v],
@@ -295,7 +341,7 @@ def _run_diffs() -> None:
             print(f"[diff]   failed (non-fatal): {err[:200]}", flush=True)
             fail += 1
         prev = vdir
-    print(f"[diff] done: {ok} ok, {fail} failed", flush=True)
+    print(f"[diff] done: {ok} ok, {fail} failed, {skip} already present", flush=True)
 
 
 # ---------------------------------------------------------------------------
@@ -369,10 +415,18 @@ def main() -> int:
 
     results = []
     consecutive_failures = 0
+    last_good_version: str | None = None
     for i, v in enumerate(versions, 1):
         print(f"\n[main] progress: {i}/{len(versions)}", flush=True)
-        row = _process_version(v, args.scenario_timeout, args.keep_images)
+        row = _process_version(
+            v, args.scenario_timeout, args.keep_images,
+            prev_version=last_good_version,
+            no_diff=args.no_diff,
+        )
         results.append(row)
+
+        if row.get("summarize_ok"):
+            last_good_version = v
 
         if row.get("deleted"):
             consecutive_failures += 1
