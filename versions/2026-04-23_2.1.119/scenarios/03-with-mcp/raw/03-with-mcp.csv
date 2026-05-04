@@ -1,0 +1,4 @@
+timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
+2026-05-04T10:29:44.017097,anthropic,claude-haiku-4-5-20251001,776.4077186584473,664.9589538574219,success,end_turn,367,13,380,0.0003456,True,False,False,"List every MCP tool that is currently available to you. Print just the tool names, one per line. Do not call any of them."
+2026-05-04T10:30:02.591966,anthropic,claude-opus-4-7,19109.042167663574,1171.2088584899902,success,end_turn,6,1957,1963,0.362082,True,True,False,"<system-reminder>
+The following deferred tools are now available via ToolSearch. Their schemas are NOT loaded — calling them directly will fail with InputValidationError. Use ToolSearch with query ""se"
