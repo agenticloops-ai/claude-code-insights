@@ -144,6 +144,41 @@ mkdir -p "$RAW_DIR"
     ${EXTRA_FLAGS[@]+"${EXTRA_FLAGS[@]}"} \
     -- ${CLAUDE_ARGS[@]+"${CLAUDE_ARGS[@]}"} "$PROMPT"
 
+# If the API returned a model-not-found 404 (retired model) and the version
+# supports --model (0.2.98+), retry with an explicit fallback model.
+_raw_has_model_404() {
+    python3 - "$RAW_DIR" <<'PY'
+import json, sys
+from pathlib import Path
+for f in Path(sys.argv[1]).glob("*.response.json"):
+    try:
+        d = json.loads(f.read_text())
+        body = d.get("body", "")
+        if d.get("status") == 404 and isinstance(body, str) and "not_found_error" in body:
+            print("yes"); sys.exit(0)
+    except Exception:
+        pass
+PY
+}
+_version_gte() {
+    python3 - "$VERSION" "$1" <<'PY'
+import sys
+def v(s): return tuple(int(x) for x in s.split(".") if x.isdigit())
+sys.exit(0 if v(sys.argv[1]) >= v(sys.argv[2]) else 1)
+PY
+}
+if [[ "$(_raw_has_model_404)" == "yes" ]] && _version_gte "0.2.98"; then
+    echo "[retry] model 404 — retrying with --model claude-sonnet-4-5"
+    rm -rf "$RAW_DIR"
+    mkdir -p "$RAW_DIR"
+    "${REPO_DIR}/sandbox/run.sh" \
+        "$VERSION" \
+        -o "$RAW_DIR" \
+        -s "$SCENARIO" \
+        ${EXTRA_FLAGS[@]+"${EXTRA_FLAGS[@]}"} \
+        -- ${CLAUDE_ARGS[@]+"${CLAUDE_ARGS[@]}"} --model claude-sonnet-4-5 "$PROMPT"
+fi
+
 # Defensive flatten — entrypoint.sh already lifts files out of agentlens'
 # timestamped subdir before the container exits, so this should be a no-op.
 # Kept here for older container images / orphans from interrupted prior runs.
