@@ -61,6 +61,7 @@ if [[ "${CAPTURE_KEEP_STATE:-0}" != "1" ]]; then
         "$HOME/.claude/debug" \
         "$HOME/.claude/plugins" \
         "$HOME/.claude/mcp-needs-auth-cache.json" \
+        "$HOME/.claude/__store.db" \
         "$HOME/.agentlens" \
         "$HOME/.cache/claude-cli-nodejs" \
         2>/dev/null || true
