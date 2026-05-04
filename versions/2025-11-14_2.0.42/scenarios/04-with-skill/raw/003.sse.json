@@ -1,0 +1,176 @@
+[
+  {
+    "event": "message_start",
+    "data": {
+      "type": "message_start",
+      "message": {
+        "model": "claude-haiku-4-5-20251001",
+        "id": "msg_01KzB2izdPGMAhSwcLadmQ5x",
+        "type": "message",
+        "role": "assistant",
+        "content": [],
+        "stop_reason": null,
+        "stop_sequence": null,
+        "stop_details": null,
+        "usage": {
+          "input_tokens": 590,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 2,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      }
+    }
+  },
+  {
+    "event": "content_block_start",
+    "data": {
+      "type": "content_block_start",
+      "index": 0,
+      "content_block": {
+        "type": "text",
+        "text": ""
+      }
+    }
+  },
+  {
+    "event": "ping",
+    "data": {
+      "type": "ping"
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": "I'm"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": " ready to help! I'm Claude Code, your file search specialist for Anthropic's CLI"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": ". I can help you explore codebases by:\n\n- **Searching files** using glob patterns to find files matching specific criteria"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": "\n- **Searching content** using regex patterns to find code and text\n- **Reading files** to analyze their contents\n- **Running"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": " read-only bash commands** like ls, git status, find, etc.\n\nI'm currently"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": " in the `/work` directory, which is not a git repository.\n\nJust"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": " let me know what you'd like to search for or explore! You can ask me to:\n- Find files matching certain patterns\n- Search for specific code"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": " or text within files\n- Read and analyze file contents\n- Navigate and understand your codebase structure\n\nWhat would you like to search for"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": "?"
+      }
+    }
+  },
+  {
+    "event": "content_block_stop",
+    "data": {
+      "type": "content_block_stop",
+      "index": 0
+    }
+  },
+  {
+    "event": "message_delta",
+    "data": {
+      "type": "message_delta",
+      "delta": {
+        "stop_reason": "end_turn",
+        "stop_sequence": null,
+        "stop_details": null
+      },
+      "usage": {
+        "input_tokens": 590,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 178
+      }
+    }
+  },
+  {
+    "event": "message_stop",
+    "data": {
+      "type": "message_stop"
+    }
+  }
+]
