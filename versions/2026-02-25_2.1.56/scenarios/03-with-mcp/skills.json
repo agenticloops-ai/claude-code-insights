@@ -1,0 +1,10 @@
+[
+  {
+    "name": "keybindings-help",
+    "description": "Use when the user wants to customize keyboard shortcuts, rebind keys, add chord bindings, or modify ~/.claude/keybindings.json. Examples: \"rebind ctrl+s\", \"add a chord shortcut\", \"change the submit key\", \"customize keybindings\"."
+  },
+  {
+    "name": "claude-developer-platform",
+    "description": "Build applications that call the Claude API or Anthropic SDK. Use ONLY when the code actually uses or will use the `anthropic` SDK package or Claude API endpoints."
+  }
+]
