@@ -1,0 +1,13 @@
+# claude-code 2.1.38
+
+- **published:** 2026-02-10
+- **source:** [CHANGELOG.md#2138](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2138)
+- **fetched:** 2026-05-04
+
+- Fixed VS Code terminal scroll-to-top regression introduced in 2.1.37
+- Fixed Tab key queueing slash commands instead of autocompleting
+- Fixed bash permission matching for commands using environment variable wrappers
+- Fixed text between tool uses disappearing when not using streaming
+- Fixed duplicate sessions when resuming in VS Code extension
+- Improved heredoc delimiter parsing to prevent command smuggling
+- Blocked writes to `.claude/skills` directory in sandbox mode
