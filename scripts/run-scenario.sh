@@ -304,10 +304,3 @@ for ts in "$RAW_DIR"/*/; do
     rmdir "${ts%/}" 2>/dev/null || true
 done
 shopt -u nullglob
-
-# Strip claude.ai-account connectors and email PII from the raw bytes.
-# entrypoint.sh empties the local cache, but Claude Code re-fetches the
-# account profile + connector list from the API on every session and the
-# deferred-tools list in the first user message echoes them back. The
-# scrubber removes those substrings without touching anything else.
-python3 "${REPO_DIR}/scripts/scrub-leaks.py" "$RAW_DIR" >/dev/null

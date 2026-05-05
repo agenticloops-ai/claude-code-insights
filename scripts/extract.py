@@ -85,7 +85,11 @@ def _scrub_volatile(text: str) -> str:
     """Remove per-run volatile values so prompts diff cleanly across runs.
 
     Also redacts personally-identifying values (email, account UUIDs) so the
-    extracted artifacts are safe to commit.
+    extracted artifacts are safe to commit. Tool names and MCP server data
+    are left as-is — sandbox isolation (--strict-mcp-config + cleared
+    .claude.json in entrypoint.sh) is what keeps the request side clean.
+    Anything we observe on the response side is the model's actual output
+    and is part of the data we're capturing.
     """
     # Cache-busters / billing fingerprints in the leading header line.
     text = re.sub(r"^x-anthropic-billing-header:.*\n", "", text, flags=re.M)
@@ -102,13 +106,6 @@ def _scrub_volatile(text: str) -> str:
     # subscription account.
     text = re.sub(
         r"\b[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}\b", "<USER_EMAIL>", text
-    )
-    # Strip leaked claude.ai connector / personal-plugin tool names from the
-    # deferred-tool listing inside <system-reminder> blocks. Sandbox hardening
-    # in entrypoint.sh prevents these going forward, but defending here keeps
-    # extracted artifacts clean even if a stale auth volume slips through.
-    text = re.sub(
-        r"\nmcp__(?:claude_ai|plugin)_?[\w\-]*(?:__[\w\-]*)*", "", text
     )
     return text
 
@@ -414,27 +411,21 @@ def main(argv: list[str]) -> int:
     }
     (out_dir / "stats.json").write_text(json.dumps(stats, indent=2) + "\n")
 
-    # Guardrail: the auth volume previously surfaced the user's claude.ai-attached
-    # connectors and personal MCP plugins via the deferred-tools list. Refuse to
-    # silently produce polluted artifacts — if anything matching those patterns
-    # made it past _scrub_volatile and the is_mcp filter, fail loudly so the
-    # operator notices and runs scripts/scrub-leaks.py / re-captures.
+    # Sandbox isolation guardrail: tools.json must not advertise any
+    # claude.ai-account connectors or personal-plugin MCP servers — that
+    # would mean --strict-mcp-config or the .claude.json wipe failed.
+    # We *do* allow such names to appear in deferred-tools.json,
+    # user-prompt.md, system-prompt.md, or model output: those reflect
+    # what claude-code injected or what the model said, which is exactly
+    # what we're trying to capture.
     leak_rx = re.compile(r"mcp__(?:claude_ai|plugin)_?[\w\-]*")
-    leak_hits: list[str] = []
-    for artifact in (
-        out_dir / "system-prompt.md",
-        out_dir / "user-prompt.md",
-        out_dir / "tools.json",
-        out_dir / "deferred-tools.json",
-        out_dir / "skills.json",
-    ):
-        if artifact.exists() and leak_rx.search(artifact.read_text()):
-            leak_hits.append(artifact.name)
-    if leak_hits:
+    advertised = (out_dir / "tools.json")
+    if advertised.exists() and leak_rx.search(advertised.read_text()):
         raise SystemExit(
-            f"extract.py: leaked claude.ai/plugin MCP names in {out_dir}: "
-            f"{', '.join(leak_hits)}. Re-capture under hardened sandbox or "
-            f"run scripts/scrub-leaks.py."
+            f"extract.py: claude.ai/plugin MCP names in advertised tools "
+            f"({advertised}). Sandbox isolation is broken — check that "
+            f"run-scenario.sh is passing --mcp-config + --strict-mcp-config "
+            f"and that entrypoint.sh wiped mcpServers / claudeAiMcpEverConnected."
         )
 
     print(

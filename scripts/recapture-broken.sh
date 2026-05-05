@@ -46,7 +46,6 @@ for ver in "${VERSIONS[@]}"; do
         python3 "$REPO_DIR/scripts/extract.py" "$sd" >>"$log" 2>&1 || true
     done
     python3 "$REPO_DIR/scripts/summarize-version.py" "$ver" >>"$log" 2>&1 || true
-    python3 "$REPO_DIR/scripts/scrub-leaks.py" "$REPO_DIR/versions" >>"$log" 2>&1 || true
 
     sz=$(stat -f%z "$REPO_DIR/versions/"*"_${ver}/tools.json" 2>/dev/null | head -1)
     elapsed=$(( $(date +%s) - started ))
