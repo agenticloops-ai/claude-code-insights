@@ -6,3 +6,7 @@ __pycache__/
 versions/.npm-times.json
 .claude/scheduled_tasks.lock
 .claude/settings.local.json
+
+# local-only research artifacts
+research/
+scripts/mine-evolution.py
