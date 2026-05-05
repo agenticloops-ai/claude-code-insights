@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-5-20251101",
-        "id": "msg_01UDai4skjDfxKih6Bj3eq2Q",
+        "id": "msg_014tpwsrmPUbxKDQfD2a25sF",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,10 +14,10 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 2,
-          "cache_creation_input_tokens": 21742,
-          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 349,
+          "cache_read_input_tokens": 18269,
           "cache_creation": {
-            "ephemeral_5m_input_tokens": 21742,
+            "ephemeral_5m_input_tokens": 349,
             "ephemeral_1h_input_tokens": 0
           },
           "output_tokens": 1,
@@ -62,7 +62,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": " on the deferred tools listed in the ToolSearch tool description"
+        "text": " on my available tools, here are the MCP tools currently available to me:\n\n```\nmcp__fixture"
       }
     }
   },
@@ -73,392 +73,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": ", here are all the MCP tools currently available to me:\n\nmcp__fixture__tool_001"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "\nmcp__fixture__tool_002\nmcp__fixture__tool_003"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "__copy_file"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "_file_content"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "Google_Drive__list_recent_files\nmcp__claude_"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "ai_Gmail__create_draft"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": ""
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "_labels"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "_label"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": ""
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": ""
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "_event"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "Google_Calendar__create_event\nmcp__"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "claude_ai_Canva__upload-asset-from-url\nmcp__claude_"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "ai_Canva__resolve-shortlink"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "-design"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "-notes"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "Canva__get-export-formats"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "-item-to-folder"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "-folders"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "Canva__reply-to-comment"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "Canva__generate-design-structured"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": ""
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "-design"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "-operations"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "-design-thumbnail"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "ldraw__search"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": ""
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": ""
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": ""
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "Figma__get_metadata"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "Figma__generate_diagram"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": ""
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "_suggestions"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "Figma__use_figma"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "create_new_file"
+        "text": "__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n```"
       }
     }
   },
@@ -480,9 +95,9 @@
       },
       "usage": {
         "input_tokens": 2,
-        "cache_creation_input_tokens": 21742,
-        "cache_read_input_tokens": 0,
-        "output_tokens": 1455
+        "cache_creation_input_tokens": 349,
+        "cache_read_input_tokens": 18269,
+        "output_tokens": 51
       }
     }
   },

@@ -1,8 +1,8 @@
 {
   "index": 1,
-  "request_id": "1cc93868-ac6b-4943-9a57-8e48395ef035",
-  "session_id": "ee2bfdf1-8698-4a2b-8667-f774a6eda180",
-  "timestamp": "2026-05-04T16:39:13.944230",
+  "request_id": "c0d44bf7-960d-4c11-b80f-0126eb685f6e",
+  "session_id": "f93fc959-4e62-4243-8ed2-b9022958fb89",
+  "timestamp": "2026-05-05T15:23:43.111970",
   "provider": "anthropic",
   "method": "POST",
   "url": "https://api.anthropic.com/v1/messages?beta=true",
@@ -40,7 +40,7 @@
       }
     ],
     "metadata": {
-      "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_79fce357-79a4-4003-ab50-e060d9bc6c58"
+      "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_76db2f10-b616-4339-91c3-a7ee728b1ea8"
     }
   }
 }

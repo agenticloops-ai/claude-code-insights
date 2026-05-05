@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-5-20251101",
-        "id": "msg_01M7VZrMP46bF2mDm3yFtVm5",
+        "id": "msg_01A4kniYWBSbegyjZyFqBb7H",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,10 +14,10 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 2,
-          "cache_creation_input_tokens": 21870,
-          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 335,
+          "cache_read_input_tokens": 18411,
           "cache_creation": {
-            "ephemeral_5m_input_tokens": 21870,
+            "ephemeral_5m_input_tokens": 335,
             "ephemeral_1h_input_tokens": 0
           },
           "output_tokens": 1,
@@ -34,7 +34,7 @@
       "index": 0,
       "content_block": {
         "type": "tool_use",
-        "id": "toolu_01RJrSG78rFPQK7GLYfkMxvb",
+        "id": "toolu_01KLJ2P5g6C9c5sU4XNTBqxs",
         "name": "Skill",
         "input": {},
         "caller": {
@@ -67,7 +67,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\"skill\""
+        "partial_json": "{\"skill"
       }
     }
   },
@@ -78,7 +78,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": ": \"sa"
+        "partial_json": "\": \"sa"
       }
     }
   },
@@ -89,18 +89,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "y-hello"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "input_json_delta",
-        "partial_json": "\"}"
+        "partial_json": "y-hello\"}"
       }
     }
   },
@@ -122,8 +111,8 @@
       },
       "usage": {
         "input_tokens": 2,
-        "cache_creation_input_tokens": 21870,
-        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 335,
+        "cache_read_input_tokens": 18411,
         "output_tokens": 54
       }
     }

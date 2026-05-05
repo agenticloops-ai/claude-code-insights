@@ -1,3 +1,3 @@
 timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
-2026-05-04T16:38:55.762570,anthropic,claude-haiku-4-5-20251001,755.2168369293213,,success,max_tokens,8,1,9,1.04e-05,False,False,False,quota
-2026-05-04T16:39:04.893315,anthropic,claude-opus-4-5-20251101,2329.663038253784,2184.9522590637207,success,end_turn,2,12,14,0.41073,True,True,False,hi
+2026-05-05T15:23:29.386539,anthropic,claude-haiku-4-5-20251001,754.3902397155762,,success,max_tokens,8,1,9,1.04e-05,False,False,False,quota
+2026-05-05T15:23:31.220665,anthropic,claude-opus-4-5-20251101,2209.379196166992,2151.8003940582275,success,end_turn,2,12,14,0.352155,True,True,False,hi

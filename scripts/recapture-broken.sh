@@ -60,6 +60,6 @@ done
 
 echo
 echo "=== recapture summary ==="
-echo "ok:   ${#OK[@]}  ${OK[*]}"
-echo "fail: ${#FAIL[@]} ${FAIL[*]}"
+echo "ok:   ${#OK[@]}  ${OK[*]:-}"
+echo "fail: ${#FAIL[@]} ${FAIL[*]:-}"
 [[ ${#FAIL[@]} -eq 0 ]]
