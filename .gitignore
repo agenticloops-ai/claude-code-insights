@@ -4,9 +4,15 @@ node_modules/
 __pycache__/
 .venv/
 versions/.npm-times.json
+versions/.recapture-batch.log
+versions/.recapture-logs/
 .claude/scheduled_tasks.lock
 .claude/settings.local.json
+tools/cli/dist/
+tools/web/dist/
+tools/*/package-lock.json
 
 # local-only research artifacts
 research/
 scripts/mine-evolution.py
+tools/web/tsconfig.tsbuildinfo

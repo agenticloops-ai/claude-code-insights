@@ -211,6 +211,20 @@ Three slash commands live in `.claude/skills/`. They're how the pipeline is mean
 
 **`/diff-versions <from-version> <to-version>`** — generate a markdown diff between **any two captured versions**. Output lands at `versions/<to-dir>/diff-from-<from-dir>.md`. Either argument can be the npm version (`2.1.126`) or the dated folder name (`2026-04-30_2.1.126`).
 
+### Browsing the captures
+
+The Python pipeline writes the artifacts; two small TypeScript apps under [`tools/`](tools/README.md) make them browseable:
+
+- **`tools/cli/`** — `cci versions | show <v> | diff <from> <to> [--json]`. Interactive `diff` (no args) supports as-you-type filtering.
+- **`tools/web/`** — Vite + Preact app: pick two versions in a sidebar, get a tabbed metrics / tools / skills / system-prompt / user-prompt diff view in the browser. The dev server reads `versions/` directly via a `/api/*` middleware, so no separate build step is needed during development.
+
+```bash
+( cd tools/cli && npm install && npm run build )
+tools/cli/dist/index.js diff 2.0.45 2.1.128
+
+( cd tools/web && npm install && npm run dev )       # http://localhost:5173
+```
+
 ---
 
 ## 🛡️ Sandbox isolation

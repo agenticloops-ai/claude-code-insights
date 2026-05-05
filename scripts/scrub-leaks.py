@@ -48,6 +48,33 @@ LEAK_TOOL_RX = re.compile(
     rf"|{_TOOL_CORE}"
 )
 
+# Claude Code injects an "MCP Server Instructions" reminder into the
+# first user message that lists *every* MCP server's documentation block
+# — including claude.ai connectors and plugin servers attached to the
+# auth account, even when the agent is launched with --strict-mcp-config
+# (which keeps them out of the tool list, but not out of this prose
+# block). Strip per-connector instruction blocks here. Each block starts
+# with `## claude.ai <Server>` or `## plugin:<plugin>:<server>` and runs
+# until the next `## ` heading or the end of the reminder section.
+#
+# JSON-encoded form ("\\n## claude.ai Figma\\n…") is the dominant shape;
+# we also accept literal newlines for the markdown-rendered files.
+_LEAK_HEADING = r"(?:claude\.ai\s+\S[^\n\\]*|plugin:[^\n\\]+)"
+# JSON form ("\\n## claude.ai Figma\\n…body…\\n## NextHeading"):
+#   - heading: optional preceding "\\n", then "## <leak heading>"
+#   - body: any char that is NOT a backslash, OR a "\\n" that is not
+#     followed by another "## "/"# " heading marker.
+# That walks the body across nested escaped newlines until the next
+# section heading and stops just before it.
+_LEAK_BODY_JSON = r"(?:\\+n(?!## |# )|[^\\])*"
+_LEAK_BODY_MD   = r"(?:\n(?!## |# )|[^\n])*"
+LEAK_INSTR_BLOCK_RX = re.compile(
+    rf"(?:\\+n)+## {_LEAK_HEADING}{_LEAK_BODY_JSON}"
+    rf"|"
+    rf"\n## {_LEAK_HEADING}\n{_LEAK_BODY_MD}",
+    re.DOTALL,
+)
+
 # Same email regex extract.py uses, so scrubbed values match the
 # placeholder already present in extracted artifacts.
 EMAIL_RX = re.compile(r"\b[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}\b")
@@ -59,6 +86,7 @@ TEXT_SUFFIXES = {".json", ".md", ".txt", ".jsonl"}
 
 
 def scrub(text: str) -> str:
+    text = LEAK_INSTR_BLOCK_RX.sub("", text)
     text = LEAK_TOOL_RX.sub("", text)
     text = EMAIL_RX.sub(EMAIL_PLACEHOLDER, text)
     return text

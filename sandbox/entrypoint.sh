@@ -16,22 +16,36 @@ MODE="${CAPTURE_MODE:-capture}"
 export DISABLE_AUTOUPDATER=1
 export CI=1
 
-# Sandbox MCP fixture + leak prevention.
+# Sandbox MCP isolation + PII strip.
 #
-# 1. Force mcpServers to be EXACTLY the fixture map (replace, not merge) so
-#    no account-installed server can survive into the next capture.
-# 2. Empty claudeAiMcpEverConnected — when this list is non-empty, Claude
-#    Code asks the API for the user's account-attached claude.ai connectors
-#    (Gmail, Canva, Figma, …) and exposes them as deferred mcp__claude_ai_*
-#    tools, polluting cross-version diffs.
-# 3. Strip identifying fields from oauthAccount (emailAddress, displayName,
-#    organizationName) so the harness "userEmail" reminder and any echoed
-#    account profile don't leak the real owner's PII into captures. Routing
-#    fields (accountUuid, organizationUuid) are kept so the API client keeps
-#    working.
+# Approach:
+#   - Modern claude versions are launched with `--mcp-config <fixture>
+#     --strict-mcp-config` by run-scenario.sh, so the agent reads only the
+#     fixture servers regardless of what's in ~/.claude.json. That alone
+#     keeps account-attached claude.ai connectors out of captures.
+#   - For older versions that lack one or both flags, run-scenario.sh
+#     falls back to merging the fixture into ~/.claude.json (handled here).
+#
+# Always done here:
+#   1. Empty mcpServers — strict-mcp-config covers modern versions, and on
+#      older versions sandbox/run.sh injects the fixture manually if needed.
+#   2. Empty claudeAiMcpEverConnected — when this list is non-empty, Claude
+#      Code asks the API for the user's account-attached claude.ai connectors
+#      (Gmail, Canva, Figma, …). Even with --strict-mcp-config, the fetched
+#      connector instructions can still leak into the user-message reminder
+#      block. Wiping the list short-circuits that fetch.
+#   3. Strip identifying fields from oauthAccount (emailAddress, displayName,
+#      organizationName) so the harness "userEmail" reminder and any echoed
+#      account profile don't leak the real owner's PII into captures. Routing
+#      fields (accountUuid, organizationUuid) are kept so the API client keeps
+#      working.
+#   4. If $FALLBACK_MCP_MERGE=1 (set by run-scenario.sh for old versions
+#      that don't support --mcp-config), merge the fixture in instead of
+#      wiping mcpServers.
 # Idempotent — safe to run on every container start.
 FIXTURE_MCP="/opt/fixtures/mcp-default.json"
 if [[ -d "$HOME" && -f "$FIXTURE_MCP" ]]; then
+    FALLBACK_MCP_MERGE="${FALLBACK_MCP_MERGE:-0}" \
     FIXTURE_MCP="$FIXTURE_MCP" python3 - <<'PY'
 import json, os, pathlib
 home = pathlib.Path(os.environ["HOME"])
@@ -44,7 +58,14 @@ if cfg_path.exists():
     except Exception:
         cfg = {}
 
-cfg["mcpServers"] = dict(fixture.get("mcpServers", {}))
+if os.environ.get("FALLBACK_MCP_MERGE") == "1":
+    cfg["mcpServers"] = dict(fixture.get("mcpServers", {}))
+else:
+    # Modern path: rely on --strict-mcp-config. Wipe mcpServers so that even
+    # if a future claude version regresses on the strict flag, no account
+    # servers leak.
+    cfg["mcpServers"] = {}
+
 cfg["claudeAiMcpEverConnected"] = []
 
 acc = cfg.get("oauthAccount") or {}

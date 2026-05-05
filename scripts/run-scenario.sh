@@ -100,6 +100,44 @@ for env_kv in ${ENV_LINES[@]+"${ENV_LINES[@]}"}; do
     EXTRA_FLAGS+=(-e "$env_kv")
 done
 
+# MCP isolation strategy:
+#
+# - 0.2.93+ supports `--mcp-config <file>` so the agent reads ONLY the
+#   fixture map and ignores anything in ~/.claude.json's mcpServers.
+# - 1.0.44+ supports `--strict-mcp-config` which also blocks claude.ai
+#   account connectors and any other config source from leaking in.
+#
+# When the version is below the floor we fall back to entrypoint.sh
+# merging the fixture into ~/.claude.json (see FALLBACK_MCP_MERGE=1
+# below). Local-mode scenarios (--help) don't need MCP at all.
+SUPPORTS_MCP_CONFIG="$(python3 - "$VERSION" "0.2.93" <<'PY'
+import sys
+def v(s): return tuple(int(x) for x in s.split(".") if x.isdigit())
+print("yes" if v(sys.argv[1]) >= v(sys.argv[2]) else "no")
+PY
+)"
+SUPPORTS_STRICT_MCP_CONFIG="$(python3 - "$VERSION" "1.0.44" <<'PY'
+import sys
+def v(s): return tuple(int(x) for x in s.split(".") if x.isdigit())
+print("yes" if v(sys.argv[1]) >= v(sys.argv[2]) else "no")
+PY
+)"
+
+CLAUDE_MCP_FLAGS=()
+if [[ "$MODE" == "agent" ]]; then
+    if [[ "$SUPPORTS_MCP_CONFIG" == "yes" ]]; then
+        CLAUDE_MCP_FLAGS+=("--mcp-config" "/opt/fixtures/mcp-default.json")
+    fi
+    if [[ "$SUPPORTS_STRICT_MCP_CONFIG" == "yes" ]]; then
+        CLAUDE_MCP_FLAGS+=("--strict-mcp-config")
+    fi
+    if [[ "$SUPPORTS_MCP_CONFIG" != "yes" ]]; then
+        # No --mcp-config support; fall back to merging fixture into
+        # ~/.claude.json via entrypoint.sh.
+        EXTRA_FLAGS+=(-e "FALLBACK_MCP_MERGE=1")
+    fi
+fi
+
 # Folder layout: versions/<release-date>_<version>/scenarios/<scen>/
 # so a plain `ls` sorts chronologically. The npm version itself stays
 # unchanged for the docker build / npm install.
@@ -137,15 +175,65 @@ RAW_DIR="${SCEN_OUT_DIR}/raw"
 rm -rf "$RAW_DIR"
 mkdir -p "$RAW_DIR"
 
-"${REPO_DIR}/sandbox/run.sh" \
-    "$VERSION" \
-    -o "$RAW_DIR" \
-    -s "$SCENARIO" \
-    ${EXTRA_FLAGS[@]+"${EXTRA_FLAGS[@]}"} \
-    -- ${CLAUDE_ARGS[@]+"${CLAUDE_ARGS[@]}"} "$PROMPT"
+_run_capture() {
+    local extra_model_flag=("$@")
+    "${REPO_DIR}/sandbox/run.sh" \
+        "$VERSION" \
+        -o "$RAW_DIR" \
+        -s "$SCENARIO" \
+        ${EXTRA_FLAGS[@]+"${EXTRA_FLAGS[@]}"} \
+        -- ${CLAUDE_ARGS[@]+"${CLAUDE_ARGS[@]}"} \
+        ${CLAUDE_MCP_FLAGS[@]+"${CLAUDE_MCP_FLAGS[@]}"} \
+        ${extra_model_flag[@]+"${extra_model_flag[@]}"} \
+        "$PROMPT"
+}
 
-# If the API returned a model-not-found 404 (retired model) and the version
-# supports --model (0.2.98+), retry with an explicit fallback model.
+# Detect a degenerate capture (no /v1/messages with tools, or all
+# requests <2). 2.0.46–2.0.76 are flaky: claude exits with "Execution
+# error" on a non-trivial fraction of runs even outside the proxy. We
+# retry up to N times; first successful run wins.
+_capture_looks_complete() {
+    python3 - "$RAW_DIR" <<'PY'
+import json, sys
+from pathlib import Path
+raw = Path(sys.argv[1])
+# Find the agentlens session export (<scenario>.json).
+session_files = list(raw.glob("*.json"))
+session = None
+for f in session_files:
+    if f.name.endswith(".request.json") or f.name.endswith(".response.json"):
+        continue
+    try:
+        d = json.loads(f.read_text())
+    except Exception:
+        continue
+    if isinstance(d, dict) and "requests" in d and "raw_captures" in d:
+        session = d
+        break
+
+if not session:
+    print("no")
+    sys.exit(0)
+
+requests = session.get("requests") or []
+# We want at least one request that carries the agent's system prompt /
+# tools — the haiku-quota probe (max_tokens=1, no tools, no system) does
+# not count. Look for any request with non-empty `tools` OR a non-empty
+# `system_prompt`.
+for r in requests:
+    sp = r.get("system_prompt") or ""
+    tools = r.get("tools") or []
+    if tools or (isinstance(sp, str) and len(sp) > 100):
+        print("yes")
+        sys.exit(0)
+    if isinstance(sp, list) and any(isinstance(s, dict) and len(s.get("text") or "") > 100 for s in sp):
+        print("yes")
+        sys.exit(0)
+
+print("no")
+PY
+}
+
 _raw_has_model_404() {
     python3 - "$RAW_DIR" <<'PY'
 import json, sys
@@ -167,16 +255,37 @@ def v(s): return tuple(int(x) for x in s.split(".") if x.isdigit())
 sys.exit(0 if v(sys.argv[1]) >= v(sys.argv[2]) else 1)
 PY
 }
+
+# First attempt.
+_run_capture
+
+# Retry with --model fallback on retired-model 404.
 if [[ "$(_raw_has_model_404)" == "yes" ]] && _version_gte "1.0.0"; then
     echo "[retry] model 404 — retrying with --model claude-sonnet-4-5"
     rm -rf "$RAW_DIR"
     mkdir -p "$RAW_DIR"
-    "${REPO_DIR}/sandbox/run.sh" \
-        "$VERSION" \
-        -o "$RAW_DIR" \
-        -s "$SCENARIO" \
-        ${EXTRA_FLAGS[@]+"${EXTRA_FLAGS[@]}"} \
-        -- ${CLAUDE_ARGS[@]+"${CLAUDE_ARGS[@]}"} --model claude-sonnet-4-5 "$PROMPT"
+    _run_capture --model claude-sonnet-4-5
+fi
+
+# Flaky-version retry: up to 8 extra attempts when the capture is
+# incomplete (claude printed "Execution error" before the main session
+# call landed). Only kicks in when the first attempt produced no
+# tool-bearing request. claude-code 2.0.46 through 2.0.76 fail on a
+# non-trivial fraction of runs even outside the proxy — observed success
+# rate ~25%, so 8 retries gets to ~90% confidence. Each extra attempt is
+# ~30s when the docker image is already cached.
+RETRY_LIMIT="${SCENARIO_RETRY_LIMIT:-8}"
+if [[ "$(_capture_looks_complete)" != "yes" ]]; then
+    for attempt in $(seq 1 "$RETRY_LIMIT"); do
+        echo "[retry] capture looks incomplete (no tool-bearing request) — retry $attempt/$RETRY_LIMIT"
+        rm -rf "$RAW_DIR"
+        mkdir -p "$RAW_DIR"
+        _run_capture
+        if [[ "$(_capture_looks_complete)" == "yes" ]]; then
+            echo "[retry] success on attempt $attempt"
+            break
+        fi
+    done
 fi
 
 # Defensive flatten — entrypoint.sh already lifts files out of agentlens'
