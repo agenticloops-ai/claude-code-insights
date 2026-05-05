@@ -2,7 +2,7 @@
   "version": "2.1.22",
   "dir_name": "2026-01-28_2.1.22",
   "scenario": "02-bare",
-  "captured_at": "2026-05-04T07:43:16.437113",
+  "captured_at": "2026-05-04T16:57:17.057443",
   "request_count": 2,
   "models": [
     "claude-haiku-4-5-20251001",
@@ -20,8 +20,8 @@
     "input": 11,
     "output": 13,
     "cache_read": 0,
-    "cache_creation": 22378,
+    "cache_creation": 22352,
     "total": 24
   },
-  "duration_ms_total": 2691
+  "duration_ms_total": 2671
 }

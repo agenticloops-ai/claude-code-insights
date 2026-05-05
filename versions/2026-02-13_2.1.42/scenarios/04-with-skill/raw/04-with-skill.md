@@ -1,16 +1,16 @@
 # 04-with-skill
 
-**Started:** 2026-05-04T08:18:47.432764  
-**Ended:** 2026-05-04T08:19:04.732924  
+**Started:** 2026-05-04T17:35:47.347629  
+**Ended:** 2026-05-04T17:36:03.863218  
 **Requests:** 3  
 **Tokens:** 80 (in: 13 / out: 67)  
-**Cost:** $0.5539  
+**Cost:** $1.0098  
 **Models:** claude-haiku-4-5-20251001, claude-opus-4-6  
 **Providers:** anthropic  
 
 ---
 
-## Request #1 — claude-haiku-4-5-20251001 (anthropic) — 607ms
+## Request #1 — claude-haiku-4-5-20251001 (anthropic) — 632ms
 
 **User:**
 
@@ -28,7 +28,7 @@ quota
 
 ---
 
-## Request #2 — claude-opus-4-6 (anthropic) — 2.4s
+## Request #2 — claude-opus-4-6 (anthropic) — 2.8s
 
 ### System Prompt
 
@@ -361,6 +361,9 @@ assistant: "I'm going to use the Task tool to launch the greeting-responder agen
 | `resume` | string | no | Optional agent ID to resume from. If provided, the agent will continue from the previous execution transcript. |
 | `run_in_background` | boolean | no | Set to true to run this agent in the background. The tool result will include an output_file path - use Read tool or Bash tail to check on output. |
 | `max_turns` | integer | no | Maximum number of agentic turns (API round-trips) before stopping. Used internally for warmup. |
+| `name` | string | no | Name for the spawned agent |
+| `team_name` | string | no | Team name for spawning. Uses current team context if omitted. |
+| `mode` | string | no | Permission mode for spawned teammate (e.g., "plan" to require plan approval). |
 
 #### `TaskOutput`
 
@@ -456,7 +459,7 @@ Git Safety Protocol:
 3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands:
    - Add relevant untracked files to the staging area.
    - Create the commit with a message ending with:
-   Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+   Co-Authored-By: Claude Opus 4.6 <<USER_EMAIL>>
    - Run git status after the commit completes to verify success.
    Note: git status depends on the commit completing, so run it sequentially after the commit.
 4. If the commit fails due to pre-commit hook: fix the issue and create a NEW commit
@@ -473,7 +476,7 @@ Important notes:
 git commit -m "$(cat <<'EOF'
    Commit message here.
 
-   Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+   Co-Authored-By: Claude Opus 4.6 <<USER_EMAIL>>
    EOF
    )"
 </example>
@@ -1124,6 +1127,294 @@ User: "What files handle routing?"
 
 ```
 
+#### `TeamCreate`
+
+```
+# TeamCreate
+
+## When to Use
+
+Use this tool proactively whenever:
+- The user explicitly asks to use a team, swarm, or group of agents
+- The user mentions wanting agents to work together, coordinate, or collaborate
+- A task is complex enough that it would benefit from parallel work by multiple agents (e.g., building a full-stack feature with frontend and backend work, refactoring a codebase while keeping tests passing, implementing a multi-step project with research, planning, and coding phases)
+
+When in doubt about whether a task warrants a team, prefer spawning a team.
+
+## Choosing Agent Types for Teammates
+
+When spawning teammates via the Task tool, choose the `subagent_type` based on what tools the agent needs for its task. Each agent type has a different set of available tools — match the agent to the work:
+
+- **Read-only agents** (e.g., Explore, Plan) cannot edit or write files. Only assign them research, search, or planning tasks. Never assign them implementation work.
+- **Full-capability agents** (e.g., general-purpose) have access to all tools including file editing, writing, and bash. Use these for tasks that require making changes.
+- **Custom agents** defined in `.claude/agents/` may have their own tool restrictions. Check their descriptions to understand what they can and cannot do.
+
+Always review the agent type descriptions and their available tools listed in the Task tool prompt before selecting a `subagent_type` for a teammate.
+
+Create a new team to coordinate multiple agents working on a project. Teams have a 1:1 correspondence with task lists (Team = TaskList).
+
+```
+{
+  "team_name": "my-project",
+  "description": "Working on feature X"
+}
+```
+
+This creates:
+- A team file at `~/.claude/teams/{team-name}.json`
+- A corresponding task list directory at `~/.claude/tasks/{team-name}/`
+
+## Team Workflow
+
+1. **Create a team** with TeamCreate - this creates both the team and its task list
+2. **Create tasks** using the Task tools (TaskCreate, TaskList, etc.) - they automatically use the team's task list
+3. **Spawn teammates** using the Task tool with `team_name` and `name` parameters to create teammates that join the team
+4. **Assign tasks** using TaskUpdate with `owner` to give tasks to idle teammates
+5. **Teammates work on assigned tasks** and mark them completed via TaskUpdate
+6. **Teammates go idle between turns** - after each turn, teammates automatically go idle and send a notification. IMPORTANT: Be patient with idle teammates! Don't comment on their idleness until it actually impacts your work.
+7. **Shutdown your team** - when the task is completed, gracefully shut down your teammates via SendMessage with type: "shutdown_request".
+
+## Task Ownership
+
+Tasks are assigned using TaskUpdate with the `owner` parameter. Any agent can set or change task ownership via TaskUpdate.
+
+## Automatic Message Delivery
+
+**IMPORTANT**: Messages from teammates are automatically delivered to you. You do NOT need to manually check your inbox.
+
+When you spawn teammates:
+- They will send you messages when they complete tasks or need help
+- These messages appear automatically as new conversation turns (like user messages)
+- If you're busy (mid-turn), messages are queued and delivered when your turn ends
+- The UI shows a brief notification with the sender's name when messages are waiting
+
+Messages will be delivered automatically.
+
+When reporting on teammate messages, you do NOT need to quote the original message—it's already rendered to the user.
+
+## Teammate Idle State
+
+Teammates go idle after every turn—this is completely normal and expected. A teammate going idle immediately after sending you a message does NOT mean they are done or unavailable. Idle simply means they are waiting for input.
+
+- **Idle teammates can receive messages.** Sending a message to an idle teammate wakes them up and they will process it normally.
+- **Idle notifications are automatic.** The system sends an idle notification whenever a teammate's turn ends. You do not need to react to idle notifications unless you want to assign new work or send a follow-up message.
+- **Do not treat idle as an error.** A teammate sending a message and then going idle is the normal flow—they sent their message and are now waiting for a response.
+- **Peer DM visibility.** When a teammate sends a DM to another teammate, a brief summary is included in their idle notification. This gives you visibility into peer collaboration without the full message content. You do not need to respond to these summaries — they are informational.
+
+## Discovering Team Members
+
+Teammates can read the team config file to discover other team members:
+- **Team config location**: `~/.claude/teams/{team-name}/config.json`
+
+The config file contains a `members` array with each teammate's:
+- `name`: Human-readable name (**always use this** for messaging and task assignment)
+- `agentId`: Unique identifier (for reference only - do not use for communication)
+- `agentType`: Role/type of the agent
+
+**IMPORTANT**: Always refer to teammates by their NAME (e.g., "team-lead", "researcher", "tester"). Names are used for:
+- `target_agent_id` when sending messages
+- Identifying task owners
+
+Example of reading team config:
+```
+Use the Read tool to read ~/.claude/teams/{team-name}/config.json
+```
+
+## Task List Coordination
+
+Teams share a task list that all teammates can access at `~/.claude/tasks/{team-name}/`.
+
+Teammates should:
+1. Check TaskList periodically, **especially after completing each task**, to find available work or see newly unblocked tasks
+2. Claim unassigned, unblocked tasks with TaskUpdate (set `owner` to your name). **Prefer tasks in ID order** (lowest ID first) when multiple tasks are available, as earlier tasks often set up context for later ones
+3. Create new tasks with `TaskCreate` when identifying additional work
+4. Mark tasks as completed with `TaskUpdate` when done, then check TaskList for next work
+5. Coordinate with other teammates by reading the task list status
+6. If all available tasks are blocked, notify the team lead or help resolve blocking tasks
+
+**IMPORTANT notes for communication with your team**:
+- Do not use terminal tools to view your team's activity; always send a message to your teammates (and remember, refer to them by name).
+- Your team cannot hear you if you do not use the SendMessage tool. Always send a message to your teammates if you are responding to them.
+- Do NOT send structured JSON status messages like `{"type":"idle",...}` or `{"type":"task_completed",...}`. Just communicate in plain text when you need to message teammates.
+- Use TaskUpdate to mark tasks completed.
+- If you are an agent in the team, the system will automatically send idle notifications to the team lead when you stop.
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `team_name` | string | yes | Name for the new team to create. |
+| `description` | string | no | Team description/purpose. |
+| `agent_type` | string | no | Type/role of the team lead (e.g., "researcher", "test-runner"). Used for team file and inter-agent coordination. |
+
+#### `TeamDelete`
+
+```
+# TeamDelete
+
+Remove team and task directories when the swarm work is complete.
+
+This operation:
+- Removes the team directory (`~/.claude/teams/{team-name}/`)
+- Removes the task directory (`~/.claude/tasks/{team-name}/`)
+- Clears team context from the current session
+
+**IMPORTANT**: TeamDelete will fail if the team still has active members. Gracefully terminate teammates first, then call TeamDelete after all teammates have shut down.
+
+Use this when all teammates have finished their work and you want to clean up the team resources. The team name is automatically determined from the current session's team context.
+```
+
+#### `SendMessage`
+
+```
+# SendMessageTool
+
+Send messages to agent teammates and handle protocol requests/responses in a team.
+
+## Message Types
+
+### type: "message" - Send a Direct Message
+
+Send a message to a **single specific teammate**. You MUST specify the recipient.
+
+**IMPORTANT for teammates**: Your plain text output is NOT visible to the team lead or other teammates. To communicate with anyone on your team, you **MUST** use this tool. Just typing a response or acknowledgment in text is not enough.
+
+```
+{
+  "type": "message",
+  "recipient": "researcher",
+  "content": "Your message here",
+  "summary": "Brief status update on auth module"
+}
+```
+
+- **recipient**: The name of the teammate to message (required)
+- **content**: The message text (required)
+- **summary**: A 5-10 word summary shown as preview in the UI (required)
+
+### type: "broadcast" - Send Message to ALL Teammates (USE SPARINGLY)
+
+Send the **same message to everyone** on the team at once.
+
+**WARNING: Broadcasting is expensive.** Each broadcast sends a separate message to every teammate, which means:
+- N teammates = N separate message deliveries
+- Each delivery consumes API resources
+- Costs scale linearly with team size
+
+```
+{
+  "type": "broadcast",
+  "content": "Message to send to all teammates",
+  "summary": "Critical blocking issue found"
+}
+```
+
+- **content**: The message content to broadcast (required)
+- **summary**: A 5-10 word summary shown as preview in the UI (required)
+
+**CRITICAL: Use broadcast only when absolutely necessary.** Valid use cases:
+- Critical issues requiring immediate team-wide attention (e.g., "stop all work, blocking bug found")
+- Major announcements that genuinely affect every teammate equally
+
+**Default to "message" instead of "broadcast".** Use "message" for:
+- Responding to a single teammate
+- Normal back-and-forth communication
+- Following up on a task with one person
+- Sharing findings relevant to only some teammates
+- Any message that doesn't require everyone's attention
+
+### type: "shutdown_request" - Request a Teammate to Shut Down
+
+Use this to ask a teammate to gracefully shut down:
+
+```
+{
+  "type": "shutdown_request",
+  "recipient": "researcher",
+  "content": "Task complete, wrapping up the session"
+}
+```
+
+The teammate will receive a shutdown request and can either approve (exit) or reject (continue working).
+
+### type: "shutdown_response" - Respond to a Shutdown Request
+
+#### Approve Shutdown
+
+When you receive a shutdown request as a JSON message with `type: "shutdown_request"`, you **MUST** respond to approve or reject it. Do NOT just acknowledge the request in text - you must actually call this tool.
+
+```
+{
+  "type": "shutdown_response",
+  "request_id": "abc-123",
+  "approve": true
+}
+```
+
+**IMPORTANT**: Extract the `requestId` from the JSON message and pass it as `request_id` to the tool. Simply saying "I'll shut down" is not enough - you must call the tool.
+
+This will send confirmation to the leader and terminate your process.
+
+#### Reject Shutdown
+
+```
+{
+  "type": "shutdown_response",
+  "request_id": "abc-123",
+  "approve": false,
+  "content": "Still working on task #3, need 5 more minutes"
+}
+```
+
+The leader will receive your rejection with the reason.
+
+### type: "plan_approval_response" - Approve or Reject a Teammate's Plan
+
+#### Approve Plan
+
+When a teammate with `plan_mode_required` calls ExitPlanMode, they send you a plan approval request as a JSON message with `type: "plan_approval_request"`. Use this to approve their plan:
+
+```
+{
+  "type": "plan_approval_response",
+  "request_id": "abc-123",
+  "recipient": "researcher",
+  "approve": true
+}
+```
+
+After approval, the teammate will automatically exit plan mode and can proceed with implementation.
+
+#### Reject Plan
+
+```
+{
+  "type": "plan_approval_response",
+  "request_id": "abc-123",
+  "recipient": "researcher",
+  "approve": false,
+  "content": "Please add error handling for the API calls"
+}
+```
+
+The teammate will receive the rejection with your feedback and can revise their plan.
+
+## Important Notes
+
+- Messages from teammates are automatically delivered to you. You do NOT need to manually check your inbox.
+- When reporting on teammate messages, you do NOT need to quote the original message - it's already rendered to the user.
+- **IMPORTANT**: Always refer to teammates by their NAME (e.g., "team-lead", "researcher", "tester"), never by UUID.
+- Do NOT send structured JSON status messages. Use TaskUpdate to mark tasks completed and the system will automatically send idle notifications when you stop.
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `type` | string | yes | Message type: "message" for DMs, "broadcast" to all teammates, "shutdown_request" to request shutdown, "shutdown_response" to respond to shutdown, "plan_approval_response" to approve/reject plans |
+| `recipient` | string | no | Agent name of the recipient (required for message, shutdown_request, plan_approval_response) |
+| `content` | string | no | Message text, reason, or feedback |
+| `summary` | string | no | A 5-10 word summary of the message, shown as a preview in the UI (required for message, broadcast) |
+| `request_id` | string | no | Request ID to respond to (required for shutdown_response, plan_approval_response) |
+| `approve` | boolean | no | Whether to approve the request (required for shutdown_response, plan_approval_response) |
+
 #### `ToolSearch`
 
 ```
@@ -1202,93 +1493,6 @@ Available deferred tools (must be loaded before use):
 mcp__fixture__tool_001
 mcp__fixture__tool_002
 mcp__fixture__tool_003
-mcp__claude_ai_Google_Calendar__list_events
-mcp__claude_ai_Google_Calendar__get_event
-mcp__claude_ai_Google_Calendar__list_calendars
-mcp__claude_ai_Google_Calendar__suggest_time
-mcp__claude_ai_Google_Calendar__create_event
-mcp__claude_ai_Google_Calendar__update_event
-mcp__claude_ai_Google_Calendar__delete_event
-mcp__claude_ai_Google_Calendar__respond_to_event
-mcp__claude_ai_Gmail__create_draft
-mcp__claude_ai_Gmail__list_drafts
-mcp__claude_ai_Gmail__get_thread
-mcp__claude_ai_Gmail__search_threads
-mcp__claude_ai_Gmail__label_thread
-mcp__claude_ai_Gmail__unlabel_thread
-mcp__claude_ai_Gmail__list_labels
-mcp__claude_ai_Gmail__label_message
-mcp__claude_ai_Gmail__unlabel_message
-mcp__claude_ai_Gmail__create_label
-mcp__claude_ai_Google_Drive__copy_file
-mcp__claude_ai_Google_Drive__create_file
-mcp__claude_ai_Google_Drive__download_file_content
-mcp__claude_ai_Google_Drive__get_file_metadata
-mcp__claude_ai_Google_Drive__get_file_permissions
-mcp__claude_ai_Google_Drive__list_recent_files
-mcp__claude_ai_Google_Drive__read_file_content
-mcp__claude_ai_Google_Drive__search_files
-mcp__claude_ai_Excalidraw__read_me
-mcp__claude_ai_Excalidraw__create_view
-mcp__claude_ai_Excalidraw__export_to_excalidraw
-mcp__claude_ai_Excalidraw__save_checkpoint
-mcp__claude_ai_Excalidraw__read_checkpoint
-mcp__claude_ai_Canva__upload-asset-from-url
-mcp__claude_ai_Canva__resolve-shortlink
-mcp__claude_ai_Canva__search-designs
-mcp__claude_ai_Canva__get-design
-mcp__claude_ai_Canva__get-design-pages
-mcp__claude_ai_Canva__get-design-content
-mcp__claude_ai_Canva__get-presenter-notes
-mcp__claude_ai_Canva__import-design-from-url
-mcp__claude_ai_Canva__export-design
-mcp__claude_ai_Canva__get-export-formats
-mcp__claude_ai_Canva__create-folder
-mcp__claude_ai_Canva__move-item-to-folder
-mcp__claude_ai_Canva__list-folder-items
-mcp__claude_ai_Canva__search-folders
-mcp__claude_ai_Canva__comment-on-design
-mcp__claude_ai_Canva__list-replies
-mcp__claude_ai_Canva__reply-to-comment
-mcp__claude_ai_Canva__list-comments
-mcp__claude_ai_Canva__generate-design
-mcp__claude_ai_Canva__generate-design-structured
-mcp__claude_ai_Canva__create-design-from-candidate
-mcp__claude_ai_Canva__request-outline-review
-mcp__claude_ai_Canva__list-brand-kits
-mcp__claude_ai_Canva__help
-mcp__claude_ai_Canva__resize-design
-mcp__claude_ai_Canva__start-editing-transaction
-mcp__claude_ai_Canva__perform-editing-operations
-mcp__claude_ai_Canva__commit-editing-transaction
-mcp__claude_ai_Canva__cancel-editing-transaction
-mcp__claude_ai_Canva__get-design-thumbnail
-mcp__claude_ai_Canva__get-assets
-mcp__claude_ai_Canva__merge-designs
-mcp__claude_ai_tldraw__search
-mcp__claude_ai_tldraw__exec
-mcp__claude_ai_tldraw___exec_callback
-mcp__claude_ai_tldraw___get_canvas_state
-mcp__claude_ai_tldraw__read_checkpoint
-mcp__claude_ai_tldraw__save_checkpoint
-mcp__claude_ai_Figma__get_screenshot
-mcp__claude_ai_Figma__create_design_system_rules
-mcp__claude_ai_Figma__get_design_context
-mcp__claude_ai_Figma__get_metadata
-mcp__claude_ai_Figma__get_variable_defs
-mcp__claude_ai_Figma__get_figjam
-mcp__claude_ai_Figma__generate_diagram
-mcp__claude_ai_Figma__get_code_connect_map
-mcp__claude_ai_Figma__whoami
-mcp__claude_ai_Figma__add_code_connect_map
-mcp__claude_ai_Figma__get_code_connect_suggestions
-mcp__claude_ai_Figma__send_code_connect_mappings
-mcp__claude_ai_Figma__get_context_for_code_connect
-mcp__claude_ai_Figma__use_figma
-mcp__claude_ai_Figma__get_libraries
-mcp__claude_ai_Figma__search_design_system
-mcp__claude_ai_Figma__create_new_file
-mcp__claude_ai_Figma__upload_assets
 ```
 
 | Parameter | Type | Required | Description |
@@ -1366,11 +1570,11 @@ Use the say-hello skill. Print only its output, nothing else.
 }
 ```
 
-*Tokens: 3 in / 55 out (58 total) — Cost: $0.4333*
+*Tokens: 3 in / 55 out (58 total) — Cost: $0.5053*
 
 ---
 
-## Request #3 — claude-opus-4-6 (anthropic) — 2.1s
+## Request #3 — claude-opus-4-6 (anthropic) — 2.2s
 
 ### System Prompt
 
@@ -1703,6 +1907,9 @@ assistant: "I'm going to use the Task tool to launch the greeting-responder agen
 | `resume` | string | no | Optional agent ID to resume from. If provided, the agent will continue from the previous execution transcript. |
 | `run_in_background` | boolean | no | Set to true to run this agent in the background. The tool result will include an output_file path - use Read tool or Bash tail to check on output. |
 | `max_turns` | integer | no | Maximum number of agentic turns (API round-trips) before stopping. Used internally for warmup. |
+| `name` | string | no | Name for the spawned agent |
+| `team_name` | string | no | Team name for spawning. Uses current team context if omitted. |
+| `mode` | string | no | Permission mode for spawned teammate (e.g., "plan" to require plan approval). |
 
 #### `TaskOutput`
 
@@ -1798,7 +2005,7 @@ Git Safety Protocol:
 3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands:
    - Add relevant untracked files to the staging area.
    - Create the commit with a message ending with:
-   Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+   Co-Authored-By: Claude Opus 4.6 <<USER_EMAIL>>
    - Run git status after the commit completes to verify success.
    Note: git status depends on the commit completing, so run it sequentially after the commit.
 4. If the commit fails due to pre-commit hook: fix the issue and create a NEW commit
@@ -1815,7 +2022,7 @@ Important notes:
 git commit -m "$(cat <<'EOF'
    Commit message here.
 
-   Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+   Co-Authored-By: Claude Opus 4.6 <<USER_EMAIL>>
    EOF
    )"
 </example>
@@ -2466,6 +2673,294 @@ User: "What files handle routing?"
 
 ```
 
+#### `TeamCreate`
+
+```
+# TeamCreate
+
+## When to Use
+
+Use this tool proactively whenever:
+- The user explicitly asks to use a team, swarm, or group of agents
+- The user mentions wanting agents to work together, coordinate, or collaborate
+- A task is complex enough that it would benefit from parallel work by multiple agents (e.g., building a full-stack feature with frontend and backend work, refactoring a codebase while keeping tests passing, implementing a multi-step project with research, planning, and coding phases)
+
+When in doubt about whether a task warrants a team, prefer spawning a team.
+
+## Choosing Agent Types for Teammates
+
+When spawning teammates via the Task tool, choose the `subagent_type` based on what tools the agent needs for its task. Each agent type has a different set of available tools — match the agent to the work:
+
+- **Read-only agents** (e.g., Explore, Plan) cannot edit or write files. Only assign them research, search, or planning tasks. Never assign them implementation work.
+- **Full-capability agents** (e.g., general-purpose) have access to all tools including file editing, writing, and bash. Use these for tasks that require making changes.
+- **Custom agents** defined in `.claude/agents/` may have their own tool restrictions. Check their descriptions to understand what they can and cannot do.
+
+Always review the agent type descriptions and their available tools listed in the Task tool prompt before selecting a `subagent_type` for a teammate.
+
+Create a new team to coordinate multiple agents working on a project. Teams have a 1:1 correspondence with task lists (Team = TaskList).
+
+```
+{
+  "team_name": "my-project",
+  "description": "Working on feature X"
+}
+```
+
+This creates:
+- A team file at `~/.claude/teams/{team-name}.json`
+- A corresponding task list directory at `~/.claude/tasks/{team-name}/`
+
+## Team Workflow
+
+1. **Create a team** with TeamCreate - this creates both the team and its task list
+2. **Create tasks** using the Task tools (TaskCreate, TaskList, etc.) - they automatically use the team's task list
+3. **Spawn teammates** using the Task tool with `team_name` and `name` parameters to create teammates that join the team
+4. **Assign tasks** using TaskUpdate with `owner` to give tasks to idle teammates
+5. **Teammates work on assigned tasks** and mark them completed via TaskUpdate
+6. **Teammates go idle between turns** - after each turn, teammates automatically go idle and send a notification. IMPORTANT: Be patient with idle teammates! Don't comment on their idleness until it actually impacts your work.
+7. **Shutdown your team** - when the task is completed, gracefully shut down your teammates via SendMessage with type: "shutdown_request".
+
+## Task Ownership
+
+Tasks are assigned using TaskUpdate with the `owner` parameter. Any agent can set or change task ownership via TaskUpdate.
+
+## Automatic Message Delivery
+
+**IMPORTANT**: Messages from teammates are automatically delivered to you. You do NOT need to manually check your inbox.
+
+When you spawn teammates:
+- They will send you messages when they complete tasks or need help
+- These messages appear automatically as new conversation turns (like user messages)
+- If you're busy (mid-turn), messages are queued and delivered when your turn ends
+- The UI shows a brief notification with the sender's name when messages are waiting
+
+Messages will be delivered automatically.
+
+When reporting on teammate messages, you do NOT need to quote the original message—it's already rendered to the user.
+
+## Teammate Idle State
+
+Teammates go idle after every turn—this is completely normal and expected. A teammate going idle immediately after sending you a message does NOT mean they are done or unavailable. Idle simply means they are waiting for input.
+
+- **Idle teammates can receive messages.** Sending a message to an idle teammate wakes them up and they will process it normally.
+- **Idle notifications are automatic.** The system sends an idle notification whenever a teammate's turn ends. You do not need to react to idle notifications unless you want to assign new work or send a follow-up message.
+- **Do not treat idle as an error.** A teammate sending a message and then going idle is the normal flow—they sent their message and are now waiting for a response.
+- **Peer DM visibility.** When a teammate sends a DM to another teammate, a brief summary is included in their idle notification. This gives you visibility into peer collaboration without the full message content. You do not need to respond to these summaries — they are informational.
+
+## Discovering Team Members
+
+Teammates can read the team config file to discover other team members:
+- **Team config location**: `~/.claude/teams/{team-name}/config.json`
+
+The config file contains a `members` array with each teammate's:
+- `name`: Human-readable name (**always use this** for messaging and task assignment)
+- `agentId`: Unique identifier (for reference only - do not use for communication)
+- `agentType`: Role/type of the agent
+
+**IMPORTANT**: Always refer to teammates by their NAME (e.g., "team-lead", "researcher", "tester"). Names are used for:
+- `target_agent_id` when sending messages
+- Identifying task owners
+
+Example of reading team config:
+```
+Use the Read tool to read ~/.claude/teams/{team-name}/config.json
+```
+
+## Task List Coordination
+
+Teams share a task list that all teammates can access at `~/.claude/tasks/{team-name}/`.
+
+Teammates should:
+1. Check TaskList periodically, **especially after completing each task**, to find available work or see newly unblocked tasks
+2. Claim unassigned, unblocked tasks with TaskUpdate (set `owner` to your name). **Prefer tasks in ID order** (lowest ID first) when multiple tasks are available, as earlier tasks often set up context for later ones
+3. Create new tasks with `TaskCreate` when identifying additional work
+4. Mark tasks as completed with `TaskUpdate` when done, then check TaskList for next work
+5. Coordinate with other teammates by reading the task list status
+6. If all available tasks are blocked, notify the team lead or help resolve blocking tasks
+
+**IMPORTANT notes for communication with your team**:
+- Do not use terminal tools to view your team's activity; always send a message to your teammates (and remember, refer to them by name).
+- Your team cannot hear you if you do not use the SendMessage tool. Always send a message to your teammates if you are responding to them.
+- Do NOT send structured JSON status messages like `{"type":"idle",...}` or `{"type":"task_completed",...}`. Just communicate in plain text when you need to message teammates.
+- Use TaskUpdate to mark tasks completed.
+- If you are an agent in the team, the system will automatically send idle notifications to the team lead when you stop.
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `team_name` | string | yes | Name for the new team to create. |
+| `description` | string | no | Team description/purpose. |
+| `agent_type` | string | no | Type/role of the team lead (e.g., "researcher", "test-runner"). Used for team file and inter-agent coordination. |
+
+#### `TeamDelete`
+
+```
+# TeamDelete
+
+Remove team and task directories when the swarm work is complete.
+
+This operation:
+- Removes the team directory (`~/.claude/teams/{team-name}/`)
+- Removes the task directory (`~/.claude/tasks/{team-name}/`)
+- Clears team context from the current session
+
+**IMPORTANT**: TeamDelete will fail if the team still has active members. Gracefully terminate teammates first, then call TeamDelete after all teammates have shut down.
+
+Use this when all teammates have finished their work and you want to clean up the team resources. The team name is automatically determined from the current session's team context.
+```
+
+#### `SendMessage`
+
+```
+# SendMessageTool
+
+Send messages to agent teammates and handle protocol requests/responses in a team.
+
+## Message Types
+
+### type: "message" - Send a Direct Message
+
+Send a message to a **single specific teammate**. You MUST specify the recipient.
+
+**IMPORTANT for teammates**: Your plain text output is NOT visible to the team lead or other teammates. To communicate with anyone on your team, you **MUST** use this tool. Just typing a response or acknowledgment in text is not enough.
+
+```
+{
+  "type": "message",
+  "recipient": "researcher",
+  "content": "Your message here",
+  "summary": "Brief status update on auth module"
+}
+```
+
+- **recipient**: The name of the teammate to message (required)
+- **content**: The message text (required)
+- **summary**: A 5-10 word summary shown as preview in the UI (required)
+
+### type: "broadcast" - Send Message to ALL Teammates (USE SPARINGLY)
+
+Send the **same message to everyone** on the team at once.
+
+**WARNING: Broadcasting is expensive.** Each broadcast sends a separate message to every teammate, which means:
+- N teammates = N separate message deliveries
+- Each delivery consumes API resources
+- Costs scale linearly with team size
+
+```
+{
+  "type": "broadcast",
+  "content": "Message to send to all teammates",
+  "summary": "Critical blocking issue found"
+}
+```
+
+- **content**: The message content to broadcast (required)
+- **summary**: A 5-10 word summary shown as preview in the UI (required)
+
+**CRITICAL: Use broadcast only when absolutely necessary.** Valid use cases:
+- Critical issues requiring immediate team-wide attention (e.g., "stop all work, blocking bug found")
+- Major announcements that genuinely affect every teammate equally
+
+**Default to "message" instead of "broadcast".** Use "message" for:
+- Responding to a single teammate
+- Normal back-and-forth communication
+- Following up on a task with one person
+- Sharing findings relevant to only some teammates
+- Any message that doesn't require everyone's attention
+
+### type: "shutdown_request" - Request a Teammate to Shut Down
+
+Use this to ask a teammate to gracefully shut down:
+
+```
+{
+  "type": "shutdown_request",
+  "recipient": "researcher",
+  "content": "Task complete, wrapping up the session"
+}
+```
+
+The teammate will receive a shutdown request and can either approve (exit) or reject (continue working).
+
+### type: "shutdown_response" - Respond to a Shutdown Request
+
+#### Approve Shutdown
+
+When you receive a shutdown request as a JSON message with `type: "shutdown_request"`, you **MUST** respond to approve or reject it. Do NOT just acknowledge the request in text - you must actually call this tool.
+
+```
+{
+  "type": "shutdown_response",
+  "request_id": "abc-123",
+  "approve": true
+}
+```
+
+**IMPORTANT**: Extract the `requestId` from the JSON message and pass it as `request_id` to the tool. Simply saying "I'll shut down" is not enough - you must call the tool.
+
+This will send confirmation to the leader and terminate your process.
+
+#### Reject Shutdown
+
+```
+{
+  "type": "shutdown_response",
+  "request_id": "abc-123",
+  "approve": false,
+  "content": "Still working on task #3, need 5 more minutes"
+}
+```
+
+The leader will receive your rejection with the reason.
+
+### type: "plan_approval_response" - Approve or Reject a Teammate's Plan
+
+#### Approve Plan
+
+When a teammate with `plan_mode_required` calls ExitPlanMode, they send you a plan approval request as a JSON message with `type: "plan_approval_request"`. Use this to approve their plan:
+
+```
+{
+  "type": "plan_approval_response",
+  "request_id": "abc-123",
+  "recipient": "researcher",
+  "approve": true
+}
+```
+
+After approval, the teammate will automatically exit plan mode and can proceed with implementation.
+
+#### Reject Plan
+
+```
+{
+  "type": "plan_approval_response",
+  "request_id": "abc-123",
+  "recipient": "researcher",
+  "approve": false,
+  "content": "Please add error handling for the API calls"
+}
+```
+
+The teammate will receive the rejection with your feedback and can revise their plan.
+
+## Important Notes
+
+- Messages from teammates are automatically delivered to you. You do NOT need to manually check your inbox.
+- When reporting on teammate messages, you do NOT need to quote the original message - it's already rendered to the user.
+- **IMPORTANT**: Always refer to teammates by their NAME (e.g., "team-lead", "researcher", "tester"), never by UUID.
+- Do NOT send structured JSON status messages. Use TaskUpdate to mark tasks completed and the system will automatically send idle notifications when you stop.
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `type` | string | yes | Message type: "message" for DMs, "broadcast" to all teammates, "shutdown_request" to request shutdown, "shutdown_response" to respond to shutdown, "plan_approval_response" to approve/reject plans |
+| `recipient` | string | no | Agent name of the recipient (required for message, shutdown_request, plan_approval_response) |
+| `content` | string | no | Message text, reason, or feedback |
+| `summary` | string | no | A 5-10 word summary of the message, shown as a preview in the UI (required for message, broadcast) |
+| `request_id` | string | no | Request ID to respond to (required for shutdown_response, plan_approval_response) |
+| `approve` | boolean | no | Whether to approve the request (required for shutdown_response, plan_approval_response) |
+
 #### `ToolSearch`
 
 ```
@@ -2544,93 +3039,6 @@ Available deferred tools (must be loaded before use):
 mcp__fixture__tool_001
 mcp__fixture__tool_002
 mcp__fixture__tool_003
-mcp__claude_ai_Google_Calendar__list_events
-mcp__claude_ai_Google_Calendar__get_event
-mcp__claude_ai_Google_Calendar__list_calendars
-mcp__claude_ai_Google_Calendar__suggest_time
-mcp__claude_ai_Google_Calendar__create_event
-mcp__claude_ai_Google_Calendar__update_event
-mcp__claude_ai_Google_Calendar__delete_event
-mcp__claude_ai_Google_Calendar__respond_to_event
-mcp__claude_ai_Gmail__create_draft
-mcp__claude_ai_Gmail__list_drafts
-mcp__claude_ai_Gmail__get_thread
-mcp__claude_ai_Gmail__search_threads
-mcp__claude_ai_Gmail__label_thread
-mcp__claude_ai_Gmail__unlabel_thread
-mcp__claude_ai_Gmail__list_labels
-mcp__claude_ai_Gmail__label_message
-mcp__claude_ai_Gmail__unlabel_message
-mcp__claude_ai_Gmail__create_label
-mcp__claude_ai_Google_Drive__copy_file
-mcp__claude_ai_Google_Drive__create_file
-mcp__claude_ai_Google_Drive__download_file_content
-mcp__claude_ai_Google_Drive__get_file_metadata
-mcp__claude_ai_Google_Drive__get_file_permissions
-mcp__claude_ai_Google_Drive__list_recent_files
-mcp__claude_ai_Google_Drive__read_file_content
-mcp__claude_ai_Google_Drive__search_files
-mcp__claude_ai_Excalidraw__read_me
-mcp__claude_ai_Excalidraw__create_view
-mcp__claude_ai_Excalidraw__export_to_excalidraw
-mcp__claude_ai_Excalidraw__save_checkpoint
-mcp__claude_ai_Excalidraw__read_checkpoint
-mcp__claude_ai_Canva__upload-asset-from-url
-mcp__claude_ai_Canva__resolve-shortlink
-mcp__claude_ai_Canva__search-designs
-mcp__claude_ai_Canva__get-design
-mcp__claude_ai_Canva__get-design-pages
-mcp__claude_ai_Canva__get-design-content
-mcp__claude_ai_Canva__get-presenter-notes
-mcp__claude_ai_Canva__import-design-from-url
-mcp__claude_ai_Canva__export-design
-mcp__claude_ai_Canva__get-export-formats
-mcp__claude_ai_Canva__create-folder
-mcp__claude_ai_Canva__move-item-to-folder
-mcp__claude_ai_Canva__list-folder-items
-mcp__claude_ai_Canva__search-folders
-mcp__claude_ai_Canva__comment-on-design
-mcp__claude_ai_Canva__list-replies
-mcp__claude_ai_Canva__reply-to-comment
-mcp__claude_ai_Canva__list-comments
-mcp__claude_ai_Canva__generate-design
-mcp__claude_ai_Canva__generate-design-structured
-mcp__claude_ai_Canva__create-design-from-candidate
-mcp__claude_ai_Canva__request-outline-review
-mcp__claude_ai_Canva__list-brand-kits
-mcp__claude_ai_Canva__help
-mcp__claude_ai_Canva__resize-design
-mcp__claude_ai_Canva__start-editing-transaction
-mcp__claude_ai_Canva__perform-editing-operations
-mcp__claude_ai_Canva__commit-editing-transaction
-mcp__claude_ai_Canva__cancel-editing-transaction
-mcp__claude_ai_Canva__get-design-thumbnail
-mcp__claude_ai_Canva__get-assets
-mcp__claude_ai_Canva__merge-designs
-mcp__claude_ai_tldraw__search
-mcp__claude_ai_tldraw__exec
-mcp__claude_ai_tldraw___exec_callback
-mcp__claude_ai_tldraw___get_canvas_state
-mcp__claude_ai_tldraw__read_checkpoint
-mcp__claude_ai_tldraw__save_checkpoint
-mcp__claude_ai_Figma__get_screenshot
-mcp__claude_ai_Figma__create_design_system_rules
-mcp__claude_ai_Figma__get_design_context
-mcp__claude_ai_Figma__get_metadata
-mcp__claude_ai_Figma__get_variable_defs
-mcp__claude_ai_Figma__get_figjam
-mcp__claude_ai_Figma__generate_diagram
-mcp__claude_ai_Figma__get_code_connect_map
-mcp__claude_ai_Figma__whoami
-mcp__claude_ai_Figma__add_code_connect_map
-mcp__claude_ai_Figma__get_code_connect_suggestions
-mcp__claude_ai_Figma__send_code_connect_mappings
-mcp__claude_ai_Figma__get_context_for_code_connect
-mcp__claude_ai_Figma__use_figma
-mcp__claude_ai_Figma__get_libraries
-mcp__claude_ai_Figma__search_design_system
-mcp__claude_ai_Figma__create_new_file
-mcp__claude_ai_Figma__upload_assets
 ```
 
 | Parameter | Type | Required | Description |
@@ -2714,7 +3122,7 @@ Use the say-hello skill. Print only its output, nothing else.
 
 **User:**
 
-> **Tool Result** (id: toolu_01Ef9Che2h85JGLsaWTZPqcL)
+> **Tool Result** (id: toolu_01TBrPNwEyWEcJ6jBMo7E7N2)
 > Launching skill: say-hello
 
 ```
@@ -2736,6 +3144,6 @@ Do nothing else. Do not call any tools. Do not ask follow-up questions.
 > Hello from the sandbox fixture skill!
 ```
 
-*Tokens: 2 in / 11 out (13 total) — Cost: $0.1206*
+*Tokens: 2 in / 11 out (13 total) — Cost: $0.5046*
 
 ---

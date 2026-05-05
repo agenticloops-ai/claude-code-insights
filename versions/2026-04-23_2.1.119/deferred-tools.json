@@ -13,8 +13,11 @@
   "PushNotification",
   "ReadMcpResourceTool",
   "RemoteTrigger",
+  "SendMessage",
   "TaskOutput",
   "TaskStop",
+  "TeamCreate",
+  "TeamDelete",
   "TodoWrite",
   "WebFetch",
   "WebSearch"

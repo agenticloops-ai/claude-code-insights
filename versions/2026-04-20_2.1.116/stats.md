@@ -4,9 +4,9 @@ Baseline scenario: `02-bare` (its system-prompt / tools are mirrored at the vers
 
 | scenario | requests | tools | deferred | mcp adv | mcp def | skills | sys-prompt | reminders | input | output | duration |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| `02-bare` | 1 | 10 | 19 | 0 | 89 | 10 | 26269 | 4 | 6 | 16 | 1.4s |
-| `03-with-mcp` | 2 | 10 | 19 | 0 | 90 | 10 | 26269 | 4 | 373 | 2006 | 20.5s |
-| `04-with-skill` | 3 | 10 | 19 | 0 | 85 | 10 | 26269 | 4 | 364 | 139 | 4.5s |
+| `02-bare` | 1 | 10 | 22 | 0 | 0 | 10 | 26269 | 4 | 6 | 16 | 2.4s |
+| `03-with-mcp` | 2 | 10 | 22 | 0 | 0 | 10 | 26269 | 4 | 373 | 2006 | 21.1s |
+| `04-with-skill` | 3 | 10 | 22 | 0 | 0 | 10 | 26269 | 4 | 364 | 141 | 5.6s |
 
 ## Models seen across scenarios
 

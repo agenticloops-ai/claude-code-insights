@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-6",
-        "id": "msg_017qYPGg3R2L64tyZCU8jzWb",
+        "id": "msg_013xgz2uQoE5fiWyTfTquLFN",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -15,12 +15,12 @@
         "usage": {
           "input_tokens": 3,
           "cache_creation_input_tokens": 0,
-          "cache_read_input_tokens": 5202,
+          "cache_read_input_tokens": 5211,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
             "ephemeral_1h_input_tokens": 0
           },
-          "output_tokens": 60,
+          "output_tokens": 43,
           "service_tier": "standard",
           "inference_geo": "not_available"
         }
@@ -34,7 +34,7 @@
       "index": 0,
       "content_block": {
         "type": "tool_use",
-        "id": "toolu_01KeGgLs34bsQRZ2HCinpNqz",
+        "id": "toolu_01KNJuSo7f24cmc4YTjnuEKN",
         "name": "ToolSearch",
         "input": {},
         "caller": {
@@ -67,7 +67,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\"q"
+        "partial_json": "{\"query"
       }
     }
   },
@@ -78,7 +78,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "uery"
+        "partial_json": "\": \""
       }
     }
   },
@@ -89,7 +89,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "\": \"select:S"
+        "partial_json": "select:S"
       }
     }
   },
@@ -100,7 +100,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "kill"
+        "partial_json": "kill\""
       }
     }
   },
@@ -111,7 +111,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "\""
+        "partial_json": ", \"max"
       }
     }
   },
@@ -122,7 +122,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": ", \""
+        "partial_json": "_resul"
       }
     }
   },
@@ -133,40 +133,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "ma"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "input_json_delta",
-        "partial_json": "x_re"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "input_json_delta",
-        "partial_json": "sults\""
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "input_json_delta",
-        "partial_json": ": 1}"
+        "partial_json": "ts\": 1}"
       }
     }
   },
@@ -189,7 +156,7 @@
       "usage": {
         "input_tokens": 3,
         "cache_creation_input_tokens": 0,
-        "cache_read_input_tokens": 5202,
+        "cache_read_input_tokens": 5211,
         "output_tokens": 76
       },
       "context_management": {

@@ -1,8 +1,8 @@
 {
   "index": 1,
-  "request_id": "855d864e-f9d0-4e85-80b6-0cef457f45fa",
-  "session_id": "63127c89-c818-4394-90d4-8445dc8984d4",
-  "timestamp": "2026-05-04T10:38:17.304852",
+  "request_id": "a6a61e6d-6ce7-40fd-8afc-82954a0bb430",
+  "session_id": "606cc424-6f2d-4cc8-bc62-69884fab7e6d",
+  "timestamp": "2026-05-04T20:09:38.437686",
   "provider": "anthropic",
   "method": "POST",
   "url": "https://api.anthropic.com/v1/messages?beta=true",
@@ -11,7 +11,7 @@
     "Authorization": "REDACTED",
     "Content-Type": "application/json",
     "User-Agent": "claude-cli/2.1.123 (external, sdk-cli)",
-    "X-Claude-Code-Session-Id": "9e007617-9f25-4ca6-8a0c-306b1c833ce7",
+    "X-Claude-Code-Session-Id": "b9172dc2-97fa-4b6a-9910-6337e47697b8",
     "X-Stainless-Arch": "x64",
     "X-Stainless-Lang": "js",
     "X-Stainless-OS": "Linux",
@@ -24,7 +24,7 @@
     "anthropic-dangerous-direct-browser-access": "true",
     "anthropic-version": "2023-06-01",
     "x-app": "cli",
-    "x-client-request-id": "2e3eae06-7c32-43fd-a28d-a2f35a8735fd",
+    "x-client-request-id": "4eded517-a946-42d9-b94f-3d285b2e262e",
     "Connection": "keep-alive",
     "Host": "api.anthropic.com",
     "Accept-Encoding": "identity",
@@ -46,7 +46,7 @@
     "system": [
       {
         "type": "text",
-        "text": "x-anthropic-billing-header: cc_version=2.1.123.c8c; cc_entrypoint=sdk-cli; cch=d04e5;"
+        "text": "x-anthropic-billing-header: cc_version=2.1.123.c8c; cc_entrypoint=sdk-cli; cch=eb668;"
       },
       {
         "type": "text",
@@ -59,7 +59,7 @@
     ],
     "tools": [],
     "metadata": {
-      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"9e007617-9f25-4ca6-8a0c-306b1c833ce7\"}"
+      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"b9172dc2-97fa-4b6a-9910-6337e47697b8\"}"
     },
     "max_tokens": 32000,
     "temperature": 1,

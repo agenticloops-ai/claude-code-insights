@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🔬 claude-code-changelog
+# 🔬 Claude Code Evolution
 
 **The changelog Anthropic doesn't publish.**\
 Black-box capture and diff of [`@anthropic-ai/claude-code`](https://www.npmjs.com/package/@anthropic-ai/claude-code) across releases — system prompt, tool catalog, deferred-tool registry, skills, and `<system-reminder>` injections, version by version.

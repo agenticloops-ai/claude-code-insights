@@ -2,7 +2,7 @@
   "version": "2.1.20",
   "dir_name": "2026-01-27_2.1.20",
   "scenario": "04-with-skill",
-  "captured_at": "2026-05-04T07:39:37.208983",
+  "captured_at": "2026-05-04T16:53:05.371248",
   "request_count": 3,
   "models": [
     "claude-haiku-4-5-20251001",
@@ -23,5 +23,5 @@
     "cache_creation": 22414,
     "total": 78
   },
-  "duration_ms_total": 4489
+  "duration_ms_total": 4880
 }

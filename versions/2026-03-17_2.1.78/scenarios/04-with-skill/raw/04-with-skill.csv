@@ -1,5 +1,5 @@
 timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
-2026-05-04T09:24:32.368293,anthropic,claude-opus-4-6,2877.8183460235596,2267.580032348633,success,tool_use,3,76,79,0.0602565,True,True,False,"<available-deferred-tools>
+2026-05-04T18:47:46.904796,anthropic,claude-opus-4-6,3902.7154445648193,3652.233362197876,success,tool_use,3,76,79,0.06042525,True,True,False,"<available-deferred-tools>
 Agent
 AskUserQuestion
 Bash
@@ -17,7 +17,7 @@ ListMcpResourcesTool
 NotebookEdit
 Read
 ReadMcp"
-2026-05-04T09:24:34.860857,anthropic,claude-opus-4-6,2399.3914127349854,2336.350440979004,success,tool_use,3,55,58,0.02626275,True,True,False,"<available-deferred-tools>
+2026-05-04T18:47:50.538779,anthropic,claude-opus-4-6,3522.8514671325684,3436.6836547851562,success,tool_use,3,55,58,0.02627625,True,True,False,"<available-deferred-tools>
 Agent
 AskUserQuestion
 Bash
@@ -35,7 +35,7 @@ ListMcpResourcesTool
 NotebookEdit
 Read
 ReadMcp"
-2026-05-04T09:24:38.545031,anthropic,claude-opus-4-6,3673.1042861938477,3549.164056777954,success,end_turn,2,11,13,0.015723,True,True,False,"<available-deferred-tools>
+2026-05-04T18:47:54.057355,anthropic,claude-opus-4-6,3507.4057579040527,3316.456079483032,success,end_turn,2,11,13,0.0157365,True,True,False,"<available-deferred-tools>
 Agent
 AskUserQuestion
 Bash

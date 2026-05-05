@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-5-20251101",
-        "id": "msg_01DUXMKxnCrPd86h3RXdxKnB",
+        "id": "msg_01PWC5ZoYGEpAMeyTZDZ4TSu",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -34,7 +34,7 @@
       "index": 0,
       "content_block": {
         "type": "tool_use",
-        "id": "toolu_01MDxTKoz479zyV4jdhMH3Bg",
+        "id": "toolu_01MyxJVyjWbyFoaYEmVZQdQj",
         "name": "Skill",
         "input": {},
         "caller": {
@@ -67,7 +67,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\"ski"
+        "partial_json": "{\"sk"
       }
     }
   },
@@ -78,7 +78,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "ll\": \"sa"
+        "partial_json": "ill\": \"sa"
       }
     }
   },
@@ -89,18 +89,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "y-hell"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "input_json_delta",
-        "partial_json": "o\"}"
+        "partial_json": "y-hello\"}"
       }
     }
   },

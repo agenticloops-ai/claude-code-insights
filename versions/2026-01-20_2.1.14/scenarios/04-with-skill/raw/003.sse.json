@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-5-20251101",
-        "id": "msg_01BcakjvvEcAZuu9Hyugx1PK",
+        "id": "msg_01WTw9P77SmRGs7gCyhtZAPF",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -62,7 +62,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": ", world!"
+        "text": " from deterministic skill fixture!"
       }
     }
   },
@@ -86,7 +86,7 @@
         "input_tokens": 0,
         "cache_creation_input_tokens": 83,
         "cache_read_input_tokens": 21728,
-        "output_tokens": 7
+        "output_tokens": 10
       }
     }
   },

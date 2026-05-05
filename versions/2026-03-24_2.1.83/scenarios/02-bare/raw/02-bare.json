@@ -1,21 +1,21 @@
 {
   "session": {
-    "id": "0441291c-3309-4aa9-a51b-a1dc1d05232c",
+    "id": "c30ef379-fb27-428f-adba-179ce26fb743",
     "name": "02-bare",
-    "started_at": "2026-05-04T09:31:09.296600",
-    "ended_at": "2026-05-04T09:31:22.788803",
+    "started_at": "2026-05-04T18:56:38.856754",
+    "ended_at": "2026-05-04T18:56:52.053615",
     "request_count": 0,
     "total_tokens": 0,
     "estimated_cost_usd": 0.0
   },
   "stats": {
     "total_requests": 1,
-    "total_tokens": 34,
+    "total_tokens": 16,
     "total_input_tokens": 3,
-    "total_output_tokens": 31,
-    "estimated_cost_usd": 0.19131375,
-    "avg_duration_ms": 5976.585149765015,
-    "avg_tokens_per_request": 34.0,
+    "total_output_tokens": 13,
+    "estimated_cost_usd": 0.189645,
+    "avg_duration_ms": 2434.3016147613525,
+    "avg_tokens_per_request": 16.0,
     "models_used": [
       "claude-opus-4-6"
     ],
@@ -25,15 +25,15 @@
   },
   "requests": [
     {
-      "id": "a982e841-631f-4e69-85cb-7c8ea2901a87",
-      "session_id": "0441291c-3309-4aa9-a51b-a1dc1d05232c",
-      "raw_capture_id": "6cc8a219-9194-4a6c-9903-8cd7986aaabf",
+      "id": "465eded0-fc14-427b-97b4-786e18a7a369",
+      "session_id": "c30ef379-fb27-428f-adba-179ce26fb743",
+      "raw_capture_id": "46e94166-a734-49b2-b585-0017bbc1e98e",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T09:31:20.409419",
-      "duration_ms": 5976.585149765015,
-      "time_to_first_token_ms": 5729.8548221588135,
+      "timestamp": "2026-05-04T18:56:49.674102",
+      "duration_ms": 2434.3016147613525,
+      "time_to_first_token_ms": 2227.565050125122,
       "provider": "anthropic",
       "model": "claude-opus-4-6",
       "api_endpoint": "https://api.anthropic.com/v1/messages?beta=true",
@@ -53,7 +53,7 @@
           "content": [
             {
               "type": "text",
-              "text": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nListMcpResourcesTool\nNotebookEdit\nRead\nReadMcpResourceTool\nRemoteTrigger\nSkill\nTaskOutput\nTaskStop\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__claude_ai_Canva__cancel-editing-transaction\nmcp__claude_ai_Canva__comment-on-design\nmcp__claude_ai_Canva__commit-editing-transaction\nmcp__claude_ai_Canva__create-design-from-candidate\nmcp__claude_ai_Canva__create-folder\nmcp__claude_ai_Canva__export-design\nmcp__claude_ai_Canva__generate-design\nmcp__claude_ai_Canva__generate-design-structured\nmcp__claude_ai_Canva__get-assets\nmcp__claude_ai_Canva__get-design\nmcp__claude_ai_Canva__get-design-content\nmcp__claude_ai_Canva__get-design-pages\nmcp__claude_ai_Canva__get-design-thumbnail\nmcp__claude_ai_Canva__get-export-formats\nmcp__claude_ai_Canva__get-presenter-notes\nmcp__claude_ai_Canva__help\nmcp__claude_ai_Canva__import-design-from-url\nmcp__claude_ai_Canva__list-brand-kits\nmcp__claude_ai_Canva__list-comments\nmcp__claude_ai_Canva__list-folder-items\nmcp__claude_ai_Canva__list-replies\nmcp__claude_ai_Canva__merge-designs\nmcp__claude_ai_Canva__move-item-to-folder\nmcp__claude_ai_Canva__perform-editing-operations\nmcp__claude_ai_Canva__reply-to-comment\nmcp__claude_ai_Canva__request-outline-review\nmcp__claude_ai_Canva__resize-design\nmcp__claude_ai_Canva__resolve-shortlink\nmcp__claude_ai_Canva__search-designs\nmcp__claude_ai_Canva__search-folders\nmcp__claude_ai_Canva__start-editing-transaction\nmcp__claude_ai_Canva__upload-asset-from-url\nmcp__claude_ai_Excalidraw__create_view\nmcp__claude_ai_Excalidraw__export_to_excalidraw\nmcp__claude_ai_Excalidraw__read_checkpoint\nmcp__claude_ai_Excalidraw__read_me\nmcp__claude_ai_Excalidraw__save_checkpoint\nmcp__claude_ai_Figma__add_code_connect_map\nmcp__claude_ai_Figma__create_design_system_rules\nmcp__claude_ai_Figma__create_new_file\nmcp__claude_ai_Figma__generate_diagram\nmcp__claude_ai_Figma__get_code_connect_map\nmcp__claude_ai_Figma__get_code_connect_suggestions\nmcp__claude_ai_Figma__get_context_for_code_connect\nmcp__claude_ai_Figma__get_design_context\nmcp__claude_ai_Figma__get_figjam\nmcp__claude_ai_Figma__get_libraries\nmcp__claude_ai_Figma__get_metadata\nmcp__claude_ai_Figma__get_screenshot\nmcp__claude_ai_Figma__get_variable_defs\nmcp__claude_ai_Figma__search_design_system\nmcp__claude_ai_Figma__send_code_connect_mappings\nmcp__claude_ai_Figma__upload_assets\nmcp__claude_ai_Figma__use_figma\nmcp__claude_ai_Figma__whoami\nmcp__claude_ai_Gmail__create_draft\nmcp__claude_ai_Gmail__create_label\nmcp__claude_ai_Gmail__get_thread\nmcp__claude_ai_Gmail__label_message\nmcp__claude_ai_Gmail__label_thread\nmcp__claude_ai_Gmail__list_drafts\nmcp__claude_ai_Gmail__list_labels\nmcp__claude_ai_Gmail__search_threads\nmcp__claude_ai_Gmail__unlabel_message\nmcp__claude_ai_Gmail__unlabel_thread\nmcp__claude_ai_Google_Calendar__create_event\nmcp__claude_ai_Google_Calendar__delete_event\nmcp__claude_ai_Google_Calendar__get_event\nmcp__claude_ai_Google_Calendar__list_calendars\nmcp__claude_ai_Google_Calendar__list_events\nmcp__claude_ai_Google_Calendar__respond_to_event\nmcp__claude_ai_Google_Calendar__suggest_time\nmcp__claude_ai_Google_Calendar__update_event\nmcp__claude_ai_Google_Drive__copy_file\nmcp__claude_ai_Google_Drive__create_file\nmcp__claude_ai_Google_Drive__download_file_content\nmcp__claude_ai_Google_Drive__get_file_metadata\nmcp__claude_ai_Google_Drive__get_file_permissions\nmcp__claude_ai_Google_Drive__list_recent_files\nmcp__claude_ai_Google_Drive__read_file_content\nmcp__claude_ai_Google_Drive__search_files\nmcp__claude_ai_Mermaid_Chart__validate_and_render_mermaid_diagram\nmcp__claude_ai_tldraw___exec_callback\nmcp__claude_ai_tldraw___get_canvas_state\nmcp__claude_ai_tldraw__exec\nmcp__claude_ai_tldraw__read_checkpoint\nmcp__claude_ai_tldraw__save_checkpoint\nmcp__claude_ai_tldraw__search\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
+              "text": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nListMcpResourcesTool\nNotebookEdit\nRead\nReadMcpResourceTool\nRemoteTrigger\nSendMessage\nSkill\nTaskOutput\nTaskStop\nTeamCreate\nTeamDelete\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
             }
           ]
         },
@@ -108,12 +108,8 @@
           "role": "assistant",
           "content": [
             {
-              "type": "thinking",
-              "thinking": "Simple greeting."
-            },
-            {
               "type": "text",
-              "text": "Hi! How can I help you today?"
+              "text": "\n\nHi! How can I help you today?"
             }
           ]
         }
@@ -121,11 +117,11 @@
       "stop_reason": "end_turn",
       "usage": {
         "input_tokens": 3,
-        "output_tokens": 31,
-        "cache_creation_input_tokens": 10077,
+        "output_tokens": 13,
+        "cache_creation_input_tokens": 10060,
         "cache_read_input_tokens": 0,
-        "total_tokens": 34,
-        "estimated_cost_usd": 0.19131375
+        "total_tokens": 16,
+        "estimated_cost_usd": 0.189645
       },
       "status": "success",
       "request_params": {},
@@ -134,9 +130,9 @@
   ],
   "raw_captures": [
     {
-      "id": "6cc8a219-9194-4a6c-9903-8cd7986aaabf",
-      "session_id": "0441291c-3309-4aa9-a51b-a1dc1d05232c",
-      "timestamp": "2026-05-04T09:31:20.409419",
+      "id": "46e94166-a734-49b2-b585-0017bbc1e98e",
+      "session_id": "c30ef379-fb27-428f-adba-179ce26fb743",
+      "timestamp": "2026-05-04T18:56:49.674102",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -165,14 +161,14 @@
         "accept-language": "*",
         "sec-fetch-mode": "cors",
         "accept-encoding": "identity",
-        "content-length": "39537"
+        "content-length": "39507"
       },
       "request_body": {
         "model": "claude-opus-4-6",
         "messages": [
           {
             "role": "user",
-            "content": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nListMcpResourcesTool\nNotebookEdit\nRead\nReadMcpResourceTool\nRemoteTrigger\nSkill\nTaskOutput\nTaskStop\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__claude_ai_Canva__cancel-editing-transaction\nmcp__claude_ai_Canva__comment-on-design\nmcp__claude_ai_Canva__commit-editing-transaction\nmcp__claude_ai_Canva__create-design-from-candidate\nmcp__claude_ai_Canva__create-folder\nmcp__claude_ai_Canva__export-design\nmcp__claude_ai_Canva__generate-design\nmcp__claude_ai_Canva__generate-design-structured\nmcp__claude_ai_Canva__get-assets\nmcp__claude_ai_Canva__get-design\nmcp__claude_ai_Canva__get-design-content\nmcp__claude_ai_Canva__get-design-pages\nmcp__claude_ai_Canva__get-design-thumbnail\nmcp__claude_ai_Canva__get-export-formats\nmcp__claude_ai_Canva__get-presenter-notes\nmcp__claude_ai_Canva__help\nmcp__claude_ai_Canva__import-design-from-url\nmcp__claude_ai_Canva__list-brand-kits\nmcp__claude_ai_Canva__list-comments\nmcp__claude_ai_Canva__list-folder-items\nmcp__claude_ai_Canva__list-replies\nmcp__claude_ai_Canva__merge-designs\nmcp__claude_ai_Canva__move-item-to-folder\nmcp__claude_ai_Canva__perform-editing-operations\nmcp__claude_ai_Canva__reply-to-comment\nmcp__claude_ai_Canva__request-outline-review\nmcp__claude_ai_Canva__resize-design\nmcp__claude_ai_Canva__resolve-shortlink\nmcp__claude_ai_Canva__search-designs\nmcp__claude_ai_Canva__search-folders\nmcp__claude_ai_Canva__start-editing-transaction\nmcp__claude_ai_Canva__upload-asset-from-url\nmcp__claude_ai_Excalidraw__create_view\nmcp__claude_ai_Excalidraw__export_to_excalidraw\nmcp__claude_ai_Excalidraw__read_checkpoint\nmcp__claude_ai_Excalidraw__read_me\nmcp__claude_ai_Excalidraw__save_checkpoint\nmcp__claude_ai_Figma__add_code_connect_map\nmcp__claude_ai_Figma__create_design_system_rules\nmcp__claude_ai_Figma__create_new_file\nmcp__claude_ai_Figma__generate_diagram\nmcp__claude_ai_Figma__get_code_connect_map\nmcp__claude_ai_Figma__get_code_connect_suggestions\nmcp__claude_ai_Figma__get_context_for_code_connect\nmcp__claude_ai_Figma__get_design_context\nmcp__claude_ai_Figma__get_figjam\nmcp__claude_ai_Figma__get_libraries\nmcp__claude_ai_Figma__get_metadata\nmcp__claude_ai_Figma__get_screenshot\nmcp__claude_ai_Figma__get_variable_defs\nmcp__claude_ai_Figma__search_design_system\nmcp__claude_ai_Figma__send_code_connect_mappings\nmcp__claude_ai_Figma__upload_assets\nmcp__claude_ai_Figma__use_figma\nmcp__claude_ai_Figma__whoami\nmcp__claude_ai_Gmail__create_draft\nmcp__claude_ai_Gmail__create_label\nmcp__claude_ai_Gmail__get_thread\nmcp__claude_ai_Gmail__label_message\nmcp__claude_ai_Gmail__label_thread\nmcp__claude_ai_Gmail__list_drafts\nmcp__claude_ai_Gmail__list_labels\nmcp__claude_ai_Gmail__search_threads\nmcp__claude_ai_Gmail__unlabel_message\nmcp__claude_ai_Gmail__unlabel_thread\nmcp__claude_ai_Google_Calendar__create_event\nmcp__claude_ai_Google_Calendar__delete_event\nmcp__claude_ai_Google_Calendar__get_event\nmcp__claude_ai_Google_Calendar__list_calendars\nmcp__claude_ai_Google_Calendar__list_events\nmcp__claude_ai_Google_Calendar__respond_to_event\nmcp__claude_ai_Google_Calendar__suggest_time\nmcp__claude_ai_Google_Calendar__update_event\nmcp__claude_ai_Google_Drive__copy_file\nmcp__claude_ai_Google_Drive__create_file\nmcp__claude_ai_Google_Drive__download_file_content\nmcp__claude_ai_Google_Drive__get_file_metadata\nmcp__claude_ai_Google_Drive__get_file_permissions\nmcp__claude_ai_Google_Drive__list_recent_files\nmcp__claude_ai_Google_Drive__read_file_content\nmcp__claude_ai_Google_Drive__search_files\nmcp__claude_ai_Mermaid_Chart__validate_and_render_mermaid_diagram\nmcp__claude_ai_tldraw___exec_callback\nmcp__claude_ai_tldraw___get_canvas_state\nmcp__claude_ai_tldraw__exec\nmcp__claude_ai_tldraw__read_checkpoint\nmcp__claude_ai_tldraw__save_checkpoint\nmcp__claude_ai_tldraw__search\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
+            "content": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nListMcpResourcesTool\nNotebookEdit\nRead\nReadMcpResourceTool\nRemoteTrigger\nSendMessage\nSkill\nTaskOutput\nTaskStop\nTeamCreate\nTeamDelete\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
           },
           {
             "role": "user",
@@ -245,7 +241,7 @@
           }
         ],
         "metadata": {
-          "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"f7618ef5-1bbc-48c7-9c0b-f9f664e7d92b\"}"
+          "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"503a14bc-f8eb-4232-878c-9f2df1a4b364\"}"
         },
         "max_tokens": 64000,
         "thinking": {
@@ -266,43 +262,42 @@
       },
       "response_status": 200,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 09:31:20 GMT",
+        "Date": "Mon, 04 May 2026 18:56:49 GMT",
         "Content-Type": "text/event-stream; charset=utf-8",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
         "Cache-Control": "no-cache",
-        "anthropic-ratelimit-unified-status": "allowed_warning",
-        "anthropic-ratelimit-unified-5h-status": "allowed_warning",
-        "anthropic-ratelimit-unified-5h-reset": "1777893000",
+        "anthropic-ratelimit-unified-status": "rejected",
+        "anthropic-ratelimit-unified-5h-status": "rejected",
+        "anthropic-ratelimit-unified-5h-reset": "1777929000",
         "anthropic-ratelimit-unified-5h-utilization": "1.0",
-        "anthropic-ratelimit-unified-5h-surpassed-threshold": "0.9",
+        "anthropic-ratelimit-unified-5h-surpassed-threshold": "1.0",
         "anthropic-ratelimit-unified-7d-status": "allowed",
         "anthropic-ratelimit-unified-7d-reset": "1778126400",
-        "anthropic-ratelimit-unified-7d-utilization": "0.43",
+        "anthropic-ratelimit-unified-7d-utilization": "0.51",
         "anthropic-ratelimit-unified-overage-status": "allowed",
         "anthropic-ratelimit-unified-overage-reset": "1780272000",
         "anthropic-ratelimit-unified-overage-utilization": "0.0",
         "anthropic-ratelimit-unified-representative-claim": "five_hour",
         "anthropic-ratelimit-unified-fallback-percentage": "0.5",
-        "anthropic-ratelimit-unified-fallback": "available",
-        "anthropic-ratelimit-unified-reset": "1777893000",
+        "anthropic-ratelimit-unified-reset": "1777929000",
         "anthropic-ratelimit-unified-upgrade-paths": "overage",
         "anthropic-ratelimit-unified-overage-in-use": "true",
-        "request-id": "req_011CahJ7Jxp7UR31RTtVPu1R",
+        "request-id": "req_011Cai3EeAuuYvnmYYSyFyVw",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-3d5af53cbcd2c1c026f372acb2c3d7e0-1fdf8c455906bf7a-01",
+        "traceresponse": "00-f09a5bb9e9d26e8d199557f7cac1ffb5-1366a147995470de-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "5563",
-        "X-Robots-Tag": "none",
-        "vary": "Accept-Encoding",
-        "server-timing": "x-originResponse;dur=5567",
-        "cf-cache-status": "DYNAMIC",
-        "set-cookie": "REDACTED",
+        "x-envoy-upstream-service-time": "2001",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-        "CF-RAY": "9f667dc8087fcf17-SJC"
+        "vary": "Accept-Encoding",
+        "server-timing": "x-originResponse;dur=2004",
+        "set-cookie": "REDACTED",
+        "X-Robots-Tag": "none",
+        "cf-cache-status": "DYNAMIC",
+        "CF-RAY": "9f69ba382f554900-SJC"
       },
-      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-6\",\"id\":\"msg_01XVbEFFV31GYWgp619Foz1M\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":10077,\"cache_read_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":10077},\"output_tokens\":31,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}           }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"thinking\",\"thinking\":\"\",\"signature\":\"\"}         }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\"Simple greeting.\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"signature_delta\",\"signature\":\"EssBClkIDRgCKkBX3jg9u41F1cVMSEcTYL1GD9ocSadEoOd9jTHTWNEmfhEZbkGDlSSfIvyTLAYK7XqTY7HW6FILqsJVOL6z8O+BMg9jbGF1ZGUtb3B1cy00LTY4ABIM5bcp3trvtDK9kZ8HGgyzz29+aA5dzvZIVK4iMBjxguimqGYArAyhHOGYYO/FSxTyN4YccHMkVWWwo6fkiEFlvQy22LLNZImn8N/1myogxlhJx3FFPoVLZyTZWNRrgOFRqvYy3ZcZbUMCR6cwR9gYAQ==\"}         }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0      }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":1,\"content_block\":{\"type\":\"text\",\"text\":\"\"}       }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Hi! How can I help you today?\"}       }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":1  }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":10077,\"cache_read_input_tokens\":0,\"output_tokens\":31},\"context_management\":{\"applied_edits\":[]}            }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"            }\n\n",
+      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-6\",\"id\":\"msg_01TC1Mu5N8rY1NoQTGqHbis8\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":10060,\"cache_read_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":10060},\"output_tokens\":2,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}       }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}    }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"\\n\\nHi\"}    }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"! How can I help you today?\"}            }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0     }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":10060,\"cache_read_input_tokens\":0,\"output_tokens\":13},\"context_management\":{\"applied_edits\":[]}             }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"               }\n\n",
       "is_streaming": true,
       "sse_events": [
         {
@@ -311,7 +306,7 @@
             "type": "message_start",
             "message": {
               "model": "claude-opus-4-6",
-              "id": "msg_01XVbEFFV31GYWgp619Foz1M",
+              "id": "msg_01TC1Mu5N8rY1NoQTGqHbis8",
               "type": "message",
               "role": "assistant",
               "content": [],
@@ -320,13 +315,13 @@
               "stop_details": null,
               "usage": {
                 "input_tokens": 3,
-                "cache_creation_input_tokens": 10077,
+                "cache_creation_input_tokens": 10060,
                 "cache_read_input_tokens": 0,
                 "cache_creation": {
                   "ephemeral_5m_input_tokens": 0,
-                  "ephemeral_1h_input_tokens": 10077
+                  "ephemeral_1h_input_tokens": 10060
                 },
-                "output_tokens": 31,
+                "output_tokens": 2,
                 "service_tier": "standard",
                 "inference_geo": "not_available"
               }
@@ -339,9 +334,8 @@
             "type": "content_block_start",
             "index": 0,
             "content_block": {
-              "type": "thinking",
-              "thinking": "",
-              "signature": ""
+              "type": "text",
+              "text": ""
             }
           }
         },
@@ -357,8 +351,8 @@
             "type": "content_block_delta",
             "index": 0,
             "delta": {
-              "type": "thinking_delta",
-              "thinking": "Simple greeting."
+              "type": "text_delta",
+              "text": "\n\nHi"
             }
           }
         },
@@ -368,8 +362,8 @@
             "type": "content_block_delta",
             "index": 0,
             "delta": {
-              "type": "signature_delta",
-              "signature": "EssBClkIDRgCKkBX3jg9u41F1cVMSEcTYL1GD9ocSadEoOd9jTHTWNEmfhEZbkGDlSSfIvyTLAYK7XqTY7HW6FILqsJVOL6z8O+BMg9jbGF1ZGUtb3B1cy00LTY4ABIM5bcp3trvtDK9kZ8HGgyzz29+aA5dzvZIVK4iMBjxguimqGYArAyhHOGYYO/FSxTyN4YccHMkVWWwo6fkiEFlvQy22LLNZImn8N/1myogxlhJx3FFPoVLZyTZWNRrgOFRqvYy3ZcZbUMCR6cwR9gYAQ=="
+              "type": "text_delta",
+              "text": "! How can I help you today?"
             }
           }
         },
@@ -378,35 +372,6 @@
           "data": {
             "type": "content_block_stop",
             "index": 0
-          }
-        },
-        {
-          "event": "content_block_start",
-          "data": {
-            "type": "content_block_start",
-            "index": 1,
-            "content_block": {
-              "type": "text",
-              "text": ""
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 1,
-            "delta": {
-              "type": "text_delta",
-              "text": "Hi! How can I help you today?"
-            }
-          }
-        },
-        {
-          "event": "content_block_stop",
-          "data": {
-            "type": "content_block_stop",
-            "index": 1
           }
         },
         {
@@ -420,9 +385,9 @@
             },
             "usage": {
               "input_tokens": 3,
-              "cache_creation_input_tokens": 10077,
+              "cache_creation_input_tokens": 10060,
               "cache_read_input_tokens": 0,
-              "output_tokens": 31
+              "output_tokens": 13
             },
             "context_management": {
               "applied_edits": []

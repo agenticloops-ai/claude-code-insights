@@ -1,8 +1,8 @@
 {
   "index": 1,
-  "request_id": "74c6f6e3-67b5-408f-8ccf-d11a2ce72d54",
-  "session_id": "7689ece6-4c77-40cb-af78-4cfd121b3028",
-  "timestamp": "2026-05-04T10:34:38.153584",
+  "request_id": "1434d375-e379-43ad-bb16-6e6698cfe324",
+  "session_id": "3a87330b-5d20-4b04-af95-d640eb890335",
+  "timestamp": "2026-05-04T20:03:54.804745",
   "provider": "anthropic",
   "method": "POST",
   "url": "https://api.anthropic.com/v1/messages?beta=true",
@@ -11,7 +11,7 @@
     "Authorization": "REDACTED",
     "Content-Type": "application/json",
     "User-Agent": "claude-cli/2.1.121 (external, sdk-cli)",
-    "X-Claude-Code-Session-Id": "f63ae1ad-00d4-408f-91be-bcc9935f7ca0",
+    "X-Claude-Code-Session-Id": "6a575e7d-1bcb-4a73-9eab-760568935278",
     "X-Stainless-Arch": "x64",
     "X-Stainless-Lang": "js",
     "X-Stainless-OS": "Linux",
@@ -24,7 +24,7 @@
     "anthropic-dangerous-direct-browser-access": "true",
     "anthropic-version": "2023-06-01",
     "x-app": "cli",
-    "x-client-request-id": "9c1fad72-c067-4cc8-aeff-3e606a9c65b0",
+    "x-client-request-id": "2de4cebd-54d2-4a11-9b19-da15c2b93b52",
     "Connection": "keep-alive",
     "Host": "api.anthropic.com",
     "Accept-Encoding": "identity",
@@ -46,7 +46,7 @@
     "system": [
       {
         "type": "text",
-        "text": "x-anthropic-billing-header: cc_version=2.1.121.9dd; cc_entrypoint=sdk-cli; cch=6cf12;"
+        "text": "x-anthropic-billing-header: cc_version=2.1.121.9dd; cc_entrypoint=sdk-cli; cch=d2547;"
       },
       {
         "type": "text",
@@ -59,7 +59,7 @@
     ],
     "tools": [],
     "metadata": {
-      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"f63ae1ad-00d4-408f-91be-bcc9935f7ca0\"}"
+      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"6a575e7d-1bcb-4a73-9eab-760568935278\"}"
     },
     "max_tokens": 32000,
     "temperature": 1,

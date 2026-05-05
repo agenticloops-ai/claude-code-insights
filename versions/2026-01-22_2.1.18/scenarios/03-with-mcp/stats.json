@@ -2,7 +2,7 @@
   "version": "2.1.18",
   "dir_name": "2026-01-22_2.1.18",
   "scenario": "03-with-mcp",
-  "captured_at": "2026-05-04T07:34:19.315067",
+  "captured_at": "2026-05-04T16:47:25.194075",
   "request_count": 2,
   "models": [
     "claude-haiku-4-5-20251001",
@@ -18,10 +18,10 @@
   "reminder_count": 0,
   "tokens": {
     "input": 10,
-    "output": 1475,
+    "output": 1482,
     "cache_read": 0,
-    "cache_creation": 22184,
-    "total": 1485
+    "cache_creation": 22158,
+    "total": 1492
   },
-  "duration_ms_total": 18949
+  "duration_ms_total": 18910
 }

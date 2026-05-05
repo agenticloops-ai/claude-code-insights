@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-5-20251101",
-        "id": "msg_01A6hYRiqh9vDQ56kUYmcsfX",
+        "id": "msg_01KQYjzkgqmK76zD6D62kz91",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -80,7 +80,7 @@
       "index": 1,
       "content_block": {
         "type": "tool_use",
-        "id": "toolu_0156uH6GKuzCrg3c1iNuYkMG",
+        "id": "toolu_0185sPsu4wc7ryDkMjMmd7rV",
         "name": "ToolSearch",
         "input": {},
         "caller": {
@@ -107,7 +107,7 @@
       "index": 1,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\"query"
+        "partial_json": "{\"query\": "
       }
     }
   },
@@ -118,7 +118,7 @@
       "index": 1,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "\": \"mcp\""
+        "partial_json": "\"mcp\""
       }
     }
   },
@@ -129,7 +129,7 @@
       "index": 1,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": ", \"max_re"
+        "partial_json": ", \"max_resul"
       }
     }
   },
@@ -140,7 +140,7 @@
       "index": 1,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "sults\": 5}"
+        "partial_json": "ts\": 5}"
       }
     }
   },

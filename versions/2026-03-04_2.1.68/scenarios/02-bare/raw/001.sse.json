@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-6",
-        "id": "msg_01GqpvHbs9LJMFDMCtV4cb1V",
+        "id": "msg_014RCLxngs24hkvdZK2SgX1N",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,13 +14,13 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 3,
-          "cache_creation_input_tokens": 23855,
+          "cache_creation_input_tokens": 27718,
           "cache_read_input_tokens": 0,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 23855
+            "ephemeral_1h_input_tokens": 27718
           },
-          "output_tokens": 1,
+          "output_tokens": 36,
           "service_tier": "standard",
           "inference_geo": "not_available"
         }
@@ -33,8 +33,9 @@
       "type": "content_block_start",
       "index": 0,
       "content_block": {
-        "type": "text",
-        "text": ""
+        "type": "thinking",
+        "thinking": "",
+        "signature": ""
       }
     }
   },
@@ -50,8 +51,8 @@
       "type": "content_block_delta",
       "index": 0,
       "delta": {
-        "type": "text_delta",
-        "text": "Hi"
+        "type": "thinking_delta",
+        "thinking": "The user said \"hi\" - this is a greeting. I see there's a \"say-hello\" skill available that should be used"
       }
     }
   },
@@ -61,8 +62,41 @@
       "type": "content_block_delta",
       "index": 0,
       "delta": {
-        "type": "text_delta",
-        "text": "! How can I help you today?"
+        "type": "thinking_delta",
+        "thinking": " when the user asks to be greeted or asks the agent to \"say hello\". However, the user just said \"hi\" casually - they didn"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": "'t explicitly ask to be greeted or ask me to \"say hello\". I'll just"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": " respond naturally."
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "signature_delta",
+        "signature": "EvMDClkIDRgCKkALUjfppEvglWz/+V/xI4TaNHmQdBo3XBv4+3Nqr8N+15aKfJ/hi0VlDxRh+YqdQzmBpneRJ7cMcuukMKE3VaxXMg9jbGF1ZGUtb3B1cy00LTY4ABIM5S+7dxi29EHt5ZYjGgyXiys56nkpzLpW5QMiMFYv4RE5kyGYnNQxfq7GkjVHaBFRAbh1RRucLeXupvKjsXakx5gcxKzNOawGoUo99yrHArOz8uLEPYG7XSZ3zRS7ADz0I6NgEiYpMTUNLmH9O62aaqtmMdkkIN+HsnYhS1kERsE/F5lktrNX3FvEwVQVcsfSEWVpmzKM4DH53HdlhR0IxpJIDeboGEU9aEPirZxiaGj4j2YlfXTl+6IGSobL2LtkT0awM0LuDRTpwVPOYBXTKkhc981Rs5edNjuxGp5daWPuDtOU2PeIaTwh39olnBQMlI4LZ1dEXtUgUOOUPOaqTk1vdlixMUPdUizlxoetkzJvjaRdKEuVBEUhoKB4L8nF1mL1vhLRtZUSjF+HRx1nyMaRqZo1XL23eOH0OfVTKlgU3X+ASbce0ob7YAdv964YFKnFVskV+0wgfzmwqkwV8YSVJEm3MvhNSAb5KiGdaASpGjpW9qUYFhvJT8a11+S9RcYjp9EJ9D6IvBic1AiCCP/dVXx1xxgB"
       }
     }
   },
@@ -71,6 +105,35 @@
     "data": {
       "type": "content_block_stop",
       "index": 0
+    }
+  },
+  {
+    "event": "content_block_start",
+    "data": {
+      "type": "content_block_start",
+      "index": 1,
+      "content_block": {
+        "type": "text",
+        "text": ""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "Hi! How can I help you today?"
+      }
+    }
+  },
+  {
+    "event": "content_block_stop",
+    "data": {
+      "type": "content_block_stop",
+      "index": 1
     }
   },
   {
@@ -84,9 +147,9 @@
       },
       "usage": {
         "input_tokens": 3,
-        "cache_creation_input_tokens": 23855,
+        "cache_creation_input_tokens": 27718,
         "cache_read_input_tokens": 0,
-        "output_tokens": 12
+        "output_tokens": 108
       },
       "context_management": {
         "applied_edits": []

@@ -1,10 +1,10 @@
 timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
-2026-05-04T07:50:35.295677,anthropic,claude-haiku-4-5-20251001,635.6515884399414,,success,max_tokens,8,1,9,1.04e-05,False,False,False,quota
-2026-05-04T07:50:45.863571,anthropic,claude-opus-4-5-20251101,3473.4439849853516,2856.332778930664,success,tool_use,3,54,57,0.422745,True,True,False,"<system-reminder>
+2026-05-04T17:05:31.914077,anthropic,claude-haiku-4-5-20251001,660.8400344848633,,success,max_tokens,8,1,9,1.04e-05,False,False,False,quota
+2026-05-04T17:05:44.295908,anthropic,claude-opus-4-5-20251101,2039.5610332489014,1503.7288665771484,success,tool_use,3,54,57,0.422745,True,True,False,"<system-reminder>
 The following skills are available for use with the Skill tool:
 
 - keybindings-help: Use when the user wants to customize keyboard shortcuts, rebind keys, add chord bindings, or modi"
-2026-05-04T07:50:47.482214,anthropic,claude-opus-4-5-20251101,1587.400197982788,1456.925392150879,success,end_turn,2,10,12,0.036897,True,True,False,"<system-reminder>
+2026-05-04T17:05:45.823146,anthropic,claude-opus-4-5-20251101,1497.0295429229736,1308.7272644042969,success,end_turn,2,10,12,0.036897,True,True,False,"<system-reminder>
 The following skills are available for use with the Skill tool:
 
 - keybindings-help: Use when the user wants to customize keyboard shortcuts, rebind keys, add chord bindings, or modi"

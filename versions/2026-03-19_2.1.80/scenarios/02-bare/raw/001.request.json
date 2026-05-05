@@ -1,8 +1,8 @@
 {
   "index": 1,
-  "request_id": "e231627f-523a-49b8-a76a-9dde33c9326f",
-  "session_id": "d6098095-1b6b-4a53-90fc-848f047f7e61",
-  "timestamp": "2026-05-04T09:27:46.345296",
+  "request_id": "811e4fca-d77e-4432-8012-d030833bb008",
+  "session_id": "2f381e68-96cf-47ab-bc8e-b4bea575dc9c",
+  "timestamp": "2026-05-04T18:51:18.741731",
   "provider": "anthropic",
   "method": "POST",
   "url": "https://api.anthropic.com/v1/messages?beta=true",
@@ -28,14 +28,14 @@
     "accept-language": "*",
     "sec-fetch-mode": "cors",
     "accept-encoding": "identity",
-    "content-length": "21213"
+    "content-length": "21250"
   },
   "body": {
     "model": "claude-opus-4-6",
     "messages": [
       {
         "role": "user",
-        "content": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nNotebookEdit\nRead\nSkill\nTaskOutput\nTaskStop\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
+        "content": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nNotebookEdit\nRead\nSendMessage\nSkill\nTaskOutput\nTaskStop\nTeamCreate\nTeamDelete\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
       },
       {
         "role": "user",
@@ -108,7 +108,7 @@
       }
     ],
     "metadata": {
-      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"94be9561-7a40-43ae-b974-e3ee8581d57c\"}"
+      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"cba62980-71fc-49e9-a021-dab69d0b5657\"}"
     },
     "max_tokens": 64000,
     "thinking": {

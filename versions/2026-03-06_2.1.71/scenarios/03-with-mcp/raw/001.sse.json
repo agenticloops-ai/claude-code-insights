@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-6",
-        "id": "msg_01SR9Ntv3jCXmqLnhR21MQXU",
+        "id": "msg_01HuNL9vPFfyFmoTtb2RkLYE",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,13 +14,13 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 3,
-          "cache_creation_input_tokens": 2313,
+          "cache_creation_input_tokens": 2348,
           "cache_read_input_tokens": 5662,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 2313
+            "ephemeral_1h_input_tokens": 2348
           },
-          "output_tokens": 41,
+          "output_tokens": 38,
           "service_tier": "standard",
           "inference_geo": "not_available"
         }
@@ -52,7 +52,7 @@
       "index": 0,
       "delta": {
         "type": "thinking_delta",
-        "thinking": "The user wants me to list all MCP tools available. I can see them in the `<available-deferred-tools>` section. Let me filter"
+        "thinking": "The user wants me to list all available MCP tools. I can see them in the `<available-deferred-tools>` section."
       }
     }
   },
@@ -63,18 +63,7 @@
       "index": 0,
       "delta": {
         "type": "thinking_delta",
-        "thinking": " for just the MCP tools (those starting with `mcp__`"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "thinking_delta",
-        "thinking": ")."
+        "thinking": " Let me filter for just the ones that start with `mcp__`."
       }
     }
   },
@@ -85,7 +74,7 @@
       "index": 0,
       "delta": {
         "type": "signature_delta",
-        "signature": "Eu4CClkIDRgCKkDOk6uPb4UV7i71rMaRztybR1vXmRzzLhImE9Xk14n3xESBSifq2ujHsO9eP4WqY2rPFesbkS60wy+OysToC6G2Mg9jbGF1ZGUtb3B1cy00LTY4ABIMazObZDnOv6R3GtmsGgxYZUpCNqW7byf2y1QiMJ4gHB5zwnOOqQxQd6RB9sI2K/SZMpahZIhuaTqBoL5YyVcC9OVMvZ5cBsW0AwZ3RSrCAQfQ50e/DXYacoVHPAPKnxRljUKhYxUf4bpeM+JPGfu4Bxv2dg60XU4svmU27Ge66iziI4i4gqhqokaYQx60fwYbELTYCN78A8dps4THSOcrgnt8qZ393rhs33hE+aGilmmqa2lTAgLW+cEIxX4Xbni2VhWEAWg9VUrCwOdZXs7GJbO4K7BHCxv/2uxNSvKszEAxEFKEaZMvCcshEt66uhM1iPYnsO04dWutHJ4aNdC8Iuk/wYOo7MbTW7W/top0OhPqGAE="
+        "signature": "EuMCClkIDRgCKkB4Rczf3k+yboIqcEhvEUtviKgH3mJEc9iG/sMNRa9/Jzys4OeBzOrPe4mdtl70v6iwFTStyOWe6QLrOa5Uy2RZMg9jbGF1ZGUtb3B1cy00LTY4ABIMD2uhWG6yl4fg84qvGgzTl8q8dSBGXZ2HQGMiMPE4ZS/uYyxIAR4iWCopEqf6HPae1WT64akdeKxJ8y91W5VIbve1fES2cRpzDB6qfiq3ASTBHeAeURXNSXu4n56ESfX0URgRyKVodLMejWm8qQ+ASfGubWFN3q4CW8iAl4y7jAoknNq9KOmh9g/fqsILtNuvf88eV3Srwx4synoGf1ikuaVezox+p0Q0qhHgI0RNFPqocllaZWVdR9SwhYt3RR3bmqEwRGofoIZfUQTJnRNSI5EHFm6GZ2UKAleGw9fESCabQmngjrErhXPL5IntXjJf2FRrmOoBOaqHch8yjhYY9WKyYd5plBgB"
       }
     }
   },
@@ -114,7 +103,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "Here are all the MCP tools available:\n\n```\nmcp__claude_ai_Canva__cancel-editing-transaction\nmcp__claude_ai_Canva__comment-on"
+        "text": "Here"
       }
     }
   },
@@ -125,7 +114,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "-design\nmcp__claude_ai_Canva__commit-editing-transaction\nmcp__claude_ai_Canva__create-design-from-candidate\nmcp__claude_ai_Canva__create-folder\nmcp__claude_ai_Canva"
+        "text": " are all the MCP tools available:\n\n```\nmcp"
       }
     }
   },
@@ -136,7 +125,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "__export-design\nmcp__claude_ai_Canva__generate-design\nmcp__claude_ai_Canva__generate-design-structured\nmcp__claude_ai_Canva__get-assets\nmcp__claude_ai_Canva__get"
+        "text": "__claude_ai_Canva__commit-editing-transaction"
       }
     }
   },
@@ -147,7 +136,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "-design\nmcp__claude_ai_Canva__get-design-content\nmcp__claude_ai_Canva__get-design-pages\nmcp__claude_ai_Canva__get-design-thumbnail\nmcp__claude_ai_Canva"
+        "text": "\nmcp"
       }
     }
   },
@@ -158,7 +147,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "__get-export-formats\nmcp__claude_ai_Canva__get-presenter-notes\nmcp__claude_ai_Canva__help\nmcp__claude_ai_Canva__import-design-from-url\nmcp__claude_ai_"
+        "text": "__claude_ai_Canva__get-design-content"
       }
     }
   },
@@ -169,7 +158,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "Canva__list-brand-kits\nmcp__claude_ai_Canva__list-comments\nmcp__claude_ai_Canva__list-folder-items\nmcp__claude_ai_Canva__list-replies\nmcp__claude_ai_"
+        "text": "formats"
       }
     }
   },
@@ -180,7 +169,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "Canva__merge-designs\nmcp__claude_ai_Canva__move-item-to-folder\nmcp__claude_ai_Canva__perform-editing-operations\nmcp__claude_ai_Canva__reply-to-comment\nmcp__"
+        "text": "brand-kits"
       }
     }
   },
@@ -191,7 +180,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "claude_ai_Canva__request-outline-review\nmcp__claude_ai_Canva__resize-design\nmcp__claude_ai_Canva__resolve-shortlink\nmcp__claude_ai_Canva__search-designs\nmcp__claude"
+        "text": "-designs"
       }
     }
   },
@@ -202,7 +191,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "_ai_Canva__search-folders\nmcp__claude_ai_Canva__start-editing-transaction\nmcp__claude_ai_Canva__upload-asset-from-url\nmcp__claude_ai_Excalidraw__create_view"
+        "text": "Canva__request-outline-review"
       }
     }
   },
@@ -213,7 +202,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "\nmcp__claude_ai_Excalidraw__export_to_excalidraw\nmcp__claude_ai_Excalidraw__read_checkpoint\nmcp__claude_ai_Excalidraw__read_me\nmcp__claude_ai_"
+        "text": "va__search-folders\nmcp__claude_"
       }
     }
   },
@@ -224,7 +213,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "Excalidraw__save_checkpoint\nmcp__claude_ai_Figma__add_code_connect_map\nmcp__claude_ai_Figma__create_design_system_rules\nmcp__claude_ai_Figma__create_new_file"
+        "text": "ai_Excalidraw__export_to_excalidraw"
       }
     }
   },
@@ -235,7 +224,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "\nmcp__claude_ai_Figma__generate_diagram\nmcp__claude_ai_Figma__get_code_connect_map\nmcp__claude_ai_Figma__get_code_connect_suggestions\nmcp__claude_ai_Figma__"
+        "text": "save_checkpoint\nmcp__claude_"
       }
     }
   },
@@ -246,7 +235,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "get_context_for_code_connect\nmcp__claude_ai_Figma__get_design_context\nmcp__claude_ai_Figma__get_figjam\nmcp__claude_ai_Figma__get_libraries\nmcp__claude_"
+        "text": "ai_Figma__generate_diagram"
       }
     }
   },
@@ -257,7 +246,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "ai_Figma__get_metadata\nmcp__claude_ai_Figma__get_screenshot\nmcp__claude_ai_Figma__get_variable_defs\nmcp__claude_ai_Figma__search_design_system\nmcp__claude"
+        "text": "_code_connect"
       }
     }
   },
@@ -268,7 +257,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "_ai_Figma__send_code_connect_mappings\nmcp__claude_ai_Figma__upload_assets\nmcp__claude_ai_Figma__use_figma\nmcp__claude_ai_Figma__whoami\nmcp__"
+        "text": "__get_metadata"
       }
     }
   },
@@ -279,7 +268,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "claude_ai_Gmail__create_draft\nmcp__claude_ai_Gmail__create_label\nmcp__claude_ai_Gmail__get_thread\nmcp__claude_ai_Gmail__label_message\nmcp__claude_ai_Gmail__label_thread\nmcp"
+        "text": "ma__send_code_connect_mappings"
       }
     }
   },
@@ -290,7 +279,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "__claude_ai_Gmail__list_drafts\nmcp__claude_ai_Gmail__list_labels\nmcp__claude_ai_Gmail__search_threads\nmcp__claude_ai_Gmail__unlabel_message\nmcp__claude_ai_Gmail__unlabel_"
+        "text": "__create_draft"
       }
     }
   },
@@ -301,7 +290,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "thread\nmcp__claude_ai_Google_Calendar__create_event\nmcp__claude_ai_Google_Calendar__delete_event\nmcp__claude_ai_Google_Calendar__get_event\nmcp__claude_ai_Google_Calendar__list_calendars\nm"
+        "text": "Gmail__list_drafts\nmcp__"
       }
     }
   },
@@ -312,7 +301,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "cp__claude_ai_Google_Calendar__list_events\nmcp__claude_ai_Google_Calendar__respond_to_event\nmcp__claude_ai_Google_Calendar__suggest_time\nmcp__claude_ai_Google_Calendar__update_event\nmcp__"
+        "text": "claude_ai_Google_Calendar__create_event"
       }
     }
   },
@@ -323,7 +312,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "claude_ai_Google_Drive__copy_file\nmcp__claude_ai_Google_Drive__create_file\nmcp__claude_ai_Google_Drive__download_file_content\nmcp__claude_ai_Google_Drive__get_file_metadata\nmcp__"
+        "text": "_Google_Calendar__list_events"
       }
     }
   },
@@ -334,7 +323,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "claude_ai_Google_Drive__get_file_permissions\nmcp__claude_ai_Google_Drive__list_recent_files\nmcp__claude_ai_Google_Drive__read_file_content\nmcp__claude_ai_Google_Drive__search_files\nm"
+        "text": "_Drive__copy_file"
       }
     }
   },
@@ -345,7 +334,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "cp__claude_ai_tldraw___exec_callback\nmcp__claude_ai_tldraw___get_canvas_state\nmcp__claude_ai_tldraw__exec\nmcp__claude_ai_tldraw__read_checkpoint\nmcp__claude_"
+        "text": "_Drive__get_file_permissions"
       }
     }
   },
@@ -356,7 +345,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "ai_tldraw__save_checkpoint\nmcp__claude_ai_tldraw__search\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n```\n\nThat's "
+        "text": "_Mermaid_Chart__validate_and_render_mermaid_diagram"
       }
     }
   },
@@ -367,7 +356,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "78 MCP tools total across 8 servers: Canva, Excalidraw"
+        "text": "\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp"
       }
     }
   },
@@ -378,7 +367,18 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": ", Figma, Gmail, Google Calendar, Google Drive, tldraw, and fixture."
+        "text": "__fixture__tool_003\n```\n\nThat's 82 MCP tools total, spanning Canva, Excalidraw, Figma, Gmail, Google Calendar, Google"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": " Drive, Mermaid Chart, tldraw, and 3 fixture tools."
       }
     }
   },
@@ -400,9 +400,9 @@
       },
       "usage": {
         "input_tokens": 3,
-        "cache_creation_input_tokens": 2313,
+        "cache_creation_input_tokens": 2348,
         "cache_read_input_tokens": 5662,
-        "output_tokens": 1551
+        "output_tokens": 1579
       },
       "context_management": {
         "applied_edits": []

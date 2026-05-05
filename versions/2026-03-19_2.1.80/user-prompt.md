@@ -14,9 +14,12 @@ Glob
 Grep
 NotebookEdit
 Read
+SendMessage
 Skill
 TaskOutput
 TaskStop
+TeamCreate
+TeamDelete
 TodoWrite
 WebFetch
 WebSearch

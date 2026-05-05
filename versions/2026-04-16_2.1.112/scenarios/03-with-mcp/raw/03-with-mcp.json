@@ -1,9 +1,9 @@
 {
   "session": {
-    "id": "03b98d99-cad0-480e-8160-61f0209a4ae0",
+    "id": "c7011900-0953-49e2-98ea-9f072e24f97e",
     "name": "03-with-mcp",
-    "started_at": "2026-05-04T10:14:11.970328",
-    "ended_at": "2026-05-04T10:14:40.499671",
+    "started_at": "2026-05-04T19:42:56.884863",
+    "ended_at": "2026-05-04T19:43:26.610159",
     "request_count": 0,
     "total_tokens": 0,
     "estimated_cost_usd": 0.0
@@ -13,8 +13,8 @@
     "total_tokens": 2343,
     "total_input_tokens": 373,
     "total_output_tokens": 1970,
-    "estimated_cost_usd": 0.1864101,
-    "avg_duration_ms": 10002.812027931213,
+    "estimated_cost_usd": 0.1866666,
+    "avg_duration_ms": 10521.124720573425,
     "avg_tokens_per_request": 1171.5,
     "models_used": [
       "claude-haiku-4-5-20251001",
@@ -26,15 +26,15 @@
   },
   "requests": [
     {
-      "id": "5783aed4-8d2f-44d4-a0a6-6f5860ad7a09",
-      "session_id": "03b98d99-cad0-480e-8160-61f0209a4ae0",
-      "raw_capture_id": "0ed144c4-f5d1-4279-b220-b3cf9ff2fb04",
+      "id": "b6c768a3-3785-4a2d-9485-7ec423358276",
+      "session_id": "c7011900-0953-49e2-98ea-9f072e24f97e",
+      "raw_capture_id": "3392940a-4bd2-4b9c-92b0-e627337ab932",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T10:14:19.908462",
-      "duration_ms": 870.6798553466797,
-      "time_to_first_token_ms": 709.0198993682861,
+      "timestamp": "2026-05-04T19:43:04.633690",
+      "duration_ms": 741.1150932312012,
+      "time_to_first_token_ms": 573.1709003448486,
       "provider": "anthropic",
       "model": "claude-haiku-4-5-20251001",
       "api_endpoint": "https://api.anthropic.com/v1/messages?beta=true",
@@ -85,15 +85,15 @@
       "response_metadata": {}
     },
     {
-      "id": "dd3dcf3b-32a0-4ca2-a4ba-6df8e0de5fae",
-      "session_id": "03b98d99-cad0-480e-8160-61f0209a4ae0",
-      "raw_capture_id": "7d858846-25d3-4e9d-87de-9ca002dee1e5",
+      "id": "cdde544a-0c2b-46b0-b974-c56cf9a92c1d",
+      "session_id": "c7011900-0953-49e2-98ea-9f072e24f97e",
+      "raw_capture_id": "3046b65d-463e-4c7e-9e52-60846a7f94c6",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T10:14:38.195227",
-      "duration_ms": 19134.944200515747,
-      "time_to_first_token_ms": 1512.6311779022217,
+      "timestamp": "2026-05-04T19:43:24.272902",
+      "duration_ms": 20301.13434791565,
+      "time_to_first_token_ms": 2780.552864074707,
       "provider": "anthropic",
       "model": "claude-opus-4-7",
       "api_endpoint": "https://api.anthropic.com/v1/messages?beta=true",
@@ -114,7 +114,7 @@
           "content": [
             {
               "type": "text",
-              "text": "<system-reminder>\nThe following deferred tools are now available via ToolSearch. Their schemas are NOT loaded \u2014 calling them directly will fail with InputValidationError. Use ToolSearch with query \"select:<name>[,<name>...]\" to load tool schemas before calling them:\nAskUserQuestion\nCronCreate\nCronDelete\nCronList\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nListMcpResourcesTool\nMonitor\nNotebookEdit\nPushNotification\nReadMcpResourceTool\nRemoteTrigger\nTaskOutput\nTaskStop\nTodoWrite\nWebFetch\nWebSearch\nmcp__claude_ai_Canva__cancel-editing-transaction\nmcp__claude_ai_Canva__comment-on-design\nmcp__claude_ai_Canva__commit-editing-transaction\nmcp__claude_ai_Canva__create-design-from-candidate\nmcp__claude_ai_Canva__create-folder\nmcp__claude_ai_Canva__export-design\nmcp__claude_ai_Canva__generate-design\nmcp__claude_ai_Canva__generate-design-structured\nmcp__claude_ai_Canva__get-assets\nmcp__claude_ai_Canva__get-design\nmcp__claude_ai_Canva__get-design-content\nmcp__claude_ai_Canva__get-design-pages\nmcp__claude_ai_Canva__get-design-thumbnail\nmcp__claude_ai_Canva__get-export-formats\nmcp__claude_ai_Canva__get-presenter-notes\nmcp__claude_ai_Canva__help\nmcp__claude_ai_Canva__import-design-from-url\nmcp__claude_ai_Canva__list-brand-kits\nmcp__claude_ai_Canva__list-comments\nmcp__claude_ai_Canva__list-folder-items\nmcp__claude_ai_Canva__list-replies\nmcp__claude_ai_Canva__merge-designs\nmcp__claude_ai_Canva__move-item-to-folder\nmcp__claude_ai_Canva__perform-editing-operations\nmcp__claude_ai_Canva__reply-to-comment\nmcp__claude_ai_Canva__request-outline-review\nmcp__claude_ai_Canva__resize-design\nmcp__claude_ai_Canva__resolve-shortlink\nmcp__claude_ai_Canva__search-designs\nmcp__claude_ai_Canva__search-folders\nmcp__claude_ai_Canva__start-editing-transaction\nmcp__claude_ai_Canva__upload-asset-from-url\nmcp__claude_ai_Excalidraw__create_view\nmcp__claude_ai_Excalidraw__export_to_excalidraw\nmcp__claude_ai_Excalidraw__read_checkpoint\nmcp__claude_ai_Excalidraw__read_me\nmcp__claude_ai_Excalidraw__save_checkpoint\nmcp__claude_ai_Figma__add_code_connect_map\nmcp__claude_ai_Figma__create_design_system_rules\nmcp__claude_ai_Figma__create_new_file\nmcp__claude_ai_Figma__generate_diagram\nmcp__claude_ai_Figma__get_code_connect_map\nmcp__claude_ai_Figma__get_code_connect_suggestions\nmcp__claude_ai_Figma__get_context_for_code_connect\nmcp__claude_ai_Figma__get_design_context\nmcp__claude_ai_Figma__get_figjam\nmcp__claude_ai_Figma__get_libraries\nmcp__claude_ai_Figma__get_metadata\nmcp__claude_ai_Figma__get_screenshot\nmcp__claude_ai_Figma__get_variable_defs\nmcp__claude_ai_Figma__search_design_system\nmcp__claude_ai_Figma__send_code_connect_mappings\nmcp__claude_ai_Figma__upload_assets\nmcp__claude_ai_Figma__use_figma\nmcp__claude_ai_Figma__whoami\nmcp__claude_ai_Gmail__create_draft\nmcp__claude_ai_Gmail__create_label\nmcp__claude_ai_Gmail__get_thread\nmcp__claude_ai_Gmail__label_message\nmcp__claude_ai_Gmail__label_thread\nmcp__claude_ai_Gmail__list_drafts\nmcp__claude_ai_Gmail__list_labels\nmcp__claude_ai_Gmail__search_threads\nmcp__claude_ai_Gmail__unlabel_message\nmcp__claude_ai_Gmail__unlabel_thread\nmcp__claude_ai_Google_Calendar__create_event\nmcp__claude_ai_Google_Calendar__delete_event\nmcp__claude_ai_Google_Calendar__get_event\nmcp__claude_ai_Google_Calendar__list_calendars\nmcp__claude_ai_Google_Calendar__list_events\nmcp__claude_ai_Google_Calendar__respond_to_event\nmcp__claude_ai_Google_Calendar__suggest_time\nmcp__claude_ai_Google_Calendar__update_event\nmcp__claude_ai_Google_Drive__copy_file\nmcp__claude_ai_Google_Drive__create_file\nmcp__claude_ai_Google_Drive__download_file_content\nmcp__claude_ai_Google_Drive__get_file_metadata\nmcp__claude_ai_Google_Drive__get_file_permissions\nmcp__claude_ai_Google_Drive__list_recent_files\nmcp__claude_ai_Google_Drive__read_file_content\nmcp__claude_ai_Google_Drive__search_files\nmcp__claude_ai_Miro__authenticate\nmcp__claude_ai_Miro__complete_authentication\nmcp__claude_ai_tldraw___exec_callback\nmcp__claude_ai_tldraw___get_canvas_state\nmcp__claude_ai_tldraw__exec\nmcp__claude_ai_tldraw__read_checkpoint\nmcp__claude_ai_tldraw__save_checkpoint\nmcp__claude_ai_tldraw__search\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</system-reminder>"
+              "text": "<system-reminder>\nThe following deferred tools are now available via ToolSearch. Their schemas are NOT loaded \u2014 calling them directly will fail with InputValidationError. Use ToolSearch with query \"select:<name>[,<name>...]\" to load tool schemas before calling them:\nAskUserQuestion\nCronCreate\nCronDelete\nCronList\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nListMcpResourcesTool\nMonitor\nNotebookEdit\nPushNotification\nReadMcpResourceTool\nRemoteTrigger\nSendMessage\nTaskOutput\nTaskStop\nTeamCreate\nTeamDelete\nTodoWrite\nWebFetch\nWebSearch\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</system-reminder>"
             },
             {
               "type": "text",
@@ -126,7 +126,7 @@
             },
             {
               "type": "text",
-              "text": "<system-reminder>\nAs you answer the user's questions, you can use the following context:\n# userEmail\nThe user's email address is amrynsky@gmail.com.\n# currentDate\nToday's date is 2026-05-04.\n\n      IMPORTANT: this context may or may not be relevant to your tasks. You should not respond to this context unless it is highly relevant to your task.\n</system-reminder>\n\n"
+              "text": "<system-reminder>\nAs you answer the user's questions, you can use the following context:\n# currentDate\nToday's date is 2026-05-04.\n\n      IMPORTANT: this context may or may not be relevant to your tasks. You should not respond to this context unless it is highly relevant to your task.\n</system-reminder>\n\n"
             },
             {
               "type": "text",
@@ -168,6 +168,26 @@
                 "description": "Set to true to run this agent in the background. You will be notified when it completes.",
                 "type": "boolean"
               },
+              "name": {
+                "description": "Name for the spawned agent. Makes it addressable via SendMessage({to: name}) while running.",
+                "type": "string"
+              },
+              "team_name": {
+                "description": "Team name for spawning. Uses current team context if omitted.",
+                "type": "string"
+              },
+              "mode": {
+                "description": "Permission mode for spawned teammate (e.g., \"plan\" to require plan approval).",
+                "type": "string",
+                "enum": [
+                  "acceptEdits",
+                  "auto",
+                  "bypassPermissions",
+                  "default",
+                  "dontAsk",
+                  "plan"
+                ]
+              },
               "isolation": {
                 "description": "Isolation mode. \"worktree\" creates a temporary git worktree so the agent works on an isolated copy of the repo.",
                 "type": "string",
@@ -187,7 +207,7 @@
         },
         {
           "name": "Bash",
-          "description": "Executes a given bash command and returns its output.\n\nThe working directory persists between commands, but shell state does not. The shell environment is initialized from the user's profile (bash or zsh).\n\nIMPORTANT: Avoid using this tool to run `find`, `grep`, `cat`, `head`, `tail`, `sed`, `awk`, or `echo` commands, unless explicitly instructed or after you have verified that a dedicated tool cannot accomplish your task. Instead, use the appropriate dedicated tool as this will provide a much better experience for the user:\n\n - File search: Use Glob (NOT find or ls)\n - Content search: Use Grep (NOT grep or rg)\n - Read files: Use Read (NOT cat/head/tail)\n - Edit files: Use Edit (NOT sed/awk)\n - Write files: Use Write (NOT echo >/cat <<EOF)\n - Communication: Output text directly (NOT echo/printf)\nWhile the Bash tool can do similar things, it\u2019s better to use the built-in tools as they provide a better user experience and make it easier to review tool calls and give permission.\n\n# Instructions\n - If your command will create new directories or files, first use this tool to run `ls` to verify the parent directory exists and is the correct location.\n - Always quote file paths that contain spaces with double quotes in your command (e.g., cd \"path with spaces/file.txt\")\n - Try to maintain your current working directory throughout the session by using absolute paths and avoiding usage of `cd`. You may use `cd` if the User explicitly requests it.\n - You may specify an optional timeout in milliseconds (up to 600000ms / 10 minutes). By default, your command will timeout after 120000ms (2 minutes).\n - You can use the `run_in_background` parameter to run the command in the background. Only use this if you don't need the result immediately and are OK being notified when the command completes later. You do not need to check the output right away - you'll be notified when it finishes. You do not need to use '&' at the end of the command when using this parameter.\n - When issuing multiple commands:\n  - If the commands are independent and can run in parallel, make multiple Bash tool calls in a single message. Example: if you need to run \"git status\" and \"git diff\", send a single message with two Bash tool calls in parallel.\n  - If the commands depend on each other and must run sequentially, use a single Bash call with '&&' to chain them together.\n  - Use ';' only when you need to run commands sequentially but don't care if earlier commands fail.\n  - DO NOT use newlines to separate commands (newlines are ok in quoted strings).\n - For git commands:\n  - Prefer to create a new commit rather than amending an existing commit.\n  - Before running destructive operations (e.g., git reset --hard, git push --force, git checkout --), consider whether there is a safer alternative that achieves the same goal. Only use destructive operations when they are truly the best approach.\n  - Never skip hooks (--no-verify) or bypass signing (--no-gpg-sign, -c commit.gpgsign=false) unless the user has explicitly asked for it. If a hook fails, investigate and fix the underlying issue.\n - Avoid unnecessary `sleep` commands:\n  - Do not sleep between commands that can run immediately \u2014 just run them.\n  - Use the Monitor tool to stream events from a background process (each stdout line is a notification). For one-shot \"wait until done,\" use Bash with run_in_background instead.\n  - If your command is long running and you would like to be notified when it finishes \u2014 use `run_in_background`. No sleep needed.\n  - Do not retry failing commands in a sleep loop \u2014 diagnose the root cause.\n  - If waiting for a background task you started with `run_in_background`, you will be notified when it completes \u2014 do not poll.\n  - Long leading `sleep` commands are blocked. To poll until a condition is met, use Monitor with an until-loop (e.g. `until <check>; do sleep 2; done`) \u2014 you get a notification when the loop exits. Do not chain shorter sleeps to work around the block.\n\n\n# Committing changes with git\n\nOnly create commits when requested by the user. If unclear, ask first. When the user asks you to create a new git commit, follow these steps carefully:\n\nYou can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. The numbered steps below indicate which commands should be batched in parallel.\n\nGit Safety Protocol:\n- NEVER update the git config\n- NEVER run destructive git commands (push --force, reset --hard, checkout ., restore ., clean -f, branch -D) unless the user explicitly requests these actions. Taking unauthorized destructive actions is unhelpful and can result in lost work, so it's best to ONLY run these commands when given direct instructions \n- NEVER skip hooks (--no-verify, --no-gpg-sign, etc) unless the user explicitly requests it\n- NEVER run force push to main/master, warn the user if they request it\n- CRITICAL: Always create NEW commits rather than amending, unless the user explicitly requests a git amend. When a pre-commit hook fails, the commit did NOT happen \u2014 so --amend would modify the PREVIOUS commit, which may result in destroying work or losing previous changes. Instead, after hook failure, fix the issue, re-stage, and create a NEW commit\n- When staging files, prefer adding specific files by name rather than using \"git add -A\" or \"git add .\", which can accidentally include sensitive files (.env, credentials) or large binaries\n- NEVER commit changes unless the user explicitly asks you to. It is VERY IMPORTANT to only commit when explicitly asked, otherwise the user will feel that you are being too proactive\n\n1. Run the following bash commands in parallel, each using the Bash tool:\n  - Run a git status command to see all untracked files. IMPORTANT: Never use the -uall flag as it can cause memory issues on large repos.\n  - Run a git diff command to see both staged and unstaged changes that will be committed.\n  - Run a git log command to see recent commit messages, so that you can follow this repository's commit message style.\n2. Analyze all staged changes (both previously staged and newly added) and draft a commit message:\n  - Summarize the nature of the changes (eg. new feature, enhancement to an existing feature, bug fix, refactoring, test, docs, etc.). Ensure the message accurately reflects the changes and their purpose (i.e. \"add\" means a wholly new feature, \"update\" means an enhancement to an existing feature, \"fix\" means a bug fix, etc.).\n  - Do not commit files that likely contain secrets (.env, credentials.json, etc). Warn the user if they specifically request to commit those files\n  - Draft a concise (1-2 sentences) commit message that focuses on the \"why\" rather than the \"what\"\n  - Ensure it accurately reflects the changes and their purpose\n3. Run the following commands in parallel:\n   - Add relevant untracked files to the staging area.\n   - Create the commit with a message ending with:\n   Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n   - Run git status after the commit completes to verify success.\n   Note: git status depends on the commit completing, so run it sequentially after the commit.\n4. If the commit fails due to pre-commit hook: fix the issue and create a NEW commit\n\nImportant notes:\n- NEVER run additional commands to read or explore code, besides git bash commands\n- NEVER use the TodoWrite or Agent tools\n- DO NOT push to the remote repository unless the user explicitly asks you to do so\n- IMPORTANT: Never use git commands with the -i flag (like git rebase -i or git add -i) since they require interactive input which is not supported.\n- IMPORTANT: Do not use --no-edit with git rebase commands, as the --no-edit flag is not a valid option for git rebase.\n- If there are no changes to commit (i.e., no untracked files and no modifications), do not create an empty commit\n- In order to ensure good formatting, ALWAYS pass the commit message via a HEREDOC, a la this example:\n<example>\ngit commit -m \"$(cat <<'EOF'\n   Commit message here.\n\n   Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n   EOF\n   )\"\n</example>\n\n# Creating pull requests\nUse the gh command via the Bash tool for ALL GitHub-related tasks including working with issues, pull requests, checks, and releases. If given a Github URL use the gh command to get the information needed.\n\nIMPORTANT: When the user asks you to create a pull request, follow these steps carefully:\n\n1. Run the following bash commands in parallel using the Bash tool, in order to understand the current state of the branch since it diverged from the main branch:\n   - Run a git status command to see all untracked files (never use -uall flag)\n   - Run a git diff command to see both staged and unstaged changes that will be committed\n   - Check if the current branch tracks a remote branch and is up to date with the remote, so you know if you need to push to the remote\n   - Run a git log command and `git diff [base-branch]...HEAD` to understand the full commit history for the current branch (from the time it diverged from the base branch)\n2. Analyze all changes that will be included in the pull request, making sure to look at all relevant commits (NOT just the latest commit, but ALL commits that will be included in the pull request!!!), and draft a pull request title and summary:\n   - Keep the PR title short (under 70 characters)\n   - Use the description/body for details, not the title\n3. Run the following commands in parallel:\n   - Create new branch if needed\n   - Push to remote with -u flag if needed\n   - Create PR using gh pr create with the format below. Use a HEREDOC to pass the body to ensure correct formatting.\n<example>\ngh pr create --title \"the pr title\" --body \"$(cat <<'EOF'\n## Summary\n<1-3 bullet points>\n\n## Test plan\n[Bulleted markdown checklist of TODOs for testing the pull request...]\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\nEOF\n)\"\n</example>\n\nImportant:\n- DO NOT use the TodoWrite or Agent tools\n- Return the PR URL when you're done, so the user can see it\n\n# Other common operations\n- View comments on a Github PR: gh api repos/foo/bar/pulls/123/comments",
+          "description": "Executes a given bash command and returns its output.\n\nThe working directory persists between commands, but shell state does not. The shell environment is initialized from the user's profile (bash or zsh).\n\nIMPORTANT: Avoid using this tool to run `find`, `grep`, `cat`, `head`, `tail`, `sed`, `awk`, or `echo` commands, unless explicitly instructed or after you have verified that a dedicated tool cannot accomplish your task. Instead, use the appropriate dedicated tool as this will provide a much better experience for the user:\n\n - File search: Use Glob (NOT find or ls)\n - Content search: Use Grep (NOT grep or rg)\n - Read files: Use Read (NOT cat/head/tail)\n - Edit files: Use Edit (NOT sed/awk)\n - Write files: Use Write (NOT echo >/cat <<EOF)\n - Communication: Output text directly (NOT echo/printf)\nWhile the Bash tool can do similar things, it\u2019s better to use the built-in tools as they provide a better user experience and make it easier to review tool calls and give permission.\n\n# Instructions\n - If your command will create new directories or files, first use this tool to run `ls` to verify the parent directory exists and is the correct location.\n - Always quote file paths that contain spaces with double quotes in your command (e.g., cd \"path with spaces/file.txt\")\n - Try to maintain your current working directory throughout the session by using absolute paths and avoiding usage of `cd`. You may use `cd` if the User explicitly requests it.\n - You may specify an optional timeout in milliseconds (up to 600000ms / 10 minutes). By default, your command will timeout after 120000ms (2 minutes).\n - You can use the `run_in_background` parameter to run the command in the background. Only use this if you don't need the result immediately and are OK being notified when the command completes later. You do not need to check the output right away - you'll be notified when it finishes. You do not need to use '&' at the end of the command when using this parameter.\n - When issuing multiple commands:\n  - If the commands are independent and can run in parallel, make multiple Bash tool calls in a single message. Example: if you need to run \"git status\" and \"git diff\", send a single message with two Bash tool calls in parallel.\n  - If the commands depend on each other and must run sequentially, use a single Bash call with '&&' to chain them together.\n  - Use ';' only when you need to run commands sequentially but don't care if earlier commands fail.\n  - DO NOT use newlines to separate commands (newlines are ok in quoted strings).\n - For git commands:\n  - Prefer to create a new commit rather than amending an existing commit.\n  - Before running destructive operations (e.g., git reset --hard, git push --force, git checkout --), consider whether there is a safer alternative that achieves the same goal. Only use destructive operations when they are truly the best approach.\n  - Never skip hooks (--no-verify) or bypass signing (--no-gpg-sign, -c commit.gpgsign=false) unless the user has explicitly asked for it. If a hook fails, investigate and fix the underlying issue.\n - Avoid unnecessary `sleep` commands:\n  - Do not sleep between commands that can run immediately \u2014 just run them.\n  - Use the Monitor tool to stream events from a background process (each stdout line is a notification). For one-shot \"wait until done,\" use Bash with run_in_background instead.\n  - If your command is long running and you would like to be notified when it finishes \u2014 use `run_in_background`. No sleep needed.\n  - Do not retry failing commands in a sleep loop \u2014 diagnose the root cause.\n  - If waiting for a background task you started with `run_in_background`, you will be notified when it completes \u2014 do not poll.\n  - Long leading `sleep` commands are blocked. To poll until a condition is met, use Monitor with an until-loop (e.g. `until <check>; do sleep 2; done`) \u2014 you get a notification when the loop exits. Do not chain shorter sleeps to work around the block.\n\n\n# Committing changes with git\n\nOnly create commits when requested by the user. If unclear, ask first. When the user asks you to create a new git commit, follow these steps carefully:\n\nYou can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. The numbered steps below indicate which commands should be batched in parallel.\n\nGit Safety Protocol:\n- NEVER update the git config\n- NEVER run destructive git commands (push --force, reset --hard, checkout ., restore ., clean -f, branch -D) unless the user explicitly requests these actions. Taking unauthorized destructive actions is unhelpful and can result in lost work, so it's best to ONLY run these commands when given direct instructions \n- NEVER skip hooks (--no-verify, --no-gpg-sign, etc) unless the user explicitly requests it\n- NEVER run force push to main/master, warn the user if they request it\n- CRITICAL: Always create NEW commits rather than amending, unless the user explicitly requests a git amend. When a pre-commit hook fails, the commit did NOT happen \u2014 so --amend would modify the PREVIOUS commit, which may result in destroying work or losing previous changes. Instead, after hook failure, fix the issue, re-stage, and create a NEW commit\n- When staging files, prefer adding specific files by name rather than using \"git add -A\" or \"git add .\", which can accidentally include sensitive files (.env, credentials) or large binaries\n- NEVER commit changes unless the user explicitly asks you to. It is VERY IMPORTANT to only commit when explicitly asked, otherwise the user will feel that you are being too proactive\n\n1. Run the following bash commands in parallel, each using the Bash tool:\n  - Run a git status command to see all untracked files. IMPORTANT: Never use the -uall flag as it can cause memory issues on large repos.\n  - Run a git diff command to see both staged and unstaged changes that will be committed.\n  - Run a git log command to see recent commit messages, so that you can follow this repository's commit message style.\n2. Analyze all staged changes (both previously staged and newly added) and draft a commit message:\n  - Summarize the nature of the changes (eg. new feature, enhancement to an existing feature, bug fix, refactoring, test, docs, etc.). Ensure the message accurately reflects the changes and their purpose (i.e. \"add\" means a wholly new feature, \"update\" means an enhancement to an existing feature, \"fix\" means a bug fix, etc.).\n  - Do not commit files that likely contain secrets (.env, credentials.json, etc). Warn the user if they specifically request to commit those files\n  - Draft a concise (1-2 sentences) commit message that focuses on the \"why\" rather than the \"what\"\n  - Ensure it accurately reflects the changes and their purpose\n3. Run the following commands in parallel:\n   - Add relevant untracked files to the staging area.\n   - Create the commit with a message ending with:\n   Co-Authored-By: Claude Opus 4.7 (1M context) <<USER_EMAIL>>\n   - Run git status after the commit completes to verify success.\n   Note: git status depends on the commit completing, so run it sequentially after the commit.\n4. If the commit fails due to pre-commit hook: fix the issue and create a NEW commit\n\nImportant notes:\n- NEVER run additional commands to read or explore code, besides git bash commands\n- NEVER use the TodoWrite or Agent tools\n- DO NOT push to the remote repository unless the user explicitly asks you to do so\n- IMPORTANT: Never use git commands with the -i flag (like git rebase -i or git add -i) since they require interactive input which is not supported.\n- IMPORTANT: Do not use --no-edit with git rebase commands, as the --no-edit flag is not a valid option for git rebase.\n- If there are no changes to commit (i.e., no untracked files and no modifications), do not create an empty commit\n- In order to ensure good formatting, ALWAYS pass the commit message via a HEREDOC, a la this example:\n<example>\ngit commit -m \"$(cat <<'EOF'\n   Commit message here.\n\n   Co-Authored-By: Claude Opus 4.7 (1M context) <<USER_EMAIL>>\n   EOF\n   )\"\n</example>\n\n# Creating pull requests\nUse the gh command via the Bash tool for ALL GitHub-related tasks including working with issues, pull requests, checks, and releases. If given a Github URL use the gh command to get the information needed.\n\nIMPORTANT: When the user asks you to create a pull request, follow these steps carefully:\n\n1. Run the following bash commands in parallel using the Bash tool, in order to understand the current state of the branch since it diverged from the main branch:\n   - Run a git status command to see all untracked files (never use -uall flag)\n   - Run a git diff command to see both staged and unstaged changes that will be committed\n   - Check if the current branch tracks a remote branch and is up to date with the remote, so you know if you need to push to the remote\n   - Run a git log command and `git diff [base-branch]...HEAD` to understand the full commit history for the current branch (from the time it diverged from the base branch)\n2. Analyze all changes that will be included in the pull request, making sure to look at all relevant commits (NOT just the latest commit, but ALL commits that will be included in the pull request!!!), and draft a pull request title and summary:\n   - Keep the PR title short (under 70 characters)\n   - Use the description/body for details, not the title\n3. Run the following commands in parallel:\n   - Create new branch if needed\n   - Push to remote with -u flag if needed\n   - Create PR using gh pr create with the format below. Use a HEREDOC to pass the body to ensure correct formatting.\n<example>\ngh pr create --title \"the pr title\" --body \"$(cat <<'EOF'\n## Summary\n<1-3 bullet points>\n\n## Test plan\n[Bulleted markdown checklist of TODOs for testing the pull request...]\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\nEOF\n)\"\n</example>\n\nImportant:\n- DO NOT use the TodoWrite or Agent tools\n- Return the PR URL when you're done, so the user can see it\n\n# Other common operations\n- View comments on a Github PR: gh api repos/foo/bar/pulls/123/comments",
           "input_schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "type": "object",
@@ -505,7 +525,7 @@
           "content": [
             {
               "type": "text",
-              "text": "mcp__claude_ai_Canva__cancel-editing-transaction\nmcp__claude_ai_Canva__comment-on-design\nmcp__claude_ai_Canva__commit-editing-transaction\nmcp__claude_ai_Canva__create-design-from-candidate\nmcp__claude_ai_Canva__create-folder\nmcp__claude_ai_Canva__export-design\nmcp__claude_ai_Canva__generate-design\nmcp__claude_ai_Canva__generate-design-structured\nmcp__claude_ai_Canva__get-assets\nmcp__claude_ai_Canva__get-design\nmcp__claude_ai_Canva__get-design-content\nmcp__claude_ai_Canva__get-design-pages\nmcp__claude_ai_Canva__get-design-thumbnail\nmcp__claude_ai_Canva__get-export-formats\nmcp__claude_ai_Canva__get-presenter-notes\nmcp__claude_ai_Canva__help\nmcp__claude_ai_Canva__import-design-from-url\nmcp__claude_ai_Canva__list-brand-kits\nmcp__claude_ai_Canva__list-comments\nmcp__claude_ai_Canva__list-folder-items\nmcp__claude_ai_Canva__list-replies\nmcp__claude_ai_Canva__merge-designs\nmcp__claude_ai_Canva__move-item-to-folder\nmcp__claude_ai_Canva__perform-editing-operations\nmcp__claude_ai_Canva__reply-to-comment\nmcp__claude_ai_Canva__request-outline-review\nmcp__claude_ai_Canva__resize-design\nmcp__claude_ai_Canva__resolve-shortlink\nmcp__claude_ai_Canva__search-designs\nmcp__claude_ai_Canva__search-folders\nmcp__claude_ai_Canva__start-editing-transaction\nmcp__claude_ai_Canva__upload-asset-from-url\nmcp__claude_ai_Excalidraw__create_view\nmcp__claude_ai_Excalidraw__export_to_excalidraw\nmcp__claude_ai_Excalidraw__read_checkpoint\nmcp__claude_ai_Excalidraw__read_me\nmcp__claude_ai_Excalidraw__save_checkpoint\nmcp__claude_ai_Figma__add_code_connect_map\nmcp__claude_ai_Figma__create_design_system_rules\nmcp__claude_ai_Figma__create_new_file\nmcp__claude_ai_Figma__generate_diagram\nmcp__claude_ai_Figma__get_code_connect_map\nmcp__claude_ai_Figma__get_code_connect_suggestions\nmcp__claude_ai_Figma__get_context_for_code_connect\nmcp__claude_ai_Figma__get_design_context\nmcp__claude_ai_Figma__get_figjam\nmcp__claude_ai_Figma__get_libraries\nmcp__claude_ai_Figma__get_metadata\nmcp__claude_ai_Figma__get_screenshot\nmcp__claude_ai_Figma__get_variable_defs\nmcp__claude_ai_Figma__search_design_system\nmcp__claude_ai_Figma__send_code_connect_mappings\nmcp__claude_ai_Figma__upload_assets\nmcp__claude_ai_Figma__use_figma\nmcp__claude_ai_Figma__whoami\nmcp__claude_ai_Gmail__create_draft\nmcp__claude_ai_Gmail__create_label\nmcp__claude_ai_Gmail__get_thread\nmcp__claude_ai_Gmail__label_message\nmcp__claude_ai_Gmail__label_thread\nmcp__claude_ai_Gmail__list_drafts\nmcp__claude_ai_Gmail__list_labels\nmcp__claude_ai_Gmail__search_threads\nmcp__claude_ai_Gmail__unlabel_message\nmcp__claude_ai_Gmail__unlabel_thread\nmcp__claude_ai_Google_Calendar__create_event\nmcp__claude_ai_Google_Calendar__delete_event\nmcp__claude_ai_Google_Calendar__get_event\nmcp__claude_ai_Google_Calendar__list_calendars\nmcp__claude_ai_Google_Calendar__list_events\nmcp__claude_ai_Google_Calendar__respond_to_event\nmcp__claude_ai_Google_Calendar__suggest_time\nmcp__claude_ai_Google_Calendar__update_event\nmcp__claude_ai_Google_Drive__copy_file\nmcp__claude_ai_Google_Drive__create_file\nmcp__claude_ai_Google_Drive__download_file_content\nmcp__claude_ai_Google_Drive__get_file_metadata\nmcp__claude_ai_Google_Drive__get_file_permissions\nmcp__claude_ai_Google_Drive__list_recent_files\nmcp__claude_ai_Google_Drive__read_file_content\nmcp__claude_ai_Google_Drive__search_files\nmcp__claude_ai_Miro__authenticate\nmcp__claude_ai_Miro__complete_authentication\nmcp__claude_ai_tldraw___exec_callback\nmcp__claude_ai_tldraw___get_canvas_state\nmcp__claude_ai_tldraw__exec\nmcp__claude_ai_tldraw__read_checkpoint\nmcp__claude_ai_tldraw__save_checkpoint\nmcp__claude_ai_tldraw__search\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003"
+              "text": "\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003"
             }
           ]
         }
@@ -515,9 +535,9 @@
         "input_tokens": 6,
         "output_tokens": 1957,
         "cache_creation_input_tokens": 0,
-        "cache_read_input_tokens": 26133,
+        "cache_read_input_tokens": 26304,
         "total_tokens": 1963,
-        "estimated_cost_usd": 0.1860645
+        "estimated_cost_usd": 0.186321
       },
       "status": "success",
       "request_params": {},
@@ -526,9 +546,9 @@
   ],
   "raw_captures": [
     {
-      "id": "0ed144c4-f5d1-4279-b220-b3cf9ff2fb04",
-      "session_id": "03b98d99-cad0-480e-8160-61f0209a4ae0",
-      "timestamp": "2026-05-04T10:14:19.908462",
+      "id": "3392940a-4bd2-4b9c-92b0-e627337ab932",
+      "session_id": "c7011900-0953-49e2-98ea-9f072e24f97e",
+      "timestamp": "2026-05-04T19:43:04.633690",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -552,10 +572,10 @@
         "authorization": "REDACTED",
         "x-app": "cli",
         "User-Agent": "claude-cli/2.1.112 (external, sdk-cli)",
-        "X-Claude-Code-Session-Id": "369c8460-8ae8-487c-9abd-116df85ba750",
+        "X-Claude-Code-Session-Id": "bef18a67-2794-42dd-b07e-d95af6e37867",
         "content-type": "application/json",
         "anthropic-beta": "oauth-2025-04-20,interleaved-thinking-2025-05-14,context-management-2025-06-27,prompt-caching-scope-2026-01-05,advisor-tool-2026-03-01,structured-outputs-2025-12-15",
-        "x-client-request-id": "9e67c9c1-73ce-4477-b0ec-943ae7e6fd68",
+        "x-client-request-id": "3f722fd3-b6ca-4c71-a07b-3dcb34a90bbc",
         "accept-language": "*",
         "sec-fetch-mode": "cors",
         "accept-encoding": "identity",
@@ -590,7 +610,7 @@
         ],
         "tools": [],
         "metadata": {
-          "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"369c8460-8ae8-487c-9abd-116df85ba750\"}"
+          "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"bef18a67-2794-42dd-b07e-d95af6e37867\"}"
         },
         "max_tokens": 32000,
         "temperature": 1,
@@ -615,42 +635,42 @@
       },
       "response_status": 200,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 10:14:19 GMT",
+        "Date": "Mon, 04 May 2026 19:43:04 GMT",
         "Content-Type": "text/event-stream; charset=utf-8",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
         "Cache-Control": "no-cache",
-        "anthropic-ratelimit-unified-status": "allowed_warning",
-        "anthropic-ratelimit-unified-5h-status": "allowed_warning",
-        "anthropic-ratelimit-unified-5h-reset": "1777893000",
+        "anthropic-ratelimit-unified-status": "rejected",
+        "anthropic-ratelimit-unified-5h-status": "rejected",
+        "anthropic-ratelimit-unified-5h-reset": "1777929000",
         "anthropic-ratelimit-unified-5h-utilization": "1.0",
-        "anthropic-ratelimit-unified-5h-surpassed-threshold": "0.9",
+        "anthropic-ratelimit-unified-5h-surpassed-threshold": "1.0",
         "anthropic-ratelimit-unified-7d-status": "allowed",
         "anthropic-ratelimit-unified-7d-reset": "1778126400",
-        "anthropic-ratelimit-unified-7d-utilization": "0.43",
+        "anthropic-ratelimit-unified-7d-utilization": "0.51",
         "anthropic-ratelimit-unified-overage-status": "allowed",
         "anthropic-ratelimit-unified-overage-reset": "1780272000",
         "anthropic-ratelimit-unified-overage-utilization": "0.0",
         "anthropic-ratelimit-unified-representative-claim": "five_hour",
         "anthropic-ratelimit-unified-fallback-percentage": "0.5",
-        "anthropic-ratelimit-unified-fallback": "available",
-        "anthropic-ratelimit-unified-reset": "1777893000",
+        "anthropic-ratelimit-unified-reset": "1777929000",
         "anthropic-ratelimit-unified-upgrade-paths": "overage",
         "anthropic-ratelimit-unified-overage-in-use": "true",
-        "request-id": "req_011CahMPptvkdEZvbbJVi5Gb",
+        "request-id": "req_011Cai6mKAdUqtg2468A2eLA",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-1023a2999d2b73ff5b1d95b69b1d9935-ed13a8f8307c7cb9-01",
+        "traceresponse": "00-48435c45cda08903cb6c088716690734-1934330fd6fd1df7-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "622",
-        "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-        "vary": "Accept-Encoding",
-        "set-cookie": "REDACTED",
+        "x-envoy-upstream-service-time": "464",
         "X-Robots-Tag": "none",
+        "vary": "Accept-Encoding",
+        "server-timing": "x-originResponse;dur=467",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "9f66bce1efe2fa16-SJC"
+        "set-cookie": "REDACTED",
+        "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
+        "CF-RAY": "9f69fe021db41fdb-SJC"
       },
-      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-haiku-4-5-20251001\",\"id\":\"msg_01Xx4qho9yft38Ds8E51uG9e\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":367,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":1,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}   }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}           }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"{\\\"\"}       }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"title\\\": \\\"List available MCP tools\\\"}\"}}\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0    }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":367,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":13,\"iterations\":[{\"input_tokens\":367,\"output_tokens\":13,\"cache_read_input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":0},\"type\":\"message\"}]},\"context_management\":{\"applied_edits\":[]}       }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"}\n\n",
+      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-haiku-4-5-20251001\",\"id\":\"msg_01UppDUsUavW3duJgUgjKhUW\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":367,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":1,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}               }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}          }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"{\\\"\"} }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"title\\\": \\\"List available MCP tools\\\"}\"}        }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0      }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":367,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":13,\"iterations\":[{\"input_tokens\":367,\"output_tokens\":13,\"cache_read_input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":0},\"type\":\"message\"}]},\"context_management\":{\"applied_edits\":[]}          }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"         }\n\n",
       "is_streaming": true,
       "sse_events": [
         {
@@ -659,7 +679,7 @@
             "type": "message_start",
             "message": {
               "model": "claude-haiku-4-5-20251001",
-              "id": "msg_01Xx4qho9yft38Ds8E51uG9e",
+              "id": "msg_01UppDUsUavW3duJgUgjKhUW",
               "type": "message",
               "role": "assistant",
               "content": [],
@@ -769,9 +789,9 @@
       ]
     },
     {
-      "id": "7d858846-25d3-4e9d-87de-9ca002dee1e5",
-      "session_id": "03b98d99-cad0-480e-8160-61f0209a4ae0",
-      "timestamp": "2026-05-04T10:14:38.195227",
+      "id": "3046b65d-463e-4c7e-9e52-60846a7f94c6",
+      "session_id": "c7011900-0953-49e2-98ea-9f072e24f97e",
+      "timestamp": "2026-05-04T19:43:24.272902",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -795,14 +815,14 @@
         "authorization": "REDACTED",
         "x-app": "cli",
         "User-Agent": "claude-cli/2.1.112 (external, sdk-cli)",
-        "X-Claude-Code-Session-Id": "369c8460-8ae8-487c-9abd-116df85ba750",
+        "X-Claude-Code-Session-Id": "bef18a67-2794-42dd-b07e-d95af6e37867",
         "content-type": "application/json",
         "anthropic-beta": "claude-code-20250219,oauth-2025-04-20,context-1m-2025-08-07,interleaved-thinking-2025-05-14,context-management-2025-06-27,prompt-caching-scope-2026-01-05,advisor-tool-2026-03-01,advanced-tool-use-2025-11-20,effort-2025-11-24",
-        "x-client-request-id": "83cc5bf2-0f37-49c9-a05b-f80f2a6f8fba",
+        "x-client-request-id": "588f8b46-ddb2-443f-8784-60b18bdddbec",
         "accept-language": "*",
         "sec-fetch-mode": "cors",
         "accept-encoding": "identity",
-        "content-length": "74147"
+        "content-length": "74561"
       },
       "request_body": {
         "model": "claude-opus-4-7",
@@ -812,7 +832,7 @@
             "content": [
               {
                 "type": "text",
-                "text": "<system-reminder>\nThe following deferred tools are now available via ToolSearch. Their schemas are NOT loaded \u2014 calling them directly will fail with InputValidationError. Use ToolSearch with query \"select:<name>[,<name>...]\" to load tool schemas before calling them:\nAskUserQuestion\nCronCreate\nCronDelete\nCronList\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nListMcpResourcesTool\nMonitor\nNotebookEdit\nPushNotification\nReadMcpResourceTool\nRemoteTrigger\nTaskOutput\nTaskStop\nTodoWrite\nWebFetch\nWebSearch\nmcp__claude_ai_Canva__cancel-editing-transaction\nmcp__claude_ai_Canva__comment-on-design\nmcp__claude_ai_Canva__commit-editing-transaction\nmcp__claude_ai_Canva__create-design-from-candidate\nmcp__claude_ai_Canva__create-folder\nmcp__claude_ai_Canva__export-design\nmcp__claude_ai_Canva__generate-design\nmcp__claude_ai_Canva__generate-design-structured\nmcp__claude_ai_Canva__get-assets\nmcp__claude_ai_Canva__get-design\nmcp__claude_ai_Canva__get-design-content\nmcp__claude_ai_Canva__get-design-pages\nmcp__claude_ai_Canva__get-design-thumbnail\nmcp__claude_ai_Canva__get-export-formats\nmcp__claude_ai_Canva__get-presenter-notes\nmcp__claude_ai_Canva__help\nmcp__claude_ai_Canva__import-design-from-url\nmcp__claude_ai_Canva__list-brand-kits\nmcp__claude_ai_Canva__list-comments\nmcp__claude_ai_Canva__list-folder-items\nmcp__claude_ai_Canva__list-replies\nmcp__claude_ai_Canva__merge-designs\nmcp__claude_ai_Canva__move-item-to-folder\nmcp__claude_ai_Canva__perform-editing-operations\nmcp__claude_ai_Canva__reply-to-comment\nmcp__claude_ai_Canva__request-outline-review\nmcp__claude_ai_Canva__resize-design\nmcp__claude_ai_Canva__resolve-shortlink\nmcp__claude_ai_Canva__search-designs\nmcp__claude_ai_Canva__search-folders\nmcp__claude_ai_Canva__start-editing-transaction\nmcp__claude_ai_Canva__upload-asset-from-url\nmcp__claude_ai_Excalidraw__create_view\nmcp__claude_ai_Excalidraw__export_to_excalidraw\nmcp__claude_ai_Excalidraw__read_checkpoint\nmcp__claude_ai_Excalidraw__read_me\nmcp__claude_ai_Excalidraw__save_checkpoint\nmcp__claude_ai_Figma__add_code_connect_map\nmcp__claude_ai_Figma__create_design_system_rules\nmcp__claude_ai_Figma__create_new_file\nmcp__claude_ai_Figma__generate_diagram\nmcp__claude_ai_Figma__get_code_connect_map\nmcp__claude_ai_Figma__get_code_connect_suggestions\nmcp__claude_ai_Figma__get_context_for_code_connect\nmcp__claude_ai_Figma__get_design_context\nmcp__claude_ai_Figma__get_figjam\nmcp__claude_ai_Figma__get_libraries\nmcp__claude_ai_Figma__get_metadata\nmcp__claude_ai_Figma__get_screenshot\nmcp__claude_ai_Figma__get_variable_defs\nmcp__claude_ai_Figma__search_design_system\nmcp__claude_ai_Figma__send_code_connect_mappings\nmcp__claude_ai_Figma__upload_assets\nmcp__claude_ai_Figma__use_figma\nmcp__claude_ai_Figma__whoami\nmcp__claude_ai_Gmail__create_draft\nmcp__claude_ai_Gmail__create_label\nmcp__claude_ai_Gmail__get_thread\nmcp__claude_ai_Gmail__label_message\nmcp__claude_ai_Gmail__label_thread\nmcp__claude_ai_Gmail__list_drafts\nmcp__claude_ai_Gmail__list_labels\nmcp__claude_ai_Gmail__search_threads\nmcp__claude_ai_Gmail__unlabel_message\nmcp__claude_ai_Gmail__unlabel_thread\nmcp__claude_ai_Google_Calendar__create_event\nmcp__claude_ai_Google_Calendar__delete_event\nmcp__claude_ai_Google_Calendar__get_event\nmcp__claude_ai_Google_Calendar__list_calendars\nmcp__claude_ai_Google_Calendar__list_events\nmcp__claude_ai_Google_Calendar__respond_to_event\nmcp__claude_ai_Google_Calendar__suggest_time\nmcp__claude_ai_Google_Calendar__update_event\nmcp__claude_ai_Google_Drive__copy_file\nmcp__claude_ai_Google_Drive__create_file\nmcp__claude_ai_Google_Drive__download_file_content\nmcp__claude_ai_Google_Drive__get_file_metadata\nmcp__claude_ai_Google_Drive__get_file_permissions\nmcp__claude_ai_Google_Drive__list_recent_files\nmcp__claude_ai_Google_Drive__read_file_content\nmcp__claude_ai_Google_Drive__search_files\nmcp__claude_ai_Miro__authenticate\nmcp__claude_ai_Miro__complete_authentication\nmcp__claude_ai_tldraw___exec_callback\nmcp__claude_ai_tldraw___get_canvas_state\nmcp__claude_ai_tldraw__exec\nmcp__claude_ai_tldraw__read_checkpoint\nmcp__claude_ai_tldraw__save_checkpoint\nmcp__claude_ai_tldraw__search\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</system-reminder>"
+                "text": "<system-reminder>\nThe following deferred tools are now available via ToolSearch. Their schemas are NOT loaded \u2014 calling them directly will fail with InputValidationError. Use ToolSearch with query \"select:<name>[,<name>...]\" to load tool schemas before calling them:\nAskUserQuestion\nCronCreate\nCronDelete\nCronList\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nListMcpResourcesTool\nMonitor\nNotebookEdit\nPushNotification\nReadMcpResourceTool\nRemoteTrigger\nSendMessage\nTaskOutput\nTaskStop\nTeamCreate\nTeamDelete\nTodoWrite\nWebFetch\nWebSearch\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</system-reminder>"
               },
               {
                 "type": "text",
@@ -824,7 +844,7 @@
               },
               {
                 "type": "text",
-                "text": "<system-reminder>\nAs you answer the user's questions, you can use the following context:\n# userEmail\nThe user's email address is amrynsky@gmail.com.\n# currentDate\nToday's date is 2026-05-04.\n\n      IMPORTANT: this context may or may not be relevant to your tasks. You should not respond to this context unless it is highly relevant to your task.\n</system-reminder>\n\n"
+                "text": "<system-reminder>\nAs you answer the user's questions, you can use the following context:\n# currentDate\nToday's date is 2026-05-04.\n\n      IMPORTANT: this context may or may not be relevant to your tasks. You should not respond to this context unless it is highly relevant to your task.\n</system-reminder>\n\n"
               },
               {
                 "type": "text",
@@ -893,6 +913,26 @@
                   "description": "Set to true to run this agent in the background. You will be notified when it completes.",
                   "type": "boolean"
                 },
+                "name": {
+                  "description": "Name for the spawned agent. Makes it addressable via SendMessage({to: name}) while running.",
+                  "type": "string"
+                },
+                "team_name": {
+                  "description": "Team name for spawning. Uses current team context if omitted.",
+                  "type": "string"
+                },
+                "mode": {
+                  "description": "Permission mode for spawned teammate (e.g., \"plan\" to require plan approval).",
+                  "type": "string",
+                  "enum": [
+                    "acceptEdits",
+                    "auto",
+                    "bypassPermissions",
+                    "default",
+                    "dontAsk",
+                    "plan"
+                  ]
+                },
                 "isolation": {
                   "description": "Isolation mode. \"worktree\" creates a temporary git worktree so the agent works on an isolated copy of the repo.",
                   "type": "string",
@@ -910,7 +950,7 @@
           },
           {
             "name": "Bash",
-            "description": "Executes a given bash command and returns its output.\n\nThe working directory persists between commands, but shell state does not. The shell environment is initialized from the user's profile (bash or zsh).\n\nIMPORTANT: Avoid using this tool to run `find`, `grep`, `cat`, `head`, `tail`, `sed`, `awk`, or `echo` commands, unless explicitly instructed or after you have verified that a dedicated tool cannot accomplish your task. Instead, use the appropriate dedicated tool as this will provide a much better experience for the user:\n\n - File search: Use Glob (NOT find or ls)\n - Content search: Use Grep (NOT grep or rg)\n - Read files: Use Read (NOT cat/head/tail)\n - Edit files: Use Edit (NOT sed/awk)\n - Write files: Use Write (NOT echo >/cat <<EOF)\n - Communication: Output text directly (NOT echo/printf)\nWhile the Bash tool can do similar things, it\u2019s better to use the built-in tools as they provide a better user experience and make it easier to review tool calls and give permission.\n\n# Instructions\n - If your command will create new directories or files, first use this tool to run `ls` to verify the parent directory exists and is the correct location.\n - Always quote file paths that contain spaces with double quotes in your command (e.g., cd \"path with spaces/file.txt\")\n - Try to maintain your current working directory throughout the session by using absolute paths and avoiding usage of `cd`. You may use `cd` if the User explicitly requests it.\n - You may specify an optional timeout in milliseconds (up to 600000ms / 10 minutes). By default, your command will timeout after 120000ms (2 minutes).\n - You can use the `run_in_background` parameter to run the command in the background. Only use this if you don't need the result immediately and are OK being notified when the command completes later. You do not need to check the output right away - you'll be notified when it finishes. You do not need to use '&' at the end of the command when using this parameter.\n - When issuing multiple commands:\n  - If the commands are independent and can run in parallel, make multiple Bash tool calls in a single message. Example: if you need to run \"git status\" and \"git diff\", send a single message with two Bash tool calls in parallel.\n  - If the commands depend on each other and must run sequentially, use a single Bash call with '&&' to chain them together.\n  - Use ';' only when you need to run commands sequentially but don't care if earlier commands fail.\n  - DO NOT use newlines to separate commands (newlines are ok in quoted strings).\n - For git commands:\n  - Prefer to create a new commit rather than amending an existing commit.\n  - Before running destructive operations (e.g., git reset --hard, git push --force, git checkout --), consider whether there is a safer alternative that achieves the same goal. Only use destructive operations when they are truly the best approach.\n  - Never skip hooks (--no-verify) or bypass signing (--no-gpg-sign, -c commit.gpgsign=false) unless the user has explicitly asked for it. If a hook fails, investigate and fix the underlying issue.\n - Avoid unnecessary `sleep` commands:\n  - Do not sleep between commands that can run immediately \u2014 just run them.\n  - Use the Monitor tool to stream events from a background process (each stdout line is a notification). For one-shot \"wait until done,\" use Bash with run_in_background instead.\n  - If your command is long running and you would like to be notified when it finishes \u2014 use `run_in_background`. No sleep needed.\n  - Do not retry failing commands in a sleep loop \u2014 diagnose the root cause.\n  - If waiting for a background task you started with `run_in_background`, you will be notified when it completes \u2014 do not poll.\n  - Long leading `sleep` commands are blocked. To poll until a condition is met, use Monitor with an until-loop (e.g. `until <check>; do sleep 2; done`) \u2014 you get a notification when the loop exits. Do not chain shorter sleeps to work around the block.\n\n\n# Committing changes with git\n\nOnly create commits when requested by the user. If unclear, ask first. When the user asks you to create a new git commit, follow these steps carefully:\n\nYou can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. The numbered steps below indicate which commands should be batched in parallel.\n\nGit Safety Protocol:\n- NEVER update the git config\n- NEVER run destructive git commands (push --force, reset --hard, checkout ., restore ., clean -f, branch -D) unless the user explicitly requests these actions. Taking unauthorized destructive actions is unhelpful and can result in lost work, so it's best to ONLY run these commands when given direct instructions \n- NEVER skip hooks (--no-verify, --no-gpg-sign, etc) unless the user explicitly requests it\n- NEVER run force push to main/master, warn the user if they request it\n- CRITICAL: Always create NEW commits rather than amending, unless the user explicitly requests a git amend. When a pre-commit hook fails, the commit did NOT happen \u2014 so --amend would modify the PREVIOUS commit, which may result in destroying work or losing previous changes. Instead, after hook failure, fix the issue, re-stage, and create a NEW commit\n- When staging files, prefer adding specific files by name rather than using \"git add -A\" or \"git add .\", which can accidentally include sensitive files (.env, credentials) or large binaries\n- NEVER commit changes unless the user explicitly asks you to. It is VERY IMPORTANT to only commit when explicitly asked, otherwise the user will feel that you are being too proactive\n\n1. Run the following bash commands in parallel, each using the Bash tool:\n  - Run a git status command to see all untracked files. IMPORTANT: Never use the -uall flag as it can cause memory issues on large repos.\n  - Run a git diff command to see both staged and unstaged changes that will be committed.\n  - Run a git log command to see recent commit messages, so that you can follow this repository's commit message style.\n2. Analyze all staged changes (both previously staged and newly added) and draft a commit message:\n  - Summarize the nature of the changes (eg. new feature, enhancement to an existing feature, bug fix, refactoring, test, docs, etc.). Ensure the message accurately reflects the changes and their purpose (i.e. \"add\" means a wholly new feature, \"update\" means an enhancement to an existing feature, \"fix\" means a bug fix, etc.).\n  - Do not commit files that likely contain secrets (.env, credentials.json, etc). Warn the user if they specifically request to commit those files\n  - Draft a concise (1-2 sentences) commit message that focuses on the \"why\" rather than the \"what\"\n  - Ensure it accurately reflects the changes and their purpose\n3. Run the following commands in parallel:\n   - Add relevant untracked files to the staging area.\n   - Create the commit with a message ending with:\n   Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n   - Run git status after the commit completes to verify success.\n   Note: git status depends on the commit completing, so run it sequentially after the commit.\n4. If the commit fails due to pre-commit hook: fix the issue and create a NEW commit\n\nImportant notes:\n- NEVER run additional commands to read or explore code, besides git bash commands\n- NEVER use the TodoWrite or Agent tools\n- DO NOT push to the remote repository unless the user explicitly asks you to do so\n- IMPORTANT: Never use git commands with the -i flag (like git rebase -i or git add -i) since they require interactive input which is not supported.\n- IMPORTANT: Do not use --no-edit with git rebase commands, as the --no-edit flag is not a valid option for git rebase.\n- If there are no changes to commit (i.e., no untracked files and no modifications), do not create an empty commit\n- In order to ensure good formatting, ALWAYS pass the commit message via a HEREDOC, a la this example:\n<example>\ngit commit -m \"$(cat <<'EOF'\n   Commit message here.\n\n   Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n   EOF\n   )\"\n</example>\n\n# Creating pull requests\nUse the gh command via the Bash tool for ALL GitHub-related tasks including working with issues, pull requests, checks, and releases. If given a Github URL use the gh command to get the information needed.\n\nIMPORTANT: When the user asks you to create a pull request, follow these steps carefully:\n\n1. Run the following bash commands in parallel using the Bash tool, in order to understand the current state of the branch since it diverged from the main branch:\n   - Run a git status command to see all untracked files (never use -uall flag)\n   - Run a git diff command to see both staged and unstaged changes that will be committed\n   - Check if the current branch tracks a remote branch and is up to date with the remote, so you know if you need to push to the remote\n   - Run a git log command and `git diff [base-branch]...HEAD` to understand the full commit history for the current branch (from the time it diverged from the base branch)\n2. Analyze all changes that will be included in the pull request, making sure to look at all relevant commits (NOT just the latest commit, but ALL commits that will be included in the pull request!!!), and draft a pull request title and summary:\n   - Keep the PR title short (under 70 characters)\n   - Use the description/body for details, not the title\n3. Run the following commands in parallel:\n   - Create new branch if needed\n   - Push to remote with -u flag if needed\n   - Create PR using gh pr create with the format below. Use a HEREDOC to pass the body to ensure correct formatting.\n<example>\ngh pr create --title \"the pr title\" --body \"$(cat <<'EOF'\n## Summary\n<1-3 bullet points>\n\n## Test plan\n[Bulleted markdown checklist of TODOs for testing the pull request...]\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\nEOF\n)\"\n</example>\n\nImportant:\n- DO NOT use the TodoWrite or Agent tools\n- Return the PR URL when you're done, so the user can see it\n\n# Other common operations\n- View comments on a Github PR: gh api repos/foo/bar/pulls/123/comments",
+            "description": "Executes a given bash command and returns its output.\n\nThe working directory persists between commands, but shell state does not. The shell environment is initialized from the user's profile (bash or zsh).\n\nIMPORTANT: Avoid using this tool to run `find`, `grep`, `cat`, `head`, `tail`, `sed`, `awk`, or `echo` commands, unless explicitly instructed or after you have verified that a dedicated tool cannot accomplish your task. Instead, use the appropriate dedicated tool as this will provide a much better experience for the user:\n\n - File search: Use Glob (NOT find or ls)\n - Content search: Use Grep (NOT grep or rg)\n - Read files: Use Read (NOT cat/head/tail)\n - Edit files: Use Edit (NOT sed/awk)\n - Write files: Use Write (NOT echo >/cat <<EOF)\n - Communication: Output text directly (NOT echo/printf)\nWhile the Bash tool can do similar things, it\u2019s better to use the built-in tools as they provide a better user experience and make it easier to review tool calls and give permission.\n\n# Instructions\n - If your command will create new directories or files, first use this tool to run `ls` to verify the parent directory exists and is the correct location.\n - Always quote file paths that contain spaces with double quotes in your command (e.g., cd \"path with spaces/file.txt\")\n - Try to maintain your current working directory throughout the session by using absolute paths and avoiding usage of `cd`. You may use `cd` if the User explicitly requests it.\n - You may specify an optional timeout in milliseconds (up to 600000ms / 10 minutes). By default, your command will timeout after 120000ms (2 minutes).\n - You can use the `run_in_background` parameter to run the command in the background. Only use this if you don't need the result immediately and are OK being notified when the command completes later. You do not need to check the output right away - you'll be notified when it finishes. You do not need to use '&' at the end of the command when using this parameter.\n - When issuing multiple commands:\n  - If the commands are independent and can run in parallel, make multiple Bash tool calls in a single message. Example: if you need to run \"git status\" and \"git diff\", send a single message with two Bash tool calls in parallel.\n  - If the commands depend on each other and must run sequentially, use a single Bash call with '&&' to chain them together.\n  - Use ';' only when you need to run commands sequentially but don't care if earlier commands fail.\n  - DO NOT use newlines to separate commands (newlines are ok in quoted strings).\n - For git commands:\n  - Prefer to create a new commit rather than amending an existing commit.\n  - Before running destructive operations (e.g., git reset --hard, git push --force, git checkout --), consider whether there is a safer alternative that achieves the same goal. Only use destructive operations when they are truly the best approach.\n  - Never skip hooks (--no-verify) or bypass signing (--no-gpg-sign, -c commit.gpgsign=false) unless the user has explicitly asked for it. If a hook fails, investigate and fix the underlying issue.\n - Avoid unnecessary `sleep` commands:\n  - Do not sleep between commands that can run immediately \u2014 just run them.\n  - Use the Monitor tool to stream events from a background process (each stdout line is a notification). For one-shot \"wait until done,\" use Bash with run_in_background instead.\n  - If your command is long running and you would like to be notified when it finishes \u2014 use `run_in_background`. No sleep needed.\n  - Do not retry failing commands in a sleep loop \u2014 diagnose the root cause.\n  - If waiting for a background task you started with `run_in_background`, you will be notified when it completes \u2014 do not poll.\n  - Long leading `sleep` commands are blocked. To poll until a condition is met, use Monitor with an until-loop (e.g. `until <check>; do sleep 2; done`) \u2014 you get a notification when the loop exits. Do not chain shorter sleeps to work around the block.\n\n\n# Committing changes with git\n\nOnly create commits when requested by the user. If unclear, ask first. When the user asks you to create a new git commit, follow these steps carefully:\n\nYou can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. The numbered steps below indicate which commands should be batched in parallel.\n\nGit Safety Protocol:\n- NEVER update the git config\n- NEVER run destructive git commands (push --force, reset --hard, checkout ., restore ., clean -f, branch -D) unless the user explicitly requests these actions. Taking unauthorized destructive actions is unhelpful and can result in lost work, so it's best to ONLY run these commands when given direct instructions \n- NEVER skip hooks (--no-verify, --no-gpg-sign, etc) unless the user explicitly requests it\n- NEVER run force push to main/master, warn the user if they request it\n- CRITICAL: Always create NEW commits rather than amending, unless the user explicitly requests a git amend. When a pre-commit hook fails, the commit did NOT happen \u2014 so --amend would modify the PREVIOUS commit, which may result in destroying work or losing previous changes. Instead, after hook failure, fix the issue, re-stage, and create a NEW commit\n- When staging files, prefer adding specific files by name rather than using \"git add -A\" or \"git add .\", which can accidentally include sensitive files (.env, credentials) or large binaries\n- NEVER commit changes unless the user explicitly asks you to. It is VERY IMPORTANT to only commit when explicitly asked, otherwise the user will feel that you are being too proactive\n\n1. Run the following bash commands in parallel, each using the Bash tool:\n  - Run a git status command to see all untracked files. IMPORTANT: Never use the -uall flag as it can cause memory issues on large repos.\n  - Run a git diff command to see both staged and unstaged changes that will be committed.\n  - Run a git log command to see recent commit messages, so that you can follow this repository's commit message style.\n2. Analyze all staged changes (both previously staged and newly added) and draft a commit message:\n  - Summarize the nature of the changes (eg. new feature, enhancement to an existing feature, bug fix, refactoring, test, docs, etc.). Ensure the message accurately reflects the changes and their purpose (i.e. \"add\" means a wholly new feature, \"update\" means an enhancement to an existing feature, \"fix\" means a bug fix, etc.).\n  - Do not commit files that likely contain secrets (.env, credentials.json, etc). Warn the user if they specifically request to commit those files\n  - Draft a concise (1-2 sentences) commit message that focuses on the \"why\" rather than the \"what\"\n  - Ensure it accurately reflects the changes and their purpose\n3. Run the following commands in parallel:\n   - Add relevant untracked files to the staging area.\n   - Create the commit with a message ending with:\n   Co-Authored-By: Claude Opus 4.7 (1M context) <<USER_EMAIL>>\n   - Run git status after the commit completes to verify success.\n   Note: git status depends on the commit completing, so run it sequentially after the commit.\n4. If the commit fails due to pre-commit hook: fix the issue and create a NEW commit\n\nImportant notes:\n- NEVER run additional commands to read or explore code, besides git bash commands\n- NEVER use the TodoWrite or Agent tools\n- DO NOT push to the remote repository unless the user explicitly asks you to do so\n- IMPORTANT: Never use git commands with the -i flag (like git rebase -i or git add -i) since they require interactive input which is not supported.\n- IMPORTANT: Do not use --no-edit with git rebase commands, as the --no-edit flag is not a valid option for git rebase.\n- If there are no changes to commit (i.e., no untracked files and no modifications), do not create an empty commit\n- In order to ensure good formatting, ALWAYS pass the commit message via a HEREDOC, a la this example:\n<example>\ngit commit -m \"$(cat <<'EOF'\n   Commit message here.\n\n   Co-Authored-By: Claude Opus 4.7 (1M context) <<USER_EMAIL>>\n   EOF\n   )\"\n</example>\n\n# Creating pull requests\nUse the gh command via the Bash tool for ALL GitHub-related tasks including working with issues, pull requests, checks, and releases. If given a Github URL use the gh command to get the information needed.\n\nIMPORTANT: When the user asks you to create a pull request, follow these steps carefully:\n\n1. Run the following bash commands in parallel using the Bash tool, in order to understand the current state of the branch since it diverged from the main branch:\n   - Run a git status command to see all untracked files (never use -uall flag)\n   - Run a git diff command to see both staged and unstaged changes that will be committed\n   - Check if the current branch tracks a remote branch and is up to date with the remote, so you know if you need to push to the remote\n   - Run a git log command and `git diff [base-branch]...HEAD` to understand the full commit history for the current branch (from the time it diverged from the base branch)\n2. Analyze all changes that will be included in the pull request, making sure to look at all relevant commits (NOT just the latest commit, but ALL commits that will be included in the pull request!!!), and draft a pull request title and summary:\n   - Keep the PR title short (under 70 characters)\n   - Use the description/body for details, not the title\n3. Run the following commands in parallel:\n   - Create new branch if needed\n   - Push to remote with -u flag if needed\n   - Create PR using gh pr create with the format below. Use a HEREDOC to pass the body to ensure correct formatting.\n<example>\ngh pr create --title \"the pr title\" --body \"$(cat <<'EOF'\n## Summary\n<1-3 bullet points>\n\n## Test plan\n[Bulleted markdown checklist of TODOs for testing the pull request...]\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\nEOF\n)\"\n</example>\n\nImportant:\n- DO NOT use the TodoWrite or Agent tools\n- Return the PR URL when you're done, so the user can see it\n\n# Other common operations\n- View comments on a Github PR: gh api repos/foo/bar/pulls/123/comments",
             "input_schema": {
               "$schema": "https://json-schema.org/draft/2020-12/schema",
               "type": "object",
@@ -1205,7 +1245,7 @@
           }
         ],
         "metadata": {
-          "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"369c8460-8ae8-487c-9abd-116df85ba750\"}"
+          "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"bef18a67-2794-42dd-b07e-d95af6e37867\"}"
         },
         "max_tokens": 64000,
         "thinking": {
@@ -1226,42 +1266,41 @@
       },
       "response_status": 200,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 10:14:20 GMT",
+        "Date": "Mon, 04 May 2026 19:43:06 GMT",
         "Content-Type": "text/event-stream; charset=utf-8",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
         "Cache-Control": "no-cache",
-        "anthropic-ratelimit-unified-status": "allowed_warning",
-        "anthropic-ratelimit-unified-5h-status": "allowed_warning",
-        "anthropic-ratelimit-unified-5h-reset": "1777893000",
+        "anthropic-ratelimit-unified-status": "rejected",
+        "anthropic-ratelimit-unified-5h-status": "rejected",
+        "anthropic-ratelimit-unified-5h-reset": "1777929000",
         "anthropic-ratelimit-unified-5h-utilization": "1.0",
-        "anthropic-ratelimit-unified-5h-surpassed-threshold": "0.9",
+        "anthropic-ratelimit-unified-5h-surpassed-threshold": "1.0",
         "anthropic-ratelimit-unified-7d-status": "allowed",
         "anthropic-ratelimit-unified-7d-reset": "1778126400",
-        "anthropic-ratelimit-unified-7d-utilization": "0.43",
+        "anthropic-ratelimit-unified-7d-utilization": "0.51",
         "anthropic-ratelimit-unified-overage-status": "allowed",
         "anthropic-ratelimit-unified-overage-reset": "1780272000",
         "anthropic-ratelimit-unified-overage-utilization": "0.0",
         "anthropic-ratelimit-unified-representative-claim": "five_hour",
         "anthropic-ratelimit-unified-fallback-percentage": "0.5",
-        "anthropic-ratelimit-unified-fallback": "available",
-        "anthropic-ratelimit-unified-reset": "1777893000",
+        "anthropic-ratelimit-unified-reset": "1777929000",
         "anthropic-ratelimit-unified-upgrade-paths": "overage",
         "anthropic-ratelimit-unified-overage-in-use": "true",
-        "request-id": "req_011CahMPqAo4rarTRyqLBTuk",
+        "request-id": "req_011Cai6mKr4VZFDabm4SNmTQ",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-17e8257341ff03857f39b2d0362ee3e5-4bf4440137fdadf7-01",
+        "traceresponse": "00-5c4e5f315f0a243ed09bc6e6f2847289-055e56252c371e82-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "1386",
-        "X-Robots-Tag": "none",
-        "vary": "Accept-Encoding",
-        "cf-cache-status": "DYNAMIC",
-        "set-cookie": "REDACTED",
+        "x-envoy-upstream-service-time": "2603",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-        "CF-RAY": "9f66bce20aa79e56-SJC"
+        "vary": "Accept-Encoding",
+        "set-cookie": "REDACTED",
+        "X-Robots-Tag": "none",
+        "cf-cache-status": "DYNAMIC",
+        "CF-RAY": "9f69fe028ecc37c1-SJC"
       },
-      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-7\",\"id\":\"msg_01Ak5W3e1Anq56SXhLqoYWqR\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":6,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":26133,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":1,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}      }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}  }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"m\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"cp__claude_ai_Canva__canc\"}             }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"el-editing-transaction\\nmcp__claude_ai_Canva__comment-on-design\\nmc\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"p__claude_ai_Canva__commit-editing-transaction\\nmcp__claude_ai_Canva__create-design-from-cand\"} }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"idate\\nmcp__claude_ai_Canva__create-folder\\nmcp__claude_ai_Canva__export-design\\nmcp__claude_ai_Canva\"}        }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"__generate-design\\nmcp__claude_ai_Canva__generate-design-structured\\nmcp__claude_ai_Canva__get\"}       }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"-assets\\nmcp__claude_ai_Canva__get-design\\nmcp__claude_ai_Canva__get-design-content\\nmcp__claude_ai_Canva__get\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"-design-pages\\nmcp__claude_ai_Canva__get-design-thumbnail\\nmcp__claude_ai_Canva__get-export\"} }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"-formats\\nmcp__claude_ai_Canva__get-presenter-notes\\nmcp__claude_ai_Canva__\"}               }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"help\\nmcp__claude_ai_Canva__import-design-from-url\\nmcp__claude_ai_Canva__list-br\"}        }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"and-kits\\nmcp__claude_ai_Canva__list-comments\\nmcp__claude_ai_Canva__list-fol\"}           }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"der-items\\nmcp__claude_ai_Canva__list-replies\\nmcp__claude_ai_Canva__mer\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ge-designs\\nmcp__claude_ai_Canva__move-item-to-folder\\nmcp__claude_ai_Canva__per\"}           }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"form-editing-operations\\nmcp__claude_ai_Canva__reply-to-comment\\nmcp__claude_ai_Canva__request\"}           }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"-outline-review\\nmcp__claude_ai_Canva__resize-design\\nmcp__claude_ai_Canva__res\"}               }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"olve-shortlink\\nmcp__claude_ai_Canva__search-design\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"s\\nmcp__claude_ai_Canva__search-folders\\nmcp__claude_ai_Canva__start-editing-transaction\\nmcp__claude_\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ai_Canva__upload-asset-from-url\\nmcp__claude_ai_Excalidraw__create\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_view\\nmcp__claude_ai_Excalidraw__export_to_excalidraw\\nmcp\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"__claude_ai_Excalidraw__read_checkpoint\\nmcp__claude_ai_Excalidraw__read_me\\nmcp__claude_\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ai_Excalidraw__save_checkpoint\\nmcp__claude_ai_Figma__add_code_\"}           }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"connect_map\\nmcp__claude_ai_Figma__create_design_system_rules\\nmcp__claude\"}       }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_ai_Figma__create_new_file\\nmcp__claude_ai_Figma__generate_diagram\\nmcp__claude_ai_Figma\"}    }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"__get_code_connect_map\\nmcp__claude_ai_Figma__get_code_connect_suggestions\\nmcp__claude_ai_Fig\"}           }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ma__get_context_for_code_connect\\nmcp__claude_ai_Figma__get_design_context\\nmcp__claude_ai_Fig\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ma__get_figjam\\nmcp__claude_ai_Figma__get_libraries\\nmcp__claude_ai_Figma\"}           }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"__get_metadata\\nmcp__claude_ai_Figma__get_screenshot\\nmcp__claude_ai_Figma__get_variable\"}        }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_defs\\nmcp__claude_ai_Figma__search_design_system\\nmcp__claude_ai_Figma__send\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_code_connect_mappings\\nmcp__claude_ai_Figma__upload_assets\\nmcp__claude\"}       }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_ai_Figma__use_figma\\nmcp__claude_ai_Figma__whoami\\nmcp__claude_ai_G\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"mail__create_draft\\nmcp__claude_ai_Gmail__create_label\\nmcp__claude_ai_Gmail__get\"}}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_thread\\nmcp__claude_ai_Gmail__label_message\\nmcp__claude_ai_Gmail__label_thread\\nmcp\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"__claude_ai_Gmail__list_drafts\\nmcp__claude_ai_Gmail__list_labels\\nmcp__claude_ai_Gmail__search\"}}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_threads\\nmcp__claude_ai_Gmail__unlabel_message\\nmcp__claude_ai_Gmail__unlabel\"}   }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_thread\\nmcp__claude_ai_Google_Calendar__create_event\\nmcp__claude_ai_Google_Calendar__delete_event\\nmcp__\"}               }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"claude_ai_Google_Calendar__get_event\\nmcp__claude_ai_Google_Calendar__list_calendars\\nmcp__cla\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ude_ai_Google_Calendar__list_events\\nmcp__claude_ai_Google_Calendar__respond_to_event\\nmcp__claude_ai_Google_Calendar__\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"suggest_time\\nmcp__claude_ai_Google_Calendar__update_event\\nmcp__claude_ai_Google_Drive__cop\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"y_file\\nmcp__claude_ai_Google_Drive__create_file\\nmcp__claude_ai_Google_Drive__download_file_content\"}   }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"\\nmcp__claude_ai_Google_Drive__get_file_metadata\\nmcp__claude_ai_Google_Drive__get_file_permissions\\nmcp__cla\"}        }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ude_ai_Google_Drive__list_recent_files\\nmcp__claude_ai_Google_Drive__read_file_content\\nmcp__claude_ai_Google_\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Drive__search_files\\nmcp__claude_ai_Miro__authenticate\\nmcp__claude_ai_Miro__compl\"}  }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ete_authentication\\nmcp__claude_ai_tldraw___exec_callback\\nmcp__claude\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_ai_tldraw___get_canvas_state\\nmcp__claude_ai_tldraw__exec\\nmcp__claude_\"}       }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ai_tldraw__read_checkpoint\\nmcp__claude_ai_tldraw__save_checkpoint\\nmcp__claude_ai_tldraw__search\"}}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"\\nmcp__fixture__tool_001\\nmcp__fixture__\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"tool_002\\nmcp__fixture__tool_003\"}      }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0        }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":6,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":26133,\"output_tokens\":1957,\"iterations\":[{\"input_tokens\":6,\"output_tokens\":1957,\"cache_read_input_tokens\":26133,\"cache_creation_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":0},\"type\":\"message\"}]},\"context_management\":{\"applied_edits\":[]}             }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"      }\n\n",
+      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-7\",\"id\":\"msg_01LEL6mBWSTbea2WesomWd4y\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":6,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":26304,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":1,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}               }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}               }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"m\"}    }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"cp__claude_ai_Canva__cancel-\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"editing-transaction\\nmcp__claude_\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ai_Canva__commit-editing-transaction\\nmcp__cla\"}               }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ude_ai_Canva__create-folder\"}        }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ate-design\"}  }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ets\"}        }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ages\\nmcp__claude\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_ai_Canva__get-presenter-notes\\nmcp__claude_\"}  }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ai_Canva__import-design-from-url\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"its\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"\\nmcp__claude\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_ai_Canva__move-item-to-folder\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ations\"} }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"link\\nmcp__claude\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_ai_Canva__start-editing-transaction\"}               }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"-url\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"w__export_to_excalidraw\\nmcp\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"__claude_ai_Excalidraw__read_me\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_Figma__add_code_connect_map\\nmcp__claude_\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ai_Figma__create_design_system_rules\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_file\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_connect_map\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"for_code_connect\"}             }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"am\\nmcp__cla\"}        }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ude_ai_Figma__get_screenshot\\nmcp__claude\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_ai_Figma__search_design_system\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"appings\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_figma\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ft\\nmcp__claude\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_ai_Gmail__label_message\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_drafts\\nmcp__claude\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_ai_Gmail__unlabel_message\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_Calendar__create_event\"}}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"event\\nmcp__claude_\"}    }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ai_Google_Calendar__respond_to_event\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Google_Calendar__update_event\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_file\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ive__get_file_metadata\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_recent_files\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_files\"}}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"tldraw___exec_callback\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"vas_state\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"kpoint\\nmcp__fix\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ture__tool_001\\nmcp__fixture__tool_002\\nmcp\"} }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"__fixture__tool_003\"}             }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0               }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":6,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":26304,\"output_tokens\":1957,\"iterations\":[{\"input_tokens\":6,\"output_tokens\":1957,\"cache_read_input_tokens\":26304,\"cache_creation_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":0},\"type\":\"message\"}]},\"context_management\":{\"applied_edits\":[]}           }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\" }\n\n",
       "is_streaming": true,
       "sse_events": [
         {
@@ -1270,7 +1309,7 @@
             "type": "message_start",
             "message": {
               "model": "claude-opus-4-7",
-              "id": "msg_01Ak5W3e1Anq56SXhLqoYWqR",
+              "id": "msg_01LEL6mBWSTbea2WesomWd4y",
               "type": "message",
               "role": "assistant",
               "content": [],
@@ -1280,7 +1319,7 @@
               "usage": {
                 "input_tokens": 6,
                 "cache_creation_input_tokens": 0,
-                "cache_read_input_tokens": 26133,
+                "cache_read_input_tokens": 26304,
                 "cache_creation": {
                   "ephemeral_5m_input_tokens": 0,
                   "ephemeral_1h_input_tokens": 0
@@ -1327,7 +1366,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "cp__claude_ai_Canva__canc"
+              "text": "cp__claude_ai_Canva__cancel-"
             }
           }
         },
@@ -1338,7 +1377,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "el-editing-transaction\nmcp__claude_ai_Canva__comment-on-design\nmc"
+              "text": "editing-transaction\nmcp__claude_"
             }
           }
         },
@@ -1349,7 +1388,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "p__claude_ai_Canva__commit-editing-transaction\nmcp__claude_ai_Canva__create-design-from-cand"
+              "text": "ai_Canva__commit-editing-transaction\nmcp__cla"
             }
           }
         },
@@ -1360,7 +1399,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "idate\nmcp__claude_ai_Canva__create-folder\nmcp__claude_ai_Canva__export-design\nmcp__claude_ai_Canva"
+              "text": "ude_ai_Canva__create-folder"
             }
           }
         },
@@ -1371,7 +1410,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "__generate-design\nmcp__claude_ai_Canva__generate-design-structured\nmcp__claude_ai_Canva__get"
+              "text": "ate-design"
             }
           }
         },
@@ -1382,7 +1421,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "-assets\nmcp__claude_ai_Canva__get-design\nmcp__claude_ai_Canva__get-design-content\nmcp__claude_ai_Canva__get"
+              "text": "ets"
             }
           }
         },
@@ -1393,7 +1432,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "-design-pages\nmcp__claude_ai_Canva__get-design-thumbnail\nmcp__claude_ai_Canva__get-export"
+              "text": "ages\nmcp__claude"
             }
           }
         },
@@ -1404,7 +1443,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "-formats\nmcp__claude_ai_Canva__get-presenter-notes\nmcp__claude_ai_Canva__"
+              "text": "_ai_Canva__get-presenter-notes\nmcp__claude_"
             }
           }
         },
@@ -1415,7 +1454,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "help\nmcp__claude_ai_Canva__import-design-from-url\nmcp__claude_ai_Canva__list-br"
+              "text": "ai_Canva__import-design-from-url"
             }
           }
         },
@@ -1426,7 +1465,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "and-kits\nmcp__claude_ai_Canva__list-comments\nmcp__claude_ai_Canva__list-fol"
+              "text": "its"
             }
           }
         },
@@ -1437,7 +1476,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "der-items\nmcp__claude_ai_Canva__list-replies\nmcp__claude_ai_Canva__mer"
+              "text": "\nmcp__claude"
             }
           }
         },
@@ -1448,7 +1487,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "ge-designs\nmcp__claude_ai_Canva__move-item-to-folder\nmcp__claude_ai_Canva__per"
+              "text": "_ai_Canva__move-item-to-folder"
             }
           }
         },
@@ -1459,7 +1498,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "form-editing-operations\nmcp__claude_ai_Canva__reply-to-comment\nmcp__claude_ai_Canva__request"
+              "text": "ations"
             }
           }
         },
@@ -1470,7 +1509,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "-outline-review\nmcp__claude_ai_Canva__resize-design\nmcp__claude_ai_Canva__res"
+              "text": ""
             }
           }
         },
@@ -1481,7 +1520,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "olve-shortlink\nmcp__claude_ai_Canva__search-design"
+              "text": "link\nmcp__claude"
             }
           }
         },
@@ -1492,7 +1531,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "s\nmcp__claude_ai_Canva__search-folders\nmcp__claude_ai_Canva__start-editing-transaction\nmcp__claude_"
+              "text": "_ai_Canva__start-editing-transaction"
             }
           }
         },
@@ -1503,7 +1542,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "ai_Canva__upload-asset-from-url\nmcp__claude_ai_Excalidraw__create"
+              "text": "-url"
             }
           }
         },
@@ -1514,7 +1553,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "_view\nmcp__claude_ai_Excalidraw__export_to_excalidraw\nmcp"
+              "text": "w__export_to_excalidraw\nmcp"
             }
           }
         },
@@ -1525,7 +1564,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "__claude_ai_Excalidraw__read_checkpoint\nmcp__claude_ai_Excalidraw__read_me\nmcp__claude_"
+              "text": "__claude_ai_Excalidraw__read_me"
             }
           }
         },
@@ -1536,7 +1575,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "ai_Excalidraw__save_checkpoint\nmcp__claude_ai_Figma__add_code_"
+              "text": "_Figma__add_code_connect_map\nmcp__claude_"
             }
           }
         },
@@ -1547,7 +1586,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "connect_map\nmcp__claude_ai_Figma__create_design_system_rules\nmcp__claude"
+              "text": "ai_Figma__create_design_system_rules"
             }
           }
         },
@@ -1558,7 +1597,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "_ai_Figma__create_new_file\nmcp__claude_ai_Figma__generate_diagram\nmcp__claude_ai_Figma"
+              "text": "_file"
             }
           }
         },
@@ -1569,7 +1608,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "__get_code_connect_map\nmcp__claude_ai_Figma__get_code_connect_suggestions\nmcp__claude_ai_Fig"
+              "text": "_connect_map"
             }
           }
         },
@@ -1580,7 +1619,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "ma__get_context_for_code_connect\nmcp__claude_ai_Figma__get_design_context\nmcp__claude_ai_Fig"
+              "text": "for_code_connect"
             }
           }
         },
@@ -1591,7 +1630,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "ma__get_figjam\nmcp__claude_ai_Figma__get_libraries\nmcp__claude_ai_Figma"
+              "text": "am\nmcp__cla"
             }
           }
         },
@@ -1602,7 +1641,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "__get_metadata\nmcp__claude_ai_Figma__get_screenshot\nmcp__claude_ai_Figma__get_variable"
+              "text": "ude_ai_Figma__get_screenshot\nmcp__claude"
             }
           }
         },
@@ -1613,7 +1652,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "_defs\nmcp__claude_ai_Figma__search_design_system\nmcp__claude_ai_Figma__send"
+              "text": "_ai_Figma__search_design_system"
             }
           }
         },
@@ -1624,7 +1663,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "_code_connect_mappings\nmcp__claude_ai_Figma__upload_assets\nmcp__claude"
+              "text": "appings"
             }
           }
         },
@@ -1635,7 +1674,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "_ai_Figma__use_figma\nmcp__claude_ai_Figma__whoami\nmcp__claude_ai_G"
+              "text": "_figma"
             }
           }
         },
@@ -1646,7 +1685,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "mail__create_draft\nmcp__claude_ai_Gmail__create_label\nmcp__claude_ai_Gmail__get"
+              "text": "ft\nmcp__claude"
             }
           }
         },
@@ -1657,7 +1696,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "_thread\nmcp__claude_ai_Gmail__label_message\nmcp__claude_ai_Gmail__label_thread\nmcp"
+              "text": "_ai_Gmail__label_message"
             }
           }
         },
@@ -1668,7 +1707,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "__claude_ai_Gmail__list_drafts\nmcp__claude_ai_Gmail__list_labels\nmcp__claude_ai_Gmail__search"
+              "text": "_drafts\nmcp__claude"
             }
           }
         },
@@ -1679,7 +1718,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "_threads\nmcp__claude_ai_Gmail__unlabel_message\nmcp__claude_ai_Gmail__unlabel"
+              "text": "_ai_Gmail__unlabel_message"
             }
           }
         },
@@ -1690,7 +1729,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "_thread\nmcp__claude_ai_Google_Calendar__create_event\nmcp__claude_ai_Google_Calendar__delete_event\nmcp__"
+              "text": "_Calendar__create_event"
             }
           }
         },
@@ -1701,7 +1740,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "claude_ai_Google_Calendar__get_event\nmcp__claude_ai_Google_Calendar__list_calendars\nmcp__cla"
+              "text": "event\nmcp__claude_"
             }
           }
         },
@@ -1712,7 +1751,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "ude_ai_Google_Calendar__list_events\nmcp__claude_ai_Google_Calendar__respond_to_event\nmcp__claude_ai_Google_Calendar__"
+              "text": "ai_Google_Calendar__respond_to_event"
             }
           }
         },
@@ -1723,7 +1762,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "suggest_time\nmcp__claude_ai_Google_Calendar__update_event\nmcp__claude_ai_Google_Drive__cop"
+              "text": "Google_Calendar__update_event"
             }
           }
         },
@@ -1734,7 +1773,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "y_file\nmcp__claude_ai_Google_Drive__create_file\nmcp__claude_ai_Google_Drive__download_file_content"
+              "text": "_file"
             }
           }
         },
@@ -1745,7 +1784,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "\nmcp__claude_ai_Google_Drive__get_file_metadata\nmcp__claude_ai_Google_Drive__get_file_permissions\nmcp__cla"
+              "text": "ive__get_file_metadata"
             }
           }
         },
@@ -1756,7 +1795,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "ude_ai_Google_Drive__list_recent_files\nmcp__claude_ai_Google_Drive__read_file_content\nmcp__claude_ai_Google_"
+              "text": "_recent_files"
             }
           }
         },
@@ -1767,7 +1806,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "Drive__search_files\nmcp__claude_ai_Miro__authenticate\nmcp__claude_ai_Miro__compl"
+              "text": "_files"
             }
           }
         },
@@ -1778,7 +1817,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "ete_authentication\nmcp__claude_ai_tldraw___exec_callback\nmcp__claude"
+              "text": "tldraw___exec_callback"
             }
           }
         },
@@ -1789,7 +1828,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "_ai_tldraw___get_canvas_state\nmcp__claude_ai_tldraw__exec\nmcp__claude_"
+              "text": "vas_state"
             }
           }
         },
@@ -1800,7 +1839,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "ai_tldraw__read_checkpoint\nmcp__claude_ai_tldraw__save_checkpoint\nmcp__claude_ai_tldraw__search"
+              "text": "kpoint\nmcp__fix"
             }
           }
         },
@@ -1811,7 +1850,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "\nmcp__fixture__tool_001\nmcp__fixture__"
+              "text": "ture__tool_001\nmcp__fixture__tool_002\nmcp"
             }
           }
         },
@@ -1822,7 +1861,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "tool_002\nmcp__fixture__tool_003"
+              "text": "__fixture__tool_003"
             }
           }
         },
@@ -1845,13 +1884,13 @@
             "usage": {
               "input_tokens": 6,
               "cache_creation_input_tokens": 0,
-              "cache_read_input_tokens": 26133,
+              "cache_read_input_tokens": 26304,
               "output_tokens": 1957,
               "iterations": [
                 {
                   "input_tokens": 6,
                   "output_tokens": 1957,
-                  "cache_read_input_tokens": 26133,
+                  "cache_read_input_tokens": 26304,
                   "cache_creation_input_tokens": 0,
                   "cache_creation": {
                     "ephemeral_5m_input_tokens": 0,

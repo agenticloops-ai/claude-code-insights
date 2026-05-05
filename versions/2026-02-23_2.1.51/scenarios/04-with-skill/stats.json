@@ -2,7 +2,7 @@
   "version": "2.1.51",
   "dir_name": "2026-02-23_2.1.51",
   "scenario": "04-with-skill",
-  "captured_at": "2026-05-04T08:34:05.082280",
+  "captured_at": "2026-05-04T17:52:07.640501",
   "request_count": 3,
   "models": [
     "claude-opus-4-6"
@@ -18,9 +18,9 @@
   "tokens": {
     "input": 6,
     "output": 140,
-    "cache_read": 31711,
-    "cache_creation": 16275,
+    "cache_read": 15778,
+    "cache_creation": 32586,
     "total": 146
   },
-  "duration_ms_total": 7884
+  "duration_ms_total": 6480
 }

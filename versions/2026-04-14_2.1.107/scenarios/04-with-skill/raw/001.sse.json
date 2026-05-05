@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-haiku-4-5-20251001",
-        "id": "msg_01KLujWJ8mFYikVGtDE4xpcN",
+        "id": "msg_01Y5geBSDrxvhB4fJRAPcQ3P",
         "type": "message",
         "role": "assistant",
         "content": [],

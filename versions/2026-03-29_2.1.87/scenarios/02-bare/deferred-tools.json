@@ -1,1 +1,22 @@
-[]
+[
+  "AskUserQuestion",
+  "CronCreate",
+  "CronDelete",
+  "CronList",
+  "EnterPlanMode",
+  "EnterWorktree",
+  "ExitPlanMode",
+  "ExitWorktree",
+  "ListMcpResourcesTool",
+  "NotebookEdit",
+  "ReadMcpResourceTool",
+  "RemoteTrigger",
+  "SendMessage",
+  "TaskOutput",
+  "TaskStop",
+  "TeamCreate",
+  "TeamDelete",
+  "TodoWrite",
+  "WebFetch",
+  "WebSearch"
+]

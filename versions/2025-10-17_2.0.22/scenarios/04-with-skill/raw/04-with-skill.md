@@ -385,7 +385,7 @@ Git Safety Protocol:
    - Create the commit with a message ending with:
    🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
-   Co-Authored-By: Claude <noreply@anthropic.com>
+   Co-Authored-By: Claude <<USER_EMAIL>>
    - Run git status after the commit completes to verify success.
    Note: git status depends on the commit completing, so run it sequentially after the commit.
 4. If the commit fails due to pre-commit hook changes, retry ONCE. If it succeeds but files were modified by the hook, verify it's safe to amend:
@@ -406,7 +406,7 @@ git commit -m "$(cat <<'EOF'
 
    🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
-   Co-Authored-By: Claude <noreply@anthropic.com>
+   Co-Authored-By: Claude <<USER_EMAIL>>
    EOF
    )"
 </example>
@@ -1305,7 +1305,7 @@ Git Safety Protocol:
    - Create the commit with a message ending with:
    🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
-   Co-Authored-By: Claude <noreply@anthropic.com>
+   Co-Authored-By: Claude <<USER_EMAIL>>
    - Run git status after the commit completes to verify success.
    Note: git status depends on the commit completing, so run it sequentially after the commit.
 4. If the commit fails due to pre-commit hook changes, retry ONCE. If it succeeds but files were modified by the hook, verify it's safe to amend:
@@ -1326,7 +1326,7 @@ git commit -m "$(cat <<'EOF'
 
    🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
-   Co-Authored-By: Claude <noreply@anthropic.com>
+   Co-Authored-By: Claude <<USER_EMAIL>>
    EOF
    )"
 </example>

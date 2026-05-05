@@ -2,7 +2,7 @@
   {
     "index": 1,
     "model": "claude-opus-4-6",
-    "duration_ms": 2606.916904449463,
+    "duration_ms": 2323.024272918701,
     "tool_count": 9,
     "stop_reason": "tool_use",
     "input_tokens": 3,
@@ -11,7 +11,7 @@
   {
     "index": 2,
     "model": "claude-opus-4-6",
-    "duration_ms": 2544.008255004883,
+    "duration_ms": 9137.308835983276,
     "tool_count": 9,
     "stop_reason": "end_turn",
     "input_tokens": 2,

@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-6",
-        "id": "msg_019etYnfBbYf6xZSY9TzYvHo",
+        "id": "msg_01Vow2WKBZp6U5bgg8Dcadu7",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -15,10 +15,10 @@
         "usage": {
           "input_tokens": 1,
           "cache_creation_input_tokens": 565,
-          "cache_read_input_tokens": 15700,
+          "cache_read_input_tokens": 15826,
           "cache_creation": {
-            "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 565
+            "ephemeral_5m_input_tokens": 565,
+            "ephemeral_1h_input_tokens": 0
           },
           "output_tokens": 54,
           "service_tier": "standard",
@@ -34,7 +34,7 @@
       "index": 0,
       "content_block": {
         "type": "tool_use",
-        "id": "toolu_011VANMsjMWiWLqojbi24qoR",
+        "id": "toolu_01XvEDABzDNrEGN6XX86ykqT",
         "name": "Skill",
         "input": {},
         "caller": {
@@ -67,7 +67,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\"skill"
+        "partial_json": "{\"skill\": "
       }
     }
   },
@@ -78,7 +78,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "\": \""
+        "partial_json": "\"say-h"
       }
     }
   },
@@ -89,18 +89,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "say-hel"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "input_json_delta",
-        "partial_json": "lo\"}"
+        "partial_json": "ello\"}"
       }
     }
   },
@@ -123,7 +112,7 @@
       "usage": {
         "input_tokens": 1,
         "cache_creation_input_tokens": 565,
-        "cache_read_input_tokens": 15700,
+        "cache_read_input_tokens": 15826,
         "output_tokens": 54
       },
       "context_management": {

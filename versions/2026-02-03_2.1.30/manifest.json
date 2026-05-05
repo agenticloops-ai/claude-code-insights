@@ -17,15 +17,15 @@
   "scenarios": {
     "01-cli-help": {
       "mode": "local",
-      "output_chars": 6880,
-      "output_lines": 60,
+      "output_chars": 6904,
+      "output_lines": 61,
       "exit_code": 0
     },
     "02-bare": {
       "version": "2.1.30",
       "dir_name": "2026-02-03_2.1.30",
       "scenario": "02-bare",
-      "captured_at": "2026-05-04T07:54:29.230978",
+      "captured_at": "2026-05-04T17:10:02.156760",
       "request_count": 2,
       "models": [
         "claude-haiku-4-5-20251001",
@@ -43,16 +43,16 @@
         "input": 11,
         "output": 13,
         "cache_read": 0,
-        "cache_creation": 22405,
+        "cache_creation": 22431,
         "total": 24
       },
-      "duration_ms_total": 2494
+      "duration_ms_total": 2280
     },
     "03-with-mcp": {
       "version": "2.1.30",
       "dir_name": "2026-02-03_2.1.30",
       "scenario": "03-with-mcp",
-      "captured_at": "2026-05-04T07:55:04.306999",
+      "captured_at": "2026-05-04T17:10:36.576327",
       "request_count": 2,
       "models": [
         "claude-haiku-4-5-20251001",
@@ -68,18 +68,18 @@
       "reminder_count": 1,
       "tokens": {
         "input": 11,
-        "output": 1456,
+        "output": 1455,
         "cache_read": 0,
         "cache_creation": 22433,
-        "total": 1467
+        "total": 1466
       },
-      "duration_ms_total": 19640
+      "duration_ms_total": 18361
     },
     "04-with-skill": {
       "version": "2.1.30",
       "dir_name": "2026-02-03_2.1.30",
       "scenario": "04-with-skill",
-      "captured_at": "2026-05-04T07:55:23.721893",
+      "captured_at": "2026-05-04T17:10:54.172263",
       "request_count": 3,
       "models": [
         "claude-haiku-4-5-20251001",
@@ -100,7 +100,7 @@
         "cache_creation": 22559,
         "total": 78
       },
-      "duration_ms_total": 3979
+      "duration_ms_total": 4427
     }
   }
 }

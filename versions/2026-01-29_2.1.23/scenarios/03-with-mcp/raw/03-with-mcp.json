@@ -1,21 +1,21 @@
 {
   "session": {
-    "id": "6514ec9a-6884-4d7d-bf05-f34c0a1884c6",
+    "id": "b50215fa-ae5c-42e9-bf41-867914574d06",
     "name": "03-with-mcp",
-    "started_at": "2026-05-04T07:45:29.189910",
-    "ended_at": "2026-05-04T07:45:57.618684",
+    "started_at": "2026-05-04T17:00:03.899844",
+    "ended_at": "2026-05-04T17:00:32.982003",
     "request_count": 0,
     "total_tokens": 0,
     "estimated_cost_usd": 0.0
   },
   "stats": {
     "total_requests": 2,
-    "total_tokens": 1375,
+    "total_tokens": 1465,
     "total_input_tokens": 11,
-    "total_output_tokens": 1364,
-    "estimated_cost_usd": 0.5195054,
-    "avg_duration_ms": 8571.831703186035,
-    "avg_tokens_per_request": 687.5,
+    "total_output_tokens": 1454,
+    "estimated_cost_usd": 0.5279429,
+    "avg_duration_ms": 9015.75767993927,
+    "avg_tokens_per_request": 732.5,
     "models_used": [
       "claude-haiku-4-5-20251001",
       "claude-opus-4-5-20251101"
@@ -26,14 +26,14 @@
   },
   "requests": [
     {
-      "id": "215691e8-f863-411f-83f9-9b2a1bb0989e",
-      "session_id": "6514ec9a-6884-4d7d-bf05-f34c0a1884c6",
-      "raw_capture_id": "92128aac-b6d4-48c2-9c06-5a4983638861",
+      "id": "ebc04ffe-7d8e-4609-97b9-a2d5df946043",
+      "session_id": "b50215fa-ae5c-42e9-bf41-867914574d06",
+      "raw_capture_id": "d5e8c96f-a27b-473d-901d-a22abfce6770",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T07:45:31.586168",
-      "duration_ms": 636.8889808654785,
+      "timestamp": "2026-05-04T17:00:06.650736",
+      "duration_ms": 717.9598808288574,
       "time_to_first_token_ms": null,
       "provider": "anthropic",
       "model": "claude-haiku-4-5-20251001",
@@ -81,15 +81,15 @@
       "response_metadata": {}
     },
     {
-      "id": "94314650-7c74-43df-bb41-b1734e95984e",
-      "session_id": "6514ec9a-6884-4d7d-bf05-f34c0a1884c6",
-      "raw_capture_id": "38f0ea49-9f95-4cd4-966e-e79c076467fc",
+      "id": "6db5e2a5-0123-47a6-8c8c-c6191b29e8d5",
+      "session_id": "b50215fa-ae5c-42e9-bf41-867914574d06",
+      "raw_capture_id": "7ad65b81-06f0-4513-9994-60e2f8d7b9a2",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T07:45:55.213184",
-      "duration_ms": 16506.77442550659,
-      "time_to_first_token_ms": 1238.274335861206,
+      "timestamp": "2026-05-04T17:00:30.558693",
+      "duration_ms": 17313.555479049683,
+      "time_to_first_token_ms": 1638.570785522461,
       "provider": "anthropic",
       "model": "claude-opus-4-5-20251101",
       "api_endpoint": "https://api.anthropic.com/v1/messages?beta=true",
@@ -208,7 +208,7 @@
         },
         {
           "name": "Bash",
-          "description": "Executes a given bash command with optional timeout. Working directory persists between commands; shell state (everything else) does not. The shell environment is initialized from the user's profile (bash or zsh).\n\nIMPORTANT: This tool is for terminal operations like git, npm, docker, etc. DO NOT use it for file operations (reading, writing, editing, searching, finding files) - use the specialized tools for this instead.\n\nBefore executing the command, please follow these steps:\n\n1. Directory Verification:\n   - If the command will create new directories or files, first use `ls` to verify the parent directory exists and is the correct location\n   - For example, before running \"mkdir foo/bar\", first use `ls foo` to check that \"foo\" exists and is the intended parent directory\n\n2. Command Execution:\n   - Always quote file paths that contain spaces with double quotes (e.g., cd \"path with spaces/file.txt\")\n   - Examples of proper quoting:\n     - cd \"/Users/name/My Documents\" (correct)\n     - cd /Users/name/My Documents (incorrect - will fail)\n     - python \"/path/with spaces/script.py\" (correct)\n     - python /path/with spaces/script.py (incorrect - will fail)\n   - After ensuring proper quoting, execute the command.\n   - Capture the output of the command.\n\nUsage notes:\n  - The command argument is required.\n  - You can specify an optional timeout in milliseconds (up to 600000ms / 10 minutes). If not specified, commands will timeout after 120000ms (2 minutes).\n  - It is very helpful if you write a clear, concise description of what this command does. For simple commands, keep it brief (5-10 words). For complex commands (piped commands, obscure flags, or anything hard to understand at a glance), add enough context to clarify what it does.\n  - If the output exceeds 30000 characters, output will be truncated before being returned to you.\n  \n  - You can use the `run_in_background` parameter to run the command in the background. Only use this if you don't need the result immediately and are OK being notified when the command completes later. You do not need to check the output right away - you'll be notified when it finishes. You do not need to use '&' at the end of the command when using this parameter.\n  \n  - Avoid using Bash with the `find`, `grep`, `cat`, `head`, `tail`, `sed`, `awk`, or `echo` commands, unless explicitly instructed or when these commands are truly necessary for the task. Instead, always prefer using the dedicated tools for these commands:\n    - File search: Use Glob (NOT find or ls)\n    - Content search: Use Grep (NOT grep or rg)\n    - Read files: Use Read (NOT cat/head/tail)\n    - Edit files: Use Edit (NOT sed/awk)\n    - Write files: Use Write (NOT echo >/cat <<EOF)\n    - Communication: Output text directly (NOT echo/printf)\n  - When issuing multiple commands:\n    - If the commands are independent and can run in parallel, make multiple Bash tool calls in a single message. For example, if you need to run \"git status\" and \"git diff\", send a single message with two Bash tool calls in parallel.\n    - If the commands depend on each other and must run sequentially, use a single Bash call with '&&' to chain them together (e.g., `git add . && git commit -m \"message\" && git push`). For instance, if one operation must complete before another starts (like mkdir before cp, Write before Bash for git operations, or git add before git commit), run these operations sequentially instead.\n    - Use ';' only when you need to run commands sequentially but don't care if earlier commands fail\n    - DO NOT use newlines to separate commands (newlines are ok in quoted strings)\n  - Try to maintain your current working directory throughout the session by using absolute paths and avoiding usage of `cd`. You may use `cd` if the User explicitly requests it.\n    <good-example>\n    pytest /foo/bar/tests\n    </good-example>\n    <bad-example>\n    cd /foo/bar && pytest tests\n    </bad-example>\n\n# Committing changes with git\n\nOnly create commits when requested by the user. If unclear, ask first. When the user asks you to create a new git commit, follow these steps carefully:\n\nGit Safety Protocol:\n- NEVER update the git config\n- NEVER run destructive git commands (push --force, reset --hard, checkout ., restore ., clean -f, branch -D) unless the user explicitly requests these actions. Taking unauthorized destructive actions is unhelpful and can result in lost work, so it's best to ONLY run these commands when given direct instructions \n- NEVER skip hooks (--no-verify, --no-gpg-sign, etc) unless the user explicitly requests it\n- NEVER run force push to main/master, warn the user if they request it\n- CRITICAL: Always create NEW commits rather than amending, unless the user explicitly requests a git amend. When a pre-commit hook fails, the commit did NOT happen  \u2014 so --amend would modify the PREVIOUS commit, which may result in destroying work or losing previous changes. Instead, after hook failure, fix the issue, re-stage, and create a NEW commit\n- When staging files, prefer adding specific files by name rather than using \"git add -A\" or \"git add .\", which can accidentally include sensitive files (.env, credentials) or large binaries\n- NEVER commit changes unless the user explicitly asks you to. It is VERY IMPORTANT to only commit when explicitly asked, otherwise the user will feel that you are being too proactive\n\n1. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following bash commands in parallel, each using the Bash tool:\n  - Run a git status command to see all untracked files. IMPORTANT: Never use the -uall flag as it can cause memory issues on large repos.\n  - Run a git diff command to see both staged and unstaged changes that will be committed.\n  - Run a git log command to see recent commit messages, so that you can follow this repository's commit message style.\n2. Analyze all staged changes (both previously staged and newly added) and draft a commit message:\n  - Summarize the nature of the changes (eg. new feature, enhancement to an existing feature, bug fix, refactoring, test, docs, etc.). Ensure the message accurately reflects the changes and their purpose (i.e. \"add\" means a wholly new feature, \"update\" means an enhancement to an existing feature, \"fix\" means a bug fix, etc.).\n  - Do not commit files that likely contain secrets (.env, credentials.json, etc). Warn the user if they specifically request to commit those files\n  - Draft a concise (1-2 sentences) commit message that focuses on the \"why\" rather than the \"what\"\n  - Ensure it accurately reflects the changes and their purpose\n3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands:\n   - Add relevant untracked files to the staging area.\n   - Create the commit with a message ending with:\n   Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\n   - Run git status after the commit completes to verify success.\n   Note: git status depends on the commit completing, so run it sequentially after the commit.\n4. If the commit fails due to pre-commit hook: fix the issue and create a NEW commit\n\nImportant notes:\n- NEVER run additional commands to read or explore code, besides git bash commands\n- NEVER use the TodoWrite or Task tools\n- DO NOT push to the remote repository unless the user explicitly asks you to do so\n- IMPORTANT: Never use git commands with the -i flag (like git rebase -i or git add -i) since they require interactive input which is not supported.\n- IMPORTANT: Do not use --no-edit with git rebase commands, as the --no-edit flag is not a valid option for git rebase.\n- If there are no changes to commit (i.e., no untracked files and no modifications), do not create an empty commit\n- In order to ensure good formatting, ALWAYS pass the commit message via a HEREDOC, a la this example:\n<example>\ngit commit -m \"$(cat <<'EOF'\n   Commit message here.\n\n   Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\n   EOF\n   )\"\n</example>\n\n# Creating pull requests\nUse the gh command via the Bash tool for ALL GitHub-related tasks including working with issues, pull requests, checks, and releases. If given a Github URL use the gh command to get the information needed.\n\nIMPORTANT: When the user asks you to create a pull request, follow these steps carefully:\n\n1. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following bash commands in parallel using the Bash tool, in order to understand the current state of the branch since it diverged from the main branch:\n   - Run a git status command to see all untracked files (never use -uall flag)\n   - Run a git diff command to see both staged and unstaged changes that will be committed\n   - Check if the current branch tracks a remote branch and is up to date with the remote, so you know if you need to push to the remote\n   - Run a git log command and `git diff [base-branch]...HEAD` to understand the full commit history for the current branch (from the time it diverged from the base branch)\n2. Analyze all changes that will be included in the pull request, making sure to look at all relevant commits (NOT just the latest commit, but ALL commits that will be included in the pull request!!!), and draft a pull request title and summary:\n   - Keep the PR title short (under 70 characters)\n   - Use the description/body for details, not the title\n3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands in parallel:\n   - Create new branch if needed\n   - Push to remote with -u flag if needed\n   - Create PR using gh pr create with the format below. Use a HEREDOC to pass the body to ensure correct formatting.\n<example>\ngh pr create --title \"the pr title\" --body \"$(cat <<'EOF'\n## Summary\n<1-3 bullet points>\n\n## Test plan\n[Bulleted markdown checklist of TODOs for testing the pull request...]\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\nEOF\n)\"\n</example>\n\nImportant:\n- DO NOT use the TodoWrite or Task tools\n- Return the PR URL when you're done, so the user can see it\n\n# Other common operations\n- View comments on a Github PR: gh api repos/foo/bar/pulls/123/comments",
+          "description": "Executes a given bash command with optional timeout. Working directory persists between commands; shell state (everything else) does not. The shell environment is initialized from the user's profile (bash or zsh).\n\nIMPORTANT: This tool is for terminal operations like git, npm, docker, etc. DO NOT use it for file operations (reading, writing, editing, searching, finding files) - use the specialized tools for this instead.\n\nBefore executing the command, please follow these steps:\n\n1. Directory Verification:\n   - If the command will create new directories or files, first use `ls` to verify the parent directory exists and is the correct location\n   - For example, before running \"mkdir foo/bar\", first use `ls foo` to check that \"foo\" exists and is the intended parent directory\n\n2. Command Execution:\n   - Always quote file paths that contain spaces with double quotes (e.g., cd \"path with spaces/file.txt\")\n   - Examples of proper quoting:\n     - cd \"/Users/name/My Documents\" (correct)\n     - cd /Users/name/My Documents (incorrect - will fail)\n     - python \"/path/with spaces/script.py\" (correct)\n     - python /path/with spaces/script.py (incorrect - will fail)\n   - After ensuring proper quoting, execute the command.\n   - Capture the output of the command.\n\nUsage notes:\n  - The command argument is required.\n  - You can specify an optional timeout in milliseconds (up to 600000ms / 10 minutes). If not specified, commands will timeout after 120000ms (2 minutes).\n  - It is very helpful if you write a clear, concise description of what this command does. For simple commands, keep it brief (5-10 words). For complex commands (piped commands, obscure flags, or anything hard to understand at a glance), add enough context to clarify what it does.\n  - If the output exceeds 30000 characters, output will be truncated before being returned to you.\n  \n  - You can use the `run_in_background` parameter to run the command in the background. Only use this if you don't need the result immediately and are OK being notified when the command completes later. You do not need to check the output right away - you'll be notified when it finishes. You do not need to use '&' at the end of the command when using this parameter.\n  \n  - Avoid using Bash with the `find`, `grep`, `cat`, `head`, `tail`, `sed`, `awk`, or `echo` commands, unless explicitly instructed or when these commands are truly necessary for the task. Instead, always prefer using the dedicated tools for these commands:\n    - File search: Use Glob (NOT find or ls)\n    - Content search: Use Grep (NOT grep or rg)\n    - Read files: Use Read (NOT cat/head/tail)\n    - Edit files: Use Edit (NOT sed/awk)\n    - Write files: Use Write (NOT echo >/cat <<EOF)\n    - Communication: Output text directly (NOT echo/printf)\n  - When issuing multiple commands:\n    - If the commands are independent and can run in parallel, make multiple Bash tool calls in a single message. For example, if you need to run \"git status\" and \"git diff\", send a single message with two Bash tool calls in parallel.\n    - If the commands depend on each other and must run sequentially, use a single Bash call with '&&' to chain them together (e.g., `git add . && git commit -m \"message\" && git push`). For instance, if one operation must complete before another starts (like mkdir before cp, Write before Bash for git operations, or git add before git commit), run these operations sequentially instead.\n    - Use ';' only when you need to run commands sequentially but don't care if earlier commands fail\n    - DO NOT use newlines to separate commands (newlines are ok in quoted strings)\n  - Try to maintain your current working directory throughout the session by using absolute paths and avoiding usage of `cd`. You may use `cd` if the User explicitly requests it.\n    <good-example>\n    pytest /foo/bar/tests\n    </good-example>\n    <bad-example>\n    cd /foo/bar && pytest tests\n    </bad-example>\n\n# Committing changes with git\n\nOnly create commits when requested by the user. If unclear, ask first. When the user asks you to create a new git commit, follow these steps carefully:\n\nGit Safety Protocol:\n- NEVER update the git config\n- NEVER run destructive git commands (push --force, reset --hard, checkout ., restore ., clean -f, branch -D) unless the user explicitly requests these actions. Taking unauthorized destructive actions is unhelpful and can result in lost work, so it's best to ONLY run these commands when given direct instructions \n- NEVER skip hooks (--no-verify, --no-gpg-sign, etc) unless the user explicitly requests it\n- NEVER run force push to main/master, warn the user if they request it\n- CRITICAL: Always create NEW commits rather than amending, unless the user explicitly requests a git amend. When a pre-commit hook fails, the commit did NOT happen  \u2014 so --amend would modify the PREVIOUS commit, which may result in destroying work or losing previous changes. Instead, after hook failure, fix the issue, re-stage, and create a NEW commit\n- When staging files, prefer adding specific files by name rather than using \"git add -A\" or \"git add .\", which can accidentally include sensitive files (.env, credentials) or large binaries\n- NEVER commit changes unless the user explicitly asks you to. It is VERY IMPORTANT to only commit when explicitly asked, otherwise the user will feel that you are being too proactive\n\n1. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following bash commands in parallel, each using the Bash tool:\n  - Run a git status command to see all untracked files. IMPORTANT: Never use the -uall flag as it can cause memory issues on large repos.\n  - Run a git diff command to see both staged and unstaged changes that will be committed.\n  - Run a git log command to see recent commit messages, so that you can follow this repository's commit message style.\n2. Analyze all staged changes (both previously staged and newly added) and draft a commit message:\n  - Summarize the nature of the changes (eg. new feature, enhancement to an existing feature, bug fix, refactoring, test, docs, etc.). Ensure the message accurately reflects the changes and their purpose (i.e. \"add\" means a wholly new feature, \"update\" means an enhancement to an existing feature, \"fix\" means a bug fix, etc.).\n  - Do not commit files that likely contain secrets (.env, credentials.json, etc). Warn the user if they specifically request to commit those files\n  - Draft a concise (1-2 sentences) commit message that focuses on the \"why\" rather than the \"what\"\n  - Ensure it accurately reflects the changes and their purpose\n3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands:\n   - Add relevant untracked files to the staging area.\n   - Create the commit with a message ending with:\n   Co-Authored-By: Claude Opus 4.5 <<USER_EMAIL>>\n   - Run git status after the commit completes to verify success.\n   Note: git status depends on the commit completing, so run it sequentially after the commit.\n4. If the commit fails due to pre-commit hook: fix the issue and create a NEW commit\n\nImportant notes:\n- NEVER run additional commands to read or explore code, besides git bash commands\n- NEVER use the TodoWrite or Task tools\n- DO NOT push to the remote repository unless the user explicitly asks you to do so\n- IMPORTANT: Never use git commands with the -i flag (like git rebase -i or git add -i) since they require interactive input which is not supported.\n- IMPORTANT: Do not use --no-edit with git rebase commands, as the --no-edit flag is not a valid option for git rebase.\n- If there are no changes to commit (i.e., no untracked files and no modifications), do not create an empty commit\n- In order to ensure good formatting, ALWAYS pass the commit message via a HEREDOC, a la this example:\n<example>\ngit commit -m \"$(cat <<'EOF'\n   Commit message here.\n\n   Co-Authored-By: Claude Opus 4.5 <<USER_EMAIL>>\n   EOF\n   )\"\n</example>\n\n# Creating pull requests\nUse the gh command via the Bash tool for ALL GitHub-related tasks including working with issues, pull requests, checks, and releases. If given a Github URL use the gh command to get the information needed.\n\nIMPORTANT: When the user asks you to create a pull request, follow these steps carefully:\n\n1. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following bash commands in parallel using the Bash tool, in order to understand the current state of the branch since it diverged from the main branch:\n   - Run a git status command to see all untracked files (never use -uall flag)\n   - Run a git diff command to see both staged and unstaged changes that will be committed\n   - Check if the current branch tracks a remote branch and is up to date with the remote, so you know if you need to push to the remote\n   - Run a git log command and `git diff [base-branch]...HEAD` to understand the full commit history for the current branch (from the time it diverged from the base branch)\n2. Analyze all changes that will be included in the pull request, making sure to look at all relevant commits (NOT just the latest commit, but ALL commits that will be included in the pull request!!!), and draft a pull request title and summary:\n   - Keep the PR title short (under 70 characters)\n   - Use the description/body for details, not the title\n3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands in parallel:\n   - Create new branch if needed\n   - Push to remote with -u flag if needed\n   - Create PR using gh pr create with the format below. Use a HEREDOC to pass the body to ensure correct formatting.\n<example>\ngh pr create --title \"the pr title\" --body \"$(cat <<'EOF'\n## Summary\n<1-3 bullet points>\n\n## Test plan\n[Bulleted markdown checklist of TODOs for testing the pull request...]\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\nEOF\n)\"\n</example>\n\nImportant:\n- DO NOT use the TodoWrite or Task tools\n- Return the PR URL when you're done, so the user can see it\n\n# Other common operations\n- View comments on a Github PR: gh api repos/foo/bar/pulls/123/comments",
           "input_schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "type": "object",
@@ -807,7 +807,7 @@
         },
         {
           "name": "ToolSearch",
-          "description": "Search for or select deferred tools to make them available for use.\n\n**MANDATORY PREREQUISITE - THIS IS A HARD REQUIREMENT**\n\nYou MUST use this tool to load deferred tools BEFORE calling them directly.\n\nThis is a BLOCKING REQUIREMENT - deferred tools listed below are NOT available until you load them using this tool. Both query modes (keyword search and direct selection) load the returned tools \u2014 once a tool appears in the results, it is immediately available to call.\n\n**Why this is non-negotiable:**\n- Deferred tools are not loaded until discovered via this tool\n- Calling a deferred tool without first loading it will fail\n\n**Query modes:**\n\n1. **Keyword search** - Use keywords when you're unsure which tool to use or need to discover multiple tools at once:\n   - \"list directory\" - find tools for listing directories\n   - \"notebook jupyter\" - find notebook editing tools\n   - \"slack message\" - find slack messaging tools\n   - Returns up to 5 matching tools ranked by relevance\n   - All returned tools are immediately available to call \u2014 no further selection step needed\n\n2. **Direct selection** - Use `select:<tool_name>` when you know the exact tool name and only need that one tool:\n   - \"select:mcp__slack__read_channel\"\n   - \"select:NotebookEdit\"\n   - Returns just that tool if it exists\n\n**IMPORTANT:** Both modes load tools equally. Do NOT follow up a keyword search with `select:` calls for tools already returned \u2014 they are already loaded.\n\n3. **Required keyword** - Prefix with `+` to require a match:\n   - \"+linear create issue\" - only tools from \"linear\", ranked by \"create\"/\"issue\"\n   - \"+slack send\" - only \"slack\" tools, ranked by \"send\"\n   - Useful when you know the service name but not the exact tool\n\n**CORRECT Usage Patterns:**\n\n<example>\nUser: I need to work with slack somehow\nAssistant: Let me search for slack tools.\n[Calls ToolSearch with query: \"slack\"]\nAssistant: Found several options including mcp__slack__read_channel.\n[Calls mcp__slack__read_channel directly \u2014 it was loaded by the keyword search]\n</example>\n\n<example>\nUser: Edit the Jupyter notebook\nAssistant: Let me load the notebook editing tool.\n[Calls ToolSearch with query: \"select:NotebookEdit\"]\n[Calls NotebookEdit]\n</example>\n\n<example>\nUser: List files in the src directory\nAssistant: I can see mcp__filesystem__list_directory in the available tools. Let me select it.\n[Calls ToolSearch with query: \"select:mcp__filesystem__list_directory\"]\n[Calls the tool]\n</example>\n\n**INCORRECT Usage Patterns - NEVER DO THESE:**\n\n<bad-example>\nUser: Read my slack messages\nAssistant: [Directly calls mcp__slack__read_channel without loading it first]\nWRONG - You must load the tool FIRST using this tool\n</bad-example>\n\n<bad-example>\nAssistant: [Calls ToolSearch with query: \"slack\", gets back mcp__slack__read_channel]\nAssistant: [Calls ToolSearch with query: \"select:mcp__slack__read_channel\"]\nWRONG - The keyword search already loaded the tool. The select call is redundant.\n</bad-example>\n\nAvailable deferred tools (must be loaded before use):\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\nmcp__claude_ai_Google_Drive__copy_file\nmcp__claude_ai_Google_Drive__create_file\nmcp__claude_ai_Google_Drive__download_file_content\nmcp__claude_ai_Google_Drive__get_file_metadata\nmcp__claude_ai_Google_Drive__get_file_permissions\nmcp__claude_ai_Google_Drive__list_recent_files\nmcp__claude_ai_Google_Drive__read_file_content\nmcp__claude_ai_Google_Drive__search_files\nmcp__claude_ai_Gmail__create_draft\nmcp__claude_ai_Gmail__list_drafts\nmcp__claude_ai_Gmail__get_thread\nmcp__claude_ai_Gmail__search_threads\nmcp__claude_ai_Gmail__label_thread\nmcp__claude_ai_Gmail__unlabel_thread\nmcp__claude_ai_Gmail__list_labels\nmcp__claude_ai_Gmail__label_message\nmcp__claude_ai_Gmail__unlabel_message\nmcp__claude_ai_Gmail__create_label\nmcp__claude_ai_Google_Calendar__list_events\nmcp__claude_ai_Google_Calendar__get_event\nmcp__claude_ai_Google_Calendar__list_calendars\nmcp__claude_ai_Google_Calendar__suggest_time\nmcp__claude_ai_Google_Calendar__create_event\nmcp__claude_ai_Google_Calendar__update_event\nmcp__claude_ai_Google_Calendar__delete_event\nmcp__claude_ai_Google_Calendar__respond_to_event\nmcp__claude_ai_Canva__upload-asset-from-url\nmcp__claude_ai_Canva__resolve-shortlink\nmcp__claude_ai_Canva__search-designs\nmcp__claude_ai_Canva__get-design\nmcp__claude_ai_Canva__get-design-pages\nmcp__claude_ai_Canva__get-design-content\nmcp__claude_ai_Canva__get-presenter-notes\nmcp__claude_ai_Canva__import-design-from-url\nmcp__claude_ai_Canva__export-design\nmcp__claude_ai_Canva__get-export-formats\nmcp__claude_ai_Canva__create-folder\nmcp__claude_ai_Canva__move-item-to-folder\nmcp__claude_ai_Canva__list-folder-items\nmcp__claude_ai_Canva__search-folders\nmcp__claude_ai_Canva__comment-on-design\nmcp__claude_ai_Canva__list-replies\nmcp__claude_ai_Canva__reply-to-comment\nmcp__claude_ai_Canva__list-comments\nmcp__claude_ai_Canva__generate-design\nmcp__claude_ai_Canva__generate-design-structured\nmcp__claude_ai_Canva__create-design-from-candidate\nmcp__claude_ai_Canva__request-outline-review\nmcp__claude_ai_Canva__list-brand-kits\nmcp__claude_ai_Canva__help\nmcp__claude_ai_Canva__resize-design\nmcp__claude_ai_Canva__start-editing-transaction\nmcp__claude_ai_Canva__perform-editing-operations\nmcp__claude_ai_Canva__commit-editing-transaction\nmcp__claude_ai_Canva__cancel-editing-transaction\nmcp__claude_ai_Canva__get-design-thumbnail\nmcp__claude_ai_Canva__get-assets\nmcp__claude_ai_Canva__merge-designs\nmcp__claude_ai_tldraw__search\nmcp__claude_ai_tldraw__exec\nmcp__claude_ai_tldraw___exec_callback\nmcp__claude_ai_tldraw___get_canvas_state\nmcp__claude_ai_tldraw__read_checkpoint\nmcp__claude_ai_tldraw__save_checkpoint\nmcp__claude_ai_Figma__get_screenshot\nmcp__claude_ai_Figma__create_design_system_rules\nmcp__claude_ai_Figma__get_design_context\nmcp__claude_ai_Figma__get_metadata\nmcp__claude_ai_Figma__get_variable_defs\nmcp__claude_ai_Figma__get_figjam\nmcp__claude_ai_Figma__generate_diagram\nmcp__claude_ai_Figma__get_code_connect_map\nmcp__claude_ai_Figma__whoami\nmcp__claude_ai_Figma__add_code_connect_map\nmcp__claude_ai_Figma__get_code_connect_suggestions\nmcp__claude_ai_Figma__send_code_connect_mappings\nmcp__claude_ai_Figma__get_context_for_code_connect\nmcp__claude_ai_Figma__use_figma\nmcp__claude_ai_Figma__get_libraries\nmcp__claude_ai_Figma__search_design_system\nmcp__claude_ai_Figma__create_new_file\nmcp__claude_ai_Figma__upload_assets",
+          "description": "Search for or select deferred tools to make them available for use.\n\n**MANDATORY PREREQUISITE - THIS IS A HARD REQUIREMENT**\n\nYou MUST use this tool to load deferred tools BEFORE calling them directly.\n\nThis is a BLOCKING REQUIREMENT - deferred tools listed below are NOT available until you load them using this tool. Both query modes (keyword search and direct selection) load the returned tools \u2014 once a tool appears in the results, it is immediately available to call.\n\n**Why this is non-negotiable:**\n- Deferred tools are not loaded until discovered via this tool\n- Calling a deferred tool without first loading it will fail\n\n**Query modes:**\n\n1. **Keyword search** - Use keywords when you're unsure which tool to use or need to discover multiple tools at once:\n   - \"list directory\" - find tools for listing directories\n   - \"notebook jupyter\" - find notebook editing tools\n   - \"slack message\" - find slack messaging tools\n   - Returns up to 5 matching tools ranked by relevance\n   - All returned tools are immediately available to call \u2014 no further selection step needed\n\n2. **Direct selection** - Use `select:<tool_name>` when you know the exact tool name and only need that one tool:\n   - \"select:mcp__slack__read_channel\"\n   - \"select:NotebookEdit\"\n   - Returns just that tool if it exists\n\n**IMPORTANT:** Both modes load tools equally. Do NOT follow up a keyword search with `select:` calls for tools already returned \u2014 they are already loaded.\n\n3. **Required keyword** - Prefix with `+` to require a match:\n   - \"+linear create issue\" - only tools from \"linear\", ranked by \"create\"/\"issue\"\n   - \"+slack send\" - only \"slack\" tools, ranked by \"send\"\n   - Useful when you know the service name but not the exact tool\n\n**CORRECT Usage Patterns:**\n\n<example>\nUser: I need to work with slack somehow\nAssistant: Let me search for slack tools.\n[Calls ToolSearch with query: \"slack\"]\nAssistant: Found several options including mcp__slack__read_channel.\n[Calls mcp__slack__read_channel directly \u2014 it was loaded by the keyword search]\n</example>\n\n<example>\nUser: Edit the Jupyter notebook\nAssistant: Let me load the notebook editing tool.\n[Calls ToolSearch with query: \"select:NotebookEdit\"]\n[Calls NotebookEdit]\n</example>\n\n<example>\nUser: List files in the src directory\nAssistant: I can see mcp__filesystem__list_directory in the available tools. Let me select it.\n[Calls ToolSearch with query: \"select:mcp__filesystem__list_directory\"]\n[Calls the tool]\n</example>\n\n**INCORRECT Usage Patterns - NEVER DO THESE:**\n\n<bad-example>\nUser: Read my slack messages\nAssistant: [Directly calls mcp__slack__read_channel without loading it first]\nWRONG - You must load the tool FIRST using this tool\n</bad-example>\n\n<bad-example>\nAssistant: [Calls ToolSearch with query: \"slack\", gets back mcp__slack__read_channel]\nAssistant: [Calls ToolSearch with query: \"select:mcp__slack__read_channel\"]\nWRONG - The keyword search already loaded the tool. The select call is redundant.\n</bad-example>\n\nAvailable deferred tools (must be loaded before use):\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003",
           "input_schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "type": "object",
@@ -880,7 +880,7 @@
           "content": [
             {
               "type": "text",
-              "text": "Based on the deferred tools listed in the ToolSearch tool description, here are all the MCP tools currently available:\n\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\nmcp__claude_ai_Google_Drive__copy_file\nmcp__claude_ai_Google_Drive__create_file\nmcp__claude_ai_Google_Drive__download_file_content\nmcp__claude_ai_Google_Drive__get_file_metadata\nmcp__claude_ai_Google_Drive__get_file_permissions\nmcp__claude_ai_Google_Drive__list_recent_files\nmcp__claude_ai_Google_Drive__read_file_content\nmcp__claude_ai_Google_Drive__search_files\nmcp__claude_ai_Gmail__create_draft\nmcp__claude_ai_Gmail__list_drafts\nmcp__claude_ai_Gmail__get_thread\nmcp__claude_ai_Gmail__search_threads\nmcp__claude_ai_Gmail__label_thread\nmcp__claude_ai_Gmail__unlabel_thread\nmcp__claude_ai_Gmail__list_labels\nmcp__claude_ai_Gmail__label_message\nmcp__claude_ai_Gmail__unlabel_message\nmcp__claude_ai_Gmail__create_label\nmcp__claude_ai_Google_Calendar__list_events\nmcp__claude_ai_Google_Calendar__get_event\nmcp__claude_ai_Google_Calendar__list_calendars\nmcp__claude_ai_Google_Calendar__suggest_time\nmcp__claude_ai_Google_Calendar__create_event\nmcp__claude_ai_Google_Calendar__update_event\nmcp__claude_ai_Google_Calendar__delete_event\nmcp__claude_ai_Google_Calendar__respond_to_event\nmcp__claude_ai_Canva__upload-asset-from-url\nmcp__claude_ai_Canva__resolve-shortlink\nmcp__claude_ai_Canva__search-designs\nmcp__claude_ai_Canva__get-design\nmcp__claude_ai_Canva__get-design-pages\nmcp__claude_ai_Canva__get-design-content\nmcp__claude_ai_Canva__get-presenter-notes\nmcp__claude_ai_Canva__import-design-from-url\nmcp__claude_ai_Canva__export-design\nmcp__claude_ai_Canva__get-export-formats\nmcp__claude_ai_Canva__create-folder\nmcp__claude_ai_Canva__move-item-to-folder\nmcp__claude_ai_Canva__list-folder-items\nmcp__claude_ai_Canva__search-folders\nmcp__claude_ai_Canva__comment-on-design\nmcp__claude_ai_Canva__list-replies\nmcp__claude_ai_Canva__reply-to-comment\nmcp__claude_ai_Canva__list-comments\nmcp__claude_ai_Canva__generate-design\nmcp__claude_ai_Canva__generate-design-structured\nmcp__claude_ai_Canva__create-design-from-candidate\nmcp__claude_ai_Canva__request-outline-review\nmcp__claude_ai_Canva__list-brand-kits\nmcp__claude_ai_Canva__help\nmcp__claude_ai_Canva__resize-design\nmcp__claude_ai_Canva__start-editing-transaction\nmcp__claude_ai_Canva__perform-editing-operations\nmcp__claude_ai_Canva__commit-editing-transaction\nmcp__claude_ai_Canva__cancel-editing-transaction\nmcp__claude_ai_Canva__get-design-thumbnail\nmcp__claude_ai_Canva__get-assets\nmcp__claude_ai_Canva__merge-designs\nmcp__claude_ai_tldraw__search\nmcp__claude_ai_tldraw__exec\nmcp__claude_ai_tldraw___exec_callback\nmcp__claude_ai_tldraw___get_canvas_state\nmcp__claude_ai_tldraw__read_checkpoint\nmcp__claude_ai_tldraw__save_checkpoint\nmcp__claude_ai_Figma__get_screenshot\nmcp__claude_ai_Figma__create_design_system_rules\nmcp__claude_ai_Figma__get_design_context\nmcp__claude_ai_Figma__get_metadata\nmcp__claude_ai_Figma__get_variable_defs\nmcp__claude_ai_Figma__get_figjam\nmcp__claude_ai_Figma__generate_diagram\nmcp__claude_ai_Figma__get_code_connect_map\nmcp__claude_ai_Figma__whoami\nmcp__claude_ai_Figma__add_code_connect_map\nmcp__claude_ai_Figma__get_code_connect_suggestions\nmcp__claude_ai_Figma__send_code_connect_mappings\nmcp__claude_ai_Figma__get_context_for_code_connect\nmcp__claude_ai_Figma__use_figma\nmcp__claude_ai_Figma__get_libraries\nmcp__claude_ai_Figma__search_design_system\nmcp__claude_ai_Figma__create_new_file\nmcp__claude_ai_Figma__upload_assets"
+              "text": "Based on the deferred tools listed in the ToolSearch tool description, here are all the MCP tools currently available:\n\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003"
             }
           ]
         }
@@ -888,11 +888,11 @@
       "stop_reason": "end_turn",
       "usage": {
         "input_tokens": 3,
-        "output_tokens": 1363,
-        "cache_creation_input_tokens": 22252,
+        "output_tokens": 1453,
+        "cache_creation_input_tokens": 22342,
         "cache_read_input_tokens": 0,
-        "total_tokens": 1366,
-        "estimated_cost_usd": 0.519495
+        "total_tokens": 1456,
+        "estimated_cost_usd": 0.5279325
       },
       "status": "success",
       "request_params": {},
@@ -901,9 +901,9 @@
   ],
   "raw_captures": [
     {
-      "id": "92128aac-b6d4-48c2-9c06-5a4983638861",
-      "session_id": "6514ec9a-6884-4d7d-bf05-f34c0a1884c6",
-      "timestamp": "2026-05-04T07:45:31.586168",
+      "id": "d5e8c96f-a27b-473d-901d-a22abfce6770",
+      "session_id": "b50215fa-ae5c-42e9-bf41-867914574d06",
+      "timestamp": "2026-05-04T17:00:06.650736",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -944,45 +944,44 @@
           }
         ],
         "metadata": {
-          "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_eaaadbb3-1549-4746-bb20-fd8ad920d5a6"
+          "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_0f837fb2-9c45-47ee-b346-956e1297b402"
         }
       },
       "response_status": 200,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 07:45:31 GMT",
+        "Date": "Mon, 04 May 2026 17:00:06 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
         "anthropic-ratelimit-unified-status": "allowed",
         "anthropic-ratelimit-unified-5h-status": "allowed",
-        "anthropic-ratelimit-unified-5h-reset": "1777893000",
-        "anthropic-ratelimit-unified-5h-utilization": "0.31",
+        "anthropic-ratelimit-unified-5h-reset": "1777929000",
+        "anthropic-ratelimit-unified-5h-utilization": "0.48",
         "anthropic-ratelimit-unified-7d-status": "allowed",
         "anthropic-ratelimit-unified-7d-reset": "1778126400",
-        "anthropic-ratelimit-unified-7d-utilization": "0.37",
+        "anthropic-ratelimit-unified-7d-utilization": "0.48",
         "anthropic-ratelimit-unified-overage-status": "allowed",
         "anthropic-ratelimit-unified-overage-reset": "1780272000",
         "anthropic-ratelimit-unified-overage-utilization": "0.0",
         "anthropic-ratelimit-unified-representative-claim": "five_hour",
         "anthropic-ratelimit-unified-fallback-percentage": "0.5",
-        "anthropic-ratelimit-unified-reset": "1777893000",
-        "request-id": "req_011CahA3hJw2uoYVjHGFajKg",
+        "anthropic-ratelimit-unified-reset": "1777929000",
+        "request-id": "req_011CahtLYDc851oGuS5i3YPV",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-ab8978e5942758be3d611ab9cbe5c213-81b9ff21eedb61b8-01",
+        "traceresponse": "00-6b1392d0670c4f5189b01232e6d66d4a-79cde94edf671b9b-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "542",
-        "X-Robots-Tag": "none",
-        "vary": "Accept-Encoding",
-        "server-timing": "x-originResponse;dur=545",
-        "cf-cache-status": "DYNAMIC",
-        "set-cookie": "REDACTED",
+        "x-envoy-upstream-service-time": "621",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-        "CF-RAY": "9f65e2e92db1b341-SJC"
+        "vary": "Accept-Encoding",
+        "set-cookie": "REDACTED",
+        "X-Robots-Tag": "none",
+        "cf-cache-status": "DYNAMIC",
+        "CF-RAY": "9f690f49db10c710-SJC"
       },
       "response_body": {
         "model": "claude-haiku-4-5-20251001",
-        "id": "msg_01BuVZhxjWYfx7675uQ6d86w",
+        "id": "msg_014HNCQdothAANyVvCD4tj3N",
         "type": "message",
         "role": "assistant",
         "content": [
@@ -1014,9 +1013,9 @@
       "sse_events": []
     },
     {
-      "id": "38f0ea49-9f95-4cd4-966e-e79c076467fc",
-      "session_id": "6514ec9a-6884-4d7d-bf05-f34c0a1884c6",
-      "timestamp": "2026-05-04T07:45:55.213184",
+      "id": "7ad65b81-06f0-4513-9994-60e2f8d7b9a2",
+      "session_id": "b50215fa-ae5c-42e9-bf41-867914574d06",
+      "timestamp": "2026-05-04T17:00:30.558693",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -1045,7 +1044,7 @@
         "accept-language": "*",
         "sec-fetch-mode": "cors",
         "accept-encoding": "identity",
-        "content-length": "85138"
+        "content-length": "85351"
       },
       "request_body": {
         "model": "claude-opus-4-5-20251101",
@@ -1176,7 +1175,7 @@
           },
           {
             "name": "Bash",
-            "description": "Executes a given bash command with optional timeout. Working directory persists between commands; shell state (everything else) does not. The shell environment is initialized from the user's profile (bash or zsh).\n\nIMPORTANT: This tool is for terminal operations like git, npm, docker, etc. DO NOT use it for file operations (reading, writing, editing, searching, finding files) - use the specialized tools for this instead.\n\nBefore executing the command, please follow these steps:\n\n1. Directory Verification:\n   - If the command will create new directories or files, first use `ls` to verify the parent directory exists and is the correct location\n   - For example, before running \"mkdir foo/bar\", first use `ls foo` to check that \"foo\" exists and is the intended parent directory\n\n2. Command Execution:\n   - Always quote file paths that contain spaces with double quotes (e.g., cd \"path with spaces/file.txt\")\n   - Examples of proper quoting:\n     - cd \"/Users/name/My Documents\" (correct)\n     - cd /Users/name/My Documents (incorrect - will fail)\n     - python \"/path/with spaces/script.py\" (correct)\n     - python /path/with spaces/script.py (incorrect - will fail)\n   - After ensuring proper quoting, execute the command.\n   - Capture the output of the command.\n\nUsage notes:\n  - The command argument is required.\n  - You can specify an optional timeout in milliseconds (up to 600000ms / 10 minutes). If not specified, commands will timeout after 120000ms (2 minutes).\n  - It is very helpful if you write a clear, concise description of what this command does. For simple commands, keep it brief (5-10 words). For complex commands (piped commands, obscure flags, or anything hard to understand at a glance), add enough context to clarify what it does.\n  - If the output exceeds 30000 characters, output will be truncated before being returned to you.\n  \n  - You can use the `run_in_background` parameter to run the command in the background. Only use this if you don't need the result immediately and are OK being notified when the command completes later. You do not need to check the output right away - you'll be notified when it finishes. You do not need to use '&' at the end of the command when using this parameter.\n  \n  - Avoid using Bash with the `find`, `grep`, `cat`, `head`, `tail`, `sed`, `awk`, or `echo` commands, unless explicitly instructed or when these commands are truly necessary for the task. Instead, always prefer using the dedicated tools for these commands:\n    - File search: Use Glob (NOT find or ls)\n    - Content search: Use Grep (NOT grep or rg)\n    - Read files: Use Read (NOT cat/head/tail)\n    - Edit files: Use Edit (NOT sed/awk)\n    - Write files: Use Write (NOT echo >/cat <<EOF)\n    - Communication: Output text directly (NOT echo/printf)\n  - When issuing multiple commands:\n    - If the commands are independent and can run in parallel, make multiple Bash tool calls in a single message. For example, if you need to run \"git status\" and \"git diff\", send a single message with two Bash tool calls in parallel.\n    - If the commands depend on each other and must run sequentially, use a single Bash call with '&&' to chain them together (e.g., `git add . && git commit -m \"message\" && git push`). For instance, if one operation must complete before another starts (like mkdir before cp, Write before Bash for git operations, or git add before git commit), run these operations sequentially instead.\n    - Use ';' only when you need to run commands sequentially but don't care if earlier commands fail\n    - DO NOT use newlines to separate commands (newlines are ok in quoted strings)\n  - Try to maintain your current working directory throughout the session by using absolute paths and avoiding usage of `cd`. You may use `cd` if the User explicitly requests it.\n    <good-example>\n    pytest /foo/bar/tests\n    </good-example>\n    <bad-example>\n    cd /foo/bar && pytest tests\n    </bad-example>\n\n# Committing changes with git\n\nOnly create commits when requested by the user. If unclear, ask first. When the user asks you to create a new git commit, follow these steps carefully:\n\nGit Safety Protocol:\n- NEVER update the git config\n- NEVER run destructive git commands (push --force, reset --hard, checkout ., restore ., clean -f, branch -D) unless the user explicitly requests these actions. Taking unauthorized destructive actions is unhelpful and can result in lost work, so it's best to ONLY run these commands when given direct instructions \n- NEVER skip hooks (--no-verify, --no-gpg-sign, etc) unless the user explicitly requests it\n- NEVER run force push to main/master, warn the user if they request it\n- CRITICAL: Always create NEW commits rather than amending, unless the user explicitly requests a git amend. When a pre-commit hook fails, the commit did NOT happen  \u2014 so --amend would modify the PREVIOUS commit, which may result in destroying work or losing previous changes. Instead, after hook failure, fix the issue, re-stage, and create a NEW commit\n- When staging files, prefer adding specific files by name rather than using \"git add -A\" or \"git add .\", which can accidentally include sensitive files (.env, credentials) or large binaries\n- NEVER commit changes unless the user explicitly asks you to. It is VERY IMPORTANT to only commit when explicitly asked, otherwise the user will feel that you are being too proactive\n\n1. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following bash commands in parallel, each using the Bash tool:\n  - Run a git status command to see all untracked files. IMPORTANT: Never use the -uall flag as it can cause memory issues on large repos.\n  - Run a git diff command to see both staged and unstaged changes that will be committed.\n  - Run a git log command to see recent commit messages, so that you can follow this repository's commit message style.\n2. Analyze all staged changes (both previously staged and newly added) and draft a commit message:\n  - Summarize the nature of the changes (eg. new feature, enhancement to an existing feature, bug fix, refactoring, test, docs, etc.). Ensure the message accurately reflects the changes and their purpose (i.e. \"add\" means a wholly new feature, \"update\" means an enhancement to an existing feature, \"fix\" means a bug fix, etc.).\n  - Do not commit files that likely contain secrets (.env, credentials.json, etc). Warn the user if they specifically request to commit those files\n  - Draft a concise (1-2 sentences) commit message that focuses on the \"why\" rather than the \"what\"\n  - Ensure it accurately reflects the changes and their purpose\n3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands:\n   - Add relevant untracked files to the staging area.\n   - Create the commit with a message ending with:\n   Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\n   - Run git status after the commit completes to verify success.\n   Note: git status depends on the commit completing, so run it sequentially after the commit.\n4. If the commit fails due to pre-commit hook: fix the issue and create a NEW commit\n\nImportant notes:\n- NEVER run additional commands to read or explore code, besides git bash commands\n- NEVER use the TodoWrite or Task tools\n- DO NOT push to the remote repository unless the user explicitly asks you to do so\n- IMPORTANT: Never use git commands with the -i flag (like git rebase -i or git add -i) since they require interactive input which is not supported.\n- IMPORTANT: Do not use --no-edit with git rebase commands, as the --no-edit flag is not a valid option for git rebase.\n- If there are no changes to commit (i.e., no untracked files and no modifications), do not create an empty commit\n- In order to ensure good formatting, ALWAYS pass the commit message via a HEREDOC, a la this example:\n<example>\ngit commit -m \"$(cat <<'EOF'\n   Commit message here.\n\n   Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\n   EOF\n   )\"\n</example>\n\n# Creating pull requests\nUse the gh command via the Bash tool for ALL GitHub-related tasks including working with issues, pull requests, checks, and releases. If given a Github URL use the gh command to get the information needed.\n\nIMPORTANT: When the user asks you to create a pull request, follow these steps carefully:\n\n1. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following bash commands in parallel using the Bash tool, in order to understand the current state of the branch since it diverged from the main branch:\n   - Run a git status command to see all untracked files (never use -uall flag)\n   - Run a git diff command to see both staged and unstaged changes that will be committed\n   - Check if the current branch tracks a remote branch and is up to date with the remote, so you know if you need to push to the remote\n   - Run a git log command and `git diff [base-branch]...HEAD` to understand the full commit history for the current branch (from the time it diverged from the base branch)\n2. Analyze all changes that will be included in the pull request, making sure to look at all relevant commits (NOT just the latest commit, but ALL commits that will be included in the pull request!!!), and draft a pull request title and summary:\n   - Keep the PR title short (under 70 characters)\n   - Use the description/body for details, not the title\n3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands in parallel:\n   - Create new branch if needed\n   - Push to remote with -u flag if needed\n   - Create PR using gh pr create with the format below. Use a HEREDOC to pass the body to ensure correct formatting.\n<example>\ngh pr create --title \"the pr title\" --body \"$(cat <<'EOF'\n## Summary\n<1-3 bullet points>\n\n## Test plan\n[Bulleted markdown checklist of TODOs for testing the pull request...]\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\nEOF\n)\"\n</example>\n\nImportant:\n- DO NOT use the TodoWrite or Task tools\n- Return the PR URL when you're done, so the user can see it\n\n# Other common operations\n- View comments on a Github PR: gh api repos/foo/bar/pulls/123/comments",
+            "description": "Executes a given bash command with optional timeout. Working directory persists between commands; shell state (everything else) does not. The shell environment is initialized from the user's profile (bash or zsh).\n\nIMPORTANT: This tool is for terminal operations like git, npm, docker, etc. DO NOT use it for file operations (reading, writing, editing, searching, finding files) - use the specialized tools for this instead.\n\nBefore executing the command, please follow these steps:\n\n1. Directory Verification:\n   - If the command will create new directories or files, first use `ls` to verify the parent directory exists and is the correct location\n   - For example, before running \"mkdir foo/bar\", first use `ls foo` to check that \"foo\" exists and is the intended parent directory\n\n2. Command Execution:\n   - Always quote file paths that contain spaces with double quotes (e.g., cd \"path with spaces/file.txt\")\n   - Examples of proper quoting:\n     - cd \"/Users/name/My Documents\" (correct)\n     - cd /Users/name/My Documents (incorrect - will fail)\n     - python \"/path/with spaces/script.py\" (correct)\n     - python /path/with spaces/script.py (incorrect - will fail)\n   - After ensuring proper quoting, execute the command.\n   - Capture the output of the command.\n\nUsage notes:\n  - The command argument is required.\n  - You can specify an optional timeout in milliseconds (up to 600000ms / 10 minutes). If not specified, commands will timeout after 120000ms (2 minutes).\n  - It is very helpful if you write a clear, concise description of what this command does. For simple commands, keep it brief (5-10 words). For complex commands (piped commands, obscure flags, or anything hard to understand at a glance), add enough context to clarify what it does.\n  - If the output exceeds 30000 characters, output will be truncated before being returned to you.\n  \n  - You can use the `run_in_background` parameter to run the command in the background. Only use this if you don't need the result immediately and are OK being notified when the command completes later. You do not need to check the output right away - you'll be notified when it finishes. You do not need to use '&' at the end of the command when using this parameter.\n  \n  - Avoid using Bash with the `find`, `grep`, `cat`, `head`, `tail`, `sed`, `awk`, or `echo` commands, unless explicitly instructed or when these commands are truly necessary for the task. Instead, always prefer using the dedicated tools for these commands:\n    - File search: Use Glob (NOT find or ls)\n    - Content search: Use Grep (NOT grep or rg)\n    - Read files: Use Read (NOT cat/head/tail)\n    - Edit files: Use Edit (NOT sed/awk)\n    - Write files: Use Write (NOT echo >/cat <<EOF)\n    - Communication: Output text directly (NOT echo/printf)\n  - When issuing multiple commands:\n    - If the commands are independent and can run in parallel, make multiple Bash tool calls in a single message. For example, if you need to run \"git status\" and \"git diff\", send a single message with two Bash tool calls in parallel.\n    - If the commands depend on each other and must run sequentially, use a single Bash call with '&&' to chain them together (e.g., `git add . && git commit -m \"message\" && git push`). For instance, if one operation must complete before another starts (like mkdir before cp, Write before Bash for git operations, or git add before git commit), run these operations sequentially instead.\n    - Use ';' only when you need to run commands sequentially but don't care if earlier commands fail\n    - DO NOT use newlines to separate commands (newlines are ok in quoted strings)\n  - Try to maintain your current working directory throughout the session by using absolute paths and avoiding usage of `cd`. You may use `cd` if the User explicitly requests it.\n    <good-example>\n    pytest /foo/bar/tests\n    </good-example>\n    <bad-example>\n    cd /foo/bar && pytest tests\n    </bad-example>\n\n# Committing changes with git\n\nOnly create commits when requested by the user. If unclear, ask first. When the user asks you to create a new git commit, follow these steps carefully:\n\nGit Safety Protocol:\n- NEVER update the git config\n- NEVER run destructive git commands (push --force, reset --hard, checkout ., restore ., clean -f, branch -D) unless the user explicitly requests these actions. Taking unauthorized destructive actions is unhelpful and can result in lost work, so it's best to ONLY run these commands when given direct instructions \n- NEVER skip hooks (--no-verify, --no-gpg-sign, etc) unless the user explicitly requests it\n- NEVER run force push to main/master, warn the user if they request it\n- CRITICAL: Always create NEW commits rather than amending, unless the user explicitly requests a git amend. When a pre-commit hook fails, the commit did NOT happen  \u2014 so --amend would modify the PREVIOUS commit, which may result in destroying work or losing previous changes. Instead, after hook failure, fix the issue, re-stage, and create a NEW commit\n- When staging files, prefer adding specific files by name rather than using \"git add -A\" or \"git add .\", which can accidentally include sensitive files (.env, credentials) or large binaries\n- NEVER commit changes unless the user explicitly asks you to. It is VERY IMPORTANT to only commit when explicitly asked, otherwise the user will feel that you are being too proactive\n\n1. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following bash commands in parallel, each using the Bash tool:\n  - Run a git status command to see all untracked files. IMPORTANT: Never use the -uall flag as it can cause memory issues on large repos.\n  - Run a git diff command to see both staged and unstaged changes that will be committed.\n  - Run a git log command to see recent commit messages, so that you can follow this repository's commit message style.\n2. Analyze all staged changes (both previously staged and newly added) and draft a commit message:\n  - Summarize the nature of the changes (eg. new feature, enhancement to an existing feature, bug fix, refactoring, test, docs, etc.). Ensure the message accurately reflects the changes and their purpose (i.e. \"add\" means a wholly new feature, \"update\" means an enhancement to an existing feature, \"fix\" means a bug fix, etc.).\n  - Do not commit files that likely contain secrets (.env, credentials.json, etc). Warn the user if they specifically request to commit those files\n  - Draft a concise (1-2 sentences) commit message that focuses on the \"why\" rather than the \"what\"\n  - Ensure it accurately reflects the changes and their purpose\n3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands:\n   - Add relevant untracked files to the staging area.\n   - Create the commit with a message ending with:\n   Co-Authored-By: Claude Opus 4.5 <<USER_EMAIL>>\n   - Run git status after the commit completes to verify success.\n   Note: git status depends on the commit completing, so run it sequentially after the commit.\n4. If the commit fails due to pre-commit hook: fix the issue and create a NEW commit\n\nImportant notes:\n- NEVER run additional commands to read or explore code, besides git bash commands\n- NEVER use the TodoWrite or Task tools\n- DO NOT push to the remote repository unless the user explicitly asks you to do so\n- IMPORTANT: Never use git commands with the -i flag (like git rebase -i or git add -i) since they require interactive input which is not supported.\n- IMPORTANT: Do not use --no-edit with git rebase commands, as the --no-edit flag is not a valid option for git rebase.\n- If there are no changes to commit (i.e., no untracked files and no modifications), do not create an empty commit\n- In order to ensure good formatting, ALWAYS pass the commit message via a HEREDOC, a la this example:\n<example>\ngit commit -m \"$(cat <<'EOF'\n   Commit message here.\n\n   Co-Authored-By: Claude Opus 4.5 <<USER_EMAIL>>\n   EOF\n   )\"\n</example>\n\n# Creating pull requests\nUse the gh command via the Bash tool for ALL GitHub-related tasks including working with issues, pull requests, checks, and releases. If given a Github URL use the gh command to get the information needed.\n\nIMPORTANT: When the user asks you to create a pull request, follow these steps carefully:\n\n1. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following bash commands in parallel using the Bash tool, in order to understand the current state of the branch since it diverged from the main branch:\n   - Run a git status command to see all untracked files (never use -uall flag)\n   - Run a git diff command to see both staged and unstaged changes that will be committed\n   - Check if the current branch tracks a remote branch and is up to date with the remote, so you know if you need to push to the remote\n   - Run a git log command and `git diff [base-branch]...HEAD` to understand the full commit history for the current branch (from the time it diverged from the base branch)\n2. Analyze all changes that will be included in the pull request, making sure to look at all relevant commits (NOT just the latest commit, but ALL commits that will be included in the pull request!!!), and draft a pull request title and summary:\n   - Keep the PR title short (under 70 characters)\n   - Use the description/body for details, not the title\n3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands in parallel:\n   - Create new branch if needed\n   - Push to remote with -u flag if needed\n   - Create PR using gh pr create with the format below. Use a HEREDOC to pass the body to ensure correct formatting.\n<example>\ngh pr create --title \"the pr title\" --body \"$(cat <<'EOF'\n## Summary\n<1-3 bullet points>\n\n## Test plan\n[Bulleted markdown checklist of TODOs for testing the pull request...]\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\nEOF\n)\"\n</example>\n\nImportant:\n- DO NOT use the TodoWrite or Task tools\n- Return the PR URL when you're done, so the user can see it\n\n# Other common operations\n- View comments on a Github PR: gh api repos/foo/bar/pulls/123/comments",
             "input_schema": {
               "$schema": "https://json-schema.org/draft/2020-12/schema",
               "type": "object",
@@ -1745,7 +1744,7 @@
           },
           {
             "name": "ToolSearch",
-            "description": "Search for or select deferred tools to make them available for use.\n\n**MANDATORY PREREQUISITE - THIS IS A HARD REQUIREMENT**\n\nYou MUST use this tool to load deferred tools BEFORE calling them directly.\n\nThis is a BLOCKING REQUIREMENT - deferred tools listed below are NOT available until you load them using this tool. Both query modes (keyword search and direct selection) load the returned tools \u2014 once a tool appears in the results, it is immediately available to call.\n\n**Why this is non-negotiable:**\n- Deferred tools are not loaded until discovered via this tool\n- Calling a deferred tool without first loading it will fail\n\n**Query modes:**\n\n1. **Keyword search** - Use keywords when you're unsure which tool to use or need to discover multiple tools at once:\n   - \"list directory\" - find tools for listing directories\n   - \"notebook jupyter\" - find notebook editing tools\n   - \"slack message\" - find slack messaging tools\n   - Returns up to 5 matching tools ranked by relevance\n   - All returned tools are immediately available to call \u2014 no further selection step needed\n\n2. **Direct selection** - Use `select:<tool_name>` when you know the exact tool name and only need that one tool:\n   - \"select:mcp__slack__read_channel\"\n   - \"select:NotebookEdit\"\n   - Returns just that tool if it exists\n\n**IMPORTANT:** Both modes load tools equally. Do NOT follow up a keyword search with `select:` calls for tools already returned \u2014 they are already loaded.\n\n3. **Required keyword** - Prefix with `+` to require a match:\n   - \"+linear create issue\" - only tools from \"linear\", ranked by \"create\"/\"issue\"\n   - \"+slack send\" - only \"slack\" tools, ranked by \"send\"\n   - Useful when you know the service name but not the exact tool\n\n**CORRECT Usage Patterns:**\n\n<example>\nUser: I need to work with slack somehow\nAssistant: Let me search for slack tools.\n[Calls ToolSearch with query: \"slack\"]\nAssistant: Found several options including mcp__slack__read_channel.\n[Calls mcp__slack__read_channel directly \u2014 it was loaded by the keyword search]\n</example>\n\n<example>\nUser: Edit the Jupyter notebook\nAssistant: Let me load the notebook editing tool.\n[Calls ToolSearch with query: \"select:NotebookEdit\"]\n[Calls NotebookEdit]\n</example>\n\n<example>\nUser: List files in the src directory\nAssistant: I can see mcp__filesystem__list_directory in the available tools. Let me select it.\n[Calls ToolSearch with query: \"select:mcp__filesystem__list_directory\"]\n[Calls the tool]\n</example>\n\n**INCORRECT Usage Patterns - NEVER DO THESE:**\n\n<bad-example>\nUser: Read my slack messages\nAssistant: [Directly calls mcp__slack__read_channel without loading it first]\nWRONG - You must load the tool FIRST using this tool\n</bad-example>\n\n<bad-example>\nAssistant: [Calls ToolSearch with query: \"slack\", gets back mcp__slack__read_channel]\nAssistant: [Calls ToolSearch with query: \"select:mcp__slack__read_channel\"]\nWRONG - The keyword search already loaded the tool. The select call is redundant.\n</bad-example>\n\nAvailable deferred tools (must be loaded before use):\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\nmcp__claude_ai_Google_Drive__copy_file\nmcp__claude_ai_Google_Drive__create_file\nmcp__claude_ai_Google_Drive__download_file_content\nmcp__claude_ai_Google_Drive__get_file_metadata\nmcp__claude_ai_Google_Drive__get_file_permissions\nmcp__claude_ai_Google_Drive__list_recent_files\nmcp__claude_ai_Google_Drive__read_file_content\nmcp__claude_ai_Google_Drive__search_files\nmcp__claude_ai_Gmail__create_draft\nmcp__claude_ai_Gmail__list_drafts\nmcp__claude_ai_Gmail__get_thread\nmcp__claude_ai_Gmail__search_threads\nmcp__claude_ai_Gmail__label_thread\nmcp__claude_ai_Gmail__unlabel_thread\nmcp__claude_ai_Gmail__list_labels\nmcp__claude_ai_Gmail__label_message\nmcp__claude_ai_Gmail__unlabel_message\nmcp__claude_ai_Gmail__create_label\nmcp__claude_ai_Google_Calendar__list_events\nmcp__claude_ai_Google_Calendar__get_event\nmcp__claude_ai_Google_Calendar__list_calendars\nmcp__claude_ai_Google_Calendar__suggest_time\nmcp__claude_ai_Google_Calendar__create_event\nmcp__claude_ai_Google_Calendar__update_event\nmcp__claude_ai_Google_Calendar__delete_event\nmcp__claude_ai_Google_Calendar__respond_to_event\nmcp__claude_ai_Canva__upload-asset-from-url\nmcp__claude_ai_Canva__resolve-shortlink\nmcp__claude_ai_Canva__search-designs\nmcp__claude_ai_Canva__get-design\nmcp__claude_ai_Canva__get-design-pages\nmcp__claude_ai_Canva__get-design-content\nmcp__claude_ai_Canva__get-presenter-notes\nmcp__claude_ai_Canva__import-design-from-url\nmcp__claude_ai_Canva__export-design\nmcp__claude_ai_Canva__get-export-formats\nmcp__claude_ai_Canva__create-folder\nmcp__claude_ai_Canva__move-item-to-folder\nmcp__claude_ai_Canva__list-folder-items\nmcp__claude_ai_Canva__search-folders\nmcp__claude_ai_Canva__comment-on-design\nmcp__claude_ai_Canva__list-replies\nmcp__claude_ai_Canva__reply-to-comment\nmcp__claude_ai_Canva__list-comments\nmcp__claude_ai_Canva__generate-design\nmcp__claude_ai_Canva__generate-design-structured\nmcp__claude_ai_Canva__create-design-from-candidate\nmcp__claude_ai_Canva__request-outline-review\nmcp__claude_ai_Canva__list-brand-kits\nmcp__claude_ai_Canva__help\nmcp__claude_ai_Canva__resize-design\nmcp__claude_ai_Canva__start-editing-transaction\nmcp__claude_ai_Canva__perform-editing-operations\nmcp__claude_ai_Canva__commit-editing-transaction\nmcp__claude_ai_Canva__cancel-editing-transaction\nmcp__claude_ai_Canva__get-design-thumbnail\nmcp__claude_ai_Canva__get-assets\nmcp__claude_ai_Canva__merge-designs\nmcp__claude_ai_tldraw__search\nmcp__claude_ai_tldraw__exec\nmcp__claude_ai_tldraw___exec_callback\nmcp__claude_ai_tldraw___get_canvas_state\nmcp__claude_ai_tldraw__read_checkpoint\nmcp__claude_ai_tldraw__save_checkpoint\nmcp__claude_ai_Figma__get_screenshot\nmcp__claude_ai_Figma__create_design_system_rules\nmcp__claude_ai_Figma__get_design_context\nmcp__claude_ai_Figma__get_metadata\nmcp__claude_ai_Figma__get_variable_defs\nmcp__claude_ai_Figma__get_figjam\nmcp__claude_ai_Figma__generate_diagram\nmcp__claude_ai_Figma__get_code_connect_map\nmcp__claude_ai_Figma__whoami\nmcp__claude_ai_Figma__add_code_connect_map\nmcp__claude_ai_Figma__get_code_connect_suggestions\nmcp__claude_ai_Figma__send_code_connect_mappings\nmcp__claude_ai_Figma__get_context_for_code_connect\nmcp__claude_ai_Figma__use_figma\nmcp__claude_ai_Figma__get_libraries\nmcp__claude_ai_Figma__search_design_system\nmcp__claude_ai_Figma__create_new_file\nmcp__claude_ai_Figma__upload_assets",
+            "description": "Search for or select deferred tools to make them available for use.\n\n**MANDATORY PREREQUISITE - THIS IS A HARD REQUIREMENT**\n\nYou MUST use this tool to load deferred tools BEFORE calling them directly.\n\nThis is a BLOCKING REQUIREMENT - deferred tools listed below are NOT available until you load them using this tool. Both query modes (keyword search and direct selection) load the returned tools \u2014 once a tool appears in the results, it is immediately available to call.\n\n**Why this is non-negotiable:**\n- Deferred tools are not loaded until discovered via this tool\n- Calling a deferred tool without first loading it will fail\n\n**Query modes:**\n\n1. **Keyword search** - Use keywords when you're unsure which tool to use or need to discover multiple tools at once:\n   - \"list directory\" - find tools for listing directories\n   - \"notebook jupyter\" - find notebook editing tools\n   - \"slack message\" - find slack messaging tools\n   - Returns up to 5 matching tools ranked by relevance\n   - All returned tools are immediately available to call \u2014 no further selection step needed\n\n2. **Direct selection** - Use `select:<tool_name>` when you know the exact tool name and only need that one tool:\n   - \"select:mcp__slack__read_channel\"\n   - \"select:NotebookEdit\"\n   - Returns just that tool if it exists\n\n**IMPORTANT:** Both modes load tools equally. Do NOT follow up a keyword search with `select:` calls for tools already returned \u2014 they are already loaded.\n\n3. **Required keyword** - Prefix with `+` to require a match:\n   - \"+linear create issue\" - only tools from \"linear\", ranked by \"create\"/\"issue\"\n   - \"+slack send\" - only \"slack\" tools, ranked by \"send\"\n   - Useful when you know the service name but not the exact tool\n\n**CORRECT Usage Patterns:**\n\n<example>\nUser: I need to work with slack somehow\nAssistant: Let me search for slack tools.\n[Calls ToolSearch with query: \"slack\"]\nAssistant: Found several options including mcp__slack__read_channel.\n[Calls mcp__slack__read_channel directly \u2014 it was loaded by the keyword search]\n</example>\n\n<example>\nUser: Edit the Jupyter notebook\nAssistant: Let me load the notebook editing tool.\n[Calls ToolSearch with query: \"select:NotebookEdit\"]\n[Calls NotebookEdit]\n</example>\n\n<example>\nUser: List files in the src directory\nAssistant: I can see mcp__filesystem__list_directory in the available tools. Let me select it.\n[Calls ToolSearch with query: \"select:mcp__filesystem__list_directory\"]\n[Calls the tool]\n</example>\n\n**INCORRECT Usage Patterns - NEVER DO THESE:**\n\n<bad-example>\nUser: Read my slack messages\nAssistant: [Directly calls mcp__slack__read_channel without loading it first]\nWRONG - You must load the tool FIRST using this tool\n</bad-example>\n\n<bad-example>\nAssistant: [Calls ToolSearch with query: \"slack\", gets back mcp__slack__read_channel]\nAssistant: [Calls ToolSearch with query: \"select:mcp__slack__read_channel\"]\nWRONG - The keyword search already loaded the tool. The select call is redundant.\n</bad-example>\n\nAvailable deferred tools (must be loaded before use):\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003",
             "input_schema": {
               "$schema": "https://json-schema.org/draft/2020-12/schema",
               "type": "object",
@@ -1807,45 +1806,45 @@
           }
         ],
         "metadata": {
-          "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_eaaadbb3-1549-4746-bb20-fd8ad920d5a6"
+          "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_0f837fb2-9c45-47ee-b346-956e1297b402"
         },
         "max_tokens": 32000,
         "stream": true
       },
       "response_status": 200,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 07:45:39 GMT",
+        "Date": "Mon, 04 May 2026 17:00:14 GMT",
         "Content-Type": "text/event-stream; charset=utf-8",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
         "Cache-Control": "no-cache",
         "anthropic-ratelimit-unified-status": "allowed",
         "anthropic-ratelimit-unified-5h-status": "allowed",
-        "anthropic-ratelimit-unified-5h-reset": "1777893000",
-        "anthropic-ratelimit-unified-5h-utilization": "0.31",
+        "anthropic-ratelimit-unified-5h-reset": "1777929000",
+        "anthropic-ratelimit-unified-5h-utilization": "0.48",
         "anthropic-ratelimit-unified-7d-status": "allowed",
         "anthropic-ratelimit-unified-7d-reset": "1778126400",
-        "anthropic-ratelimit-unified-7d-utilization": "0.37",
+        "anthropic-ratelimit-unified-7d-utilization": "0.48",
         "anthropic-ratelimit-unified-overage-status": "allowed",
         "anthropic-ratelimit-unified-overage-reset": "1780272000",
         "anthropic-ratelimit-unified-overage-utilization": "0.0",
         "anthropic-ratelimit-unified-representative-claim": "five_hour",
         "anthropic-ratelimit-unified-fallback-percentage": "0.5",
-        "anthropic-ratelimit-unified-reset": "1777893000",
-        "request-id": "req_011CahA4GgdNktRnLeCFS3s9",
+        "anthropic-ratelimit-unified-reset": "1777929000",
+        "request-id": "req_011CahtM5nQBP4XNb6UZiT7z",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-49885823f948e97ff3e394fdb4ec8f6d-a485276c95ae48e4-01",
+        "traceresponse": "00-2540ab26363b24ffdb4526557f91d5a4-0f45e84695edbd89-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "970",
-        "X-Robots-Tag": "none",
-        "vary": "Accept-Encoding",
-        "cf-cache-status": "DYNAMIC",
-        "set-cookie": "REDACTED",
+        "x-envoy-upstream-service-time": "1370",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-        "CF-RAY": "9f65e319adb59e4d-SJC"
+        "vary": "Accept-Encoding",
+        "set-cookie": "REDACTED",
+        "X-Robots-Tag": "none",
+        "cf-cache-status": "DYNAMIC",
+        "CF-RAY": "9f690f778ea50db8-SJC"
       },
-      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-5-20251101\",\"id\":\"msg_01XzoExSKkFycGBjX5yiwMyQ\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":22252,\"cache_read_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":22252},\"output_tokens\":1,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}        }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}     }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Based\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" on the deferred tools listed in the ToolSearch\"} }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" tool description, here are all the MCP tools currently available:\\n\\nmcp__fixture__\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"tool_001\\nmcp__fixture__tool_002\\nmcp__fixture__tool_003\\nmcp__claude_ai_\"}           }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Google_Drive__copy_file\\nmcp__claude_ai_Google_Drive__create_file\\nmcp__claude_\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ai_Google_Drive__download_file_content\\nmcp__claude_ai_Google_Drive__get_file_metadata\\nmcp__claude_ai_Google_Drive__get_file_\"} }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"permissions\\nmcp__claude_ai_Google_Drive__list_recent_files\\nmcp__claude_ai_Google_Drive__read_file_content\\nmcp__claude_ai\"}}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_Google_Drive__search_files\\nmcp__claude_ai_Gmail__create_draft\\nmcp__claude_ai_Gmail__list_drafts\\nmcp__claude\"}    }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_ai_Gmail__get_thread\\nmcp__claude_ai_Gmail__search_threads\\nmcp__claude_ai_Gmail__label_thread\\nmcp__claude_ai_Gmail__unlabel_thread\\nmcp__claude\"}       }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_ai_Gmail__list_labels\\nmcp__claude_ai_Gmail__label_message\\nmcp__claude_ai_Gmail__unlabel_message\\nmcp__claude\"}               }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_ai_Gmail__create_label\\nmcp__claude_ai_Google_Calendar__list_events\\nmcp__claude_ai_Google_Calendar__get\"}       }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_event\\nmcp__claude_ai_Google_Calendar__list_calendars\\nmcp__claude_ai_Google_Calendar__suggest_time\\nmcp__claude_ai_Google_Calendar__create_event\\nmcp__claude_ai_Google\"}}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_Calendar__update_event\\nmcp__claude_ai_Google_Calendar__delete_event\\nmcp__claude_ai_Google_Calendar__respond_to_event\\nmcp__claude_ai_Can\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"va__upload-asset-from-url\\nmcp__claude_ai_Canva__resolve-short\"}           }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"link\\nmcp__claude_ai_Canva__search-designs\\nmcp__claude_ai_Canva__get-design\\nmcp__claude_ai_\"}             }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Canva__get-design-pages\\nmcp__claude_ai_Canva__get-design-content\\nmcp__claude_ai_Canva__get-presenter-notes\"}    }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"\\nmcp__claude_ai_Canva__import-design-from-url\\nmcp__claude_ai_Canva__export-design\\nmcp__claude_ai_Canva__get\"}             }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"-export-formats\\nmcp__claude_ai_Canva__create-folder\\nmcp__claude_ai_Canva__move-item\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"-to-folder\\nmcp__claude_ai_Canva__list-folder-items\\nmcp__claude_ai_Canva__search\"}}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"-folders\\nmcp__claude_ai_Canva__comment-on-design\\nmcp__claude_ai_Canva__list-replies\\nmcp__claude_ai_\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Canva__reply-to-comment\\nmcp__claude_ai_Canva__list-comments\\nmcp__claude_ai_Canva__generate-design\\nmcp__claude_ai_\"}    }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Canva__generate-design-structured\\nmcp__claude_ai_Canva__create-design-from-candidate\\nmcp__claude_ai_Canva__request-outline-review\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"\\nmcp__claude_ai_Canva__list-brand-kits\\nmcp__claude_ai_Canva__help\\nmcp__claude_ai_Canva__resize\"}    }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"-design\\nmcp__claude_ai_Canva__start-editing-transaction\\nmcp__claude_ai_Canva__perform-editing\"}             }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"-operations\\nmcp__claude_ai_Canva__commit-editing-transaction\\nmcp__claude_ai_Canva__cancel-editing-transaction\\nmcp__claude_ai_Canva__get\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"-design-thumbnail\\nmcp__claude_ai_Canva__get-assets\\nmcp__claude_ai_Canva__merge-designs\\nmcp__claude_ai_\"}        }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"tldraw__search\\nmcp__claude_ai_tldraw__exec\\nmcp__claude_ai_tldraw___exec\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_callback\\nmcp__claude_ai_tldraw___get_canvas_state\\nmcp__claude_ai_tldraw__\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"read_checkpoint\\nmcp__claude_ai_tldraw__save_checkpoint\\nmcp__claude_ai_Fig\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ma__get_screenshot\\nmcp__claude_ai_Figma__create_design_system_rules\\nmcp__claude_ai_\"}           }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Figma__get_design_context\\nmcp__claude_ai_Figma__get_metadata\\nmcp__claude_ai_Figma__get_variable_d\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"efs\\nmcp__claude_ai_Figma__get_figjam\\nmcp__claude_ai_Figma__generate_diagram\\nmcp__claude_ai_Figma__get_code\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_connect_map\\nmcp__claude_ai_Figma__whoami\\nmcp__claude_ai_Figma__add_code_connect_map\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"\\nmcp__claude_ai_Figma__get_code_connect_suggestions\\nmcp__claude_ai_Figma__send_code_connect_mappings\\nmcp__claude_ai_Figma__get_context\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_for_code_connect\\nmcp__claude_ai_Figma__use_figma\\nmcp__claude_ai_Figma__get_libraries\\nmcp__claude_ai_\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Figma__search_design_system\\nmcp__claude_ai_Figma__create_new_file\\nmcp__claude_ai_Figma__upload\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_assets\"}  }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0 }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":22252,\"cache_read_input_tokens\":0,\"output_tokens\":1363},\"context_management\":{\"applied_edits\":[]}  }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"        }\n\n",
+      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-5-20251101\",\"id\":\"msg_0179ewwww6a8zY2owvP1e9eS\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":22342,\"cache_read_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":22342},\"output_tokens\":1,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}} }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}   }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Based\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" on the deferred tools listed in the ToolSearch\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" tool description, here are all the MCP tools currently available:\\n\\nmcp__fixture__\"}        }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"tool_001\\nmcp__fixture__tool_002\\nmcp__fixture__tool_003\"}       }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Excalidraw__read_me\"} }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_to_excalidraw\"}           }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_checkpoint\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_thread\\nmcp__claude\"}   }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_ai_Gmail__list_labels\"}               }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_label\"}  }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"\"}             }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_permissions\"}             }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_Google_Drive__search_files\"} }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"tldraw___exec_callback\\nmcp__claude_\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ai_tldraw__read_checkpoint\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_screenshot\"}           }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Figma__get_metadata\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Figma__generate_diagram\"}        }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ami\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Figma__send_code_connect_mappings\\nmcp__claude\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_ai_Figma__get_libraries\"}             }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_file\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_events\"} }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_time\"}             }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_Google_Calendar__respond_to_event\"}        }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"from-url\"} }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"\"}       }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Canva__move-item-to-folder\"}               }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"-replies\"}       }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"-design\"}   }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Canva__request-outline-review\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"_Canva__help\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"\"}  }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"cancel-editing-transaction\"}  }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Canva__merge-designs\"}               }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0               }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":22342,\"cache_read_input_tokens\":0,\"output_tokens\":1453},\"context_management\":{\"applied_edits\":[]}              }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\" }\n\n",
       "is_streaming": true,
       "sse_events": [
         {
@@ -1854,7 +1853,7 @@
             "type": "message_start",
             "message": {
               "model": "claude-opus-4-5-20251101",
-              "id": "msg_01XzoExSKkFycGBjX5yiwMyQ",
+              "id": "msg_0179ewwww6a8zY2owvP1e9eS",
               "type": "message",
               "role": "assistant",
               "content": [],
@@ -1863,11 +1862,11 @@
               "stop_details": null,
               "usage": {
                 "input_tokens": 3,
-                "cache_creation_input_tokens": 22252,
+                "cache_creation_input_tokens": 22342,
                 "cache_read_input_tokens": 0,
                 "cache_creation": {
                   "ephemeral_5m_input_tokens": 0,
-                  "ephemeral_1h_input_tokens": 22252
+                  "ephemeral_1h_input_tokens": 22342
                 },
                 "output_tokens": 1,
                 "service_tier": "standard",
@@ -1933,7 +1932,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\nmcp__claude_ai_"
+              "text": "tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003"
             }
           }
         },
@@ -1944,7 +1943,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "Google_Drive__copy_file\nmcp__claude_ai_Google_Drive__create_file\nmcp__claude_"
+              "text": "Excalidraw__read_me"
             }
           }
         },
@@ -1955,7 +1954,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "ai_Google_Drive__download_file_content\nmcp__claude_ai_Google_Drive__get_file_metadata\nmcp__claude_ai_Google_Drive__get_file_"
+              "text": "_to_excalidraw"
             }
           }
         },
@@ -1966,7 +1965,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "permissions\nmcp__claude_ai_Google_Drive__list_recent_files\nmcp__claude_ai_Google_Drive__read_file_content\nmcp__claude_ai"
+              "text": "_checkpoint"
             }
           }
         },
@@ -1977,7 +1976,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "_Google_Drive__search_files\nmcp__claude_ai_Gmail__create_draft\nmcp__claude_ai_Gmail__list_drafts\nmcp__claude"
+              "text": "_thread\nmcp__claude"
             }
           }
         },
@@ -1988,7 +1987,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "_ai_Gmail__get_thread\nmcp__claude_ai_Gmail__search_threads\nmcp__claude_ai_Gmail__label_thread\nmcp__claude_ai_Gmail__unlabel_thread\nmcp__claude"
+              "text": "_ai_Gmail__list_labels"
             }
           }
         },
@@ -1999,7 +1998,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "_ai_Gmail__list_labels\nmcp__claude_ai_Gmail__label_message\nmcp__claude_ai_Gmail__unlabel_message\nmcp__claude"
+              "text": "_label"
             }
           }
         },
@@ -2010,7 +2009,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "_ai_Gmail__create_label\nmcp__claude_ai_Google_Calendar__list_events\nmcp__claude_ai_Google_Calendar__get"
+              "text": ""
             }
           }
         },
@@ -2021,7 +2020,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "_event\nmcp__claude_ai_Google_Calendar__list_calendars\nmcp__claude_ai_Google_Calendar__suggest_time\nmcp__claude_ai_Google_Calendar__create_event\nmcp__claude_ai_Google"
+              "text": "_permissions"
             }
           }
         },
@@ -2032,7 +2031,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "_Calendar__update_event\nmcp__claude_ai_Google_Calendar__delete_event\nmcp__claude_ai_Google_Calendar__respond_to_event\nmcp__claude_ai_Can"
+              "text": "_Google_Drive__search_files"
             }
           }
         },
@@ -2043,7 +2042,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "va__upload-asset-from-url\nmcp__claude_ai_Canva__resolve-short"
+              "text": "tldraw___exec_callback\nmcp__claude_"
             }
           }
         },
@@ -2054,7 +2053,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "link\nmcp__claude_ai_Canva__search-designs\nmcp__claude_ai_Canva__get-design\nmcp__claude_ai_"
+              "text": "ai_tldraw__read_checkpoint"
             }
           }
         },
@@ -2065,7 +2064,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "Canva__get-design-pages\nmcp__claude_ai_Canva__get-design-content\nmcp__claude_ai_Canva__get-presenter-notes"
+              "text": "_screenshot"
             }
           }
         },
@@ -2076,7 +2075,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "\nmcp__claude_ai_Canva__import-design-from-url\nmcp__claude_ai_Canva__export-design\nmcp__claude_ai_Canva__get"
+              "text": "Figma__get_metadata"
             }
           }
         },
@@ -2087,7 +2086,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "-export-formats\nmcp__claude_ai_Canva__create-folder\nmcp__claude_ai_Canva__move-item"
+              "text": "Figma__generate_diagram"
             }
           }
         },
@@ -2098,7 +2097,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "-to-folder\nmcp__claude_ai_Canva__list-folder-items\nmcp__claude_ai_Canva__search"
+              "text": "ami"
             }
           }
         },
@@ -2109,7 +2108,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "-folders\nmcp__claude_ai_Canva__comment-on-design\nmcp__claude_ai_Canva__list-replies\nmcp__claude_ai_"
+              "text": "Figma__send_code_connect_mappings\nmcp__claude"
             }
           }
         },
@@ -2120,7 +2119,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "Canva__reply-to-comment\nmcp__claude_ai_Canva__list-comments\nmcp__claude_ai_Canva__generate-design\nmcp__claude_ai_"
+              "text": "_ai_Figma__get_libraries"
             }
           }
         },
@@ -2131,7 +2130,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "Canva__generate-design-structured\nmcp__claude_ai_Canva__create-design-from-candidate\nmcp__claude_ai_Canva__request-outline-review"
+              "text": "_file"
             }
           }
         },
@@ -2142,7 +2141,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "\nmcp__claude_ai_Canva__list-brand-kits\nmcp__claude_ai_Canva__help\nmcp__claude_ai_Canva__resize"
+              "text": "_events"
             }
           }
         },
@@ -2153,7 +2152,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "-design\nmcp__claude_ai_Canva__start-editing-transaction\nmcp__claude_ai_Canva__perform-editing"
+              "text": "_time"
             }
           }
         },
@@ -2164,7 +2163,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "-operations\nmcp__claude_ai_Canva__commit-editing-transaction\nmcp__claude_ai_Canva__cancel-editing-transaction\nmcp__claude_ai_Canva__get"
+              "text": "_Google_Calendar__respond_to_event"
             }
           }
         },
@@ -2175,7 +2174,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "-design-thumbnail\nmcp__claude_ai_Canva__get-assets\nmcp__claude_ai_Canva__merge-designs\nmcp__claude_ai_"
+              "text": "from-url"
             }
           }
         },
@@ -2186,7 +2185,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "tldraw__search\nmcp__claude_ai_tldraw__exec\nmcp__claude_ai_tldraw___exec"
+              "text": ""
             }
           }
         },
@@ -2197,7 +2196,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "_callback\nmcp__claude_ai_tldraw___get_canvas_state\nmcp__claude_ai_tldraw__"
+              "text": ""
             }
           }
         },
@@ -2208,7 +2207,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "read_checkpoint\nmcp__claude_ai_tldraw__save_checkpoint\nmcp__claude_ai_Fig"
+              "text": ""
             }
           }
         },
@@ -2219,7 +2218,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "ma__get_screenshot\nmcp__claude_ai_Figma__create_design_system_rules\nmcp__claude_ai_"
+              "text": "Canva__move-item-to-folder"
             }
           }
         },
@@ -2230,7 +2229,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "Figma__get_design_context\nmcp__claude_ai_Figma__get_metadata\nmcp__claude_ai_Figma__get_variable_d"
+              "text": ""
             }
           }
         },
@@ -2241,7 +2240,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "efs\nmcp__claude_ai_Figma__get_figjam\nmcp__claude_ai_Figma__generate_diagram\nmcp__claude_ai_Figma__get_code"
+              "text": "-replies"
             }
           }
         },
@@ -2252,7 +2251,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "_connect_map\nmcp__claude_ai_Figma__whoami\nmcp__claude_ai_Figma__add_code_connect_map"
+              "text": "-design"
             }
           }
         },
@@ -2263,7 +2262,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "\nmcp__claude_ai_Figma__get_code_connect_suggestions\nmcp__claude_ai_Figma__send_code_connect_mappings\nmcp__claude_ai_Figma__get_context"
+              "text": "Canva__request-outline-review"
             }
           }
         },
@@ -2274,7 +2273,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "_for_code_connect\nmcp__claude_ai_Figma__use_figma\nmcp__claude_ai_Figma__get_libraries\nmcp__claude_ai_"
+              "text": "_Canva__help"
             }
           }
         },
@@ -2285,7 +2284,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "Figma__search_design_system\nmcp__claude_ai_Figma__create_new_file\nmcp__claude_ai_Figma__upload"
+              "text": ""
             }
           }
         },
@@ -2296,7 +2295,18 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "_assets"
+              "text": "cancel-editing-transaction"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 0,
+            "delta": {
+              "type": "text_delta",
+              "text": "Canva__merge-designs"
             }
           }
         },
@@ -2318,9 +2328,9 @@
             },
             "usage": {
               "input_tokens": 3,
-              "cache_creation_input_tokens": 22252,
+              "cache_creation_input_tokens": 22342,
               "cache_read_input_tokens": 0,
-              "output_tokens": 1363
+              "output_tokens": 1453
             },
             "context_management": {
               "applied_edits": []

@@ -1,21 +1,21 @@
 {
   "session": {
-    "id": "0cf67aea-b8b0-48a2-b12f-53d442917cf6",
+    "id": "cfb865b3-1b0b-4313-9772-beccb7d85065",
     "name": "03-with-mcp",
-    "started_at": "2026-05-04T09:29:38.138188",
-    "ended_at": "2026-05-04T09:29:46.316842",
+    "started_at": "2026-05-04T18:53:06.673460",
+    "ended_at": "2026-05-04T18:53:13.796117",
     "request_count": 0,
     "total_tokens": 0,
     "estimated_cost_usd": 0.0
   },
   "stats": {
     "total_requests": 1,
-    "total_tokens": 109,
+    "total_tokens": 54,
     "total_input_tokens": 3,
-    "total_output_tokens": 106,
-    "estimated_cost_usd": 0.035583,
-    "avg_duration_ms": 3355.1981449127197,
-    "avg_tokens_per_request": 109.0,
+    "total_output_tokens": 51,
+    "estimated_cost_usd": 0.03162675,
+    "avg_duration_ms": 2362.4329566955566,
+    "avg_tokens_per_request": 54.0,
     "models_used": [
       "claude-opus-4-6"
     ],
@@ -25,15 +25,15 @@
   },
   "requests": [
     {
-      "id": "6ce58cd5-5c93-4cd0-adea-c03d5cd1ae55",
-      "session_id": "0cf67aea-b8b0-48a2-b12f-53d442917cf6",
-      "raw_capture_id": "05bd945e-8a8c-47a5-9fce-a239c6253e3b",
+      "id": "f1aaf3cd-2073-42e2-ae5a-a545419758f6",
+      "session_id": "cfb865b3-1b0b-4313-9772-beccb7d85065",
+      "raw_capture_id": "ad958e19-fef4-4153-bb40-1e12ba0b5a62",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T09:29:43.905784",
-      "duration_ms": 3355.1981449127197,
-      "time_to_first_token_ms": 2841.2365913391113,
+      "timestamp": "2026-05-04T18:53:11.380331",
+      "duration_ms": 2362.4329566955566,
+      "time_to_first_token_ms": 1740.5540943145752,
       "provider": "anthropic",
       "model": "claude-opus-4-6",
       "api_endpoint": "https://api.anthropic.com/v1/messages?beta=true",
@@ -53,7 +53,7 @@
           "content": [
             {
               "type": "text",
-              "text": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nNotebookEdit\nRead\nRemoteTrigger\nSkill\nTaskOutput\nTaskStop\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
+              "text": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nNotebookEdit\nRead\nRemoteTrigger\nSendMessage\nSkill\nTaskOutput\nTaskStop\nTeamCreate\nTeamDelete\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
             }
           ]
         },
@@ -108,12 +108,8 @@
           "role": "assistant",
           "content": [
             {
-              "type": "thinking",
-              "thinking": "The user wants me to list all MCP tools available. From the deferred tools list, I can see tools prefixed with `mcp__`:\n\n- mcp__fixture__tool_001\n- mcp__fixture__tool_002\n- mcp__fixture__tool_003"
-            },
-            {
               "type": "text",
-              "text": "mcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003"
+              "text": "\n\nBased on the available deferred tools list, here are the MCP tools:\n\n```\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n```"
             }
           ]
         }
@@ -121,11 +117,11 @@
       "stop_reason": "end_turn",
       "usage": {
         "input_tokens": 3,
-        "output_tokens": 106,
-        "cache_creation_input_tokens": 1140,
+        "output_tokens": 51,
+        "cache_creation_input_tokens": 1149,
         "cache_read_input_tokens": 4142,
-        "total_tokens": 109,
-        "estimated_cost_usd": 0.035583
+        "total_tokens": 54,
+        "estimated_cost_usd": 0.03162675
       },
       "status": "success",
       "request_params": {},
@@ -134,9 +130,9 @@
   ],
   "raw_captures": [
     {
-      "id": "05bd945e-8a8c-47a5-9fce-a239c6253e3b",
-      "session_id": "0cf67aea-b8b0-48a2-b12f-53d442917cf6",
-      "timestamp": "2026-05-04T09:29:43.905784",
+      "id": "ad958e19-fef4-4153-bb40-1e12ba0b5a62",
+      "session_id": "cfb865b3-1b0b-4313-9772-beccb7d85065",
+      "timestamp": "2026-05-04T18:53:11.380331",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -165,14 +161,14 @@
         "accept-language": "*",
         "sec-fetch-mode": "cors",
         "accept-encoding": "identity",
-        "content-length": "21619"
+        "content-length": "21656"
       },
       "request_body": {
         "model": "claude-opus-4-6",
         "messages": [
           {
             "role": "user",
-            "content": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nNotebookEdit\nRead\nRemoteTrigger\nSkill\nTaskOutput\nTaskStop\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
+            "content": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nNotebookEdit\nRead\nRemoteTrigger\nSendMessage\nSkill\nTaskOutput\nTaskStop\nTeamCreate\nTeamDelete\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
           },
           {
             "role": "user",
@@ -245,7 +241,7 @@
           }
         ],
         "metadata": {
-          "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"8833fc4d-3dec-47ab-b955-6122239f45dd\"}"
+          "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"f696acb8-e70c-48c0-977d-ad7087c17859\"}"
         },
         "max_tokens": 64000,
         "thinking": {
@@ -266,43 +262,41 @@
       },
       "response_status": 200,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 09:29:43 GMT",
+        "Date": "Mon, 04 May 2026 18:53:10 GMT",
         "Content-Type": "text/event-stream; charset=utf-8",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
         "Cache-Control": "no-cache",
-        "anthropic-ratelimit-unified-status": "allowed_warning",
-        "anthropic-ratelimit-unified-5h-status": "allowed_warning",
-        "anthropic-ratelimit-unified-5h-reset": "1777893000",
+        "anthropic-ratelimit-unified-status": "rejected",
+        "anthropic-ratelimit-unified-5h-status": "rejected",
+        "anthropic-ratelimit-unified-5h-reset": "1777929000",
         "anthropic-ratelimit-unified-5h-utilization": "1.0",
-        "anthropic-ratelimit-unified-5h-surpassed-threshold": "0.9",
+        "anthropic-ratelimit-unified-5h-surpassed-threshold": "1.0",
         "anthropic-ratelimit-unified-7d-status": "allowed",
         "anthropic-ratelimit-unified-7d-reset": "1778126400",
-        "anthropic-ratelimit-unified-7d-utilization": "0.43",
+        "anthropic-ratelimit-unified-7d-utilization": "0.51",
         "anthropic-ratelimit-unified-overage-status": "allowed",
         "anthropic-ratelimit-unified-overage-reset": "1780272000",
         "anthropic-ratelimit-unified-overage-utilization": "0.0",
         "anthropic-ratelimit-unified-representative-claim": "five_hour",
         "anthropic-ratelimit-unified-fallback-percentage": "0.5",
-        "anthropic-ratelimit-unified-fallback": "available",
-        "anthropic-ratelimit-unified-reset": "1777893000",
+        "anthropic-ratelimit-unified-reset": "1777929000",
         "anthropic-ratelimit-unified-upgrade-paths": "overage",
         "anthropic-ratelimit-unified-overage-in-use": "true",
-        "request-id": "req_011CahHzPAsmUVB2Lv7Y5hFP",
+        "request-id": "req_011Cai2xZ4tYEjuq7dHpPTC2",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-9b11a244bb1e2650ba1e0155effeb44b-68e423dbdc67c5a8-01",
+        "traceresponse": "00-5d1d4619aae2b126d000a14a76020c21-7bf3b0a31d72f77f-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "2697",
+        "x-envoy-upstream-service-time": "1599",
         "X-Robots-Tag": "none",
         "vary": "Accept-Encoding",
-        "server-timing": "x-originResponse;dur=2700",
         "cf-cache-status": "DYNAMIC",
         "set-cookie": "REDACTED",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-        "CF-RAY": "9f667b7d4a6333ed-SJC"
+        "CF-RAY": "9f69b4e44e087ab0-SJC"
       },
-      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-6\",\"id\":\"msg_01CZurgWjfdMTUwxrogy4LjR\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":1140,\"cache_read_input_tokens\":4142,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1140},\"output_tokens\":47,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}            }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"thinking\",\"thinking\":\"\",\"signature\":\"\"}          }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\"The user wants me to list all MCP tools available. From the deferred tools list, I can see tools prefixed with `mcp__`:\\n\\n- mcp__fixture__tool\"} }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\"_001\\n- mcp__fixture__tool_002\\n- mcp__fixture__tool_003\"}       }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"signature_delta\",\"signature\":\"Ev8CClkIDRgCKkAZ5I9VUlSfhChdGk+YZNz3mzGM++uTy/yvQC7l7QGvdMlsftxfvI68RI3n3rWPe3Ioc20mEj6FgPcT7bjmMjAdMg9jbGF1ZGUtb3B1cy00LTY4ABIM7XrLTVikjooAWKZHGgwq4V3VXPQDESHZLswiMCiuOuWRzz41xuoRI/3qzFtKmfWnoOecnZ7CI2lfPhgAYihdteDV1+0ecZmJCu0BXCrTAfHgPcj0VI9yiCGHpIvnJDO/ulItxkicKTQpvSktbcZSRmHFrJygyHz6G2vhByaudq6epJdF1+XVcRoCXtUq+SXRL/raY1+vgvOYtkPu+EGCG4tJckuVJ9MfM+/d2KyC7Y3KvHP9lIj1RW5Bh39Y8q2sA6T1ZP3OH4XFHWFpLhQ+v9W29G3y5NtCZ9gs2b3y81TEfeEJnK27IQDkRHJgTwn/LqU8QEhZNOBDb55mLtvnonPg9T5E5VknQYcw+t6bJqFFnpy7j0JxiA6FKFss8ke1/RQYAQ==\"}  }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0            }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":1,\"content_block\":{\"type\":\"text\",\"text\":\"\"}               }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"mcp__fixture__tool_001\\nmcp__fixture__tool_002\\nmcp__fixture__tool_003\"}       }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":1        }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":1140,\"cache_read_input_tokens\":4142,\"output_tokens\":106},\"context_management\":{\"applied_edits\":[]}             }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"              }\n\n",
+      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-6\",\"id\":\"msg_01ADexc4eNSo61QjK5vYSYaG\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":1149,\"cache_read_input_tokens\":4142,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1149},\"output_tokens\":2,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}  }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}        }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"\\n\\nBased\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" on the available deferred tools list, here are the MCP tools:\\n\\n```\\nmcp__fixture__tool_001\\nmcp__fixture__tool_002\\nmcp__fixture__tool_003\\n```\"}           }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0               }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":1149,\"cache_read_input_tokens\":4142,\"output_tokens\":51},\"context_management\":{\"applied_edits\":[]} }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"              }\n\n",
       "is_streaming": true,
       "sse_events": [
         {
@@ -311,7 +305,7 @@
             "type": "message_start",
             "message": {
               "model": "claude-opus-4-6",
-              "id": "msg_01CZurgWjfdMTUwxrogy4LjR",
+              "id": "msg_01ADexc4eNSo61QjK5vYSYaG",
               "type": "message",
               "role": "assistant",
               "content": [],
@@ -320,13 +314,13 @@
               "stop_details": null,
               "usage": {
                 "input_tokens": 3,
-                "cache_creation_input_tokens": 1140,
+                "cache_creation_input_tokens": 1149,
                 "cache_read_input_tokens": 4142,
                 "cache_creation": {
                   "ephemeral_5m_input_tokens": 0,
-                  "ephemeral_1h_input_tokens": 1140
+                  "ephemeral_1h_input_tokens": 1149
                 },
-                "output_tokens": 47,
+                "output_tokens": 2,
                 "service_tier": "standard",
                 "inference_geo": "not_available"
               }
@@ -339,9 +333,8 @@
             "type": "content_block_start",
             "index": 0,
             "content_block": {
-              "type": "thinking",
-              "thinking": "",
-              "signature": ""
+              "type": "text",
+              "text": ""
             }
           }
         },
@@ -357,8 +350,8 @@
             "type": "content_block_delta",
             "index": 0,
             "delta": {
-              "type": "thinking_delta",
-              "thinking": "The user wants me to list all MCP tools available. From the deferred tools list, I can see tools prefixed with `mcp__`:\n\n- mcp__fixture__tool"
+              "type": "text_delta",
+              "text": "\n\nBased"
             }
           }
         },
@@ -368,19 +361,8 @@
             "type": "content_block_delta",
             "index": 0,
             "delta": {
-              "type": "thinking_delta",
-              "thinking": "_001\n- mcp__fixture__tool_002\n- mcp__fixture__tool_003"
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "signature_delta",
-              "signature": "Ev8CClkIDRgCKkAZ5I9VUlSfhChdGk+YZNz3mzGM++uTy/yvQC7l7QGvdMlsftxfvI68RI3n3rWPe3Ioc20mEj6FgPcT7bjmMjAdMg9jbGF1ZGUtb3B1cy00LTY4ABIM7XrLTVikjooAWKZHGgwq4V3VXPQDESHZLswiMCiuOuWRzz41xuoRI/3qzFtKmfWnoOecnZ7CI2lfPhgAYihdteDV1+0ecZmJCu0BXCrTAfHgPcj0VI9yiCGHpIvnJDO/ulItxkicKTQpvSktbcZSRmHFrJygyHz6G2vhByaudq6epJdF1+XVcRoCXtUq+SXRL/raY1+vgvOYtkPu+EGCG4tJckuVJ9MfM+/d2KyC7Y3KvHP9lIj1RW5Bh39Y8q2sA6T1ZP3OH4XFHWFpLhQ+v9W29G3y5NtCZ9gs2b3y81TEfeEJnK27IQDkRHJgTwn/LqU8QEhZNOBDb55mLtvnonPg9T5E5VknQYcw+t6bJqFFnpy7j0JxiA6FKFss8ke1/RQYAQ=="
+              "type": "text_delta",
+              "text": " on the available deferred tools list, here are the MCP tools:\n\n```\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n```"
             }
           }
         },
@@ -389,35 +371,6 @@
           "data": {
             "type": "content_block_stop",
             "index": 0
-          }
-        },
-        {
-          "event": "content_block_start",
-          "data": {
-            "type": "content_block_start",
-            "index": 1,
-            "content_block": {
-              "type": "text",
-              "text": ""
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 1,
-            "delta": {
-              "type": "text_delta",
-              "text": "mcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003"
-            }
-          }
-        },
-        {
-          "event": "content_block_stop",
-          "data": {
-            "type": "content_block_stop",
-            "index": 1
           }
         },
         {
@@ -431,9 +384,9 @@
             },
             "usage": {
               "input_tokens": 3,
-              "cache_creation_input_tokens": 1140,
+              "cache_creation_input_tokens": 1149,
               "cache_read_input_tokens": 4142,
-              "output_tokens": 106
+              "output_tokens": 51
             },
             "context_management": {
               "applied_edits": []

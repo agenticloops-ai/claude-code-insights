@@ -2,26 +2,26 @@
   "version": "2.1.108",
   "dir_name": "2026-04-14_2.1.108",
   "scenario": "03-with-mcp",
-  "captured_at": "2026-05-04T10:05:58.918663",
+  "captured_at": "2026-05-04T19:34:05.330575",
   "request_count": 2,
   "models": [
     "claude-haiku-4-5-20251001",
     "claude-opus-4-6"
   ],
   "tool_count_first_request": 10,
-  "deferred_tool_count": 0,
+  "deferred_tool_count": 21,
   "mcp_tool_count_advertised": 0,
   "mcp_tool_count_deferred": 0,
   "system_prompt_chars": 26300,
-  "user_prompt_chars": 3291,
+  "user_prompt_chars": 383,
   "skill_count": 12,
   "reminder_count": 3,
   "tokens": {
     "input": 370,
-    "output": 1241,
-    "cache_read": 12055,
-    "cache_creation": 6114,
-    "total": 1611
+    "output": 1619,
+    "cache_read": 12184,
+    "cache_creation": 6994,
+    "total": 1989
   },
-  "duration_ms_total": 13436
+  "duration_ms_total": 23277
 }

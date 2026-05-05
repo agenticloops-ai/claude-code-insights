@@ -2,7 +2,7 @@
   {
     "index": 1,
     "model": "claude-haiku-4-5-20251001",
-    "duration_ms": 580.9316635131836,
+    "duration_ms": 569.4332122802734,
     "tool_count": 0,
     "stop_reason": "max_tokens",
     "input_tokens": 8,
@@ -11,82 +11,19 @@
   {
     "index": 2,
     "model": "claude-opus-4-5-20251101",
-    "duration_ms": 2477.0448207855225,
+    "duration_ms": 3511.657238006592,
     "tool_count": 20,
     "stop_reason": "tool_use",
     "input_tokens": 3,
-    "output_tokens": 89
+    "output_tokens": 96
   },
   {
     "index": 3,
     "model": "claude-opus-4-5-20251101",
-    "duration_ms": 4229.026317596436,
+    "duration_ms": 18845.597505569458,
     "tool_count": 24,
-    "stop_reason": "tool_use",
-    "input_tokens": 1,
-    "output_tokens": 323
-  },
-  {
-    "index": 4,
-    "model": "claude-opus-4-5-20251101",
-    "duration_ms": 4105.186223983765,
-    "tool_count": 46,
-    "stop_reason": "tool_use",
-    "input_tokens": 1,
-    "output_tokens": 312
-  },
-  {
-    "index": 5,
-    "model": "claude-opus-4-5-20251101",
-    "duration_ms": 4621.998310089111,
-    "tool_count": 65,
-    "stop_reason": "tool_use",
-    "input_tokens": 3,
-    "output_tokens": 315
-  },
-  {
-    "index": 6,
-    "model": "claude-opus-4-5-20251101",
-    "duration_ms": 6255.023002624512,
-    "tool_count": 86,
-    "stop_reason": "tool_use",
-    "input_tokens": 1,
-    "output_tokens": 333
-  },
-  {
-    "index": 7,
-    "model": "claude-opus-4-5-20251101",
-    "duration_ms": 3635.468006134033,
-    "tool_count": 103,
-    "stop_reason": "tool_use",
-    "input_tokens": 3,
-    "output_tokens": 139
-  },
-  {
-    "index": 8,
-    "model": "claude-opus-4-5-20251101",
-    "duration_ms": 2215.57354927063,
-    "tool_count": 108,
-    "stop_reason": "tool_use",
-    "input_tokens": 1,
-    "output_tokens": 77
-  },
-  {
-    "index": 9,
-    "model": "claude-opus-4-5-20251101",
-    "duration_ms": 2515.6071186065674,
-    "tool_count": 110,
-    "stop_reason": "tool_use",
-    "input_tokens": 1,
-    "output_tokens": 75
-  },
-  {
-    "index": 10,
-    "model": "claude-opus-4-5-20251101",
-    "duration_ms": 18564.66245651245,
-    "tool_count": 111,
     "stop_reason": "end_turn",
     "input_tokens": 1,
-    "output_tokens": 1526
+    "output_tokens": 1481
   }
 ]

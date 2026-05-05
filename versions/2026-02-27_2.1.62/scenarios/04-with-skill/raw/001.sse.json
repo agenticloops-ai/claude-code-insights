@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-6",
-        "id": "msg_01VKqmqXsuPqhu2NuFWHqrwy",
+        "id": "msg_01LYqtdqRkgDiHE7EExqvunx",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,11 +14,11 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 3,
-          "cache_creation_input_tokens": 24046,
+          "cache_creation_input_tokens": 27909,
           "cache_read_input_tokens": 0,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 24046
+            "ephemeral_1h_input_tokens": 27909
           },
           "output_tokens": 55,
           "service_tier": "standard",
@@ -34,7 +34,7 @@
       "index": 0,
       "content_block": {
         "type": "tool_use",
-        "id": "toolu_01BB6HGADrEJxzrDMYyDn9j1",
+        "id": "toolu_01ScEtQA1ctZwxgTZR577THy",
         "name": "Skill",
         "input": {},
         "caller": {
@@ -67,7 +67,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\"s"
+        "partial_json": "{\"skill"
       }
     }
   },
@@ -78,7 +78,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "kill\": \"s"
+        "partial_json": "\": \"say-h"
       }
     }
   },
@@ -89,7 +89,18 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "ay-hello\"}"
+        "partial_json": "el"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "lo\"}"
       }
     }
   },
@@ -111,7 +122,7 @@
       },
       "usage": {
         "input_tokens": 3,
-        "cache_creation_input_tokens": 24046,
+        "cache_creation_input_tokens": 27909,
         "cache_read_input_tokens": 0,
         "output_tokens": 55
       },

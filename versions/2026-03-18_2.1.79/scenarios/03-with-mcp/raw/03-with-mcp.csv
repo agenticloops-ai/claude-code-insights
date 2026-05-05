@@ -1,5 +1,5 @@
 timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
-2026-05-04T09:26:08.542063,anthropic,claude-opus-4-6,2308.1979751586914,1709.67435836792,success,end_turn,3,51,54,0.0302205,True,True,False,"<available-deferred-tools>
+2026-05-04T18:49:41.940525,anthropic,claude-opus-4-6,11835.684299468994,11014.526844024658,success,end_turn,3,109,112,0.03473925,True,True,True,"<available-deferred-tools>
 Agent
 AskUserQuestion
 Bash
@@ -15,7 +15,6 @@ Glob
 Grep
 NotebookEdit
 Read
+SendMessage
 Skill
-TaskOutput
-TaskStop
-To"
+TaskOutput"

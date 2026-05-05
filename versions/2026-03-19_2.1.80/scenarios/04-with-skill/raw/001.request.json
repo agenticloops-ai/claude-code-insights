@@ -1,8 +1,8 @@
 {
   "index": 1,
-  "request_id": "5b939615-3b0a-4cd7-87aa-c53e9f99065b",
-  "session_id": "a9debd04-20b3-4d9c-b563-58c91d753e87",
-  "timestamp": "2026-05-04T09:28:11.329183",
+  "request_id": "e483f699-32dc-4995-b434-c70e4d32929b",
+  "session_id": "effddadd-c5bc-454a-9797-ea73c40f21e1",
+  "timestamp": "2026-05-04T18:51:43.699559",
   "provider": "anthropic",
   "method": "POST",
   "url": "https://api.anthropic.com/v1/messages?beta=true",
@@ -28,14 +28,14 @@
     "accept-language": "*",
     "sec-fetch-mode": "cors",
     "accept-encoding": "identity",
-    "content-length": "21272"
+    "content-length": "21309"
   },
   "body": {
     "model": "claude-opus-4-6",
     "messages": [
       {
         "role": "user",
-        "content": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nNotebookEdit\nRead\nSkill\nTaskOutput\nTaskStop\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
+        "content": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nNotebookEdit\nRead\nSendMessage\nSkill\nTaskOutput\nTaskStop\nTeamCreate\nTeamDelete\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
       },
       {
         "role": "user",
@@ -108,7 +108,7 @@
       }
     ],
     "metadata": {
-      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"5b4c74a5-e432-43ea-bd3c-6c87f5086ffb\"}"
+      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"765f6875-cf8d-4994-a945-bc37c1b74bf8\"}"
     },
     "max_tokens": 64000,
     "thinking": {

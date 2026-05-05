@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-6",
-        "id": "msg_01VXYHfm8893bMCYeYYr5VLL",
+        "id": "msg_0136NJeLfx9KMHcJCmdLgvku",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,13 +14,13 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 3,
-          "cache_creation_input_tokens": 1060,
+          "cache_creation_input_tokens": 1069,
           "cache_read_input_tokens": 4142,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 1060
+            "ephemeral_1h_input_tokens": 1069
           },
-          "output_tokens": 36,
+          "output_tokens": 43,
           "service_tier": "standard",
           "inference_geo": "not_available"
         }
@@ -34,7 +34,7 @@
       "index": 0,
       "content_block": {
         "type": "tool_use",
-        "id": "toolu_01TDdEeWMu7JZNZEyRcJY4Ey",
+        "id": "toolu_012uSd46xhAtZe2HA2hvswJL",
         "name": "ToolSearch",
         "input": {},
         "caller": {
@@ -67,7 +67,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\"query\": \""
+        "partial_json": "{\"query"
       }
     }
   },
@@ -78,7 +78,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "sele"
+        "partial_json": "\": \"sele"
       }
     }
   },
@@ -89,7 +89,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "ct:"
+        "partial_json": "ct:Sk"
       }
     }
   },
@@ -100,7 +100,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "Skill\""
+        "partial_json": "ill\""
       }
     }
   },
@@ -144,7 +144,7 @@
       },
       "usage": {
         "input_tokens": 3,
-        "cache_creation_input_tokens": 1060,
+        "cache_creation_input_tokens": 1069,
         "cache_read_input_tokens": 4142,
         "output_tokens": 76
       },

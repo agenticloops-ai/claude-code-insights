@@ -1,6 +1,6 @@
 timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
-2026-05-04T08:22:37.515989,anthropic,claude-haiku-4-5-20251001,488.3847236633301,,success,max_tokens,8,1,9,1.04e-05,False,False,False,quota
-2026-05-04T08:22:47.797125,anthropic,claude-opus-4-6,3539.339065551758,3328.9499282836914,success,end_turn,3,12,15,0.43161375,True,True,False,"<system-reminder>
+2026-05-04T17:40:06.010410,anthropic,claude-haiku-4-5-20251001,621.1168766021729,,success,max_tokens,8,1,9,1.04e-05,False,False,False,quota
+2026-05-04T17:40:16.442020,anthropic,claude-opus-4-6,2751.607656478882,2489.654541015625,success,end_turn,3,12,15,0.50530125,True,True,False,"<system-reminder>
 The following skills are available for use with the Skill tool:
 
 - keybindings-help: Use when the user wants to customize keyboard shortcuts, rebind keys, add chord bindings, or modi"

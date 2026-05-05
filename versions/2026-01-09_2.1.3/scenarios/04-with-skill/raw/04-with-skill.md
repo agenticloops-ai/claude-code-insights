@@ -177,7 +177,7 @@ Git Safety Protocol:
 3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands:
    - Add relevant untracked files to the staging area.
    - Create the commit with a message ending with:
-   Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+   Co-Authored-By: Claude Opus 4.5 <<USER_EMAIL>>
    - Run git status after the commit completes to verify success.
    Note: git status depends on the commit completing, so run it sequentially after the commit.
 4. If the commit fails due to pre-commit hook, fix the issue and create a NEW commit (see amend rules above)
@@ -193,7 +193,7 @@ Important notes:
 git commit -m "$(cat <<'EOF'
    Commit message here.
 
-   Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+   Co-Authored-By: Claude Opus 4.5 <<USER_EMAIL>>
    EOF
    )"
 </example>
@@ -1054,7 +1054,7 @@ Git Safety Protocol:
 3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands:
    - Add relevant untracked files to the staging area.
    - Create the commit with a message ending with:
-   Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+   Co-Authored-By: Claude Opus 4.5 <<USER_EMAIL>>
    - Run git status after the commit completes to verify success.
    Note: git status depends on the commit completing, so run it sequentially after the commit.
 4. If the commit fails due to pre-commit hook, fix the issue and create a NEW commit (see amend rules above)
@@ -1070,7 +1070,7 @@ Important notes:
 git commit -m "$(cat <<'EOF'
    Commit message here.
 
-   Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+   Co-Authored-By: Claude Opus 4.5 <<USER_EMAIL>>
    EOF
    )"
 </example>
@@ -1891,7 +1891,7 @@ Git Safety Protocol:
 3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands:
    - Add relevant untracked files to the staging area.
    - Create the commit with a message ending with:
-   Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+   Co-Authored-By: Claude Opus 4.5 <<USER_EMAIL>>
    - Run git status after the commit completes to verify success.
    Note: git status depends on the commit completing, so run it sequentially after the commit.
 4. If the commit fails due to pre-commit hook, fix the issue and create a NEW commit (see amend rules above)
@@ -1907,7 +1907,7 @@ Important notes:
 git commit -m "$(cat <<'EOF'
    Commit message here.
 
-   Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+   Co-Authored-By: Claude Opus 4.5 <<USER_EMAIL>>
    EOF
    )"
 </example>
@@ -2330,7 +2330,7 @@ Git Safety Protocol:
 3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands:
    - Add relevant untracked files to the staging area.
    - Create the commit with a message ending with:
-   Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+   Co-Authored-By: Claude Opus 4.5 <<USER_EMAIL>>
    - Run git status after the commit completes to verify success.
    Note: git status depends on the commit completing, so run it sequentially after the commit.
 4. If the commit fails due to pre-commit hook, fix the issue and create a NEW commit (see amend rules above)
@@ -2346,7 +2346,7 @@ Important notes:
 git commit -m "$(cat <<'EOF'
    Commit message here.
 
-   Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+   Co-Authored-By: Claude Opus 4.5 <<USER_EMAIL>>
    EOF
    )"
 </example>

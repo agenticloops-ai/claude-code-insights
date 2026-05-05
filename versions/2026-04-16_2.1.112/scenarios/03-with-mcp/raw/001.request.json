@@ -1,8 +1,8 @@
 {
   "index": 1,
-  "request_id": "0ed144c4-f5d1-4279-b220-b3cf9ff2fb04",
-  "session_id": "03b98d99-cad0-480e-8160-61f0209a4ae0",
-  "timestamp": "2026-05-04T10:14:19.908462",
+  "request_id": "3392940a-4bd2-4b9c-92b0-e627337ab932",
+  "session_id": "c7011900-0953-49e2-98ea-9f072e24f97e",
+  "timestamp": "2026-05-04T19:43:04.633690",
   "provider": "anthropic",
   "method": "POST",
   "url": "https://api.anthropic.com/v1/messages?beta=true",
@@ -23,10 +23,10 @@
     "authorization": "REDACTED",
     "x-app": "cli",
     "User-Agent": "claude-cli/2.1.112 (external, sdk-cli)",
-    "X-Claude-Code-Session-Id": "369c8460-8ae8-487c-9abd-116df85ba750",
+    "X-Claude-Code-Session-Id": "bef18a67-2794-42dd-b07e-d95af6e37867",
     "content-type": "application/json",
     "anthropic-beta": "oauth-2025-04-20,interleaved-thinking-2025-05-14,context-management-2025-06-27,prompt-caching-scope-2026-01-05,advisor-tool-2026-03-01,structured-outputs-2025-12-15",
-    "x-client-request-id": "9e67c9c1-73ce-4477-b0ec-943ae7e6fd68",
+    "x-client-request-id": "3f722fd3-b6ca-4c71-a07b-3dcb34a90bbc",
     "accept-language": "*",
     "sec-fetch-mode": "cors",
     "accept-encoding": "identity",
@@ -61,7 +61,7 @@
     ],
     "tools": [],
     "metadata": {
-      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"369c8460-8ae8-487c-9abd-116df85ba750\"}"
+      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"bef18a67-2794-42dd-b07e-d95af6e37867\"}"
     },
     "max_tokens": 32000,
     "temperature": 1,

@@ -16,10 +16,20 @@ MODE="${CAPTURE_MODE:-capture}"
 export DISABLE_AUTOUPDATER=1
 export CI=1
 
-# Sandbox MCP fixture: merge servers from /opt/fixtures/mcp-default.json
-# into ~/.claude.json so claude reads them natively on startup — no
-# --mcp-config flag. Idempotent. Auth fields (oauth tokens, account info)
-# in .claude.json are preserved; only the mcpServers map is updated.
+# Sandbox MCP fixture + leak prevention.
+#
+# 1. Force mcpServers to be EXACTLY the fixture map (replace, not merge) so
+#    no account-installed server can survive into the next capture.
+# 2. Empty claudeAiMcpEverConnected — when this list is non-empty, Claude
+#    Code asks the API for the user's account-attached claude.ai connectors
+#    (Gmail, Canva, Figma, …) and exposes them as deferred mcp__claude_ai_*
+#    tools, polluting cross-version diffs.
+# 3. Strip identifying fields from oauthAccount (emailAddress, displayName,
+#    organizationName) so the harness "userEmail" reminder and any echoed
+#    account profile don't leak the real owner's PII into captures. Routing
+#    fields (accountUuid, organizationUuid) are kept so the API client keeps
+#    working.
+# Idempotent — safe to run on every container start.
 FIXTURE_MCP="/opt/fixtures/mcp-default.json"
 if [[ -d "$HOME" && -f "$FIXTURE_MCP" ]]; then
     FIXTURE_MCP="$FIXTURE_MCP" python3 - <<'PY'
@@ -33,8 +43,22 @@ if cfg_path.exists():
         cfg = json.loads(cfg_path.read_text() or "{}")
     except Exception:
         cfg = {}
-cfg.setdefault("mcpServers", {}).update(fixture.get("mcpServers", {}))
+
+cfg["mcpServers"] = dict(fixture.get("mcpServers", {}))
+cfg["claudeAiMcpEverConnected"] = []
+
+acc = cfg.get("oauthAccount") or {}
+if acc:
+    pii_keys = {"emailAddress", "displayName", "organizationName"}
+    cfg["oauthAccount"] = {k: v for k, v in acc.items() if k not in pii_keys}
+
 cfg_path.write_text(json.dumps(cfg, indent=2))
+
+# .claude.json.backup mirrors the live file and is recreated by Claude on
+# next write, but it can carry stale PII forward; remove it.
+backup = home / ".claude.json.backup"
+if backup.exists():
+    backup.unlink()
 PY
 fi
 

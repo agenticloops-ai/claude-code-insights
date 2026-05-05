@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-5-20251101",
-        "id": "msg_015Nnoq2C99QVThJHSWUewQL",
+        "id": "msg_01QQta9DSrTvLzMb83yaCMnw",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -62,7 +62,18 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": " to search for the available MCP tools to list them all."
+        "text": " to search for the deferred MCP tools to list them all"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": ". Let me do that first."
       }
     }
   },
@@ -80,7 +91,7 @@
       "index": 1,
       "content_block": {
         "type": "tool_use",
-        "id": "toolu_017J7LbzXRcrCMWaEurVi1h2",
+        "id": "toolu_01YV2zh5gijAJ5yaTyAR6rAM",
         "name": "ToolSearch",
         "input": {},
         "caller": {
@@ -107,7 +118,7 @@
       "index": 1,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\"query\": "
+        "partial_json": "{\"query\":"
       }
     }
   },
@@ -118,7 +129,7 @@
       "index": 1,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "\"mcp"
+        "partial_json": " \"mcp\""
       }
     }
   },
@@ -129,7 +140,7 @@
       "index": 1,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "\""
+        "partial_json": ", "
       }
     }
   },
@@ -140,7 +151,7 @@
       "index": 1,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": ", \"max_re"
+        "partial_json": "\"max_resul"
       }
     }
   },
@@ -151,18 +162,7 @@
       "index": 1,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "sults\""
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "input_json_delta",
-        "partial_json": ": 5}"
+        "partial_json": "ts\": 5}"
       }
     }
   },
@@ -186,7 +186,7 @@
         "input_tokens": 3,
         "cache_creation_input_tokens": 22314,
         "cache_read_input_tokens": 0,
-        "output_tokens": 89
+        "output_tokens": 96
       }
     }
   },

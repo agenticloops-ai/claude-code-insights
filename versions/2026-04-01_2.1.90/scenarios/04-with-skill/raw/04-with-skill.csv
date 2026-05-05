@@ -1,5 +1,5 @@
 timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
-2026-05-04T09:44:46.355159,anthropic,claude-opus-4-6,2572.3376274108887,2570.478916168213,success,tool_use,3,55,58,0.1448955,True,True,False,"<available-deferred-tools>
+2026-05-04T19:10:21.229389,anthropic,claude-opus-4-6,2292.388677597046,2290.8711433410645,success,tool_use,3,55,58,0.0309765,True,True,False,"<available-deferred-tools>
 AskUserQuestion
 CronCreate
 CronDelete
@@ -12,8 +12,8 @@ ListMcpResourcesTool
 NotebookEdit
 ReadMcpResourceTool
 RemoteTrigger
-Task"
-2026-05-04T09:44:48.459551,anthropic,claude-opus-4-6,2061.511754989624,1871.7761039733887,success,end_turn,2,11,13,0.0300795,True,True,False,"<available-deferred-tools>
+Send"
+2026-05-04T19:10:23.393511,anthropic,claude-opus-4-6,2124.1509914398193,1914.724588394165,success,end_turn,2,11,13,0.0278715,True,True,False,"<available-deferred-tools>
 AskUserQuestion
 CronCreate
 CronDelete
@@ -26,4 +26,4 @@ ListMcpResourcesTool
 NotebookEdit
 ReadMcpResourceTool
 RemoteTrigger
-Task"
+Send"

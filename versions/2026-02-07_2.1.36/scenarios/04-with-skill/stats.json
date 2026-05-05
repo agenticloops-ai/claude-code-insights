@@ -2,13 +2,13 @@
   "version": "2.1.36",
   "dir_name": "2026-02-07_2.1.36",
   "scenario": "04-with-skill",
-  "captured_at": "2026-05-04T08:07:17.167637",
+  "captured_at": "2026-05-04T17:23:12.905920",
   "request_count": 3,
   "models": [
     "claude-haiku-4-5-20251001",
     "claude-opus-4-6"
   ],
-  "tool_count_first_request": 20,
+  "tool_count_first_request": 23,
   "deferred_tool_count": 0,
   "mcp_tool_count_advertised": 0,
   "mcp_tool_count_deferred": 0,
@@ -19,9 +19,9 @@
   "tokens": {
     "input": 13,
     "output": 67,
-    "cache_read": 22735,
-    "cache_creation": 22875,
+    "cache_read": 26601,
+    "cache_creation": 26741,
     "total": 80
   },
-  "duration_ms_total": 6605
+  "duration_ms_total": 7099
 }

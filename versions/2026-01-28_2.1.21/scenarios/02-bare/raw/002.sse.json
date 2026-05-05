@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-5-20251101",
-        "id": "msg_012kPNfJ1QWAkNHspd7eEdNM",
+        "id": "msg_01TFNtNBjsnpos7MqBz8phY2",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -20,7 +20,7 @@
             "ephemeral_5m_input_tokens": 0,
             "ephemeral_1h_input_tokens": 22305
           },
-          "output_tokens": 1,
+          "output_tokens": 8,
           "service_tier": "standard",
           "inference_geo": "not_available"
         }
@@ -51,7 +51,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "Hello"
+        "text": "Hello! How can I help you today"
       }
     }
   },
@@ -62,7 +62,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "! How can I help you today?"
+        "text": "?"
       }
     }
   },

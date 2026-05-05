@@ -2,13 +2,13 @@
   "version": "2.1.47",
   "dir_name": "2026-02-18_2.1.47",
   "scenario": "02-bare",
-  "captured_at": "2026-05-04T08:25:13.410630",
+  "captured_at": "2026-05-04T17:43:01.083438",
   "request_count": 2,
   "models": [
     "claude-haiku-4-5-20251001",
     "claude-opus-4-6"
   ],
-  "tool_count_first_request": 20,
+  "tool_count_first_request": 23,
   "deferred_tool_count": 0,
   "mcp_tool_count_advertised": 0,
   "mcp_tool_count_deferred": 0,
@@ -20,8 +20,8 @@
     "input": 11,
     "output": 14,
     "cache_read": 0,
-    "cache_creation": 23551,
+    "cache_creation": 27388,
     "total": 25
   },
-  "duration_ms_total": 2813
+  "duration_ms_total": 3180
 }

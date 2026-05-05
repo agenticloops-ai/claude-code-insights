@@ -1,21 +1,21 @@
 {
   "session": {
-    "id": "d3ee2fbf-a3db-49dd-8723-d9ba8c641ac0",
+    "id": "2d8c6b0d-d825-4293-b31f-efffaee5025b",
     "name": "03-with-mcp",
-    "started_at": "2026-05-04T08:25:16.717562",
-    "ended_at": "2026-05-04T08:25:59.514095",
+    "started_at": "2026-05-04T17:43:05.083042",
+    "ended_at": "2026-05-04T17:43:39.754923",
     "request_count": 0,
     "total_tokens": 0,
     "estimated_cost_usd": 0.0
   },
   "stats": {
     "total_requests": 2,
-    "total_tokens": 3082,
+    "total_tokens": 1567,
     "total_input_tokens": 11,
-    "total_output_tokens": 3071,
-    "estimated_cost_usd": 0.6724116499999999,
-    "avg_duration_ms": 17564.935445785522,
-    "avg_tokens_per_request": 1541.0,
+    "total_output_tokens": 1556,
+    "estimated_cost_usd": 0.6302428999999999,
+    "avg_duration_ms": 11547.614216804504,
+    "avg_tokens_per_request": 783.5,
     "models_used": [
       "claude-haiku-4-5-20251001",
       "claude-opus-4-6"
@@ -26,14 +26,14 @@
   },
   "requests": [
     {
-      "id": "6a625aca-26e9-4a5f-8973-96e39c23d9bb",
-      "session_id": "d3ee2fbf-a3db-49dd-8723-d9ba8c641ac0",
-      "raw_capture_id": "6799b998-8f8d-45d0-9954-14d9cac98733",
+      "id": "2bb11ef3-c15c-432c-955c-24cc3e8201b2",
+      "session_id": "2d8c6b0d-d825-4293-b31f-efffaee5025b",
+      "raw_capture_id": "eac5be59-e2f5-47aa-ac35-4097168f8ed8",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T08:25:18.783505",
-      "duration_ms": 480.6487560272217,
+      "timestamp": "2026-05-04T17:43:07.293157",
+      "duration_ms": 640.4271125793457,
       "time_to_first_token_ms": null,
       "provider": "anthropic",
       "model": "claude-haiku-4-5-20251001",
@@ -81,15 +81,15 @@
       "response_metadata": {}
     },
     {
-      "id": "9b1d77f3-37a0-4f31-aa99-697ad4400f28",
-      "session_id": "d3ee2fbf-a3db-49dd-8723-d9ba8c641ac0",
-      "raw_capture_id": "b1b587ab-1d1e-47d3-b622-a4d72fc0ede8",
+      "id": "cca7ac32-45d0-495d-a046-9029cf6b5107",
+      "session_id": "2d8c6b0d-d825-4293-b31f-efffaee5025b",
+      "raw_capture_id": "7e00b493-1057-4a0e-9670-a972262609de",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T08:25:56.859746",
-      "duration_ms": 34649.22213554382,
-      "time_to_first_token_ms": 3123.47412109375,
+      "timestamp": "2026-05-04T17:43:37.058810",
+      "duration_ms": 22454.801321029663,
+      "time_to_first_token_ms": 2535.672903060913,
       "provider": "anthropic",
       "model": "claude-opus-4-6",
       "api_endpoint": "https://api.anthropic.com/v1/messages?beta=true",
@@ -164,6 +164,25 @@
                 "type": "integer",
                 "exclusiveMinimum": 0,
                 "maximum": 9007199254740991
+              },
+              "name": {
+                "description": "Name for the spawned agent",
+                "type": "string"
+              },
+              "team_name": {
+                "description": "Team name for spawning. Uses current team context if omitted.",
+                "type": "string"
+              },
+              "mode": {
+                "description": "Permission mode for spawned teammate (e.g., \"plan\" to require plan approval).",
+                "type": "string",
+                "enum": [
+                  "acceptEdits",
+                  "bypassPermissions",
+                  "default",
+                  "dontAsk",
+                  "plan"
+                ]
               }
             },
             "required": [
@@ -212,7 +231,7 @@
         },
         {
           "name": "Bash",
-          "description": "Executes a given bash command with optional timeout. Working directory persists between commands; shell state (everything else) does not. The shell environment is initialized from the user's profile (bash or zsh).\n\nIMPORTANT: This tool is for terminal operations like git, npm, docker, etc. DO NOT use it for file operations (reading, writing, editing, searching, finding files) - use the specialized tools for this instead.\n\nBefore executing the command, please follow these steps:\n\n1. Directory Verification:\n   - If the command will create new directories or files, first use `ls` to verify the parent directory exists and is the correct location\n   - For example, before running \"mkdir foo/bar\", first use `ls foo` to check that \"foo\" exists and is the intended parent directory\n\n2. Command Execution:\n   - Always quote file paths that contain spaces with double quotes (e.g., cd \"path with spaces/file.txt\")\n   - Examples of proper quoting:\n     - cd \"/Users/name/My Documents\" (correct)\n     - cd /Users/name/My Documents (incorrect - will fail)\n     - python \"/path/with spaces/script.py\" (correct)\n     - python /path/with spaces/script.py (incorrect - will fail)\n   - After ensuring proper quoting, execute the command.\n   - Capture the output of the command.\n\nUsage notes:\n  - The command argument is required.\n  - You can specify an optional timeout in milliseconds (up to 600000ms / 10 minutes). If not specified, commands will timeout after 120000ms (2 minutes).\n  - It is very helpful if you write a clear, concise description of what this command does. For simple commands, keep it brief (5-10 words). For complex commands (piped commands, obscure flags, or anything hard to understand at a glance), add enough context to clarify what it does.\n  - If the output exceeds 30000 characters, output will be truncated before being returned to you.\n  \n  - You can use the `run_in_background` parameter to run the command in the background. Only use this if you don't need the result immediately and are OK being notified when the command completes later. You do not need to check the output right away - you'll be notified when it finishes. You do not need to use '&' at the end of the command when using this parameter.\n  \n  - Avoid using Bash with the `find`, `grep`, `cat`, `head`, `tail`, `sed`, `awk`, or `echo` commands, unless explicitly instructed or when these commands are truly necessary for the task. Instead, always prefer using the dedicated tools for these commands:\n    - File search: Use Glob (NOT find or ls)\n    - Content search: Use Grep (NOT grep or rg)\n    - Read files: Use Read (NOT cat/head/tail)\n    - Edit files: Use Edit (NOT sed/awk)\n    - Write files: Use Write (NOT echo >/cat <<EOF)\n    - Communication: Output text directly (NOT echo/printf)\n  - When issuing multiple commands:\n    - If the commands are independent and can run in parallel, make multiple Bash tool calls in a single message. For example, if you need to run \"git status\" and \"git diff\", send a single message with two Bash tool calls in parallel.\n    - If the commands depend on each other and must run sequentially, use a single Bash call with '&&' to chain them together (e.g., `git add . && git commit -m \"message\" && git push`). For instance, if one operation must complete before another starts (like mkdir before cp, Write before Bash for git operations, or git add before git commit), run these operations sequentially instead.\n    - Use ';' only when you need to run commands sequentially but don't care if earlier commands fail\n    - DO NOT use newlines to separate commands (newlines are ok in quoted strings)\n  - Try to maintain your current working directory throughout the session by using absolute paths and avoiding usage of `cd`. You may use `cd` if the User explicitly requests it.\n    <good-example>\n    pytest /foo/bar/tests\n    </good-example>\n    <bad-example>\n    cd /foo/bar && pytest tests\n    </bad-example>\n\n# Committing changes with git\n\nOnly create commits when requested by the user. If unclear, ask first. When the user asks you to create a new git commit, follow these steps carefully:\n\nGit Safety Protocol:\n- NEVER update the git config\n- NEVER run destructive git commands (push --force, reset --hard, checkout ., restore ., clean -f, branch -D) unless the user explicitly requests these actions. Taking unauthorized destructive actions is unhelpful and can result in lost work, so it's best to ONLY run these commands when given direct instructions \n- NEVER skip hooks (--no-verify, --no-gpg-sign, etc) unless the user explicitly requests it\n- NEVER run force push to main/master, warn the user if they request it\n- CRITICAL: Always create NEW commits rather than amending, unless the user explicitly requests a git amend. When a pre-commit hook fails, the commit did NOT happen \u2014 so --amend would modify the PREVIOUS commit, which may result in destroying work or losing previous changes. Instead, after hook failure, fix the issue, re-stage, and create a NEW commit\n- When staging files, prefer adding specific files by name rather than using \"git add -A\" or \"git add .\", which can accidentally include sensitive files (.env, credentials) or large binaries\n- NEVER commit changes unless the user explicitly asks you to. It is VERY IMPORTANT to only commit when explicitly asked, otherwise the user will feel that you are being too proactive\n\n1. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following bash commands in parallel, each using the Bash tool:\n  - Run a git status command to see all untracked files. IMPORTANT: Never use the -uall flag as it can cause memory issues on large repos.\n  - Run a git diff command to see both staged and unstaged changes that will be committed.\n  - Run a git log command to see recent commit messages, so that you can follow this repository's commit message style.\n2. Analyze all staged changes (both previously staged and newly added) and draft a commit message:\n  - Summarize the nature of the changes (eg. new feature, enhancement to an existing feature, bug fix, refactoring, test, docs, etc.). Ensure the message accurately reflects the changes and their purpose (i.e. \"add\" means a wholly new feature, \"update\" means an enhancement to an existing feature, \"fix\" means a bug fix, etc.).\n  - Do not commit files that likely contain secrets (.env, credentials.json, etc). Warn the user if they specifically request to commit those files\n  - Draft a concise (1-2 sentences) commit message that focuses on the \"why\" rather than the \"what\"\n  - Ensure it accurately reflects the changes and their purpose\n3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands:\n   - Add relevant untracked files to the staging area.\n   - Create the commit with a message ending with:\n   Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\n   - Run git status after the commit completes to verify success.\n   Note: git status depends on the commit completing, so run it sequentially after the commit.\n4. If the commit fails due to pre-commit hook: fix the issue and create a NEW commit\n\nImportant notes:\n- NEVER run additional commands to read or explore code, besides git bash commands\n- NEVER use the TodoWrite or Task tools\n- DO NOT push to the remote repository unless the user explicitly asks you to do so\n- IMPORTANT: Never use git commands with the -i flag (like git rebase -i or git add -i) since they require interactive input which is not supported.\n- IMPORTANT: Do not use --no-edit with git rebase commands, as the --no-edit flag is not a valid option for git rebase.\n- If there are no changes to commit (i.e., no untracked files and no modifications), do not create an empty commit\n- In order to ensure good formatting, ALWAYS pass the commit message via a HEREDOC, a la this example:\n<example>\ngit commit -m \"$(cat <<'EOF'\n   Commit message here.\n\n   Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\n   EOF\n   )\"\n</example>\n\n# Creating pull requests\nUse the gh command via the Bash tool for ALL GitHub-related tasks including working with issues, pull requests, checks, and releases. If given a Github URL use the gh command to get the information needed.\n\nIMPORTANT: When the user asks you to create a pull request, follow these steps carefully:\n\n1. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following bash commands in parallel using the Bash tool, in order to understand the current state of the branch since it diverged from the main branch:\n   - Run a git status command to see all untracked files (never use -uall flag)\n   - Run a git diff command to see both staged and unstaged changes that will be committed\n   - Check if the current branch tracks a remote branch and is up to date with the remote, so you know if you need to push to the remote\n   - Run a git log command and `git diff [base-branch]...HEAD` to understand the full commit history for the current branch (from the time it diverged from the base branch)\n2. Analyze all changes that will be included in the pull request, making sure to look at all relevant commits (NOT just the latest commit, but ALL commits that will be included in the pull request!!!), and draft a pull request title and summary:\n   - Keep the PR title short (under 70 characters)\n   - Use the description/body for details, not the title\n3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands in parallel:\n   - Create new branch if needed\n   - Push to remote with -u flag if needed\n   - Create PR using gh pr create with the format below. Use a HEREDOC to pass the body to ensure correct formatting.\n<example>\ngh pr create --title \"the pr title\" --body \"$(cat <<'EOF'\n## Summary\n<1-3 bullet points>\n\n## Test plan\n[Bulleted markdown checklist of TODOs for testing the pull request...]\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\nEOF\n)\"\n</example>\n\nImportant:\n- DO NOT use the TodoWrite or Task tools\n- Return the PR URL when you're done, so the user can see it\n\n# Other common operations\n- View comments on a Github PR: gh api repos/foo/bar/pulls/123/comments",
+          "description": "Executes a given bash command with optional timeout. Working directory persists between commands; shell state (everything else) does not. The shell environment is initialized from the user's profile (bash or zsh).\n\nIMPORTANT: This tool is for terminal operations like git, npm, docker, etc. DO NOT use it for file operations (reading, writing, editing, searching, finding files) - use the specialized tools for this instead.\n\nBefore executing the command, please follow these steps:\n\n1. Directory Verification:\n   - If the command will create new directories or files, first use `ls` to verify the parent directory exists and is the correct location\n   - For example, before running \"mkdir foo/bar\", first use `ls foo` to check that \"foo\" exists and is the intended parent directory\n\n2. Command Execution:\n   - Always quote file paths that contain spaces with double quotes (e.g., cd \"path with spaces/file.txt\")\n   - Examples of proper quoting:\n     - cd \"/Users/name/My Documents\" (correct)\n     - cd /Users/name/My Documents (incorrect - will fail)\n     - python \"/path/with spaces/script.py\" (correct)\n     - python /path/with spaces/script.py (incorrect - will fail)\n   - After ensuring proper quoting, execute the command.\n   - Capture the output of the command.\n\nUsage notes:\n  - The command argument is required.\n  - You can specify an optional timeout in milliseconds (up to 600000ms / 10 minutes). If not specified, commands will timeout after 120000ms (2 minutes).\n  - It is very helpful if you write a clear, concise description of what this command does. For simple commands, keep it brief (5-10 words). For complex commands (piped commands, obscure flags, or anything hard to understand at a glance), add enough context to clarify what it does.\n  - If the output exceeds 30000 characters, output will be truncated before being returned to you.\n  \n  - You can use the `run_in_background` parameter to run the command in the background. Only use this if you don't need the result immediately and are OK being notified when the command completes later. You do not need to check the output right away - you'll be notified when it finishes. You do not need to use '&' at the end of the command when using this parameter.\n  \n  - Avoid using Bash with the `find`, `grep`, `cat`, `head`, `tail`, `sed`, `awk`, or `echo` commands, unless explicitly instructed or when these commands are truly necessary for the task. Instead, always prefer using the dedicated tools for these commands:\n    - File search: Use Glob (NOT find or ls)\n    - Content search: Use Grep (NOT grep or rg)\n    - Read files: Use Read (NOT cat/head/tail)\n    - Edit files: Use Edit (NOT sed/awk)\n    - Write files: Use Write (NOT echo >/cat <<EOF)\n    - Communication: Output text directly (NOT echo/printf)\n  - When issuing multiple commands:\n    - If the commands are independent and can run in parallel, make multiple Bash tool calls in a single message. For example, if you need to run \"git status\" and \"git diff\", send a single message with two Bash tool calls in parallel.\n    - If the commands depend on each other and must run sequentially, use a single Bash call with '&&' to chain them together (e.g., `git add . && git commit -m \"message\" && git push`). For instance, if one operation must complete before another starts (like mkdir before cp, Write before Bash for git operations, or git add before git commit), run these operations sequentially instead.\n    - Use ';' only when you need to run commands sequentially but don't care if earlier commands fail\n    - DO NOT use newlines to separate commands (newlines are ok in quoted strings)\n  - Try to maintain your current working directory throughout the session by using absolute paths and avoiding usage of `cd`. You may use `cd` if the User explicitly requests it.\n    <good-example>\n    pytest /foo/bar/tests\n    </good-example>\n    <bad-example>\n    cd /foo/bar && pytest tests\n    </bad-example>\n\n# Committing changes with git\n\nOnly create commits when requested by the user. If unclear, ask first. When the user asks you to create a new git commit, follow these steps carefully:\n\nGit Safety Protocol:\n- NEVER update the git config\n- NEVER run destructive git commands (push --force, reset --hard, checkout ., restore ., clean -f, branch -D) unless the user explicitly requests these actions. Taking unauthorized destructive actions is unhelpful and can result in lost work, so it's best to ONLY run these commands when given direct instructions \n- NEVER skip hooks (--no-verify, --no-gpg-sign, etc) unless the user explicitly requests it\n- NEVER run force push to main/master, warn the user if they request it\n- CRITICAL: Always create NEW commits rather than amending, unless the user explicitly requests a git amend. When a pre-commit hook fails, the commit did NOT happen \u2014 so --amend would modify the PREVIOUS commit, which may result in destroying work or losing previous changes. Instead, after hook failure, fix the issue, re-stage, and create a NEW commit\n- When staging files, prefer adding specific files by name rather than using \"git add -A\" or \"git add .\", which can accidentally include sensitive files (.env, credentials) or large binaries\n- NEVER commit changes unless the user explicitly asks you to. It is VERY IMPORTANT to only commit when explicitly asked, otherwise the user will feel that you are being too proactive\n\n1. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following bash commands in parallel, each using the Bash tool:\n  - Run a git status command to see all untracked files. IMPORTANT: Never use the -uall flag as it can cause memory issues on large repos.\n  - Run a git diff command to see both staged and unstaged changes that will be committed.\n  - Run a git log command to see recent commit messages, so that you can follow this repository's commit message style.\n2. Analyze all staged changes (both previously staged and newly added) and draft a commit message:\n  - Summarize the nature of the changes (eg. new feature, enhancement to an existing feature, bug fix, refactoring, test, docs, etc.). Ensure the message accurately reflects the changes and their purpose (i.e. \"add\" means a wholly new feature, \"update\" means an enhancement to an existing feature, \"fix\" means a bug fix, etc.).\n  - Do not commit files that likely contain secrets (.env, credentials.json, etc). Warn the user if they specifically request to commit those files\n  - Draft a concise (1-2 sentences) commit message that focuses on the \"why\" rather than the \"what\"\n  - Ensure it accurately reflects the changes and their purpose\n3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands:\n   - Add relevant untracked files to the staging area.\n   - Create the commit with a message ending with:\n   Co-Authored-By: Claude Opus 4.6 <<USER_EMAIL>>\n   - Run git status after the commit completes to verify success.\n   Note: git status depends on the commit completing, so run it sequentially after the commit.\n4. If the commit fails due to pre-commit hook: fix the issue and create a NEW commit\n\nImportant notes:\n- NEVER run additional commands to read or explore code, besides git bash commands\n- NEVER use the TodoWrite or Task tools\n- DO NOT push to the remote repository unless the user explicitly asks you to do so\n- IMPORTANT: Never use git commands with the -i flag (like git rebase -i or git add -i) since they require interactive input which is not supported.\n- IMPORTANT: Do not use --no-edit with git rebase commands, as the --no-edit flag is not a valid option for git rebase.\n- If there are no changes to commit (i.e., no untracked files and no modifications), do not create an empty commit\n- In order to ensure good formatting, ALWAYS pass the commit message via a HEREDOC, a la this example:\n<example>\ngit commit -m \"$(cat <<'EOF'\n   Commit message here.\n\n   Co-Authored-By: Claude Opus 4.6 <<USER_EMAIL>>\n   EOF\n   )\"\n</example>\n\n# Creating pull requests\nUse the gh command via the Bash tool for ALL GitHub-related tasks including working with issues, pull requests, checks, and releases. If given a Github URL use the gh command to get the information needed.\n\nIMPORTANT: When the user asks you to create a pull request, follow these steps carefully:\n\n1. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following bash commands in parallel using the Bash tool, in order to understand the current state of the branch since it diverged from the main branch:\n   - Run a git status command to see all untracked files (never use -uall flag)\n   - Run a git diff command to see both staged and unstaged changes that will be committed\n   - Check if the current branch tracks a remote branch and is up to date with the remote, so you know if you need to push to the remote\n   - Run a git log command and `git diff [base-branch]...HEAD` to understand the full commit history for the current branch (from the time it diverged from the base branch)\n2. Analyze all changes that will be included in the pull request, making sure to look at all relevant commits (NOT just the latest commit, but ALL commits that will be included in the pull request!!!), and draft a pull request title and summary:\n   - Keep the PR title short (under 70 characters)\n   - Use the description/body for details, not the title\n3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands in parallel:\n   - Create new branch if needed\n   - Push to remote with -u flag if needed\n   - Create PR using gh pr create with the format below. Use a HEREDOC to pass the body to ensure correct formatting.\n<example>\ngh pr create --title \"the pr title\" --body \"$(cat <<'EOF'\n## Summary\n<1-3 bullet points>\n\n## Test plan\n[Bulleted markdown checklist of TODOs for testing the pull request...]\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\nEOF\n)\"\n</example>\n\nImportant:\n- DO NOT use the TodoWrite or Task tools\n- Return the PR URL when you're done, so the user can see it\n\n# Other common operations\n- View comments on a Github PR: gh api repos/foo/bar/pulls/123/comments",
           "input_schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "type": "object",
@@ -822,8 +841,94 @@
           "mcp_server_name": null
         },
         {
+          "name": "TeamCreate",
+          "description": "# TeamCreate\n\n## When to Use\n\nUse this tool proactively whenever:\n- The user explicitly asks to use a team, swarm, or group of agents\n- The user mentions wanting agents to work together, coordinate, or collaborate\n- A task is complex enough that it would benefit from parallel work by multiple agents (e.g., building a full-stack feature with frontend and backend work, refactoring a codebase while keeping tests passing, implementing a multi-step project with research, planning, and coding phases)\n\nWhen in doubt about whether a task warrants a team, prefer spawning a team.\n\n## Choosing Agent Types for Teammates\n\nWhen spawning teammates via the Task tool, choose the `subagent_type` based on what tools the agent needs for its task. Each agent type has a different set of available tools \u2014 match the agent to the work:\n\n- **Read-only agents** (e.g., Explore, Plan) cannot edit or write files. Only assign them research, search, or planning tasks. Never assign them implementation work.\n- **Full-capability agents** (e.g., general-purpose) have access to all tools including file editing, writing, and bash. Use these for tasks that require making changes.\n- **Custom agents** defined in `.claude/agents/` may have their own tool restrictions. Check their descriptions to understand what they can and cannot do.\n\nAlways review the agent type descriptions and their available tools listed in the Task tool prompt before selecting a `subagent_type` for a teammate.\n\nCreate a new team to coordinate multiple agents working on a project. Teams have a 1:1 correspondence with task lists (Team = TaskList).\n\n```\n{\n  \"team_name\": \"my-project\",\n  \"description\": \"Working on feature X\"\n}\n```\n\nThis creates:\n- A team file at `~/.claude/teams/{team-name}.json`\n- A corresponding task list directory at `~/.claude/tasks/{team-name}/`\n\n## Team Workflow\n\n1. **Create a team** with TeamCreate - this creates both the team and its task list\n2. **Create tasks** using the Task tools (TaskCreate, TaskList, etc.) - they automatically use the team's task list\n3. **Spawn teammates** using the Task tool with `team_name` and `name` parameters to create teammates that join the team\n4. **Assign tasks** using TaskUpdate with `owner` to give tasks to idle teammates\n5. **Teammates work on assigned tasks** and mark them completed via TaskUpdate\n6. **Teammates go idle between turns** - after each turn, teammates automatically go idle and send a notification. IMPORTANT: Be patient with idle teammates! Don't comment on their idleness until it actually impacts your work.\n7. **Shutdown your team** - when the task is completed, gracefully shut down your teammates via SendMessage with type: \"shutdown_request\".\n\n## Task Ownership\n\nTasks are assigned using TaskUpdate with the `owner` parameter. Any agent can set or change task ownership via TaskUpdate.\n\n## Automatic Message Delivery\n\n**IMPORTANT**: Messages from teammates are automatically delivered to you. You do NOT need to manually check your inbox.\n\nWhen you spawn teammates:\n- They will send you messages when they complete tasks or need help\n- These messages appear automatically as new conversation turns (like user messages)\n- If you're busy (mid-turn), messages are queued and delivered when your turn ends\n- The UI shows a brief notification with the sender's name when messages are waiting\n\nMessages will be delivered automatically.\n\nWhen reporting on teammate messages, you do NOT need to quote the original message\u2014it's already rendered to the user.\n\n## Teammate Idle State\n\nTeammates go idle after every turn\u2014this is completely normal and expected. A teammate going idle immediately after sending you a message does NOT mean they are done or unavailable. Idle simply means they are waiting for input.\n\n- **Idle teammates can receive messages.** Sending a message to an idle teammate wakes them up and they will process it normally.\n- **Idle notifications are automatic.** The system sends an idle notification whenever a teammate's turn ends. You do not need to react to idle notifications unless you want to assign new work or send a follow-up message.\n- **Do not treat idle as an error.** A teammate sending a message and then going idle is the normal flow\u2014they sent their message and are now waiting for a response.\n- **Peer DM visibility.** When a teammate sends a DM to another teammate, a brief summary is included in their idle notification. This gives you visibility into peer collaboration without the full message content. You do not need to respond to these summaries \u2014 they are informational.\n\n## Discovering Team Members\n\nTeammates can read the team config file to discover other team members:\n- **Team config location**: `~/.claude/teams/{team-name}/config.json`\n\nThe config file contains a `members` array with each teammate's:\n- `name`: Human-readable name (**always use this** for messaging and task assignment)\n- `agentId`: Unique identifier (for reference only - do not use for communication)\n- `agentType`: Role/type of the agent\n\n**IMPORTANT**: Always refer to teammates by their NAME (e.g., \"team-lead\", \"researcher\", \"tester\"). Names are used for:\n- `target_agent_id` when sending messages\n- Identifying task owners\n\nExample of reading team config:\n```\nUse the Read tool to read ~/.claude/teams/{team-name}/config.json\n```\n\n## Task List Coordination\n\nTeams share a task list that all teammates can access at `~/.claude/tasks/{team-name}/`.\n\nTeammates should:\n1. Check TaskList periodically, **especially after completing each task**, to find available work or see newly unblocked tasks\n2. Claim unassigned, unblocked tasks with TaskUpdate (set `owner` to your name). **Prefer tasks in ID order** (lowest ID first) when multiple tasks are available, as earlier tasks often set up context for later ones\n3. Create new tasks with `TaskCreate` when identifying additional work\n4. Mark tasks as completed with `TaskUpdate` when done, then check TaskList for next work\n5. Coordinate with other teammates by reading the task list status\n6. If all available tasks are blocked, notify the team lead or help resolve blocking tasks\n\n**IMPORTANT notes for communication with your team**:\n- Do not use terminal tools to view your team's activity; always send a message to your teammates (and remember, refer to them by name).\n- Your team cannot hear you if you do not use the SendMessage tool. Always send a message to your teammates if you are responding to them.\n- Do NOT send structured JSON status messages like `{\"type\":\"idle\",...}` or `{\"type\":\"task_completed\",...}`. Just communicate in plain text when you need to message teammates.\n- Use TaskUpdate to mark tasks completed.\n- If you are an agent in the team, the system will automatically send idle notifications to the team lead when you stop.",
+          "input_schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "team_name": {
+                "description": "Name for the new team to create.",
+                "type": "string"
+              },
+              "description": {
+                "description": "Team description/purpose.",
+                "type": "string"
+              },
+              "agent_type": {
+                "description": "Type/role of the team lead (e.g., \"researcher\", \"test-runner\"). Used for team file and inter-agent coordination.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "team_name"
+            ],
+            "additionalProperties": false
+          },
+          "is_mcp": false,
+          "mcp_server_name": null
+        },
+        {
+          "name": "TeamDelete",
+          "description": "# TeamDelete\n\nRemove team and task directories when the swarm work is complete.\n\nThis operation:\n- Removes the team directory (`~/.claude/teams/{team-name}/`)\n- Removes the task directory (`~/.claude/tasks/{team-name}/`)\n- Clears team context from the current session\n\n**IMPORTANT**: TeamDelete will fail if the team still has active members. Gracefully terminate teammates first, then call TeamDelete after all teammates have shut down.\n\nUse this when all teammates have finished their work and you want to clean up the team resources. The team name is automatically determined from the current session's team context.",
+          "input_schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {},
+            "additionalProperties": false
+          },
+          "is_mcp": false,
+          "mcp_server_name": null
+        },
+        {
+          "name": "SendMessage",
+          "description": "# SendMessageTool\n\nSend messages to agent teammates and handle protocol requests/responses in a team.\n\n## Message Types\n\n### type: \"message\" - Send a Direct Message\n\nSend a message to a **single specific teammate**. You MUST specify the recipient.\n\n**IMPORTANT for teammates**: Your plain text output is NOT visible to the team lead or other teammates. To communicate with anyone on your team, you **MUST** use this tool. Just typing a response or acknowledgment in text is not enough.\n\n```\n{\n  \"type\": \"message\",\n  \"recipient\": \"researcher\",\n  \"content\": \"Your message here\",\n  \"summary\": \"Brief status update on auth module\"\n}\n```\n\n- **recipient**: The name of the teammate to message (required)\n- **content**: The message text (required)\n- **summary**: A 5-10 word summary shown as preview in the UI (required)\n\n### type: \"broadcast\" - Send Message to ALL Teammates (USE SPARINGLY)\n\nSend the **same message to everyone** on the team at once.\n\n**WARNING: Broadcasting is expensive.** Each broadcast sends a separate message to every teammate, which means:\n- N teammates = N separate message deliveries\n- Each delivery consumes API resources\n- Costs scale linearly with team size\n\n```\n{\n  \"type\": \"broadcast\",\n  \"content\": \"Message to send to all teammates\",\n  \"summary\": \"Critical blocking issue found\"\n}\n```\n\n- **content**: The message content to broadcast (required)\n- **summary**: A 5-10 word summary shown as preview in the UI (required)\n\n**CRITICAL: Use broadcast only when absolutely necessary.** Valid use cases:\n- Critical issues requiring immediate team-wide attention (e.g., \"stop all work, blocking bug found\")\n- Major announcements that genuinely affect every teammate equally\n\n**Default to \"message\" instead of \"broadcast\".** Use \"message\" for:\n- Responding to a single teammate\n- Normal back-and-forth communication\n- Following up on a task with one person\n- Sharing findings relevant to only some teammates\n- Any message that doesn't require everyone's attention\n\n### type: \"shutdown_request\" - Request a Teammate to Shut Down\n\nUse this to ask a teammate to gracefully shut down:\n\n```\n{\n  \"type\": \"shutdown_request\",\n  \"recipient\": \"researcher\",\n  \"content\": \"Task complete, wrapping up the session\"\n}\n```\n\nThe teammate will receive a shutdown request and can either approve (exit) or reject (continue working).\n\n### type: \"shutdown_response\" - Respond to a Shutdown Request\n\n#### Approve Shutdown\n\nWhen you receive a shutdown request as a JSON message with `type: \"shutdown_request\"`, you **MUST** respond to approve or reject it. Do NOT just acknowledge the request in text - you must actually call this tool.\n\n```\n{\n  \"type\": \"shutdown_response\",\n  \"request_id\": \"abc-123\",\n  \"approve\": true\n}\n```\n\n**IMPORTANT**: Extract the `requestId` from the JSON message and pass it as `request_id` to the tool. Simply saying \"I'll shut down\" is not enough - you must call the tool.\n\nThis will send confirmation to the leader and terminate your process.\n\n#### Reject Shutdown\n\n```\n{\n  \"type\": \"shutdown_response\",\n  \"request_id\": \"abc-123\",\n  \"approve\": false,\n  \"content\": \"Still working on task #3, need 5 more minutes\"\n}\n```\n\nThe leader will receive your rejection with the reason.\n\n### type: \"plan_approval_response\" - Approve or Reject a Teammate's Plan\n\n#### Approve Plan\n\nWhen a teammate with `plan_mode_required` calls ExitPlanMode, they send you a plan approval request as a JSON message with `type: \"plan_approval_request\"`. Use this to approve their plan:\n\n```\n{\n  \"type\": \"plan_approval_response\",\n  \"request_id\": \"abc-123\",\n  \"recipient\": \"researcher\",\n  \"approve\": true\n}\n```\n\nAfter approval, the teammate will automatically exit plan mode and can proceed with implementation.\n\n#### Reject Plan\n\n```\n{\n  \"type\": \"plan_approval_response\",\n  \"request_id\": \"abc-123\",\n  \"recipient\": \"researcher\",\n  \"approve\": false,\n  \"content\": \"Please add error handling for the API calls\"\n}\n```\n\nThe teammate will receive the rejection with your feedback and can revise their plan.\n\n## Important Notes\n\n- Messages from teammates are automatically delivered to you. You do NOT need to manually check your inbox.\n- When reporting on teammate messages, you do NOT need to quote the original message - it's already rendered to the user.\n- **IMPORTANT**: Always refer to teammates by their NAME (e.g., \"team-lead\", \"researcher\", \"tester\"), never by UUID.\n- Do NOT send structured JSON status messages. Use TaskUpdate to mark tasks completed and the system will automatically send idle notifications when you stop.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "message",
+                  "broadcast",
+                  "shutdown_request",
+                  "shutdown_response",
+                  "plan_approval_response"
+                ],
+                "description": "Message type: \"message\" for DMs, \"broadcast\" to all teammates, \"shutdown_request\" to request shutdown, \"shutdown_response\" to respond to shutdown, \"plan_approval_response\" to approve/reject plans"
+              },
+              "recipient": {
+                "type": "string",
+                "description": "Agent name of the recipient (required for message, shutdown_request, plan_approval_response)"
+              },
+              "content": {
+                "type": "string",
+                "description": "Message text, reason, or feedback"
+              },
+              "summary": {
+                "type": "string",
+                "description": "A 5-10 word summary of the message, shown as a preview in the UI (required for message, broadcast)"
+              },
+              "request_id": {
+                "type": "string",
+                "description": "Request ID to respond to (required for shutdown_response, plan_approval_response)"
+              },
+              "approve": {
+                "type": "boolean",
+                "description": "Whether to approve the request (required for shutdown_response, plan_approval_response)"
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "additionalProperties": false
+          },
+          "is_mcp": false,
+          "mcp_server_name": null
+        },
+        {
           "name": "ToolSearch",
-          "description": "Search for or select deferred tools to make them available for use.\n\n**MANDATORY PREREQUISITE - THIS IS A HARD REQUIREMENT**\n\nYou MUST use this tool to load deferred tools BEFORE calling them directly.\n\nThis is a BLOCKING REQUIREMENT - deferred tools listed below are NOT available until you load them using this tool. Both query modes (keyword search and direct selection) load the returned tools \u2014 once a tool appears in the results, it is immediately available to call.\n\n**Why this is non-negotiable:**\n- Deferred tools are not loaded until discovered via this tool\n- Calling a deferred tool without first loading it will fail\n\n**Query modes:**\n\n1. **Keyword search** - Use keywords when you're unsure which tool to use or need to discover multiple tools at once:\n   - \"list directory\" - find tools for listing directories\n   - \"notebook jupyter\" - find notebook editing tools\n   - \"slack message\" - find slack messaging tools\n   - Returns up to 5 matching tools ranked by relevance\n   - All returned tools are immediately available to call \u2014 no further selection step needed\n\n2. **Direct selection** - Use `select:<tool_name>` when you know the exact tool name and only need that one tool:\n   - \"select:mcp__slack__read_channel\"\n   - \"select:NotebookEdit\"\n   - Returns just that tool if it exists\n\n**IMPORTANT:** Both modes load tools equally. Do NOT follow up a keyword search with `select:` calls for tools already returned \u2014 they are already loaded.\n\n3. **Required keyword** - Prefix with `+` to require a match:\n   - \"+linear create issue\" - only tools from \"linear\", ranked by \"create\"/\"issue\"\n   - \"+slack send\" - only \"slack\" tools, ranked by \"send\"\n   - Useful when you know the service name but not the exact tool\n\n**CORRECT Usage Patterns:**\n\n<example>\nUser: I need to work with slack somehow\nAssistant: Let me search for slack tools.\n[Calls ToolSearch with query: \"slack\"]\nAssistant: Found several options including mcp__slack__read_channel.\n[Calls mcp__slack__read_channel directly \u2014 it was loaded by the keyword search]\n</example>\n\n<example>\nUser: Edit the Jupyter notebook\nAssistant: Let me load the notebook editing tool.\n[Calls ToolSearch with query: \"select:NotebookEdit\"]\n[Calls NotebookEdit]\n</example>\n\n<example>\nUser: List files in the src directory\nAssistant: I can see mcp__filesystem__list_directory in the available tools. Let me select it.\n[Calls ToolSearch with query: \"select:mcp__filesystem__list_directory\"]\n[Calls the tool]\n</example>\n\n**INCORRECT Usage Patterns - NEVER DO THESE:**\n\n<bad-example>\nUser: Read my slack messages\nAssistant: [Directly calls mcp__slack__read_channel without loading it first]\nWRONG - You must load the tool FIRST using this tool\n</bad-example>\n\n<bad-example>\nAssistant: [Calls ToolSearch with query: \"slack\", gets back mcp__slack__read_channel]\nAssistant: [Calls ToolSearch with query: \"select:mcp__slack__read_channel\"]\nWRONG - The keyword search already loaded the tool. The select call is redundant.\n</bad-example>\n\nAvailable deferred tools (must be loaded before use):\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\nmcp__claude_ai_Google_Calendar__list_events\nmcp__claude_ai_Google_Calendar__get_event\nmcp__claude_ai_Google_Calendar__list_calendars\nmcp__claude_ai_Google_Calendar__suggest_time\nmcp__claude_ai_Google_Calendar__create_event\nmcp__claude_ai_Google_Calendar__update_event\nmcp__claude_ai_Google_Calendar__delete_event\nmcp__claude_ai_Google_Calendar__respond_to_event\nmcp__claude_ai_Google_Drive__copy_file\nmcp__claude_ai_Google_Drive__create_file\nmcp__claude_ai_Google_Drive__download_file_content\nmcp__claude_ai_Google_Drive__get_file_metadata\nmcp__claude_ai_Google_Drive__get_file_permissions\nmcp__claude_ai_Google_Drive__list_recent_files\nmcp__claude_ai_Google_Drive__read_file_content\nmcp__claude_ai_Google_Drive__search_files\nmcp__claude_ai_Excalidraw__read_me\nmcp__claude_ai_Excalidraw__create_view\nmcp__claude_ai_Excalidraw__export_to_excalidraw\nmcp__claude_ai_Excalidraw__save_checkpoint\nmcp__claude_ai_Excalidraw__read_checkpoint\nmcp__claude_ai_Gmail__create_draft\nmcp__claude_ai_Gmail__list_drafts\nmcp__claude_ai_Gmail__get_thread\nmcp__claude_ai_Gmail__search_threads\nmcp__claude_ai_Gmail__label_thread\nmcp__claude_ai_Gmail__unlabel_thread\nmcp__claude_ai_Gmail__list_labels\nmcp__claude_ai_Gmail__label_message\nmcp__claude_ai_Gmail__unlabel_message\nmcp__claude_ai_Gmail__create_label\nmcp__claude_ai_Canva__upload-asset-from-url\nmcp__claude_ai_Canva__resolve-shortlink\nmcp__claude_ai_Canva__search-designs\nmcp__claude_ai_Canva__get-design\nmcp__claude_ai_Canva__get-design-pages\nmcp__claude_ai_Canva__get-design-content\nmcp__claude_ai_Canva__get-presenter-notes\nmcp__claude_ai_Canva__import-design-from-url\nmcp__claude_ai_Canva__export-design\nmcp__claude_ai_Canva__get-export-formats\nmcp__claude_ai_Canva__create-folder\nmcp__claude_ai_Canva__move-item-to-folder\nmcp__claude_ai_Canva__list-folder-items\nmcp__claude_ai_Canva__search-folders\nmcp__claude_ai_Canva__comment-on-design\nmcp__claude_ai_Canva__list-replies\nmcp__claude_ai_Canva__reply-to-comment\nmcp__claude_ai_Canva__list-comments\nmcp__claude_ai_Canva__generate-design\nmcp__claude_ai_Canva__generate-design-structured\nmcp__claude_ai_Canva__create-design-from-candidate\nmcp__claude_ai_Canva__request-outline-review\nmcp__claude_ai_Canva__list-brand-kits\nmcp__claude_ai_Canva__help\nmcp__claude_ai_Canva__resize-design\nmcp__claude_ai_Canva__start-editing-transaction\nmcp__claude_ai_Canva__perform-editing-operations\nmcp__claude_ai_Canva__commit-editing-transaction\nmcp__claude_ai_Canva__cancel-editing-transaction\nmcp__claude_ai_Canva__get-design-thumbnail\nmcp__claude_ai_Canva__get-assets\nmcp__claude_ai_Canva__merge-designs\nmcp__claude_ai_tldraw__search\nmcp__claude_ai_tldraw__exec\nmcp__claude_ai_tldraw___exec_callback\nmcp__claude_ai_tldraw___get_canvas_state\nmcp__claude_ai_tldraw__read_checkpoint\nmcp__claude_ai_tldraw__save_checkpoint\nmcp__claude_ai_Mermaid_Chart__validate_and_render_mermaid_diagram\nmcp__claude_ai_Figma__get_screenshot\nmcp__claude_ai_Figma__create_design_system_rules\nmcp__claude_ai_Figma__get_design_context\nmcp__claude_ai_Figma__get_metadata\nmcp__claude_ai_Figma__get_variable_defs\nmcp__claude_ai_Figma__get_figjam\nmcp__claude_ai_Figma__generate_diagram\nmcp__claude_ai_Figma__get_code_connect_map\nmcp__claude_ai_Figma__whoami\nmcp__claude_ai_Figma__add_code_connect_map\nmcp__claude_ai_Figma__get_code_connect_suggestions\nmcp__claude_ai_Figma__send_code_connect_mappings\nmcp__claude_ai_Figma__get_context_for_code_connect\nmcp__claude_ai_Figma__use_figma\nmcp__claude_ai_Figma__get_libraries\nmcp__claude_ai_Figma__search_design_system\nmcp__claude_ai_Figma__create_new_file\nmcp__claude_ai_Figma__upload_assets",
+          "description": "Search for or select deferred tools to make them available for use.\n\n**MANDATORY PREREQUISITE - THIS IS A HARD REQUIREMENT**\n\nYou MUST use this tool to load deferred tools BEFORE calling them directly.\n\nThis is a BLOCKING REQUIREMENT - deferred tools listed below are NOT available until you load them using this tool. Both query modes (keyword search and direct selection) load the returned tools \u2014 once a tool appears in the results, it is immediately available to call.\n\n**Why this is non-negotiable:**\n- Deferred tools are not loaded until discovered via this tool\n- Calling a deferred tool without first loading it will fail\n\n**Query modes:**\n\n1. **Keyword search** - Use keywords when you're unsure which tool to use or need to discover multiple tools at once:\n   - \"list directory\" - find tools for listing directories\n   - \"notebook jupyter\" - find notebook editing tools\n   - \"slack message\" - find slack messaging tools\n   - Returns up to 5 matching tools ranked by relevance\n   - All returned tools are immediately available to call \u2014 no further selection step needed\n\n2. **Direct selection** - Use `select:<tool_name>` when you know the exact tool name and only need that one tool:\n   - \"select:mcp__slack__read_channel\"\n   - \"select:NotebookEdit\"\n   - Returns just that tool if it exists\n\n**IMPORTANT:** Both modes load tools equally. Do NOT follow up a keyword search with `select:` calls for tools already returned \u2014 they are already loaded.\n\n3. **Required keyword** - Prefix with `+` to require a match:\n   - \"+linear create issue\" - only tools from \"linear\", ranked by \"create\"/\"issue\"\n   - \"+slack send\" - only \"slack\" tools, ranked by \"send\"\n   - Useful when you know the service name but not the exact tool\n\n**CORRECT Usage Patterns:**\n\n<example>\nUser: I need to work with slack somehow\nAssistant: Let me search for slack tools.\n[Calls ToolSearch with query: \"slack\"]\nAssistant: Found several options including mcp__slack__read_channel.\n[Calls mcp__slack__read_channel directly \u2014 it was loaded by the keyword search]\n</example>\n\n<example>\nUser: Edit the Jupyter notebook\nAssistant: Let me load the notebook editing tool.\n[Calls ToolSearch with query: \"select:NotebookEdit\"]\n[Calls NotebookEdit]\n</example>\n\n<example>\nUser: List files in the src directory\nAssistant: I can see mcp__filesystem__list_directory in the available tools. Let me select it.\n[Calls ToolSearch with query: \"select:mcp__filesystem__list_directory\"]\n[Calls the tool]\n</example>\n\n**INCORRECT Usage Patterns - NEVER DO THESE:**\n\n<bad-example>\nUser: Read my slack messages\nAssistant: [Directly calls mcp__slack__read_channel without loading it first]\nWRONG - You must load the tool FIRST using this tool\n</bad-example>\n\n<bad-example>\nAssistant: [Calls ToolSearch with query: \"slack\", gets back mcp__slack__read_channel]\nAssistant: [Calls ToolSearch with query: \"select:mcp__slack__read_channel\"]\nWRONG - The keyword search already loaded the tool. The select call is redundant.\n</bad-example>\n\nAvailable deferred tools (must be loaded before use):\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003",
           "input_schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "type": "object",
@@ -896,11 +1001,11 @@
           "content": [
             {
               "type": "thinking",
-              "thinking": "The user wants me to list all MCP tools available to me. I can see these from the deferred tools list in the ToolSearch description, plus any that are already loaded. Let me list all the MCP tools from the deferred tools list.\n\nLooking at the available deferred tools listed in the ToolSearch tool description:\n\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\nmcp__claude_ai_Google_Calendar__list_events\n\n\nmcp__claude_ai_Google_Calendar__get_event\nmcp__claude_ai_Google_Calendar__list_calendars\nmcp__claude_ai_Google_Calendar__suggest_time\nmcp__claude_ai_Google_Calendar__create_event\nmcp__claude_ai_Google_Calendar__update_event\nmcp__claude_ai_Google_Calendar__delete_event\nmcp__claude_ai_Google_Calendar__respond_to_event\nmcp__claude_ai_Google_Drive__copy_file\nmcp__claude_ai_Google_Drive__create_file\nmcp__claude_ai_Google_Drive__download_file_content\nmcp__claude_ai_Google_Drive__get_file_metadata\nmcp__claude_ai_Google_Drive__get\n\n_file_permissions\nmcp__claude_ai_Google_Drive__list_recent_files\nmcp__claude_ai_Google_Drive__read_file_content\nmcp__claude_ai_Google_Drive__search_files\nmcp__claude_ai_Excalidraw__read_me\nmcp__claude_ai_Excalidraw__create_view\nmcp__claude_ai_Excalidraw__export_to_excalidraw\nmcp__claude_ai_Excalidraw__save_checkpoint\nmcp__claude_ai_Excalidraw__read_checkpoint\nmcp__claude_ai_Gmail__create_draft\nmcp__claude_ai_Gmail__list_drafts\nmcp__claude_ai_Gmail__get_thread\nmcp__claude_ai_Gmail__search_threads\nmcp__claude_ai_Gmail__label_thread\n\nI'm looking at the available tools across Google Calendar, Drive, Excalidraw, and Gmail integrations to understand what capabilities are available for the user. I'm looking at the available Canva tools now\u2014there are options for managing folders, collaborating through comments and replies, generating designs with AI, working with brand kits, and resizing designs. Now I'm reviewing the available tools across Figma, continuing with screenshot capture, design system rules, metadata retrieval, variable definitions, and FigJam access, along with diagram generation, code connect mapping features, and context retrieval for code integration."
+              "thinking": "The user wants me to list all MCP tools available to me. I can see these in the deferred tools list from the ToolSearch tool description. Let me list them all."
             },
             {
               "type": "text",
-              "text": "Here are all the MCP tools currently available (as deferred tools that can be loaded via ToolSearch):\n\n```\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\nmcp__claude_ai_Google_Calendar__list_events\nmcp__claude_ai_Google_Calendar__get_event\nmcp__claude_ai_Google_Calendar__list_calendars\nmcp__claude_ai_Google_Calendar__suggest_time\nmcp__claude_ai_Google_Calendar__create_event\nmcp__claude_ai_Google_Calendar__update_event\nmcp__claude_ai_Google_Calendar__delete_event\nmcp__claude_ai_Google_Calendar__respond_to_event\nmcp__claude_ai_Google_Drive__copy_file\nmcp__claude_ai_Google_Drive__create_file\nmcp__claude_ai_Google_Drive__download_file_content\nmcp__claude_ai_Google_Drive__get_file_metadata\nmcp__claude_ai_Google_Drive__get_file_permissions\nmcp__claude_ai_Google_Drive__list_recent_files\nmcp__claude_ai_Google_Drive__read_file_content\nmcp__claude_ai_Google_Drive__search_files\nmcp__claude_ai_Excalidraw__read_me\nmcp__claude_ai_Excalidraw__create_view\nmcp__claude_ai_Excalidraw__export_to_excalidraw\nmcp__claude_ai_Excalidraw__save_checkpoint\nmcp__claude_ai_Excalidraw__read_checkpoint\nmcp__claude_ai_Gmail__create_draft\nmcp__claude_ai_Gmail__list_drafts\nmcp__claude_ai_Gmail__get_thread\nmcp__claude_ai_Gmail__search_threads\nmcp__claude_ai_Gmail__label_thread\nmcp__claude_ai_Gmail__unlabel_thread\nmcp__claude_ai_Gmail__list_labels\nmcp__claude_ai_Gmail__label_message\nmcp__claude_ai_Gmail__unlabel_message\nmcp__claude_ai_Gmail__create_label\nmcp__claude_ai_Canva__upload-asset-from-url\nmcp__claude_ai_Canva__resolve-shortlink\nmcp__claude_ai_Canva__search-designs\nmcp__claude_ai_Canva__get-design\nmcp__claude_ai_Canva__get-design-pages\nmcp__claude_ai_Canva__get-design-content\nmcp__claude_ai_Canva__get-presenter-notes\nmcp__claude_ai_Canva__import-design-from-url\nmcp__claude_ai_Canva__export-design\nmcp__claude_ai_Canva__get-export-formats\nmcp__claude_ai_Canva__create-folder\nmcp__claude_ai_Canva__move-item-to-folder\nmcp__claude_ai_Canva__list-folder-items\nmcp__claude_ai_Canva__search-folders\nmcp__claude_ai_Canva__comment-on-design\nmcp__claude_ai_Canva__list-replies\nmcp__claude_ai_Canva__reply-to-comment\nmcp__claude_ai_Canva__list-comments\nmcp__claude_ai_Canva__generate-design\nmcp__claude_ai_Canva__generate-design-structured\nmcp__claude_ai_Canva__create-design-from-candidate\nmcp__claude_ai_Canva__request-outline-review\nmcp__claude_ai_Canva__list-brand-kits\nmcp__claude_ai_Canva__help\nmcp__claude_ai_Canva__resize-design\nmcp__claude_ai_Canva__start-editing-transaction\nmcp__claude_ai_Canva__perform-editing-operations\nmcp__claude_ai_Canva__commit-editing-transaction\nmcp__claude_ai_Canva__cancel-editing-transaction\nmcp__claude_ai_Canva__get-design-thumbnail\nmcp__claude_ai_Canva__get-assets\nmcp__claude_ai_Canva__merge-designs\nmcp__claude_ai_tldraw__search\nmcp__claude_ai_tldraw__exec\nmcp__claude_ai_tldraw___exec_callback\nmcp__claude_ai_tldraw___get_canvas_state\nmcp__claude_ai_tldraw__read_checkpoint\nmcp__claude_ai_tldraw__save_checkpoint\nmcp__claude_ai_Mermaid_Chart__validate_and_render_mermaid_diagram\nmcp__claude_ai_Figma__get_screenshot\nmcp__claude_ai_Figma__create_design_system_rules\nmcp__claude_ai_Figma__get_design_context\nmcp__claude_ai_Figma__get_metadata\nmcp__claude_ai_Figma__get_variable_defs\nmcp__claude_ai_Figma__get_figjam\nmcp__claude_ai_Figma__generate_diagram\nmcp__claude_ai_Figma__get_code_connect_map\nmcp__claude_ai_Figma__whoami\nmcp__claude_ai_Figma__add_code_connect_map\nmcp__claude_ai_Figma__get_code_connect_suggestions\nmcp__claude_ai_Figma__send_code_connect_mappings\nmcp__claude_ai_Figma__get_context_for_code_connect\nmcp__claude_ai_Figma__use_figma\nmcp__claude_ai_Figma__get_libraries\nmcp__claude_ai_Figma__search_design_system\nmcp__claude_ai_Figma__create_new_file\nmcp__claude_ai_Figma__upload_assets\n```\n\nThat's 78 MCP tools total, spanning 8 servers: fixture, Google Calendar, Google Drive, Excalidraw, Gmail, Canva, tldraw, Mermaid Chart, and Figma."
+              "text": "Here are all the MCP tools currently available (as deferred tools that can be loaded via ToolSearch):\n\n```\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n```\n\nThat's 78 MCP tools total, spanning 8 servers: fixture, Gmail, Google Drive, Google Calendar, Canva, tldraw, Figma, and Excalidraw."
             }
           ]
         }
@@ -908,11 +1013,11 @@
       "stop_reason": "end_turn",
       "usage": {
         "input_tokens": 3,
-        "output_tokens": 3070,
-        "cache_creation_input_tokens": 23579,
+        "output_tokens": 1555,
+        "cache_creation_input_tokens": 27390,
         "cache_read_input_tokens": 0,
-        "total_tokens": 3073,
-        "estimated_cost_usd": 0.67240125
+        "total_tokens": 1558,
+        "estimated_cost_usd": 0.6302325
       },
       "status": "success",
       "request_params": {},
@@ -921,9 +1026,9 @@
   ],
   "raw_captures": [
     {
-      "id": "6799b998-8f8d-45d0-9954-14d9cac98733",
-      "session_id": "d3ee2fbf-a3db-49dd-8723-d9ba8c641ac0",
-      "timestamp": "2026-05-04T08:25:18.783505",
+      "id": "eac5be59-e2f5-47aa-ac35-4097168f8ed8",
+      "session_id": "2d8c6b0d-d825-4293-b31f-efffaee5025b",
+      "timestamp": "2026-05-04T17:43:07.293157",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -964,46 +1069,49 @@
           }
         ],
         "metadata": {
-          "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_638ba717-ee6c-40c9-8a5d-762a9b5eb9a8"
+          "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_12f250b7-d7bc-4604-b35f-2d17455adf0d"
         }
       },
       "response_status": 200,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 08:25:18 GMT",
+        "Date": "Mon, 04 May 2026 17:43:07 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
-        "anthropic-ratelimit-unified-status": "allowed",
-        "anthropic-ratelimit-unified-5h-status": "allowed",
-        "anthropic-ratelimit-unified-5h-reset": "1777893000",
-        "anthropic-ratelimit-unified-5h-utilization": "0.64",
+        "anthropic-ratelimit-unified-status": "allowed_warning",
+        "anthropic-ratelimit-unified-5h-status": "allowed_warning",
+        "anthropic-ratelimit-unified-5h-reset": "1777929000",
+        "anthropic-ratelimit-unified-5h-utilization": "1.0",
+        "anthropic-ratelimit-unified-5h-surpassed-threshold": "0.9",
         "anthropic-ratelimit-unified-7d-status": "allowed",
         "anthropic-ratelimit-unified-7d-reset": "1778126400",
-        "anthropic-ratelimit-unified-7d-utilization": "0.4",
+        "anthropic-ratelimit-unified-7d-utilization": "0.51",
         "anthropic-ratelimit-unified-overage-status": "allowed",
         "anthropic-ratelimit-unified-overage-reset": "1780272000",
         "anthropic-ratelimit-unified-overage-utilization": "0.0",
         "anthropic-ratelimit-unified-representative-claim": "five_hour",
         "anthropic-ratelimit-unified-fallback-percentage": "0.5",
         "anthropic-ratelimit-unified-fallback": "available",
-        "anthropic-ratelimit-unified-reset": "1777893000",
-        "request-id": "req_011CahD5gBsDcqzh5mDKjcfP",
+        "anthropic-ratelimit-unified-reset": "1777929000",
+        "anthropic-ratelimit-unified-upgrade-paths": "overage",
+        "anthropic-ratelimit-unified-overage-in-use": "true",
+        "request-id": "req_011CahwcmuRKb9p2LxBkMQtR",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-b2f07405b06c633c5d6cffbfd78152bc-e9648ea5300694c6-01",
+        "traceresponse": "00-7c2031f5db10719d095b4f98d3001c23-63bea4e1a32a3c35-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "389",
+        "x-envoy-upstream-service-time": "537",
         "X-Robots-Tag": "none",
         "vary": "Accept-Encoding",
-        "server-timing": "x-originResponse;dur=393",
+        "server-timing": "x-originResponse;dur=541",
         "cf-cache-status": "DYNAMIC",
         "set-cookie": "REDACTED",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-        "CF-RAY": "9f661d31f8c0d116-SJC"
+        "CF-RAY": "9f694e4b4da6de42-SJC"
       },
       "response_body": {
         "model": "claude-haiku-4-5-20251001",
-        "id": "msg_01WXqDAJdyMeVZ3qHA7ffYUY",
+        "id": "msg_012t9yb6VsZnYAkjLCC9pEJS",
         "type": "message",
         "role": "assistant",
         "content": [
@@ -1035,9 +1143,9 @@
       "sse_events": []
     },
     {
-      "id": "b1b587ab-1d1e-47d3-b622-a4d72fc0ede8",
-      "session_id": "d3ee2fbf-a3db-49dd-8723-d9ba8c641ac0",
-      "timestamp": "2026-05-04T08:25:56.859746",
+      "id": "7e00b493-1057-4a0e-9670-a972262609de",
+      "session_id": "2d8c6b0d-d825-4293-b31f-efffaee5025b",
+      "timestamp": "2026-05-04T17:43:37.058810",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -1066,7 +1174,7 @@
         "accept-language": "*",
         "sec-fetch-mode": "cors",
         "accept-encoding": "identity",
-        "content-length": "90693"
+        "content-length": "105094"
       },
       "request_body": {
         "model": "claude-opus-4-6",
@@ -1157,6 +1265,25 @@
                   "type": "integer",
                   "exclusiveMinimum": 0,
                   "maximum": 9007199254740991
+                },
+                "name": {
+                  "description": "Name for the spawned agent",
+                  "type": "string"
+                },
+                "team_name": {
+                  "description": "Team name for spawning. Uses current team context if omitted.",
+                  "type": "string"
+                },
+                "mode": {
+                  "description": "Permission mode for spawned teammate (e.g., \"plan\" to require plan approval).",
+                  "type": "string",
+                  "enum": [
+                    "acceptEdits",
+                    "bypassPermissions",
+                    "default",
+                    "dontAsk",
+                    "plan"
+                  ]
                 }
               },
               "required": [
@@ -1201,7 +1328,7 @@
           },
           {
             "name": "Bash",
-            "description": "Executes a given bash command with optional timeout. Working directory persists between commands; shell state (everything else) does not. The shell environment is initialized from the user's profile (bash or zsh).\n\nIMPORTANT: This tool is for terminal operations like git, npm, docker, etc. DO NOT use it for file operations (reading, writing, editing, searching, finding files) - use the specialized tools for this instead.\n\nBefore executing the command, please follow these steps:\n\n1. Directory Verification:\n   - If the command will create new directories or files, first use `ls` to verify the parent directory exists and is the correct location\n   - For example, before running \"mkdir foo/bar\", first use `ls foo` to check that \"foo\" exists and is the intended parent directory\n\n2. Command Execution:\n   - Always quote file paths that contain spaces with double quotes (e.g., cd \"path with spaces/file.txt\")\n   - Examples of proper quoting:\n     - cd \"/Users/name/My Documents\" (correct)\n     - cd /Users/name/My Documents (incorrect - will fail)\n     - python \"/path/with spaces/script.py\" (correct)\n     - python /path/with spaces/script.py (incorrect - will fail)\n   - After ensuring proper quoting, execute the command.\n   - Capture the output of the command.\n\nUsage notes:\n  - The command argument is required.\n  - You can specify an optional timeout in milliseconds (up to 600000ms / 10 minutes). If not specified, commands will timeout after 120000ms (2 minutes).\n  - It is very helpful if you write a clear, concise description of what this command does. For simple commands, keep it brief (5-10 words). For complex commands (piped commands, obscure flags, or anything hard to understand at a glance), add enough context to clarify what it does.\n  - If the output exceeds 30000 characters, output will be truncated before being returned to you.\n  \n  - You can use the `run_in_background` parameter to run the command in the background. Only use this if you don't need the result immediately and are OK being notified when the command completes later. You do not need to check the output right away - you'll be notified when it finishes. You do not need to use '&' at the end of the command when using this parameter.\n  \n  - Avoid using Bash with the `find`, `grep`, `cat`, `head`, `tail`, `sed`, `awk`, or `echo` commands, unless explicitly instructed or when these commands are truly necessary for the task. Instead, always prefer using the dedicated tools for these commands:\n    - File search: Use Glob (NOT find or ls)\n    - Content search: Use Grep (NOT grep or rg)\n    - Read files: Use Read (NOT cat/head/tail)\n    - Edit files: Use Edit (NOT sed/awk)\n    - Write files: Use Write (NOT echo >/cat <<EOF)\n    - Communication: Output text directly (NOT echo/printf)\n  - When issuing multiple commands:\n    - If the commands are independent and can run in parallel, make multiple Bash tool calls in a single message. For example, if you need to run \"git status\" and \"git diff\", send a single message with two Bash tool calls in parallel.\n    - If the commands depend on each other and must run sequentially, use a single Bash call with '&&' to chain them together (e.g., `git add . && git commit -m \"message\" && git push`). For instance, if one operation must complete before another starts (like mkdir before cp, Write before Bash for git operations, or git add before git commit), run these operations sequentially instead.\n    - Use ';' only when you need to run commands sequentially but don't care if earlier commands fail\n    - DO NOT use newlines to separate commands (newlines are ok in quoted strings)\n  - Try to maintain your current working directory throughout the session by using absolute paths and avoiding usage of `cd`. You may use `cd` if the User explicitly requests it.\n    <good-example>\n    pytest /foo/bar/tests\n    </good-example>\n    <bad-example>\n    cd /foo/bar && pytest tests\n    </bad-example>\n\n# Committing changes with git\n\nOnly create commits when requested by the user. If unclear, ask first. When the user asks you to create a new git commit, follow these steps carefully:\n\nGit Safety Protocol:\n- NEVER update the git config\n- NEVER run destructive git commands (push --force, reset --hard, checkout ., restore ., clean -f, branch -D) unless the user explicitly requests these actions. Taking unauthorized destructive actions is unhelpful and can result in lost work, so it's best to ONLY run these commands when given direct instructions \n- NEVER skip hooks (--no-verify, --no-gpg-sign, etc) unless the user explicitly requests it\n- NEVER run force push to main/master, warn the user if they request it\n- CRITICAL: Always create NEW commits rather than amending, unless the user explicitly requests a git amend. When a pre-commit hook fails, the commit did NOT happen \u2014 so --amend would modify the PREVIOUS commit, which may result in destroying work or losing previous changes. Instead, after hook failure, fix the issue, re-stage, and create a NEW commit\n- When staging files, prefer adding specific files by name rather than using \"git add -A\" or \"git add .\", which can accidentally include sensitive files (.env, credentials) or large binaries\n- NEVER commit changes unless the user explicitly asks you to. It is VERY IMPORTANT to only commit when explicitly asked, otherwise the user will feel that you are being too proactive\n\n1. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following bash commands in parallel, each using the Bash tool:\n  - Run a git status command to see all untracked files. IMPORTANT: Never use the -uall flag as it can cause memory issues on large repos.\n  - Run a git diff command to see both staged and unstaged changes that will be committed.\n  - Run a git log command to see recent commit messages, so that you can follow this repository's commit message style.\n2. Analyze all staged changes (both previously staged and newly added) and draft a commit message:\n  - Summarize the nature of the changes (eg. new feature, enhancement to an existing feature, bug fix, refactoring, test, docs, etc.). Ensure the message accurately reflects the changes and their purpose (i.e. \"add\" means a wholly new feature, \"update\" means an enhancement to an existing feature, \"fix\" means a bug fix, etc.).\n  - Do not commit files that likely contain secrets (.env, credentials.json, etc). Warn the user if they specifically request to commit those files\n  - Draft a concise (1-2 sentences) commit message that focuses on the \"why\" rather than the \"what\"\n  - Ensure it accurately reflects the changes and their purpose\n3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands:\n   - Add relevant untracked files to the staging area.\n   - Create the commit with a message ending with:\n   Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\n   - Run git status after the commit completes to verify success.\n   Note: git status depends on the commit completing, so run it sequentially after the commit.\n4. If the commit fails due to pre-commit hook: fix the issue and create a NEW commit\n\nImportant notes:\n- NEVER run additional commands to read or explore code, besides git bash commands\n- NEVER use the TodoWrite or Task tools\n- DO NOT push to the remote repository unless the user explicitly asks you to do so\n- IMPORTANT: Never use git commands with the -i flag (like git rebase -i or git add -i) since they require interactive input which is not supported.\n- IMPORTANT: Do not use --no-edit with git rebase commands, as the --no-edit flag is not a valid option for git rebase.\n- If there are no changes to commit (i.e., no untracked files and no modifications), do not create an empty commit\n- In order to ensure good formatting, ALWAYS pass the commit message via a HEREDOC, a la this example:\n<example>\ngit commit -m \"$(cat <<'EOF'\n   Commit message here.\n\n   Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\n   EOF\n   )\"\n</example>\n\n# Creating pull requests\nUse the gh command via the Bash tool for ALL GitHub-related tasks including working with issues, pull requests, checks, and releases. If given a Github URL use the gh command to get the information needed.\n\nIMPORTANT: When the user asks you to create a pull request, follow these steps carefully:\n\n1. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following bash commands in parallel using the Bash tool, in order to understand the current state of the branch since it diverged from the main branch:\n   - Run a git status command to see all untracked files (never use -uall flag)\n   - Run a git diff command to see both staged and unstaged changes that will be committed\n   - Check if the current branch tracks a remote branch and is up to date with the remote, so you know if you need to push to the remote\n   - Run a git log command and `git diff [base-branch]...HEAD` to understand the full commit history for the current branch (from the time it diverged from the base branch)\n2. Analyze all changes that will be included in the pull request, making sure to look at all relevant commits (NOT just the latest commit, but ALL commits that will be included in the pull request!!!), and draft a pull request title and summary:\n   - Keep the PR title short (under 70 characters)\n   - Use the description/body for details, not the title\n3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands in parallel:\n   - Create new branch if needed\n   - Push to remote with -u flag if needed\n   - Create PR using gh pr create with the format below. Use a HEREDOC to pass the body to ensure correct formatting.\n<example>\ngh pr create --title \"the pr title\" --body \"$(cat <<'EOF'\n## Summary\n<1-3 bullet points>\n\n## Test plan\n[Bulleted markdown checklist of TODOs for testing the pull request...]\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\nEOF\n)\"\n</example>\n\nImportant:\n- DO NOT use the TodoWrite or Task tools\n- Return the PR URL when you're done, so the user can see it\n\n# Other common operations\n- View comments on a Github PR: gh api repos/foo/bar/pulls/123/comments",
+            "description": "Executes a given bash command with optional timeout. Working directory persists between commands; shell state (everything else) does not. The shell environment is initialized from the user's profile (bash or zsh).\n\nIMPORTANT: This tool is for terminal operations like git, npm, docker, etc. DO NOT use it for file operations (reading, writing, editing, searching, finding files) - use the specialized tools for this instead.\n\nBefore executing the command, please follow these steps:\n\n1. Directory Verification:\n   - If the command will create new directories or files, first use `ls` to verify the parent directory exists and is the correct location\n   - For example, before running \"mkdir foo/bar\", first use `ls foo` to check that \"foo\" exists and is the intended parent directory\n\n2. Command Execution:\n   - Always quote file paths that contain spaces with double quotes (e.g., cd \"path with spaces/file.txt\")\n   - Examples of proper quoting:\n     - cd \"/Users/name/My Documents\" (correct)\n     - cd /Users/name/My Documents (incorrect - will fail)\n     - python \"/path/with spaces/script.py\" (correct)\n     - python /path/with spaces/script.py (incorrect - will fail)\n   - After ensuring proper quoting, execute the command.\n   - Capture the output of the command.\n\nUsage notes:\n  - The command argument is required.\n  - You can specify an optional timeout in milliseconds (up to 600000ms / 10 minutes). If not specified, commands will timeout after 120000ms (2 minutes).\n  - It is very helpful if you write a clear, concise description of what this command does. For simple commands, keep it brief (5-10 words). For complex commands (piped commands, obscure flags, or anything hard to understand at a glance), add enough context to clarify what it does.\n  - If the output exceeds 30000 characters, output will be truncated before being returned to you.\n  \n  - You can use the `run_in_background` parameter to run the command in the background. Only use this if you don't need the result immediately and are OK being notified when the command completes later. You do not need to check the output right away - you'll be notified when it finishes. You do not need to use '&' at the end of the command when using this parameter.\n  \n  - Avoid using Bash with the `find`, `grep`, `cat`, `head`, `tail`, `sed`, `awk`, or `echo` commands, unless explicitly instructed or when these commands are truly necessary for the task. Instead, always prefer using the dedicated tools for these commands:\n    - File search: Use Glob (NOT find or ls)\n    - Content search: Use Grep (NOT grep or rg)\n    - Read files: Use Read (NOT cat/head/tail)\n    - Edit files: Use Edit (NOT sed/awk)\n    - Write files: Use Write (NOT echo >/cat <<EOF)\n    - Communication: Output text directly (NOT echo/printf)\n  - When issuing multiple commands:\n    - If the commands are independent and can run in parallel, make multiple Bash tool calls in a single message. For example, if you need to run \"git status\" and \"git diff\", send a single message with two Bash tool calls in parallel.\n    - If the commands depend on each other and must run sequentially, use a single Bash call with '&&' to chain them together (e.g., `git add . && git commit -m \"message\" && git push`). For instance, if one operation must complete before another starts (like mkdir before cp, Write before Bash for git operations, or git add before git commit), run these operations sequentially instead.\n    - Use ';' only when you need to run commands sequentially but don't care if earlier commands fail\n    - DO NOT use newlines to separate commands (newlines are ok in quoted strings)\n  - Try to maintain your current working directory throughout the session by using absolute paths and avoiding usage of `cd`. You may use `cd` if the User explicitly requests it.\n    <good-example>\n    pytest /foo/bar/tests\n    </good-example>\n    <bad-example>\n    cd /foo/bar && pytest tests\n    </bad-example>\n\n# Committing changes with git\n\nOnly create commits when requested by the user. If unclear, ask first. When the user asks you to create a new git commit, follow these steps carefully:\n\nGit Safety Protocol:\n- NEVER update the git config\n- NEVER run destructive git commands (push --force, reset --hard, checkout ., restore ., clean -f, branch -D) unless the user explicitly requests these actions. Taking unauthorized destructive actions is unhelpful and can result in lost work, so it's best to ONLY run these commands when given direct instructions \n- NEVER skip hooks (--no-verify, --no-gpg-sign, etc) unless the user explicitly requests it\n- NEVER run force push to main/master, warn the user if they request it\n- CRITICAL: Always create NEW commits rather than amending, unless the user explicitly requests a git amend. When a pre-commit hook fails, the commit did NOT happen \u2014 so --amend would modify the PREVIOUS commit, which may result in destroying work or losing previous changes. Instead, after hook failure, fix the issue, re-stage, and create a NEW commit\n- When staging files, prefer adding specific files by name rather than using \"git add -A\" or \"git add .\", which can accidentally include sensitive files (.env, credentials) or large binaries\n- NEVER commit changes unless the user explicitly asks you to. It is VERY IMPORTANT to only commit when explicitly asked, otherwise the user will feel that you are being too proactive\n\n1. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following bash commands in parallel, each using the Bash tool:\n  - Run a git status command to see all untracked files. IMPORTANT: Never use the -uall flag as it can cause memory issues on large repos.\n  - Run a git diff command to see both staged and unstaged changes that will be committed.\n  - Run a git log command to see recent commit messages, so that you can follow this repository's commit message style.\n2. Analyze all staged changes (both previously staged and newly added) and draft a commit message:\n  - Summarize the nature of the changes (eg. new feature, enhancement to an existing feature, bug fix, refactoring, test, docs, etc.). Ensure the message accurately reflects the changes and their purpose (i.e. \"add\" means a wholly new feature, \"update\" means an enhancement to an existing feature, \"fix\" means a bug fix, etc.).\n  - Do not commit files that likely contain secrets (.env, credentials.json, etc). Warn the user if they specifically request to commit those files\n  - Draft a concise (1-2 sentences) commit message that focuses on the \"why\" rather than the \"what\"\n  - Ensure it accurately reflects the changes and their purpose\n3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands:\n   - Add relevant untracked files to the staging area.\n   - Create the commit with a message ending with:\n   Co-Authored-By: Claude Opus 4.6 <<USER_EMAIL>>\n   - Run git status after the commit completes to verify success.\n   Note: git status depends on the commit completing, so run it sequentially after the commit.\n4. If the commit fails due to pre-commit hook: fix the issue and create a NEW commit\n\nImportant notes:\n- NEVER run additional commands to read or explore code, besides git bash commands\n- NEVER use the TodoWrite or Task tools\n- DO NOT push to the remote repository unless the user explicitly asks you to do so\n- IMPORTANT: Never use git commands with the -i flag (like git rebase -i or git add -i) since they require interactive input which is not supported.\n- IMPORTANT: Do not use --no-edit with git rebase commands, as the --no-edit flag is not a valid option for git rebase.\n- If there are no changes to commit (i.e., no untracked files and no modifications), do not create an empty commit\n- In order to ensure good formatting, ALWAYS pass the commit message via a HEREDOC, a la this example:\n<example>\ngit commit -m \"$(cat <<'EOF'\n   Commit message here.\n\n   Co-Authored-By: Claude Opus 4.6 <<USER_EMAIL>>\n   EOF\n   )\"\n</example>\n\n# Creating pull requests\nUse the gh command via the Bash tool for ALL GitHub-related tasks including working with issues, pull requests, checks, and releases. If given a Github URL use the gh command to get the information needed.\n\nIMPORTANT: When the user asks you to create a pull request, follow these steps carefully:\n\n1. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following bash commands in parallel using the Bash tool, in order to understand the current state of the branch since it diverged from the main branch:\n   - Run a git status command to see all untracked files (never use -uall flag)\n   - Run a git diff command to see both staged and unstaged changes that will be committed\n   - Check if the current branch tracks a remote branch and is up to date with the remote, so you know if you need to push to the remote\n   - Run a git log command and `git diff [base-branch]...HEAD` to understand the full commit history for the current branch (from the time it diverged from the base branch)\n2. Analyze all changes that will be included in the pull request, making sure to look at all relevant commits (NOT just the latest commit, but ALL commits that will be included in the pull request!!!), and draft a pull request title and summary:\n   - Keep the PR title short (under 70 characters)\n   - Use the description/body for details, not the title\n3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands in parallel:\n   - Create new branch if needed\n   - Push to remote with -u flag if needed\n   - Create PR using gh pr create with the format below. Use a HEREDOC to pass the body to ensure correct formatting.\n<example>\ngh pr create --title \"the pr title\" --body \"$(cat <<'EOF'\n## Summary\n<1-3 bullet points>\n\n## Test plan\n[Bulleted markdown checklist of TODOs for testing the pull request...]\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\nEOF\n)\"\n</example>\n\nImportant:\n- DO NOT use the TodoWrite or Task tools\n- Return the PR URL when you're done, so the user can see it\n\n# Other common operations\n- View comments on a Github PR: gh api repos/foo/bar/pulls/123/comments",
             "input_schema": {
               "$schema": "https://json-schema.org/draft/2020-12/schema",
               "type": "object",
@@ -1781,8 +1908,88 @@
             }
           },
           {
+            "name": "TeamCreate",
+            "description": "# TeamCreate\n\n## When to Use\n\nUse this tool proactively whenever:\n- The user explicitly asks to use a team, swarm, or group of agents\n- The user mentions wanting agents to work together, coordinate, or collaborate\n- A task is complex enough that it would benefit from parallel work by multiple agents (e.g., building a full-stack feature with frontend and backend work, refactoring a codebase while keeping tests passing, implementing a multi-step project with research, planning, and coding phases)\n\nWhen in doubt about whether a task warrants a team, prefer spawning a team.\n\n## Choosing Agent Types for Teammates\n\nWhen spawning teammates via the Task tool, choose the `subagent_type` based on what tools the agent needs for its task. Each agent type has a different set of available tools \u2014 match the agent to the work:\n\n- **Read-only agents** (e.g., Explore, Plan) cannot edit or write files. Only assign them research, search, or planning tasks. Never assign them implementation work.\n- **Full-capability agents** (e.g., general-purpose) have access to all tools including file editing, writing, and bash. Use these for tasks that require making changes.\n- **Custom agents** defined in `.claude/agents/` may have their own tool restrictions. Check their descriptions to understand what they can and cannot do.\n\nAlways review the agent type descriptions and their available tools listed in the Task tool prompt before selecting a `subagent_type` for a teammate.\n\nCreate a new team to coordinate multiple agents working on a project. Teams have a 1:1 correspondence with task lists (Team = TaskList).\n\n```\n{\n  \"team_name\": \"my-project\",\n  \"description\": \"Working on feature X\"\n}\n```\n\nThis creates:\n- A team file at `~/.claude/teams/{team-name}.json`\n- A corresponding task list directory at `~/.claude/tasks/{team-name}/`\n\n## Team Workflow\n\n1. **Create a team** with TeamCreate - this creates both the team and its task list\n2. **Create tasks** using the Task tools (TaskCreate, TaskList, etc.) - they automatically use the team's task list\n3. **Spawn teammates** using the Task tool with `team_name` and `name` parameters to create teammates that join the team\n4. **Assign tasks** using TaskUpdate with `owner` to give tasks to idle teammates\n5. **Teammates work on assigned tasks** and mark them completed via TaskUpdate\n6. **Teammates go idle between turns** - after each turn, teammates automatically go idle and send a notification. IMPORTANT: Be patient with idle teammates! Don't comment on their idleness until it actually impacts your work.\n7. **Shutdown your team** - when the task is completed, gracefully shut down your teammates via SendMessage with type: \"shutdown_request\".\n\n## Task Ownership\n\nTasks are assigned using TaskUpdate with the `owner` parameter. Any agent can set or change task ownership via TaskUpdate.\n\n## Automatic Message Delivery\n\n**IMPORTANT**: Messages from teammates are automatically delivered to you. You do NOT need to manually check your inbox.\n\nWhen you spawn teammates:\n- They will send you messages when they complete tasks or need help\n- These messages appear automatically as new conversation turns (like user messages)\n- If you're busy (mid-turn), messages are queued and delivered when your turn ends\n- The UI shows a brief notification with the sender's name when messages are waiting\n\nMessages will be delivered automatically.\n\nWhen reporting on teammate messages, you do NOT need to quote the original message\u2014it's already rendered to the user.\n\n## Teammate Idle State\n\nTeammates go idle after every turn\u2014this is completely normal and expected. A teammate going idle immediately after sending you a message does NOT mean they are done or unavailable. Idle simply means they are waiting for input.\n\n- **Idle teammates can receive messages.** Sending a message to an idle teammate wakes them up and they will process it normally.\n- **Idle notifications are automatic.** The system sends an idle notification whenever a teammate's turn ends. You do not need to react to idle notifications unless you want to assign new work or send a follow-up message.\n- **Do not treat idle as an error.** A teammate sending a message and then going idle is the normal flow\u2014they sent their message and are now waiting for a response.\n- **Peer DM visibility.** When a teammate sends a DM to another teammate, a brief summary is included in their idle notification. This gives you visibility into peer collaboration without the full message content. You do not need to respond to these summaries \u2014 they are informational.\n\n## Discovering Team Members\n\nTeammates can read the team config file to discover other team members:\n- **Team config location**: `~/.claude/teams/{team-name}/config.json`\n\nThe config file contains a `members` array with each teammate's:\n- `name`: Human-readable name (**always use this** for messaging and task assignment)\n- `agentId`: Unique identifier (for reference only - do not use for communication)\n- `agentType`: Role/type of the agent\n\n**IMPORTANT**: Always refer to teammates by their NAME (e.g., \"team-lead\", \"researcher\", \"tester\"). Names are used for:\n- `target_agent_id` when sending messages\n- Identifying task owners\n\nExample of reading team config:\n```\nUse the Read tool to read ~/.claude/teams/{team-name}/config.json\n```\n\n## Task List Coordination\n\nTeams share a task list that all teammates can access at `~/.claude/tasks/{team-name}/`.\n\nTeammates should:\n1. Check TaskList periodically, **especially after completing each task**, to find available work or see newly unblocked tasks\n2. Claim unassigned, unblocked tasks with TaskUpdate (set `owner` to your name). **Prefer tasks in ID order** (lowest ID first) when multiple tasks are available, as earlier tasks often set up context for later ones\n3. Create new tasks with `TaskCreate` when identifying additional work\n4. Mark tasks as completed with `TaskUpdate` when done, then check TaskList for next work\n5. Coordinate with other teammates by reading the task list status\n6. If all available tasks are blocked, notify the team lead or help resolve blocking tasks\n\n**IMPORTANT notes for communication with your team**:\n- Do not use terminal tools to view your team's activity; always send a message to your teammates (and remember, refer to them by name).\n- Your team cannot hear you if you do not use the SendMessage tool. Always send a message to your teammates if you are responding to them.\n- Do NOT send structured JSON status messages like `{\"type\":\"idle\",...}` or `{\"type\":\"task_completed\",...}`. Just communicate in plain text when you need to message teammates.\n- Use TaskUpdate to mark tasks completed.\n- If you are an agent in the team, the system will automatically send idle notifications to the team lead when you stop.",
+            "input_schema": {
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "type": "object",
+              "properties": {
+                "team_name": {
+                  "description": "Name for the new team to create.",
+                  "type": "string"
+                },
+                "description": {
+                  "description": "Team description/purpose.",
+                  "type": "string"
+                },
+                "agent_type": {
+                  "description": "Type/role of the team lead (e.g., \"researcher\", \"test-runner\"). Used for team file and inter-agent coordination.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "team_name"
+              ],
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "TeamDelete",
+            "description": "# TeamDelete\n\nRemove team and task directories when the swarm work is complete.\n\nThis operation:\n- Removes the team directory (`~/.claude/teams/{team-name}/`)\n- Removes the task directory (`~/.claude/tasks/{team-name}/`)\n- Clears team context from the current session\n\n**IMPORTANT**: TeamDelete will fail if the team still has active members. Gracefully terminate teammates first, then call TeamDelete after all teammates have shut down.\n\nUse this when all teammates have finished their work and you want to clean up the team resources. The team name is automatically determined from the current session's team context.",
+            "input_schema": {
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "SendMessage",
+            "description": "# SendMessageTool\n\nSend messages to agent teammates and handle protocol requests/responses in a team.\n\n## Message Types\n\n### type: \"message\" - Send a Direct Message\n\nSend a message to a **single specific teammate**. You MUST specify the recipient.\n\n**IMPORTANT for teammates**: Your plain text output is NOT visible to the team lead or other teammates. To communicate with anyone on your team, you **MUST** use this tool. Just typing a response or acknowledgment in text is not enough.\n\n```\n{\n  \"type\": \"message\",\n  \"recipient\": \"researcher\",\n  \"content\": \"Your message here\",\n  \"summary\": \"Brief status update on auth module\"\n}\n```\n\n- **recipient**: The name of the teammate to message (required)\n- **content**: The message text (required)\n- **summary**: A 5-10 word summary shown as preview in the UI (required)\n\n### type: \"broadcast\" - Send Message to ALL Teammates (USE SPARINGLY)\n\nSend the **same message to everyone** on the team at once.\n\n**WARNING: Broadcasting is expensive.** Each broadcast sends a separate message to every teammate, which means:\n- N teammates = N separate message deliveries\n- Each delivery consumes API resources\n- Costs scale linearly with team size\n\n```\n{\n  \"type\": \"broadcast\",\n  \"content\": \"Message to send to all teammates\",\n  \"summary\": \"Critical blocking issue found\"\n}\n```\n\n- **content**: The message content to broadcast (required)\n- **summary**: A 5-10 word summary shown as preview in the UI (required)\n\n**CRITICAL: Use broadcast only when absolutely necessary.** Valid use cases:\n- Critical issues requiring immediate team-wide attention (e.g., \"stop all work, blocking bug found\")\n- Major announcements that genuinely affect every teammate equally\n\n**Default to \"message\" instead of \"broadcast\".** Use \"message\" for:\n- Responding to a single teammate\n- Normal back-and-forth communication\n- Following up on a task with one person\n- Sharing findings relevant to only some teammates\n- Any message that doesn't require everyone's attention\n\n### type: \"shutdown_request\" - Request a Teammate to Shut Down\n\nUse this to ask a teammate to gracefully shut down:\n\n```\n{\n  \"type\": \"shutdown_request\",\n  \"recipient\": \"researcher\",\n  \"content\": \"Task complete, wrapping up the session\"\n}\n```\n\nThe teammate will receive a shutdown request and can either approve (exit) or reject (continue working).\n\n### type: \"shutdown_response\" - Respond to a Shutdown Request\n\n#### Approve Shutdown\n\nWhen you receive a shutdown request as a JSON message with `type: \"shutdown_request\"`, you **MUST** respond to approve or reject it. Do NOT just acknowledge the request in text - you must actually call this tool.\n\n```\n{\n  \"type\": \"shutdown_response\",\n  \"request_id\": \"abc-123\",\n  \"approve\": true\n}\n```\n\n**IMPORTANT**: Extract the `requestId` from the JSON message and pass it as `request_id` to the tool. Simply saying \"I'll shut down\" is not enough - you must call the tool.\n\nThis will send confirmation to the leader and terminate your process.\n\n#### Reject Shutdown\n\n```\n{\n  \"type\": \"shutdown_response\",\n  \"request_id\": \"abc-123\",\n  \"approve\": false,\n  \"content\": \"Still working on task #3, need 5 more minutes\"\n}\n```\n\nThe leader will receive your rejection with the reason.\n\n### type: \"plan_approval_response\" - Approve or Reject a Teammate's Plan\n\n#### Approve Plan\n\nWhen a teammate with `plan_mode_required` calls ExitPlanMode, they send you a plan approval request as a JSON message with `type: \"plan_approval_request\"`. Use this to approve their plan:\n\n```\n{\n  \"type\": \"plan_approval_response\",\n  \"request_id\": \"abc-123\",\n  \"recipient\": \"researcher\",\n  \"approve\": true\n}\n```\n\nAfter approval, the teammate will automatically exit plan mode and can proceed with implementation.\n\n#### Reject Plan\n\n```\n{\n  \"type\": \"plan_approval_response\",\n  \"request_id\": \"abc-123\",\n  \"recipient\": \"researcher\",\n  \"approve\": false,\n  \"content\": \"Please add error handling for the API calls\"\n}\n```\n\nThe teammate will receive the rejection with your feedback and can revise their plan.\n\n## Important Notes\n\n- Messages from teammates are automatically delivered to you. You do NOT need to manually check your inbox.\n- When reporting on teammate messages, you do NOT need to quote the original message - it's already rendered to the user.\n- **IMPORTANT**: Always refer to teammates by their NAME (e.g., \"team-lead\", \"researcher\", \"tester\"), never by UUID.\n- Do NOT send structured JSON status messages. Use TaskUpdate to mark tasks completed and the system will automatically send idle notifications when you stop.",
+            "input_schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "message",
+                    "broadcast",
+                    "shutdown_request",
+                    "shutdown_response",
+                    "plan_approval_response"
+                  ],
+                  "description": "Message type: \"message\" for DMs, \"broadcast\" to all teammates, \"shutdown_request\" to request shutdown, \"shutdown_response\" to respond to shutdown, \"plan_approval_response\" to approve/reject plans"
+                },
+                "recipient": {
+                  "type": "string",
+                  "description": "Agent name of the recipient (required for message, shutdown_request, plan_approval_response)"
+                },
+                "content": {
+                  "type": "string",
+                  "description": "Message text, reason, or feedback"
+                },
+                "summary": {
+                  "type": "string",
+                  "description": "A 5-10 word summary of the message, shown as a preview in the UI (required for message, broadcast)"
+                },
+                "request_id": {
+                  "type": "string",
+                  "description": "Request ID to respond to (required for shutdown_response, plan_approval_response)"
+                },
+                "approve": {
+                  "type": "boolean",
+                  "description": "Whether to approve the request (required for shutdown_response, plan_approval_response)"
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "additionalProperties": false
+            }
+          },
+          {
             "name": "ToolSearch",
-            "description": "Search for or select deferred tools to make them available for use.\n\n**MANDATORY PREREQUISITE - THIS IS A HARD REQUIREMENT**\n\nYou MUST use this tool to load deferred tools BEFORE calling them directly.\n\nThis is a BLOCKING REQUIREMENT - deferred tools listed below are NOT available until you load them using this tool. Both query modes (keyword search and direct selection) load the returned tools \u2014 once a tool appears in the results, it is immediately available to call.\n\n**Why this is non-negotiable:**\n- Deferred tools are not loaded until discovered via this tool\n- Calling a deferred tool without first loading it will fail\n\n**Query modes:**\n\n1. **Keyword search** - Use keywords when you're unsure which tool to use or need to discover multiple tools at once:\n   - \"list directory\" - find tools for listing directories\n   - \"notebook jupyter\" - find notebook editing tools\n   - \"slack message\" - find slack messaging tools\n   - Returns up to 5 matching tools ranked by relevance\n   - All returned tools are immediately available to call \u2014 no further selection step needed\n\n2. **Direct selection** - Use `select:<tool_name>` when you know the exact tool name and only need that one tool:\n   - \"select:mcp__slack__read_channel\"\n   - \"select:NotebookEdit\"\n   - Returns just that tool if it exists\n\n**IMPORTANT:** Both modes load tools equally. Do NOT follow up a keyword search with `select:` calls for tools already returned \u2014 they are already loaded.\n\n3. **Required keyword** - Prefix with `+` to require a match:\n   - \"+linear create issue\" - only tools from \"linear\", ranked by \"create\"/\"issue\"\n   - \"+slack send\" - only \"slack\" tools, ranked by \"send\"\n   - Useful when you know the service name but not the exact tool\n\n**CORRECT Usage Patterns:**\n\n<example>\nUser: I need to work with slack somehow\nAssistant: Let me search for slack tools.\n[Calls ToolSearch with query: \"slack\"]\nAssistant: Found several options including mcp__slack__read_channel.\n[Calls mcp__slack__read_channel directly \u2014 it was loaded by the keyword search]\n</example>\n\n<example>\nUser: Edit the Jupyter notebook\nAssistant: Let me load the notebook editing tool.\n[Calls ToolSearch with query: \"select:NotebookEdit\"]\n[Calls NotebookEdit]\n</example>\n\n<example>\nUser: List files in the src directory\nAssistant: I can see mcp__filesystem__list_directory in the available tools. Let me select it.\n[Calls ToolSearch with query: \"select:mcp__filesystem__list_directory\"]\n[Calls the tool]\n</example>\n\n**INCORRECT Usage Patterns - NEVER DO THESE:**\n\n<bad-example>\nUser: Read my slack messages\nAssistant: [Directly calls mcp__slack__read_channel without loading it first]\nWRONG - You must load the tool FIRST using this tool\n</bad-example>\n\n<bad-example>\nAssistant: [Calls ToolSearch with query: \"slack\", gets back mcp__slack__read_channel]\nAssistant: [Calls ToolSearch with query: \"select:mcp__slack__read_channel\"]\nWRONG - The keyword search already loaded the tool. The select call is redundant.\n</bad-example>\n\nAvailable deferred tools (must be loaded before use):\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\nmcp__claude_ai_Google_Calendar__list_events\nmcp__claude_ai_Google_Calendar__get_event\nmcp__claude_ai_Google_Calendar__list_calendars\nmcp__claude_ai_Google_Calendar__suggest_time\nmcp__claude_ai_Google_Calendar__create_event\nmcp__claude_ai_Google_Calendar__update_event\nmcp__claude_ai_Google_Calendar__delete_event\nmcp__claude_ai_Google_Calendar__respond_to_event\nmcp__claude_ai_Google_Drive__copy_file\nmcp__claude_ai_Google_Drive__create_file\nmcp__claude_ai_Google_Drive__download_file_content\nmcp__claude_ai_Google_Drive__get_file_metadata\nmcp__claude_ai_Google_Drive__get_file_permissions\nmcp__claude_ai_Google_Drive__list_recent_files\nmcp__claude_ai_Google_Drive__read_file_content\nmcp__claude_ai_Google_Drive__search_files\nmcp__claude_ai_Excalidraw__read_me\nmcp__claude_ai_Excalidraw__create_view\nmcp__claude_ai_Excalidraw__export_to_excalidraw\nmcp__claude_ai_Excalidraw__save_checkpoint\nmcp__claude_ai_Excalidraw__read_checkpoint\nmcp__claude_ai_Gmail__create_draft\nmcp__claude_ai_Gmail__list_drafts\nmcp__claude_ai_Gmail__get_thread\nmcp__claude_ai_Gmail__search_threads\nmcp__claude_ai_Gmail__label_thread\nmcp__claude_ai_Gmail__unlabel_thread\nmcp__claude_ai_Gmail__list_labels\nmcp__claude_ai_Gmail__label_message\nmcp__claude_ai_Gmail__unlabel_message\nmcp__claude_ai_Gmail__create_label\nmcp__claude_ai_Canva__upload-asset-from-url\nmcp__claude_ai_Canva__resolve-shortlink\nmcp__claude_ai_Canva__search-designs\nmcp__claude_ai_Canva__get-design\nmcp__claude_ai_Canva__get-design-pages\nmcp__claude_ai_Canva__get-design-content\nmcp__claude_ai_Canva__get-presenter-notes\nmcp__claude_ai_Canva__import-design-from-url\nmcp__claude_ai_Canva__export-design\nmcp__claude_ai_Canva__get-export-formats\nmcp__claude_ai_Canva__create-folder\nmcp__claude_ai_Canva__move-item-to-folder\nmcp__claude_ai_Canva__list-folder-items\nmcp__claude_ai_Canva__search-folders\nmcp__claude_ai_Canva__comment-on-design\nmcp__claude_ai_Canva__list-replies\nmcp__claude_ai_Canva__reply-to-comment\nmcp__claude_ai_Canva__list-comments\nmcp__claude_ai_Canva__generate-design\nmcp__claude_ai_Canva__generate-design-structured\nmcp__claude_ai_Canva__create-design-from-candidate\nmcp__claude_ai_Canva__request-outline-review\nmcp__claude_ai_Canva__list-brand-kits\nmcp__claude_ai_Canva__help\nmcp__claude_ai_Canva__resize-design\nmcp__claude_ai_Canva__start-editing-transaction\nmcp__claude_ai_Canva__perform-editing-operations\nmcp__claude_ai_Canva__commit-editing-transaction\nmcp__claude_ai_Canva__cancel-editing-transaction\nmcp__claude_ai_Canva__get-design-thumbnail\nmcp__claude_ai_Canva__get-assets\nmcp__claude_ai_Canva__merge-designs\nmcp__claude_ai_tldraw__search\nmcp__claude_ai_tldraw__exec\nmcp__claude_ai_tldraw___exec_callback\nmcp__claude_ai_tldraw___get_canvas_state\nmcp__claude_ai_tldraw__read_checkpoint\nmcp__claude_ai_tldraw__save_checkpoint\nmcp__claude_ai_Mermaid_Chart__validate_and_render_mermaid_diagram\nmcp__claude_ai_Figma__get_screenshot\nmcp__claude_ai_Figma__create_design_system_rules\nmcp__claude_ai_Figma__get_design_context\nmcp__claude_ai_Figma__get_metadata\nmcp__claude_ai_Figma__get_variable_defs\nmcp__claude_ai_Figma__get_figjam\nmcp__claude_ai_Figma__generate_diagram\nmcp__claude_ai_Figma__get_code_connect_map\nmcp__claude_ai_Figma__whoami\nmcp__claude_ai_Figma__add_code_connect_map\nmcp__claude_ai_Figma__get_code_connect_suggestions\nmcp__claude_ai_Figma__send_code_connect_mappings\nmcp__claude_ai_Figma__get_context_for_code_connect\nmcp__claude_ai_Figma__use_figma\nmcp__claude_ai_Figma__get_libraries\nmcp__claude_ai_Figma__search_design_system\nmcp__claude_ai_Figma__create_new_file\nmcp__claude_ai_Figma__upload_assets",
+            "description": "Search for or select deferred tools to make them available for use.\n\n**MANDATORY PREREQUISITE - THIS IS A HARD REQUIREMENT**\n\nYou MUST use this tool to load deferred tools BEFORE calling them directly.\n\nThis is a BLOCKING REQUIREMENT - deferred tools listed below are NOT available until you load them using this tool. Both query modes (keyword search and direct selection) load the returned tools \u2014 once a tool appears in the results, it is immediately available to call.\n\n**Why this is non-negotiable:**\n- Deferred tools are not loaded until discovered via this tool\n- Calling a deferred tool without first loading it will fail\n\n**Query modes:**\n\n1. **Keyword search** - Use keywords when you're unsure which tool to use or need to discover multiple tools at once:\n   - \"list directory\" - find tools for listing directories\n   - \"notebook jupyter\" - find notebook editing tools\n   - \"slack message\" - find slack messaging tools\n   - Returns up to 5 matching tools ranked by relevance\n   - All returned tools are immediately available to call \u2014 no further selection step needed\n\n2. **Direct selection** - Use `select:<tool_name>` when you know the exact tool name and only need that one tool:\n   - \"select:mcp__slack__read_channel\"\n   - \"select:NotebookEdit\"\n   - Returns just that tool if it exists\n\n**IMPORTANT:** Both modes load tools equally. Do NOT follow up a keyword search with `select:` calls for tools already returned \u2014 they are already loaded.\n\n3. **Required keyword** - Prefix with `+` to require a match:\n   - \"+linear create issue\" - only tools from \"linear\", ranked by \"create\"/\"issue\"\n   - \"+slack send\" - only \"slack\" tools, ranked by \"send\"\n   - Useful when you know the service name but not the exact tool\n\n**CORRECT Usage Patterns:**\n\n<example>\nUser: I need to work with slack somehow\nAssistant: Let me search for slack tools.\n[Calls ToolSearch with query: \"slack\"]\nAssistant: Found several options including mcp__slack__read_channel.\n[Calls mcp__slack__read_channel directly \u2014 it was loaded by the keyword search]\n</example>\n\n<example>\nUser: Edit the Jupyter notebook\nAssistant: Let me load the notebook editing tool.\n[Calls ToolSearch with query: \"select:NotebookEdit\"]\n[Calls NotebookEdit]\n</example>\n\n<example>\nUser: List files in the src directory\nAssistant: I can see mcp__filesystem__list_directory in the available tools. Let me select it.\n[Calls ToolSearch with query: \"select:mcp__filesystem__list_directory\"]\n[Calls the tool]\n</example>\n\n**INCORRECT Usage Patterns - NEVER DO THESE:**\n\n<bad-example>\nUser: Read my slack messages\nAssistant: [Directly calls mcp__slack__read_channel without loading it first]\nWRONG - You must load the tool FIRST using this tool\n</bad-example>\n\n<bad-example>\nAssistant: [Calls ToolSearch with query: \"slack\", gets back mcp__slack__read_channel]\nAssistant: [Calls ToolSearch with query: \"select:mcp__slack__read_channel\"]\nWRONG - The keyword search already loaded the tool. The select call is redundant.\n</bad-example>\n\nAvailable deferred tools (must be loaded before use):\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003",
             "input_schema": {
               "$schema": "https://json-schema.org/draft/2020-12/schema",
               "type": "object",
@@ -1844,7 +2051,7 @@
           }
         ],
         "metadata": {
-          "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_638ba717-ee6c-40c9-8a5d-762a9b5eb9a8"
+          "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_12f250b7-d7bc-4604-b35f-2d17455adf0d"
         },
         "max_tokens": 32000,
         "thinking": {
@@ -1862,39 +2069,42 @@
       },
       "response_status": 200,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 08:25:25 GMT",
+        "Date": "Mon, 04 May 2026 17:43:17 GMT",
         "Content-Type": "text/event-stream; charset=utf-8",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
         "Cache-Control": "no-cache",
-        "anthropic-ratelimit-unified-status": "allowed",
-        "anthropic-ratelimit-unified-5h-status": "allowed",
-        "anthropic-ratelimit-unified-5h-reset": "1777893000",
-        "anthropic-ratelimit-unified-5h-utilization": "0.64",
+        "anthropic-ratelimit-unified-status": "allowed_warning",
+        "anthropic-ratelimit-unified-5h-status": "allowed_warning",
+        "anthropic-ratelimit-unified-5h-reset": "1777929000",
+        "anthropic-ratelimit-unified-5h-utilization": "1.0",
+        "anthropic-ratelimit-unified-5h-surpassed-threshold": "0.9",
         "anthropic-ratelimit-unified-7d-status": "allowed",
         "anthropic-ratelimit-unified-7d-reset": "1778126400",
-        "anthropic-ratelimit-unified-7d-utilization": "0.4",
+        "anthropic-ratelimit-unified-7d-utilization": "0.51",
         "anthropic-ratelimit-unified-overage-status": "allowed",
         "anthropic-ratelimit-unified-overage-reset": "1780272000",
         "anthropic-ratelimit-unified-overage-utilization": "0.0",
         "anthropic-ratelimit-unified-representative-claim": "five_hour",
         "anthropic-ratelimit-unified-fallback-percentage": "0.5",
         "anthropic-ratelimit-unified-fallback": "available",
-        "anthropic-ratelimit-unified-reset": "1777893000",
-        "request-id": "req_011CahD5yDoFuK73MWWra9qS",
+        "anthropic-ratelimit-unified-reset": "1777929000",
+        "anthropic-ratelimit-unified-upgrade-paths": "overage",
+        "anthropic-ratelimit-unified-overage-in-use": "true",
+        "request-id": "req_011CahwdNJNta7HotxGYuNd7",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-4240624279b7ded4d448e1faf8c1b203-9249bad9854d3a35-01",
+        "traceresponse": "00-099a6470a444cbb1ea8175c12119ad67-54c25c005f1164f0-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "2891",
+        "x-envoy-upstream-service-time": "2340",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
         "vary": "Accept-Encoding",
         "set-cookie": "REDACTED",
         "X-Robots-Tag": "none",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "9f661d4a699b98ce-SJC"
+        "CF-RAY": "9f694e7cfb9588fa-SJC"
       },
-      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-6\",\"id\":\"msg_01DJSxnP9KCKet1bQjoJPoKH\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":23579,\"cache_read_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":23579},\"output_tokens\":26,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}}\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"thinking\",\"thinking\":\"\",\"signature\":\"\"}      }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\"The user wants me to list all MCP tools available to me. I can see these\"}               }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\" from the deferred tools list in the ToolSearch description\"}}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\", plus any that are already loaded. Let me list all\"}             }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\" the MCP tools from the deferred tools list.\\n\\nLooking at the available deferred tools listed in\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\" the ToolSearch tool description:\\n\\nmcp__fixture__tool_001\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\"\\nmcp__fixture__tool_002\\nmcp__fixture__tool_003\\nmcp__claude_ai_Google_Calendar__\"}               }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\"list_events\\n\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\"\\n\\nmcp__claude_ai_Google\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\"_Calendar__get_event\\nmcp__claude_ai_Google_Calendar__list_calendars\\nmcp__claude_ai_Google_Calendar__suggest_time\\nmcp__claude_ai_Google_Calendar__create_event\\nmcp__claude_ai_Google_Calendar__\"} }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\"update_event\\nmcp__claude_ai_Google_Calendar__delete_event\\nmcp__claude_ai_Google_Calendar__respond_to_event\\nmcp__claude_ai_Google_Drive__copy_file\\nmcp__claude_ai_Google_Drive__create_\"}        }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\"file\\nmcp__claude_ai_Google_Drive__download_file_content\\nmcp__claude_ai_Google_Drive__get_file_metadata\\nmcp__claude_ai_Google_Drive__get\"}    }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\"\\n\\n_file_permissions\"}             }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\"\\nmcp__claude_ai_Google_Drive__list_recent_files\\nmcp__claude_ai_Google_Drive__read_file_content\\nmcp__claude_ai_Google_Drive__search_files\\nmcp__claude_ai_Excalidraw__read_\"}}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\"me\\nmcp__claude_ai_Excalidraw__create_view\\nmcp__claude_ai_Excalidraw__export_to_excalidraw\\nmcp__claude_ai_Excalidraw__save_checkpoint\\nmcp__claude_ai\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\"_Excalidraw__read_checkpoint\\nmcp__claude_ai_Gmail__create_draft\\nmcp__claude_ai_Gmail__list_drafts\\nmcp__claude_ai_Gmail__get_thread\\nmcp__claude_ai_Gmail__search_threads\"}           }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\"\\nmcp__claude_ai_Gmail__label_thread\\n\\nI'm looking at the available tools across\"}               }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\" Google Calendar, Drive, Excalidraw, and Gmail integrations to understand what capabilities are\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\" available for the user.\"}    }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\" I\"}}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\"'m looking at the available Canva tools now\u2014there are options for managing\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\" folders, collaborating through comments and replies, generating designs with AI, working with brand kits, and res\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\"izing designs.\"}             }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\" Now\"}        }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\" I'm reviewing the available tools across Figma, continuing with screenshot\"}   }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\" capture, design system rules, metadata retrieval, variable definitions, and FigJam access\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\", along with diagram generation, code connect mapping features, and context retrieval for code\"}}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\" integration.\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"signature_delta\",\"signature\":\"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\"}            }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0           }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":1,\"content_block\":{\"type\":\"text\",\"text\":\"\"} }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Here are\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\" all the MCP tools currently available (as deferred tools that can be loaded via ToolSearch):\\n\\n```\\nmcp\"} }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"__fixture__tool_001\\nmcp__fixture__tool_002\\nmcp__fixture__tool_003\\nmcp__claude_ai_Google_Calendar__list_events\\nmcp__claude_ai_Google_Calendar__get_event\\nmcp__claude_ai_Google_\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Calendar__list_calendars\\nmcp__claude_ai_Google_Calendar__suggest_time\\nmcp__claude_ai_Google_Calendar__create_event\\nmcp__claude_ai_Google_Calendar__update_event\\nmcp__claude_ai_Google_Calendar__delete\"}  }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"_event\\nmcp__claude_ai_Google_Calendar__respond_to_event\\nmcp__claude_ai_Google_Drive__copy_file\\nmcp__claude_ai_Google_Drive__create_file\\nmcp__claude_ai_Google_Drive__download_file\"}             }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"_content\\nmcp__claude_ai_Google_Drive__get_file_metadata\\nmcp__claude_ai_Google_Drive__get_file_permissions\\nmcp__claude_ai_Google_Drive__list_recent_files\\nmcp__claude_ai_Google_Drive\"}}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"__read_file_content\\nmcp__claude_ai_Google_Drive__search_files\\nmcp__claude_ai_Excalidraw__read_me\\nmcp__claude_ai_Excalidraw__create_view\\nmcp__claude_ai_\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Excalidraw__export_to_excalidraw\\nmcp__claude_ai_Excalidraw__save_checkpoint\\nmcp__claude_ai_Excalidraw__read_checkpoint\\nmcp__claude_ai_Gmail__create_draft\\nmcp__\"}             }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"claude_ai_Gmail__list_drafts\\nmcp__claude_ai_Gmail__get_thread\\nmcp__claude_ai_Gmail__search_threads\\nmcp__claude_ai_Gmail__label_thread\\nmcp__claude_ai_Gmail__unlabel_thread\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"\\nmcp__claude_ai_Gmail__list_labels\\nmcp__claude_ai_Gmail__label_message\\nmcp__claude_ai_Gmail__unlabel_message\\nmcp__claude_ai_Gmail__create_label\\nmcp__claude_ai_Canva__\"}       }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"upload-asset-from-url\\nmcp__claude_ai_Canva__resolve-shortlink\\nmcp__claude_ai_Canva__search-designs\\nmcp__claude_ai_Canva__get-design\\nmcp__claude_ai_Canva\"}        }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"__get-design-pages\\nmcp__claude_ai_Canva__get-design-content\\nmcp__claude_ai_Canva__get-presenter-notes\\nmcp__claude_ai_Canva__import-design-from-url\\nmcp__claude\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"_ai_Canva__export-design\\nmcp__claude_ai_Canva__get-export-formats\\nmcp__claude_ai_Canva__create-folder\\nmcp__claude_ai_Canva__move-item-to-folder\\nmcp\"}   }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"__claude_ai_Canva__list-folder-items\\nmcp__claude_ai_Canva__search-folders\\nmcp__claude_ai_Canva__comment-on-design\\nmcp__claude_ai_Canva__list-replies\\nmcp\"}   }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"__claude_ai_Canva__reply-to-comment\\nmcp__claude_ai_Canva__list-comments\\nmcp__claude_ai_Canva__generate-design\\nmcp__claude_ai_Canva__generate-design-structured\\nmcp\"}    }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"__claude_ai_Canva__create-design-from-candidate\\nmcp__claude_ai_Canva__request-outline-review\\nmcp__claude_ai_Canva__list-brand-kits\\nmcp__claude_ai_Canva__help\"}           }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"\\nmcp__claude_ai_Canva__resize-design\\nmcp__claude_ai_Canva__start-editing-transaction\\nmcp__claude_ai_Canva__perform-editing-operations\\nmcp__claude_ai_Canva__commit-editing\"}               }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"-transaction\\nmcp__claude_ai_Canva__cancel-editing-transaction\\nmcp__claude_ai_Canva__get-design-thumbnail\\nmcp__claude_ai_Canva__get-assets\\nmcp__claude_ai_Canva__merge\"}         }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"-designs\\nmcp__claude_ai_tldraw__search\\nmcp__claude_ai_tldraw__exec\\nmcp__claude_ai_tldraw___exec_callback\\nmcp__claude_ai_tldraw___get_canvas_state\\nmcp__\"}   }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"claude_ai_tldraw__read_checkpoint\\nmcp__claude_ai_tldraw__save_checkpoint\\nmcp__claude_ai_Mermaid_Chart__validate_and_render_mermaid_diagram\\nmcp__claude_ai_Figma__\"}           }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"get_screenshot\\nmcp__claude_ai_Figma__create_design_system_rules\\nmcp__claude_ai_Figma__get_design_context\\nmcp__claude_ai_Figma__get_metadata\\nmcp__claude_ai_Fig\"}   }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"ma__get_variable_defs\\nmcp__claude_ai_Figma__get_figjam\\nmcp__claude_ai_Figma__generate_diagram\\nmcp__claude_ai_Figma__get_code_connect_map\\nmcp__claude\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"_ai_Figma__whoami\\nmcp__claude_ai_Figma__add_code_connect_map\\nmcp__claude_ai_Figma__get_code_connect_suggestions\\nmcp__claude_ai_Figma__send_code_connect\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"_mappings\\nmcp__claude_ai_Figma__get_context_for_code_connect\\nmcp__claude_ai_Figma__use_figma\\nmcp__claude_ai_Figma__get_libraries\\nmcp__claude_ai_\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Figma__search_design_system\\nmcp__claude_ai_Figma__create_new_file\\nmcp__claude_ai_Figma__upload_assets\\n```\\n\\nThat's 78 M\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"CP tools total, spanning 8 servers: fixture,\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\" Google Calendar, Google Drive, Excalidraw, Gmail, Canva, tldraw, Mermaid Chart, and Figma.\"}        }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":1    }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":23579,\"cache_read_input_tokens\":0,\"output_tokens\":3070},\"context_management\":{\"applied_edits\":[]} }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"}\n\n",
+      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-6\",\"id\":\"msg_013N24vchW4mg9Du9siY6YA8\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":27390,\"cache_read_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":27390},\"output_tokens\":27,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}        }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"thinking\",\"thinking\":\"\",\"signature\":\"\"}            }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\"The user wants me to list all MCP tools available to me. I can see these in\"}               }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\" the deferred tools list from the ToolSearch\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\" tool description. Let me list them all.\"}}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"signature_delta\",\"signature\":\"EtsCClkIDRgCKkAeuYbkITDPosVNNbejwOhG0QD8zjXS6yG+iaVitsTFMgfF8LbxrBY9D4/wG4b6j3qviG5oFm5ZncOEhZDHs7nfMg9jbGF1ZGUtb3B1cy00LTY4ABIM45O1suuhfKLWC4TlGgwipq4D68NHmjTYBOoiMIQxtHaZtgq0xngUeFRaTgsj5QnJjWySvKQ2UwPDkjN49w0dn5MsaDsBp4jtG/KPHCqvAWwcPH5T1570V5grlzkTPD1YyDEiKEYETiTLcsWQqInplBXHan1ZWjqIogkNfR07yUFhFHzlJRngynttWu+zlBrAsiUTC7ZJdpaVl33nHnVZvxmVujPtGFJO/KZTO5DD9pv7LBSaYmoSTuFghsKha9HnjK6hK8sXhdfvX6wtNt6YEOO9T8b7sHV/AJRmkPYZEtnqCVIcgPwJ4eiV7T16kqHuNKUIOETyvtvTixuCdCsYAQ==\"}          }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0    }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":1,\"content_block\":{\"type\":\"text\",\"text\":\"\"}        }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Here\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\" are all the MCP tools currently available (as deferred tools that can be loaded via\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\" ToolSearch):\\n\\n```\\nmcp__fixture__tool_001\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"\\nmcp__fixture__tool_002\\nmcp__fixture__tool_003\"}}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"_draft\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"_threads\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Gmail__label_message\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"_Drive__copy_file\"}        }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"\"}             }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"_recent_files\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"__list_events\\nmcp__claude\"}       }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"_ai_Google_Calendar__suggest_time\"}   }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"event\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"-from-url\"}               }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"-designs\"}       }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Canva__get-design-content\"}             }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"from-url\"}}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Canva__create-folder\"}  }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"-folder-items\"}    }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"-on-design\"}  }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Canva__list-comments\"}             }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Canva__create-design-from-candidate\"}           }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"-brand-kits\"}               }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"-editing-transaction\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"-editing-transaction\"} }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Canva__get-assets\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"ldraw__exec\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"_state\"}   }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"_system_rules\"}             }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Figma__get_metadata\"}  }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"\"}       }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"_suggestions\"} }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"\\nmcp__\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"claude_ai_Figma__create_new_file\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Excalidraw__read_me\"}        }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Excalidraw__export_to_excalidraw\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Excalidraw__read_checkpoint\\n```\\n\\nThat's 78 MCP tools total, spanning\"}             }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\" 8 servers: fixture, Gmail, Google Drive, Google\"}  }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\" Calendar, Canva, tldraw, Figma, and Excalidraw.\"} }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":1   }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":27390,\"cache_read_input_tokens\":0,\"output_tokens\":1555},\"context_management\":{\"applied_edits\":[]}     }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"      }\n\n",
       "is_streaming": true,
       "sse_events": [
         {
@@ -1903,7 +2113,7 @@
             "type": "message_start",
             "message": {
               "model": "claude-opus-4-6",
-              "id": "msg_01DJSxnP9KCKet1bQjoJPoKH",
+              "id": "msg_013N24vchW4mg9Du9siY6YA8",
               "type": "message",
               "role": "assistant",
               "content": [],
@@ -1912,13 +2122,13 @@
               "stop_details": null,
               "usage": {
                 "input_tokens": 3,
-                "cache_creation_input_tokens": 23579,
+                "cache_creation_input_tokens": 27390,
                 "cache_read_input_tokens": 0,
                 "cache_creation": {
                   "ephemeral_5m_input_tokens": 0,
-                  "ephemeral_1h_input_tokens": 23579
+                  "ephemeral_1h_input_tokens": 27390
                 },
-                "output_tokens": 26,
+                "output_tokens": 27,
                 "service_tier": "standard",
                 "inference_geo": "not_available"
               }
@@ -1950,7 +2160,7 @@
             "index": 0,
             "delta": {
               "type": "thinking_delta",
-              "thinking": "The user wants me to list all MCP tools available to me. I can see these"
+              "thinking": "The user wants me to list all MCP tools available to me. I can see these in"
             }
           }
         },
@@ -1961,7 +2171,7 @@
             "index": 0,
             "delta": {
               "type": "thinking_delta",
-              "thinking": " from the deferred tools list in the ToolSearch description"
+              "thinking": " the deferred tools list from the ToolSearch"
             }
           }
         },
@@ -1972,271 +2182,7 @@
             "index": 0,
             "delta": {
               "type": "thinking_delta",
-              "thinking": ", plus any that are already loaded. Let me list all"
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "thinking_delta",
-              "thinking": " the MCP tools from the deferred tools list.\n\nLooking at the available deferred tools listed in"
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "thinking_delta",
-              "thinking": " the ToolSearch tool description:\n\nmcp__fixture__tool_001"
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "thinking_delta",
-              "thinking": "\nmcp__fixture__tool_002\nmcp__fixture__tool_003\nmcp__claude_ai_Google_Calendar__"
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "thinking_delta",
-              "thinking": "list_events\n"
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "thinking_delta",
-              "thinking": "\n\nmcp__claude_ai_Google"
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "thinking_delta",
-              "thinking": "_Calendar__get_event\nmcp__claude_ai_Google_Calendar__list_calendars\nmcp__claude_ai_Google_Calendar__suggest_time\nmcp__claude_ai_Google_Calendar__create_event\nmcp__claude_ai_Google_Calendar__"
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "thinking_delta",
-              "thinking": "update_event\nmcp__claude_ai_Google_Calendar__delete_event\nmcp__claude_ai_Google_Calendar__respond_to_event\nmcp__claude_ai_Google_Drive__copy_file\nmcp__claude_ai_Google_Drive__create_"
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "thinking_delta",
-              "thinking": "file\nmcp__claude_ai_Google_Drive__download_file_content\nmcp__claude_ai_Google_Drive__get_file_metadata\nmcp__claude_ai_Google_Drive__get"
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "thinking_delta",
-              "thinking": "\n\n_file_permissions"
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "thinking_delta",
-              "thinking": "\nmcp__claude_ai_Google_Drive__list_recent_files\nmcp__claude_ai_Google_Drive__read_file_content\nmcp__claude_ai_Google_Drive__search_files\nmcp__claude_ai_Excalidraw__read_"
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "thinking_delta",
-              "thinking": "me\nmcp__claude_ai_Excalidraw__create_view\nmcp__claude_ai_Excalidraw__export_to_excalidraw\nmcp__claude_ai_Excalidraw__save_checkpoint\nmcp__claude_ai"
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "thinking_delta",
-              "thinking": "_Excalidraw__read_checkpoint\nmcp__claude_ai_Gmail__create_draft\nmcp__claude_ai_Gmail__list_drafts\nmcp__claude_ai_Gmail__get_thread\nmcp__claude_ai_Gmail__search_threads"
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "thinking_delta",
-              "thinking": "\nmcp__claude_ai_Gmail__label_thread\n\nI'm looking at the available tools across"
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "thinking_delta",
-              "thinking": " Google Calendar, Drive, Excalidraw, and Gmail integrations to understand what capabilities are"
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "thinking_delta",
-              "thinking": " available for the user."
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "thinking_delta",
-              "thinking": " I"
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "thinking_delta",
-              "thinking": "'m looking at the available Canva tools now\u2014there are options for managing"
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "thinking_delta",
-              "thinking": " folders, collaborating through comments and replies, generating designs with AI, working with brand kits, and res"
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "thinking_delta",
-              "thinking": "izing designs."
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "thinking_delta",
-              "thinking": " Now"
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "thinking_delta",
-              "thinking": " I'm reviewing the available tools across Figma, continuing with screenshot"
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "thinking_delta",
-              "thinking": " capture, design system rules, metadata retrieval, variable definitions, and FigJam access"
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "thinking_delta",
-              "thinking": ", along with diagram generation, code connect mapping features, and context retrieval for code"
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 0,
-            "delta": {
-              "type": "thinking_delta",
-              "thinking": " integration."
+              "thinking": " tool description. Let me list them all."
             }
           }
         },
@@ -2247,7 +2193,7 @@
             "index": 0,
             "delta": {
               "type": "signature_delta",
-              "signature": "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"
+              "signature": "EtsCClkIDRgCKkAeuYbkITDPosVNNbejwOhG0QD8zjXS6yG+iaVitsTFMgfF8LbxrBY9D4/wG4b6j3qviG5oFm5ZncOEhZDHs7nfMg9jbGF1ZGUtb3B1cy00LTY4ABIM45O1suuhfKLWC4TlGgwipq4D68NHmjTYBOoiMIQxtHaZtgq0xngUeFRaTgsj5QnJjWySvKQ2UwPDkjN49w0dn5MsaDsBp4jtG/KPHCqvAWwcPH5T1570V5grlzkTPD1YyDEiKEYETiTLcsWQqInplBXHan1ZWjqIogkNfR07yUFhFHzlJRngynttWu+zlBrAsiUTC7ZJdpaVl33nHnVZvxmVujPtGFJO/KZTO5DD9pv7LBSaYmoSTuFghsKha9HnjK6hK8sXhdfvX6wtNt6YEOO9T8b7sHV/AJRmkPYZEtnqCVIcgPwJ4eiV7T16kqHuNKUIOETyvtvTixuCdCsYAQ=="
             }
           }
         },
@@ -2276,7 +2222,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "Here are"
+              "text": "Here"
             }
           }
         },
@@ -2287,7 +2233,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": " all the MCP tools currently available (as deferred tools that can be loaded via ToolSearch):\n\n```\nmcp"
+              "text": " are all the MCP tools currently available (as deferred tools that can be loaded via"
             }
           }
         },
@@ -2298,7 +2244,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\nmcp__claude_ai_Google_Calendar__list_events\nmcp__claude_ai_Google_Calendar__get_event\nmcp__claude_ai_Google_"
+              "text": " ToolSearch):\n\n```\nmcp__fixture__tool_001"
             }
           }
         },
@@ -2309,7 +2255,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "Calendar__list_calendars\nmcp__claude_ai_Google_Calendar__suggest_time\nmcp__claude_ai_Google_Calendar__create_event\nmcp__claude_ai_Google_Calendar__update_event\nmcp__claude_ai_Google_Calendar__delete"
+              "text": "\nmcp__fixture__tool_002\nmcp__fixture__tool_003"
             }
           }
         },
@@ -2320,7 +2266,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "_event\nmcp__claude_ai_Google_Calendar__respond_to_event\nmcp__claude_ai_Google_Drive__copy_file\nmcp__claude_ai_Google_Drive__create_file\nmcp__claude_ai_Google_Drive__download_file"
+              "text": "_draft"
             }
           }
         },
@@ -2331,7 +2277,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "_content\nmcp__claude_ai_Google_Drive__get_file_metadata\nmcp__claude_ai_Google_Drive__get_file_permissions\nmcp__claude_ai_Google_Drive__list_recent_files\nmcp__claude_ai_Google_Drive"
+              "text": "_threads"
             }
           }
         },
@@ -2342,7 +2288,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "__read_file_content\nmcp__claude_ai_Google_Drive__search_files\nmcp__claude_ai_Excalidraw__read_me\nmcp__claude_ai_Excalidraw__create_view\nmcp__claude_ai_"
+              "text": "Gmail__label_message"
             }
           }
         },
@@ -2353,7 +2299,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "Excalidraw__export_to_excalidraw\nmcp__claude_ai_Excalidraw__save_checkpoint\nmcp__claude_ai_Excalidraw__read_checkpoint\nmcp__claude_ai_Gmail__create_draft\nmcp__"
+              "text": "_Drive__copy_file"
             }
           }
         },
@@ -2364,7 +2310,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "claude_ai_Gmail__list_drafts\nmcp__claude_ai_Gmail__get_thread\nmcp__claude_ai_Gmail__search_threads\nmcp__claude_ai_Gmail__label_thread\nmcp__claude_ai_Gmail__unlabel_thread"
+              "text": ""
             }
           }
         },
@@ -2375,7 +2321,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "\nmcp__claude_ai_Gmail__list_labels\nmcp__claude_ai_Gmail__label_message\nmcp__claude_ai_Gmail__unlabel_message\nmcp__claude_ai_Gmail__create_label\nmcp__claude_ai_Canva__"
+              "text": "_recent_files"
             }
           }
         },
@@ -2386,7 +2332,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "upload-asset-from-url\nmcp__claude_ai_Canva__resolve-shortlink\nmcp__claude_ai_Canva__search-designs\nmcp__claude_ai_Canva__get-design\nmcp__claude_ai_Canva"
+              "text": "__list_events\nmcp__claude"
             }
           }
         },
@@ -2397,7 +2343,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "__get-design-pages\nmcp__claude_ai_Canva__get-design-content\nmcp__claude_ai_Canva__get-presenter-notes\nmcp__claude_ai_Canva__import-design-from-url\nmcp__claude"
+              "text": "_ai_Google_Calendar__suggest_time"
             }
           }
         },
@@ -2408,7 +2354,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "_ai_Canva__export-design\nmcp__claude_ai_Canva__get-export-formats\nmcp__claude_ai_Canva__create-folder\nmcp__claude_ai_Canva__move-item-to-folder\nmcp"
+              "text": "event"
             }
           }
         },
@@ -2419,7 +2365,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "__claude_ai_Canva__list-folder-items\nmcp__claude_ai_Canva__search-folders\nmcp__claude_ai_Canva__comment-on-design\nmcp__claude_ai_Canva__list-replies\nmcp"
+              "text": "-from-url"
             }
           }
         },
@@ -2430,7 +2376,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "__claude_ai_Canva__reply-to-comment\nmcp__claude_ai_Canva__list-comments\nmcp__claude_ai_Canva__generate-design\nmcp__claude_ai_Canva__generate-design-structured\nmcp"
+              "text": "-designs"
             }
           }
         },
@@ -2441,7 +2387,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "__claude_ai_Canva__create-design-from-candidate\nmcp__claude_ai_Canva__request-outline-review\nmcp__claude_ai_Canva__list-brand-kits\nmcp__claude_ai_Canva__help"
+              "text": "Canva__get-design-content"
             }
           }
         },
@@ -2452,7 +2398,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "\nmcp__claude_ai_Canva__resize-design\nmcp__claude_ai_Canva__start-editing-transaction\nmcp__claude_ai_Canva__perform-editing-operations\nmcp__claude_ai_Canva__commit-editing"
+              "text": "from-url"
             }
           }
         },
@@ -2463,24 +2409,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "-transaction\nmcp__claude_ai_Canva__cancel-editing-transaction\nmcp__claude_ai_Canva__get-design-thumbnail\nmcp__claude_ai_Canva__get-assets\nmcp__claude_ai_Canva__merge"
-            }
-          }
-        },
-        {
-          "event": "ping",
-          "data": {
-            "type": "ping"
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 1,
-            "delta": {
-              "type": "text_delta",
-              "text": "-designs\nmcp__claude_ai_tldraw__search\nmcp__claude_ai_tldraw__exec\nmcp__claude_ai_tldraw___exec_callback\nmcp__claude_ai_tldraw___get_canvas_state\nmcp__"
+              "text": "Canva__create-folder"
             }
           }
         },
@@ -2491,7 +2420,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "claude_ai_tldraw__read_checkpoint\nmcp__claude_ai_tldraw__save_checkpoint\nmcp__claude_ai_Mermaid_Chart__validate_and_render_mermaid_diagram\nmcp__claude_ai_Figma__"
+              "text": "-folder-items"
             }
           }
         },
@@ -2502,7 +2431,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "get_screenshot\nmcp__claude_ai_Figma__create_design_system_rules\nmcp__claude_ai_Figma__get_design_context\nmcp__claude_ai_Figma__get_metadata\nmcp__claude_ai_Fig"
+              "text": "-on-design"
             }
           }
         },
@@ -2513,7 +2442,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "ma__get_variable_defs\nmcp__claude_ai_Figma__get_figjam\nmcp__claude_ai_Figma__generate_diagram\nmcp__claude_ai_Figma__get_code_connect_map\nmcp__claude"
+              "text": "Canva__list-comments"
             }
           }
         },
@@ -2524,7 +2453,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "_ai_Figma__whoami\nmcp__claude_ai_Figma__add_code_connect_map\nmcp__claude_ai_Figma__get_code_connect_suggestions\nmcp__claude_ai_Figma__send_code_connect"
+              "text": "Canva__create-design-from-candidate"
             }
           }
         },
@@ -2535,7 +2464,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "_mappings\nmcp__claude_ai_Figma__get_context_for_code_connect\nmcp__claude_ai_Figma__use_figma\nmcp__claude_ai_Figma__get_libraries\nmcp__claude_ai_"
+              "text": "-brand-kits"
             }
           }
         },
@@ -2546,7 +2475,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "Figma__search_design_system\nmcp__claude_ai_Figma__create_new_file\nmcp__claude_ai_Figma__upload_assets\n```\n\nThat's 78 M"
+              "text": "-editing-transaction"
             }
           }
         },
@@ -2557,7 +2486,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "CP tools total, spanning 8 servers: fixture,"
+              "text": "-editing-transaction"
             }
           }
         },
@@ -2568,7 +2497,172 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": " Google Calendar, Google Drive, Excalidraw, Gmail, Canva, tldraw, Mermaid Chart, and Figma."
+              "text": "Canva__get-assets"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 1,
+            "delta": {
+              "type": "text_delta",
+              "text": "ldraw__exec"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 1,
+            "delta": {
+              "type": "text_delta",
+              "text": "_state"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 1,
+            "delta": {
+              "type": "text_delta",
+              "text": ""
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 1,
+            "delta": {
+              "type": "text_delta",
+              "text": "_system_rules"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 1,
+            "delta": {
+              "type": "text_delta",
+              "text": "Figma__get_metadata"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 1,
+            "delta": {
+              "type": "text_delta",
+              "text": ""
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 1,
+            "delta": {
+              "type": "text_delta",
+              "text": ""
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 1,
+            "delta": {
+              "type": "text_delta",
+              "text": "_suggestions"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 1,
+            "delta": {
+              "type": "text_delta",
+              "text": "\nmcp__"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 1,
+            "delta": {
+              "type": "text_delta",
+              "text": "claude_ai_Figma__create_new_file"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 1,
+            "delta": {
+              "type": "text_delta",
+              "text": "Excalidraw__read_me"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 1,
+            "delta": {
+              "type": "text_delta",
+              "text": "Excalidraw__export_to_excalidraw"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 1,
+            "delta": {
+              "type": "text_delta",
+              "text": "Excalidraw__read_checkpoint\n```\n\nThat's 78 MCP tools total, spanning"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 1,
+            "delta": {
+              "type": "text_delta",
+              "text": " 8 servers: fixture, Gmail, Google Drive, Google"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 1,
+            "delta": {
+              "type": "text_delta",
+              "text": " Calendar, Canva, tldraw, Figma, and Excalidraw."
             }
           }
         },
@@ -2590,9 +2684,9 @@
             },
             "usage": {
               "input_tokens": 3,
-              "cache_creation_input_tokens": 23579,
+              "cache_creation_input_tokens": 27390,
               "cache_read_input_tokens": 0,
-              "output_tokens": 3070
+              "output_tokens": 1555
             },
             "context_management": {
               "applied_edits": []

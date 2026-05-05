@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-7",
-        "id": "msg_01HeASdzo4f4RpEet2VgTQyD",
+        "id": "msg_0171wcNyhEJ2SzkThVKLHMKU",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,13 +14,13 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 6,
-          "cache_creation_input_tokens": 0,
-          "cache_read_input_tokens": 26400,
+          "cache_creation_input_tokens": 10168,
+          "cache_read_input_tokens": 16367,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 0
+            "ephemeral_1h_input_tokens": 10168
           },
-          "output_tokens": 0,
+          "output_tokens": 1,
           "service_tier": "standard",
           "inference_geo": "not_available"
         },
@@ -34,9 +34,13 @@
       "type": "content_block_start",
       "index": 0,
       "content_block": {
-        "type": "thinking",
-        "thinking": "",
-        "signature": ""
+        "type": "tool_use",
+        "id": "toolu_014y2mMe48YD81xrw2EsWkGx",
+        "name": "Skill",
+        "input": {},
+        "caller": {
+          "type": "direct"
+        }
       }
     }
   },
@@ -52,40 +56,6 @@
       "type": "content_block_delta",
       "index": 0,
       "delta": {
-        "type": "signature_delta",
-        "signature": "EoICClkIDRgCKkDEf0mQ0dHx3mKBYDSyLZQEwOmqvofen1HEfj9R9hEyJZmuJYJjrLfN8XW1+sG0yrGPxAAH0I53gCELQT2p0qWtMg9jbGF1ZGUtb3B1cy00LTc4ABIMbwiRKB5W1snnMMV9GgzN4YWDdpLkIVOVlmoiMKoSzFtD0bdTb3EFdARNBjGO+94u3F+FtQOmFZI7V3HWkijcklZ8U160bWaI9I+vgipX1Ot2CxMt6c8/7ogn37WiqPuxnFRQ/OFvO/R9DH5c+BqdWyLzJdKJozsXffSsa2Mwgfr5vGvnyK3J7Nqs7YGlKC5+eOhdOf200CpR4b+FVHT+IEkFv9PlGAE="
-      }
-    }
-  },
-  {
-    "event": "content_block_stop",
-    "data": {
-      "type": "content_block_stop",
-      "index": 0
-    }
-  },
-  {
-    "event": "content_block_start",
-    "data": {
-      "type": "content_block_start",
-      "index": 1,
-      "content_block": {
-        "type": "tool_use",
-        "id": "toolu_01UEtedwG5NdBoJGMtwa5cNA",
-        "name": "Skill",
-        "input": {},
-        "caller": {
-          "type": "direct"
-        }
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
         "type": "input_json_delta",
         "partial_json": ""
       }
@@ -95,10 +65,10 @@
     "event": "content_block_delta",
     "data": {
       "type": "content_block_delta",
-      "index": 1,
+      "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\"s"
+        "partial_json": "{\"skill\": \"s"
       }
     }
   },
@@ -106,10 +76,10 @@
     "event": "content_block_delta",
     "data": {
       "type": "content_block_delta",
-      "index": 1,
+      "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "kill\": \"say-"
+        "partial_json": "ay-"
       }
     }
   },
@@ -117,21 +87,10 @@
     "event": "content_block_delta",
     "data": {
       "type": "content_block_delta",
-      "index": 1,
+      "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "hello"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "input_json_delta",
-        "partial_json": "\"}"
+        "partial_json": "hello\"}"
       }
     }
   },
@@ -139,7 +98,7 @@
     "event": "content_block_stop",
     "data": {
       "type": "content_block_stop",
-      "index": 1
+      "index": 0
     }
   },
   {
@@ -153,18 +112,18 @@
       },
       "usage": {
         "input_tokens": 6,
-        "cache_creation_input_tokens": 0,
-        "cache_read_input_tokens": 26400,
-        "output_tokens": 106,
+        "cache_creation_input_tokens": 10168,
+        "cache_read_input_tokens": 16367,
+        "output_tokens": 67,
         "iterations": [
           {
             "input_tokens": 6,
-            "output_tokens": 106,
-            "cache_read_input_tokens": 26400,
-            "cache_creation_input_tokens": 0,
+            "output_tokens": 67,
+            "cache_read_input_tokens": 16367,
+            "cache_creation_input_tokens": 10168,
             "cache_creation": {
               "ephemeral_5m_input_tokens": 0,
-              "ephemeral_1h_input_tokens": 0
+              "ephemeral_1h_input_tokens": 10168
             },
             "type": "message"
           }

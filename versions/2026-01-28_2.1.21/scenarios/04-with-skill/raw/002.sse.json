@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-5-20251101",
-        "id": "msg_01Aentt4jDPzJ4qJnVDg9w4P",
+        "id": "msg_011dJQd4w9wzGkyMC9K6dWuK",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -34,7 +34,7 @@
       "index": 0,
       "content_block": {
         "type": "tool_use",
-        "id": "toolu_01UtR96khKsuLQQRT7N5fVZD",
+        "id": "toolu_01LzxyzBy6Uwj3XVGXEzJCFs",
         "name": "Skill",
         "input": {},
         "caller": {
@@ -67,7 +67,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\"skill\": \"s"
+        "partial_json": "{\""
       }
     }
   },
@@ -78,7 +78,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "ay-hello"
+        "partial_json": "skill\": \"say"
       }
     }
   },
@@ -89,7 +89,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "\"}"
+        "partial_json": "-hello\"}"
       }
     }
   },

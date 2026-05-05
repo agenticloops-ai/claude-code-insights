@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-6",
-        "id": "msg_01AAqwKWDmZrFNEQXMg1ECdU",
+        "id": "msg_01Hgd4u92j9voXJX23q9DRnL",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,11 +14,11 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 3,
-          "cache_creation_input_tokens": 2500,
+          "cache_creation_input_tokens": 2509,
           "cache_read_input_tokens": 5091,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 2500
+            "ephemeral_1h_input_tokens": 2509
           },
           "output_tokens": 43,
           "service_tier": "standard",
@@ -34,7 +34,7 @@
       "index": 0,
       "content_block": {
         "type": "tool_use",
-        "id": "toolu_01M42pTF25asVBXMJCGQHDXA",
+        "id": "toolu_01VuwL3m6j6yA5GbvgjvobAD",
         "name": "ToolSearch",
         "input": {},
         "caller": {
@@ -78,7 +78,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "ry\": \"s"
+        "partial_json": "ry\": \""
       }
     }
   },
@@ -89,7 +89,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "elect:"
+        "partial_json": "select:Ski"
       }
     }
   },
@@ -100,18 +100,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "Skil"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "input_json_delta",
-        "partial_json": "l\""
+        "partial_json": "ll\""
       }
     }
   },
@@ -133,7 +122,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "resu"
+        "partial_json": "results"
       }
     }
   },
@@ -144,7 +133,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "lts\": 1}"
+        "partial_json": "\": 1}"
       }
     }
   },
@@ -166,7 +155,7 @@
       },
       "usage": {
         "input_tokens": 3,
-        "cache_creation_input_tokens": 2500,
+        "cache_creation_input_tokens": 2509,
         "cache_read_input_tokens": 5091,
         "output_tokens": 76
       },

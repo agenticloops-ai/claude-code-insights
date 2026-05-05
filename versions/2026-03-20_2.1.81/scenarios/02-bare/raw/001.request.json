@@ -1,8 +1,8 @@
 {
   "index": 1,
-  "request_id": "d93e9029-a295-4929-a744-d1cc3caee3d9",
-  "session_id": "31dfb7f8-55bd-4e7b-a631-c2622b7cd177",
-  "timestamp": "2026-05-04T09:29:30.828960",
+  "request_id": "f023a6c9-3f4d-4927-96ee-1818b4e462e9",
+  "session_id": "110cc0c9-cc37-409e-82c3-1a2bf05f827f",
+  "timestamp": "2026-05-04T18:53:00.202264",
   "provider": "anthropic",
   "method": "POST",
   "url": "https://api.anthropic.com/v1/messages?beta=true",
@@ -28,14 +28,14 @@
     "accept-language": "*",
     "sec-fetch-mode": "cors",
     "accept-encoding": "identity",
-    "content-length": "21228"
+    "content-length": "21265"
   },
   "body": {
     "model": "claude-opus-4-6",
     "messages": [
       {
         "role": "user",
-        "content": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nNotebookEdit\nRead\nRemoteTrigger\nSkill\nTaskOutput\nTaskStop\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
+        "content": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nNotebookEdit\nRead\nRemoteTrigger\nSendMessage\nSkill\nTaskOutput\nTaskStop\nTeamCreate\nTeamDelete\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
       },
       {
         "role": "user",
@@ -108,7 +108,7 @@
       }
     ],
     "metadata": {
-      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"5d980438-fd3d-4c7d-8c13-d4b6c707ea8d\"}"
+      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"ddac9eaf-0fba-4e4e-b774-4b163d937153\"}"
     },
     "max_tokens": 64000,
     "thinking": {

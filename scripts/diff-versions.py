@@ -124,39 +124,86 @@ def _parse_cli_help(text: str) -> dict[str, list[str]]:
     return sections
 
 
-def _tools_section(va: str, vb: str) -> str:
+def _tools_section(va: str, vb: str, va_label: str, vb_label: str) -> str:
     a_dir = VERSIONS_DIR / va
     b_dir = VERSIONS_DIR / vb
-    delta = _tool_delta(
-        _read_json(a_dir / "tools.json") or [],
-        _read_json(b_dir / "tools.json") or [],
-        _read_json(a_dir / "deferred-tools.json") or [],
-        _read_json(b_dir / "deferred-tools.json") or [],
-    )
-    if not any(delta.values()):
-        return ""
+    a_tools = _read_json(a_dir / "tools.json") or []
+    b_tools = _read_json(b_dir / "tools.json") or []
+    a_def = _read_json(a_dir / "deferred-tools.json") or []
+    b_def = _read_json(b_dir / "deferred-tools.json") or []
+
+    delta = _tool_delta(a_tools, b_tools, a_def, b_def)
+
+    a_adv_names = sorted(t["name"] for t in a_tools)
+    b_adv_names = sorted(t["name"] for t in b_tools)
+    a_def_sorted = sorted(a_def)
+    b_def_sorted = sorted(b_def)
+
+    def _signed(av: int, bv: int) -> str:
+        d = bv - av
+        return f" ({d:+d})" if d else ""
+
     lines = ["## tools", ""]
-    if delta["added"]:
-        lines.append("- **added:** " + ", ".join(f"`{n}`" for n in delta["added"]))
-    if delta["removed"]:
-        lines.append("- **removed:** " + ", ".join(f"`{n}`" for n in delta["removed"]))
-    if delta["moved_to_deferred"]:
-        lines.append(
-            "- **moved to deferred (now lazy-loaded via ToolSearch):** "
-            + ", ".join(f"`{n}`" for n in delta["moved_to_deferred"])
-        )
-    if delta["moved_to_advertised"]:
-        lines.append(
-            "- **moved to advertised (no longer deferred):** "
-            + ", ".join(f"`{n}`" for n in delta["moved_to_advertised"])
-        )
-    if delta["deferred_added"]:
-        lines.append(
-            "- **new deferred tools:** "
-            + ", ".join(f"`{n}`" for n in delta["deferred_added"])
-        )
-    if delta["modified"]:
-        lines.append("- **modified:** " + ", ".join(f"`{n}`" for n in delta["modified"]))
+
+    # Counts table — gives the at-a-glance total even when nothing changed.
+    lines.append(f"| count | {va_label} | {vb_label} |")
+    lines.append("|---|---|---|")
+    lines.append(
+        f"| advertised | {len(a_adv_names)} | "
+        f"{len(b_adv_names)}{_signed(len(a_adv_names), len(b_adv_names))} |"
+    )
+    lines.append(
+        f"| deferred | {len(a_def_sorted)} | "
+        f"{len(b_def_sorted)}{_signed(len(a_def_sorted), len(b_def_sorted))} |"
+    )
+    a_total = len(a_adv_names) + len(a_def_sorted)
+    b_total = len(b_adv_names) + len(b_def_sorted)
+    lines.append(
+        f"| **total** | **{a_total}** | "
+        f"**{b_total}**{_signed(a_total, b_total)} |"
+    )
+    lines.append("")
+
+    if any(delta.values()):
+        if delta["added"]:
+            lines.append("- **added:** " + ", ".join(f"`{n}`" for n in delta["added"]))
+        if delta["removed"]:
+            lines.append("- **removed:** " + ", ".join(f"`{n}`" for n in delta["removed"]))
+        if delta["moved_to_deferred"]:
+            lines.append(
+                "- **moved to deferred (now lazy-loaded via ToolSearch):** "
+                + ", ".join(f"`{n}`" for n in delta["moved_to_deferred"])
+            )
+        if delta["moved_to_advertised"]:
+            lines.append(
+                "- **moved to advertised (no longer deferred):** "
+                + ", ".join(f"`{n}`" for n in delta["moved_to_advertised"])
+            )
+        if delta["deferred_added"]:
+            lines.append(
+                "- **new deferred tools:** "
+                + ", ".join(f"`{n}`" for n in delta["deferred_added"])
+            )
+        if delta["modified"]:
+            lines.append("- **modified:** " + ", ".join(f"`{n}`" for n in delta["modified"]))
+        lines.append("")
+
+    # Full list snapshot for the newer version — keeps the diff document
+    # self-contained so a reader doesn't have to cross-reference tools.json.
+    lines.append("<details><summary>full tool list — {}: {} advertised + {} deferred</summary>\n".format(
+        vb_label, len(b_adv_names), len(b_def_sorted),
+    ))
+    if b_adv_names:
+        lines.append("**advertised**\n")
+        for n in b_adv_names:
+            lines.append(f"- `{n}`")
+        lines.append("")
+    if b_def_sorted:
+        lines.append("**deferred (via ToolSearch)**\n")
+        for n in b_def_sorted:
+            lines.append(f"- `{n}`")
+        lines.append("")
+    lines.append("</details>")
     lines.append("")
     return "\n".join(lines)
 
@@ -264,7 +311,7 @@ def main(argv: list[str]) -> int:
     parts.append("")
 
     sections = [
-        _tools_section(va, vb),
+        _tools_section(va, vb, va_label, vb_label),
         _skills_section(va, vb),
         _file_diff_section(
             "system prompt",

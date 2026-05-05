@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-6",
-        "id": "msg_01CkgCoCdbAMC7vGxF258xyP",
+        "id": "msg_01DCeLuT9PysJ2bCXqqELQRb",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,11 +14,11 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 3,
-          "cache_creation_input_tokens": 22911,
+          "cache_creation_input_tokens": 26725,
           "cache_read_input_tokens": 0,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 22911
+            "ephemeral_1h_input_tokens": 26725
           },
           "output_tokens": 55,
           "service_tier": "standard",
@@ -34,7 +34,7 @@
       "index": 0,
       "content_block": {
         "type": "tool_use",
-        "id": "toolu_018xvaUGdBt3EnX7xo5qugDC",
+        "id": "toolu_01GqPHqYPyeii8d2G6fs2pKz",
         "name": "Skill",
         "input": {},
         "caller": {
@@ -67,7 +67,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\"skill\""
+        "partial_json": "{\"skill\": \"s"
       }
     }
   },
@@ -78,29 +78,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": ": \"say-he"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "input_json_delta",
-        "partial_json": "llo"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "input_json_delta",
-        "partial_json": "\"}"
+        "partial_json": "ay-hello\"}"
       }
     }
   },
@@ -122,7 +100,7 @@
       },
       "usage": {
         "input_tokens": 3,
-        "cache_creation_input_tokens": 22911,
+        "cache_creation_input_tokens": 26725,
         "cache_read_input_tokens": 0,
         "output_tokens": 55
       },

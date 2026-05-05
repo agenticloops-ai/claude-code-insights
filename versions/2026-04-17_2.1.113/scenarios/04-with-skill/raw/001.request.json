@@ -1,8 +1,8 @@
 {
   "index": 1,
-  "request_id": "27231cb9-3884-4f73-a7f9-dbc91757f48e",
-  "session_id": "814e8542-3b43-4914-bc5e-3172cf1a0b90",
-  "timestamp": "2026-05-04T10:17:25.267258",
+  "request_id": "7fa35c3a-4103-4481-9263-c736e8783694",
+  "session_id": "070a4a3c-016e-4117-9ad4-d4b8f29ebff5",
+  "timestamp": "2026-05-04T19:46:21.863549",
   "provider": "anthropic",
   "method": "POST",
   "url": "https://api.anthropic.com/v1/messages?beta=true",
@@ -11,7 +11,7 @@
     "Authorization": "REDACTED",
     "Content-Type": "application/json",
     "User-Agent": "claude-cli/2.1.113 (external, sdk-cli)",
-    "X-Claude-Code-Session-Id": "af66fd4c-2301-4e60-956b-0f4e778d413a",
+    "X-Claude-Code-Session-Id": "26a9f94f-fd1d-4dbf-934e-fa1cc6e0866d",
     "X-Stainless-Arch": "x64",
     "X-Stainless-Lang": "js",
     "X-Stainless-OS": "Linux",
@@ -24,7 +24,7 @@
     "anthropic-dangerous-direct-browser-access": "true",
     "anthropic-version": "2023-06-01",
     "x-app": "cli",
-    "x-client-request-id": "0f477ddb-ecf3-410a-8013-630d12ccc375",
+    "x-client-request-id": "0a196c45-021a-42dd-8400-68c319029d32",
     "Connection": "keep-alive",
     "Host": "api.anthropic.com",
     "Accept-Encoding": "identity",
@@ -46,7 +46,7 @@
     "system": [
       {
         "type": "text",
-        "text": "x-anthropic-billing-header: cc_version=2.1.113.257; cc_entrypoint=sdk-cli; cch=47553;"
+        "text": "x-anthropic-billing-header: cc_version=2.1.113.257; cc_entrypoint=sdk-cli; cch=5ad93;"
       },
       {
         "type": "text",
@@ -59,7 +59,7 @@
     ],
     "tools": [],
     "metadata": {
-      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"af66fd4c-2301-4e60-956b-0f4e778d413a\"}"
+      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"26a9f94f-fd1d-4dbf-934e-fa1cc6e0866d\"}"
     },
     "max_tokens": 32000,
     "temperature": 1,

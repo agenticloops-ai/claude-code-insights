@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-6",
-        "id": "msg_01UhR2EBgfjSkb5ZGUSRGcD6",
+        "id": "msg_01EXMJTSbfJj5SB5cVFCW7PZ",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,11 +14,11 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 2,
-          "cache_creation_input_tokens": 22875,
-          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 140,
+          "cache_read_input_tokens": 26575,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 22875
+            "ephemeral_1h_input_tokens": 140
           },
           "output_tokens": 1,
           "service_tier": "standard",
@@ -51,7 +51,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "Hello"
+        "text": ">"
       }
     }
   },
@@ -62,7 +62,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": " from the sandbox fixture skill!"
+        "text": " Hello from the sandbox fixture skill!"
       }
     }
   },
@@ -84,9 +84,9 @@
       },
       "usage": {
         "input_tokens": 2,
-        "cache_creation_input_tokens": 22875,
-        "cache_read_input_tokens": 0,
-        "output_tokens": 10
+        "cache_creation_input_tokens": 140,
+        "cache_read_input_tokens": 26575,
+        "output_tokens": 11
       },
       "context_management": {
         "applied_edits": []

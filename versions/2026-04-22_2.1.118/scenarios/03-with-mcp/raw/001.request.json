@@ -1,8 +1,8 @@
 {
   "index": 1,
-  "request_id": "0bda0bb7-dd80-4ef6-82d6-04547690c491",
-  "session_id": "bb842a2a-4093-487e-811f-c1554a296fa1",
-  "timestamp": "2026-05-04T10:27:06.493309",
+  "request_id": "d4c79788-5fe2-489a-8efe-54508bc701a4",
+  "session_id": "67c60525-1c97-4598-80ca-499603675aa2",
+  "timestamp": "2026-05-04T19:55:39.576493",
   "provider": "anthropic",
   "method": "POST",
   "url": "https://api.anthropic.com/v1/messages?beta=true",
@@ -11,7 +11,7 @@
     "Authorization": "REDACTED",
     "Content-Type": "application/json",
     "User-Agent": "claude-cli/2.1.118 (external, sdk-cli)",
-    "X-Claude-Code-Session-Id": "ab6e1ca3-29b7-4294-801d-d774ff2811a5",
+    "X-Claude-Code-Session-Id": "50abcce3-ed85-458c-8d79-1b68fd07c908",
     "X-Stainless-Arch": "x64",
     "X-Stainless-Lang": "js",
     "X-Stainless-OS": "Linux",
@@ -24,7 +24,7 @@
     "anthropic-dangerous-direct-browser-access": "true",
     "anthropic-version": "2023-06-01",
     "x-app": "cli",
-    "x-client-request-id": "2a236fc5-7c40-4a00-91ed-dc387840ab2e",
+    "x-client-request-id": "23af8f8d-855a-4a5e-904a-0778290ef368",
     "Connection": "keep-alive",
     "Host": "api.anthropic.com",
     "Accept-Encoding": "identity",
@@ -46,7 +46,7 @@
     "system": [
       {
         "type": "text",
-        "text": "x-anthropic-billing-header: cc_version=2.1.118.630; cc_entrypoint=sdk-cli; cch=30bd0;"
+        "text": "x-anthropic-billing-header: cc_version=2.1.118.630; cc_entrypoint=sdk-cli; cch=f0787;"
       },
       {
         "type": "text",
@@ -59,7 +59,7 @@
     ],
     "tools": [],
     "metadata": {
-      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"ab6e1ca3-29b7-4294-801d-d774ff2811a5\"}"
+      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"50abcce3-ed85-458c-8d79-1b68fd07c908\"}"
     },
     "max_tokens": 32000,
     "temperature": 1,

@@ -2,7 +2,7 @@
   {
     "index": 1,
     "model": "claude-haiku-4-5-20251001",
-    "duration_ms": 608.0763339996338,
+    "duration_ms": 497.76172637939453,
     "tool_count": 0,
     "stop_reason": "max_tokens",
     "input_tokens": 8,
@@ -11,8 +11,8 @@
   {
     "index": 2,
     "model": "claude-opus-4-6",
-    "duration_ms": 3350.4414558410645,
-    "tool_count": 20,
+    "duration_ms": 3613.0478382110596,
+    "tool_count": 23,
     "stop_reason": "tool_use",
     "input_tokens": 3,
     "output_tokens": 55
@@ -20,8 +20,8 @@
   {
     "index": 3,
     "model": "claude-opus-4-6",
-    "duration_ms": 2646.6400623321533,
-    "tool_count": 20,
+    "duration_ms": 2988.3196353912354,
+    "tool_count": 23,
     "stop_reason": "end_turn",
     "input_tokens": 2,
     "output_tokens": 11

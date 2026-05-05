@@ -1,5 +1,5 @@
 timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
-2026-05-04T09:59:52.364129,anthropic,claude-opus-4-6,3487.981081008911,3485.8920574188232,success,tool_use,3,55,58,0.14636775,True,True,False,"<available-deferred-tools>
+2026-05-04T19:26:49.699793,anthropic,claude-opus-4-6,2089.4267559051514,2079.8022747039795,success,tool_use,3,55,58,0.14673,True,True,False,"<available-deferred-tools>
 AskUserQuestion
 CronCreate
 CronDelete
@@ -13,7 +13,7 @@ Monitor
 NotebookEdit
 ReadMcpResourceTool
 RemoteTrig"
-2026-05-04T09:59:54.913094,anthropic,claude-opus-4-6,2505.4666996002197,2311.699390411377,success,end_turn,2,11,13,0.14616525,True,True,False,"<available-deferred-tools>
+2026-05-04T19:26:51.736207,anthropic,claude-opus-4-6,2006.558895111084,1783.6945056915283,success,end_turn,2,11,13,0.0316035,True,True,False,"<available-deferred-tools>
 AskUserQuestion
 CronCreate
 CronDelete

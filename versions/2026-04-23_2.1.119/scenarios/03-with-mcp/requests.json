@@ -2,7 +2,7 @@
   {
     "index": 1,
     "model": "claude-haiku-4-5-20251001",
-    "duration_ms": 776.4077186584473,
+    "duration_ms": 1718.808889389038,
     "tool_count": 0,
     "stop_reason": "end_turn",
     "input_tokens": 367,
@@ -11,7 +11,7 @@
   {
     "index": 2,
     "model": "claude-opus-4-7",
-    "duration_ms": 19109.042167663574,
+    "duration_ms": 19012.306213378906,
     "tool_count": 10,
     "stop_reason": "end_turn",
     "input_tokens": 6,

@@ -16,15 +16,15 @@
   "scenarios": {
     "01-cli-help": {
       "mode": "local",
-      "output_chars": 7436,
-      "output_lines": 65,
+      "output_chars": 7460,
+      "output_lines": 66,
       "exit_code": 0
     },
     "02-bare": {
       "version": "2.1.53",
       "dir_name": "2026-02-24_2.1.53",
       "scenario": "02-bare",
-      "captured_at": "2026-05-04T08:37:56.402271",
+      "captured_at": "2026-05-04T17:56:40.735909",
       "request_count": 1,
       "models": [
         "claude-opus-4-6"
@@ -41,16 +41,16 @@
         "input": 3,
         "output": 12,
         "cache_read": 0,
-        "cache_creation": 15686,
+        "cache_creation": 15838,
         "total": 15
       },
-      "duration_ms_total": 3861
+      "duration_ms_total": 2626
     },
     "03-with-mcp": {
       "version": "2.1.53",
       "dir_name": "2026-02-24_2.1.53",
       "scenario": "03-with-mcp",
-      "captured_at": "2026-05-04T08:38:42.058359",
+      "captured_at": "2026-05-04T17:57:15.100322",
       "request_count": 1,
       "models": [
         "claude-opus-4-6"
@@ -65,18 +65,18 @@
       "reminder_count": 2,
       "tokens": {
         "input": 3,
-        "output": 3039,
+        "output": 1532,
         "cache_read": 0,
-        "cache_creation": 15714,
-        "total": 3042
+        "cache_creation": 15866,
+        "total": 1535
       },
-      "duration_ms_total": 33944
+      "duration_ms_total": 23303
     },
     "04-with-skill": {
       "version": "2.1.53",
       "dir_name": "2026-02-24_2.1.53",
       "scenario": "04-with-skill",
-      "captured_at": "2026-05-04T08:39:08.939851",
+      "captured_at": "2026-05-04T17:57:41.937420",
       "request_count": 3,
       "models": [
         "claude-opus-4-6"
@@ -92,11 +92,11 @@
       "tokens": {
         "input": 6,
         "output": 141,
-        "cache_read": 31479,
-        "cache_creation": 16888,
+        "cache_read": 32217,
+        "cache_creation": 16528,
         "total": 147
       },
-      "duration_ms_total": 7527
+      "duration_ms_total": 10921
     }
   }
 }

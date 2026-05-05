@@ -1,8 +1,8 @@
 {
   "index": 1,
-  "request_id": "960a9193-f5bf-44bd-9469-04a3a1ee82ad",
-  "session_id": "d1783a50-509c-4f95-a46f-7a0dc4b0bab0",
-  "timestamp": "2026-05-04T10:37:40.489459",
+  "request_id": "fe69f493-4379-446a-97e7-4d85d348dc04",
+  "session_id": "e6a21ee8-81a2-44fc-8ec4-61efc3ccc736",
+  "timestamp": "2026-05-04T20:07:25.031079",
   "provider": "anthropic",
   "method": "POST",
   "url": "https://api.anthropic.com/v1/messages?beta=true",
@@ -11,7 +11,7 @@
     "Authorization": "REDACTED",
     "Content-Type": "application/json",
     "User-Agent": "claude-cli/2.1.122 (external, sdk-cli)",
-    "X-Claude-Code-Session-Id": "c6396bed-5e89-4d12-bec6-e52991b44ee6",
+    "X-Claude-Code-Session-Id": "174109aa-b4b0-4556-a90a-f113f7c550b8",
     "X-Stainless-Arch": "x64",
     "X-Stainless-Lang": "js",
     "X-Stainless-OS": "Linux",
@@ -24,7 +24,7 @@
     "anthropic-dangerous-direct-browser-access": "true",
     "anthropic-version": "2023-06-01",
     "x-app": "cli",
-    "x-client-request-id": "53acb476-7d65-47ab-a39e-98184cadd72b",
+    "x-client-request-id": "08c516bd-48eb-46df-b2a9-1e749605aef4",
     "Connection": "keep-alive",
     "Host": "api.anthropic.com",
     "Accept-Encoding": "identity",
@@ -46,7 +46,7 @@
     "system": [
       {
         "type": "text",
-        "text": "x-anthropic-billing-header: cc_version=2.1.122.453; cc_entrypoint=sdk-cli; cch=f9d7b;"
+        "text": "x-anthropic-billing-header: cc_version=2.1.122.453; cc_entrypoint=sdk-cli; cch=aadd4;"
       },
       {
         "type": "text",
@@ -59,7 +59,7 @@
     ],
     "tools": [],
     "metadata": {
-      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"c6396bed-5e89-4d12-bec6-e52991b44ee6\"}"
+      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"174109aa-b4b0-4556-a90a-f113f7c550b8\"}"
     },
     "max_tokens": 32000,
     "temperature": 1,

@@ -103,6 +103,13 @@ def _scrub_volatile(text: str) -> str:
     text = re.sub(
         r"\b[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}\b", "<USER_EMAIL>", text
     )
+    # Strip leaked claude.ai connector / personal-plugin tool names from the
+    # deferred-tool listing inside <system-reminder> blocks. Sandbox hardening
+    # in entrypoint.sh prevents these going forward, but defending here keeps
+    # extracted artifacts clean even if a stale auth volume slips through.
+    text = re.sub(
+        r"\nmcp__(?:claude_ai|plugin)_?[\w\-]*(?:__[\w\-]*)*", "", text
+    )
     return text
 
 
@@ -185,6 +192,13 @@ _DEFERRED_RX = re.compile(
     re.DOTALL | re.IGNORECASE,
 )
 
+# 2.1.69 → 2.1.110-ish era used a top-level <available-deferred-tools> tag in
+# the user message (one tool per line) instead of a system-reminder paragraph.
+_AVAILABLE_DEFERRED_RX = re.compile(
+    r"<available-deferred-tools>\s*(.*?)\s*</available-deferred-tools>",
+    re.DOTALL,
+)
+
 
 _SKILLS_REMINDER_RX = re.compile(
     r"The following skills are available for use with the Skill tool:\s*\n+(.+)",
@@ -218,21 +232,37 @@ def _extract_skills(reminders: list[str]) -> list[dict]:
     return out
 
 
-def _extract_deferred_tools(reminders: list[str]) -> list[str]:
+def _extract_deferred_tools(
+    reminders: list[str], extra_text: str = ""
+) -> list[str]:
     """Find tools deferred behind ToolSearch (introduced ~2.1.x).
 
-    Looks for a system-reminder of the form 'The following deferred tools are
-    now available via ToolSearch ... :\\n<name>\\n<name>\\n...'.
+    Two shapes have been observed across releases:
+      1. Post-2.1.111-ish: a system-reminder paragraph 'The following deferred
+         tools are now available via ToolSearch ...:\\n<name>\\n<name>\\n...'.
+      2. ~2.1.69 → 2.1.110: a top-level <available-deferred-tools>…</available-
+         deferred-tools> tag in the first user message, one tool per line.
+
+    `reminders` carries shape 1; `extra_text` (typically the first user message)
+    carries shape 2.
     """
     names: set[str] = set()
+
+    def _add(line: str) -> None:
+        name = line.strip().rstrip(",")
+        if name and " " not in name and (name[0].isalpha() or name[0] == "_"):
+            names.add(name)
+
     for r in reminders:
         m = _DEFERRED_RX.search(r)
         if not m:
             continue
         for line in m.group(1).splitlines():
-            name = line.strip().rstrip(",")
-            if name and " " not in name and name[0].isalpha():
-                names.add(name)
+            _add(line)
+    if extra_text:
+        for m in _AVAILABLE_DEFERRED_RX.finditer(extra_text):
+            for line in m.group(1).splitlines():
+                _add(line)
     return sorted(names)
 
 
@@ -319,7 +349,7 @@ def main(argv: list[str]) -> int:
     for r in requests:
         all_reminders.extend(_extract_reminders(r.get("messages", [])))
 
-    deferred_all = _extract_deferred_tools(all_reminders)
+    deferred_all = _extract_deferred_tools(all_reminders, user_prompt)
     fixture_skills = _fixture_skill_names()
     fixture_mcp_servers = _fixture_mcp_server_names()
     skills = [s for s in _extract_skills(all_reminders) if s["name"] not in fixture_skills]
@@ -383,6 +413,29 @@ def main(argv: list[str]) -> int:
         "duration_ms_total": int(total_duration),
     }
     (out_dir / "stats.json").write_text(json.dumps(stats, indent=2) + "\n")
+
+    # Guardrail: the auth volume previously surfaced the user's claude.ai-attached
+    # connectors and personal MCP plugins via the deferred-tools list. Refuse to
+    # silently produce polluted artifacts — if anything matching those patterns
+    # made it past _scrub_volatile and the is_mcp filter, fail loudly so the
+    # operator notices and runs scripts/scrub-leaks.py / re-captures.
+    leak_rx = re.compile(r"mcp__(?:claude_ai|plugin)_?[\w\-]*")
+    leak_hits: list[str] = []
+    for artifact in (
+        out_dir / "system-prompt.md",
+        out_dir / "user-prompt.md",
+        out_dir / "tools.json",
+        out_dir / "deferred-tools.json",
+        out_dir / "skills.json",
+    ):
+        if artifact.exists() and leak_rx.search(artifact.read_text()):
+            leak_hits.append(artifact.name)
+    if leak_hits:
+        raise SystemExit(
+            f"extract.py: leaked claude.ai/plugin MCP names in {out_dir}: "
+            f"{', '.join(leak_hits)}. Re-capture under hardened sandbox or "
+            f"run scripts/scrub-leaks.py."
+        )
 
     print(
         f"wrote {out_dir} ({len(requests)} req, {len(builtin_tools)} built-in "

@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-6",
-        "id": "msg_01CprBK4FWBtr8kgbkPTmeEG",
+        "id": "msg_01QEDcEYTfEN2uwzA3dBXWzK",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,11 +14,11 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 1,
-          "cache_creation_input_tokens": 565,
-          "cache_read_input_tokens": 15700,
+          "cache_creation_input_tokens": 1440,
+          "cache_read_input_tokens": 14951,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 565
+            "ephemeral_1h_input_tokens": 1440
           },
           "output_tokens": 54,
           "service_tier": "standard",
@@ -34,7 +34,7 @@
       "index": 0,
       "content_block": {
         "type": "tool_use",
-        "id": "toolu_01XpxFV13ciUpcuYMSiZmKHt",
+        "id": "toolu_01DG4154LXmYB5befSjUi1YS",
         "name": "Skill",
         "input": {},
         "caller": {
@@ -67,7 +67,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\"ski"
+        "partial_json": "{\"skil"
       }
     }
   },
@@ -78,7 +78,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "ll\": \""
+        "partial_json": "l\": \""
       }
     }
   },
@@ -89,7 +89,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "say-hello"
+        "partial_json": "say-hel"
       }
     }
   },
@@ -100,7 +100,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "\"}"
+        "partial_json": "lo\"}"
       }
     }
   },
@@ -122,8 +122,8 @@
       },
       "usage": {
         "input_tokens": 1,
-        "cache_creation_input_tokens": 565,
-        "cache_read_input_tokens": 15700,
+        "cache_creation_input_tokens": 1440,
+        "cache_read_input_tokens": 14951,
         "output_tokens": 54
       },
       "context_management": {

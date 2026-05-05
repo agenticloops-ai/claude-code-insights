@@ -1,9 +1,9 @@
 {
   "session": {
-    "id": "64acd6cc-e32f-4cb3-af58-99ef0c9d6baa",
+    "id": "e5b2405e-b980-4b92-b8e4-ed5662041cca",
     "name": "03-with-mcp",
-    "started_at": "2026-05-04T09:27:53.933193",
-    "ended_at": "2026-05-04T09:28:01.661394",
+    "started_at": "2026-05-04T18:51:25.190301",
+    "ended_at": "2026-05-04T18:51:33.526393",
     "request_count": 0,
     "total_tokens": 0,
     "estimated_cost_usd": 0.0
@@ -13,8 +13,8 @@
     "total_tokens": 54,
     "total_input_tokens": 3,
     "total_output_tokens": 51,
-    "estimated_cost_usd": 0.011694,
-    "avg_duration_ms": 3075.009822845459,
+    "estimated_cost_usd": 0.0117075,
+    "avg_duration_ms": 2385.0526809692383,
     "avg_tokens_per_request": 54.0,
     "models_used": [
       "claude-opus-4-6"
@@ -25,15 +25,15 @@
   },
   "requests": [
     {
-      "id": "2ee8be55-fc6e-498c-8ed6-cd773d9be409",
-      "session_id": "64acd6cc-e32f-4cb3-af58-99ef0c9d6baa",
-      "raw_capture_id": "3aef5a3f-fb25-49be-b73c-62d74454ae12",
+      "id": "62201ac6-58d7-4f54-8465-75ff766e2af3",
+      "session_id": "e5b2405e-b980-4b92-b8e4-ed5662041cca",
+      "raw_capture_id": "16cc5182-7830-4814-b79f-abe47852f275",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T09:27:59.265647",
-      "duration_ms": 3075.009822845459,
-      "time_to_first_token_ms": 2542.6278114318848,
+      "timestamp": "2026-05-04T18:51:31.171796",
+      "duration_ms": 2385.0526809692383,
+      "time_to_first_token_ms": 1802.1864891052246,
       "provider": "anthropic",
       "model": "claude-opus-4-6",
       "api_endpoint": "https://api.anthropic.com/v1/messages?beta=true",
@@ -53,7 +53,7 @@
           "content": [
             {
               "type": "text",
-              "text": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nNotebookEdit\nRead\nSkill\nTaskOutput\nTaskStop\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
+              "text": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nNotebookEdit\nRead\nSendMessage\nSkill\nTaskOutput\nTaskStop\nTeamCreate\nTeamDelete\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
             }
           ]
         },
@@ -119,9 +119,9 @@
         "input_tokens": 3,
         "output_tokens": 51,
         "cache_creation_input_tokens": 0,
-        "cache_read_input_tokens": 5216,
+        "cache_read_input_tokens": 5225,
         "total_tokens": 54,
-        "estimated_cost_usd": 0.011694
+        "estimated_cost_usd": 0.0117075
       },
       "status": "success",
       "request_params": {},
@@ -130,9 +130,9 @@
   ],
   "raw_captures": [
     {
-      "id": "3aef5a3f-fb25-49be-b73c-62d74454ae12",
-      "session_id": "64acd6cc-e32f-4cb3-af58-99ef0c9d6baa",
-      "timestamp": "2026-05-04T09:27:59.265647",
+      "id": "16cc5182-7830-4814-b79f-abe47852f275",
+      "session_id": "e5b2405e-b980-4b92-b8e4-ed5662041cca",
+      "timestamp": "2026-05-04T18:51:31.171796",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -161,14 +161,14 @@
         "accept-language": "*",
         "sec-fetch-mode": "cors",
         "accept-encoding": "identity",
-        "content-length": "21332"
+        "content-length": "21369"
       },
       "request_body": {
         "model": "claude-opus-4-6",
         "messages": [
           {
             "role": "user",
-            "content": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nNotebookEdit\nRead\nSkill\nTaskOutput\nTaskStop\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
+            "content": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nNotebookEdit\nRead\nSendMessage\nSkill\nTaskOutput\nTaskStop\nTeamCreate\nTeamDelete\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
           },
           {
             "role": "user",
@@ -241,7 +241,7 @@
           }
         ],
         "metadata": {
-          "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"ac20e096-1789-4b88-9c5d-0cde1f9e13fb\"}"
+          "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"35638ef4-d91d-426f-9964-00f3120a4a69\"}"
         },
         "max_tokens": 64000,
         "thinking": {
@@ -262,42 +262,41 @@
       },
       "response_status": 200,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 09:27:58 GMT",
+        "Date": "Mon, 04 May 2026 18:51:30 GMT",
         "Content-Type": "text/event-stream; charset=utf-8",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
         "Cache-Control": "no-cache",
-        "anthropic-ratelimit-unified-status": "allowed_warning",
-        "anthropic-ratelimit-unified-5h-status": "allowed_warning",
-        "anthropic-ratelimit-unified-5h-reset": "1777893000",
+        "anthropic-ratelimit-unified-status": "rejected",
+        "anthropic-ratelimit-unified-5h-status": "rejected",
+        "anthropic-ratelimit-unified-5h-reset": "1777929000",
         "anthropic-ratelimit-unified-5h-utilization": "1.0",
-        "anthropic-ratelimit-unified-5h-surpassed-threshold": "0.9",
+        "anthropic-ratelimit-unified-5h-surpassed-threshold": "1.0",
         "anthropic-ratelimit-unified-7d-status": "allowed",
         "anthropic-ratelimit-unified-7d-reset": "1778126400",
-        "anthropic-ratelimit-unified-7d-utilization": "0.43",
+        "anthropic-ratelimit-unified-7d-utilization": "0.51",
         "anthropic-ratelimit-unified-overage-status": "allowed",
         "anthropic-ratelimit-unified-overage-reset": "1780272000",
         "anthropic-ratelimit-unified-overage-utilization": "0.0",
         "anthropic-ratelimit-unified-representative-claim": "five_hour",
         "anthropic-ratelimit-unified-fallback-percentage": "0.5",
-        "anthropic-ratelimit-unified-fallback": "available",
-        "anthropic-ratelimit-unified-reset": "1777893000",
+        "anthropic-ratelimit-unified-reset": "1777929000",
         "anthropic-ratelimit-unified-upgrade-paths": "overage",
         "anthropic-ratelimit-unified-overage-in-use": "true",
-        "request-id": "req_011CahHrh5R6meUAoz2eNipX",
+        "request-id": "req_011Cai2qAb5z5dCVPj5VSZkA",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-6b5bb1c9cf921b89f59121b300615792-cb1a17eb9e671a07-01",
+        "traceresponse": "00-1d188f620c9310b8e2c596eb5128fd62-0fcbaccd921804c6-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "2360",
-        "X-Robots-Tag": "none",
-        "vary": "Accept-Encoding",
-        "cf-cache-status": "DYNAMIC",
-        "set-cookie": "REDACTED",
+        "x-envoy-upstream-service-time": "1562",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-        "CF-RAY": "9f6678f10b6ac67f-SJC"
+        "vary": "Accept-Encoding",
+        "set-cookie": "REDACTED",
+        "X-Robots-Tag": "none",
+        "cf-cache-status": "DYNAMIC",
+        "CF-RAY": "9f69b271dd85760e-SJC"
       },
-      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-6\",\"id\":\"msg_01FfLV8h91F8ZiLoWQL23Eaw\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":5216,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":2,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}             }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}   }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"\\n\\nBased\"}  }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" on the available deferred tools list, here are the MCP tools:\\n\\n```\\nmcp__fixture__tool_001\\nmcp__fixture__tool_002\\nmcp__fixture__tool_003\\n```\"}            }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0       }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":5216,\"output_tokens\":51},\"context_management\":{\"applied_edits\":[]}              }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"         }\n\n",
+      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-6\",\"id\":\"msg_01USNA8UzFRvhFBxF1ZEStn7\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":5225,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":2,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}      }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}          }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"\\n\\nBased\"}   }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" on the available deferred tools list, here are the MCP tools:\\n\\n```\\nmcp__fixture__tool_001\\nmcp__fixture__tool_002\\nmcp__fixture__tool_003\\n```\"}             }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0 }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":5225,\"output_tokens\":51},\"context_management\":{\"applied_edits\":[]} }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"}\n\n",
       "is_streaming": true,
       "sse_events": [
         {
@@ -306,7 +305,7 @@
             "type": "message_start",
             "message": {
               "model": "claude-opus-4-6",
-              "id": "msg_01FfLV8h91F8ZiLoWQL23Eaw",
+              "id": "msg_01USNA8UzFRvhFBxF1ZEStn7",
               "type": "message",
               "role": "assistant",
               "content": [],
@@ -316,7 +315,7 @@
               "usage": {
                 "input_tokens": 3,
                 "cache_creation_input_tokens": 0,
-                "cache_read_input_tokens": 5216,
+                "cache_read_input_tokens": 5225,
                 "cache_creation": {
                   "ephemeral_5m_input_tokens": 0,
                   "ephemeral_1h_input_tokens": 0
@@ -386,7 +385,7 @@
             "usage": {
               "input_tokens": 3,
               "cache_creation_input_tokens": 0,
-              "cache_read_input_tokens": 5216,
+              "cache_read_input_tokens": 5225,
               "output_tokens": 51
             },
             "context_management": {

@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-6",
-        "id": "msg_01GfM2VuasXneUx3ieZgNwPh",
+        "id": "msg_01KNe4dVUZqoeAFnzb4zbVdG",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,11 +14,11 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 3,
-          "cache_creation_input_tokens": 6319,
-          "cache_read_input_tokens": 11158,
+          "cache_creation_input_tokens": 6302,
+          "cache_read_input_tokens": 11287,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 6319
+            "ephemeral_1h_input_tokens": 6302
           },
           "output_tokens": 55,
           "service_tier": "standard",
@@ -34,7 +34,7 @@
       "index": 0,
       "content_block": {
         "type": "tool_use",
-        "id": "toolu_01SqpA57Cno74FfXBaiL7fyQ",
+        "id": "toolu_015d3YYpFYJEXgnXVz2mLHaX",
         "name": "Skill",
         "input": {},
         "caller": {
@@ -67,7 +67,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\"ski"
+        "partial_json": "{\"skill\":"
       }
     }
   },
@@ -78,7 +78,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "ll\": \"sa"
+        "partial_json": " \"sa"
       }
     }
   },
@@ -89,7 +89,18 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "y-hello\"}"
+        "partial_json": "y-he"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "llo\"}"
       }
     }
   },
@@ -111,8 +122,8 @@
       },
       "usage": {
         "input_tokens": 3,
-        "cache_creation_input_tokens": 6319,
-        "cache_read_input_tokens": 11158,
+        "cache_creation_input_tokens": 6302,
+        "cache_read_input_tokens": 11287,
         "output_tokens": 55
       },
       "context_management": {

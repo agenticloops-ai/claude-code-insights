@@ -2,7 +2,7 @@
   "version": "2.1.52",
   "dir_name": "2026-02-24_2.1.52",
   "scenario": "02-bare",
-  "captured_at": "2026-05-04T08:35:31.227170",
+  "captured_at": "2026-05-04T17:53:43.941715",
   "request_count": 1,
   "models": [
     "claude-opus-4-6"
@@ -19,8 +19,8 @@
     "input": 3,
     "output": 12,
     "cache_read": 0,
-    "cache_creation": 15559,
+    "cache_creation": 15685,
     "total": 15
   },
-  "duration_ms_total": 1740
+  "duration_ms_total": 2116
 }

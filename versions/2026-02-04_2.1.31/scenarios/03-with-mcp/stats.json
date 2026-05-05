@@ -2,7 +2,7 @@
   "version": "2.1.31",
   "dir_name": "2026-02-04_2.1.31",
   "scenario": "03-with-mcp",
-  "captured_at": "2026-05-04T07:57:23.373674",
+  "captured_at": "2026-05-04T17:12:45.225289",
   "request_count": 2,
   "models": [
     "claude-haiku-4-5-20251001",
@@ -23,5 +23,5 @@
     "cache_creation": 22817,
     "total": 1493
   },
-  "duration_ms_total": 18616
+  "duration_ms_total": 19787
 }

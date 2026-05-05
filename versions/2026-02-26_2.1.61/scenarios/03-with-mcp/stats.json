@@ -2,12 +2,12 @@
   "version": "2.1.61",
   "dir_name": "2026-02-26_2.1.61",
   "scenario": "03-with-mcp",
-  "captured_at": "2026-05-04T08:50:58.580219",
+  "captured_at": "2026-05-04T18:11:00.247439",
   "request_count": 1,
   "models": [
     "claude-opus-4-6"
   ],
-  "tool_count_first_request": 21,
+  "tool_count_first_request": 24,
   "deferred_tool_count": 0,
   "mcp_tool_count_advertised": 0,
   "mcp_tool_count_deferred": 0,
@@ -17,10 +17,10 @@
   "reminder_count": 2,
   "tokens": {
     "input": 3,
-    "output": 1570,
+    "output": 1544,
     "cache_read": 0,
-    "cache_creation": 24060,
-    "total": 1573
+    "cache_creation": 27897,
+    "total": 1547
   },
-  "duration_ms_total": 23513
+  "duration_ms_total": 21341
 }

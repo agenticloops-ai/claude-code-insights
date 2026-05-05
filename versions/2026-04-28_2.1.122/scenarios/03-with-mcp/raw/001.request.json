@@ -1,8 +1,8 @@
 {
   "index": 1,
-  "request_id": "8b836727-f1f4-4198-8ffd-319ccf94ecb2",
-  "session_id": "9c14b443-bf4b-4279-abd7-2863ff49079d",
-  "timestamp": "2026-05-04T10:37:08.480103",
+  "request_id": "10490c17-4989-4929-a28f-86cd987d6700",
+  "session_id": "63ec7596-fb23-4e86-b8c2-30cb1323b36c",
+  "timestamp": "2026-05-04T20:06:52.455823",
   "provider": "anthropic",
   "method": "POST",
   "url": "https://api.anthropic.com/v1/messages?beta=true",
@@ -11,7 +11,7 @@
     "Authorization": "REDACTED",
     "Content-Type": "application/json",
     "User-Agent": "claude-cli/2.1.122 (external, sdk-cli)",
-    "X-Claude-Code-Session-Id": "50814f71-7e3d-4b61-ae0d-b7a6ec07d228",
+    "X-Claude-Code-Session-Id": "42b11cc2-6908-44d8-83a2-e041175c6c98",
     "X-Stainless-Arch": "x64",
     "X-Stainless-Lang": "js",
     "X-Stainless-OS": "Linux",
@@ -24,7 +24,7 @@
     "anthropic-dangerous-direct-browser-access": "true",
     "anthropic-version": "2023-06-01",
     "x-app": "cli",
-    "x-client-request-id": "1b4acdc6-cec8-438f-8a65-812462449024",
+    "x-client-request-id": "52d4554d-ec8f-4a95-883b-6472b08f5a10",
     "Connection": "keep-alive",
     "Host": "api.anthropic.com",
     "Accept-Encoding": "identity",
@@ -46,7 +46,7 @@
     "system": [
       {
         "type": "text",
-        "text": "x-anthropic-billing-header: cc_version=2.1.122.f08; cc_entrypoint=sdk-cli; cch=ebc9a;"
+        "text": "x-anthropic-billing-header: cc_version=2.1.122.f08; cc_entrypoint=sdk-cli; cch=62a69;"
       },
       {
         "type": "text",
@@ -59,7 +59,7 @@
     ],
     "tools": [],
     "metadata": {
-      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"50814f71-7e3d-4b61-ae0d-b7a6ec07d228\"}"
+      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"42b11cc2-6908-44d8-83a2-e041175c6c98\"}"
     },
     "max_tokens": 32000,
     "temperature": 1,

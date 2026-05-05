@@ -2,7 +2,7 @@
   {
     "index": 1,
     "model": "claude-opus-4-6",
-    "duration_ms": 3419.3115234375,
+    "duration_ms": 3953.2997608184814,
     "tool_count": 8,
     "stop_reason": "tool_use",
     "input_tokens": 3,
@@ -11,7 +11,7 @@
   {
     "index": 2,
     "model": "claude-opus-4-6",
-    "duration_ms": 2323.8213062286377,
+    "duration_ms": 2470.0675010681152,
     "tool_count": 9,
     "stop_reason": "tool_use",
     "input_tokens": 1,
@@ -20,7 +20,7 @@
   {
     "index": 3,
     "model": "claude-opus-4-6",
-    "duration_ms": 2056.854248046875,
+    "duration_ms": 2697.9126930236816,
     "tool_count": 9,
     "stop_reason": "end_turn",
     "input_tokens": 2,

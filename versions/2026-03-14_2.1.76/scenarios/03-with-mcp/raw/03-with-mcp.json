@@ -1,21 +1,21 @@
 {
   "session": {
-    "id": "6ad8f831-5251-4b39-b20c-10a953fc8c0a",
+    "id": "76f2d9e6-144e-4815-9389-42e6f61d199d",
     "name": "03-with-mcp",
-    "started_at": "2026-05-04T09:19:31.550160",
-    "ended_at": "2026-05-04T09:19:56.384118",
+    "started_at": "2026-05-04T18:42:03.065453",
+    "ended_at": "2026-05-04T18:42:29.749400",
     "request_count": 0,
     "total_tokens": 0,
     "estimated_cost_usd": 0.0
   },
   "stats": {
     "total_requests": 1,
-    "total_tokens": 1449,
+    "total_tokens": 1546,
     "total_input_tokens": 3,
-    "total_output_tokens": 1446,
-    "estimated_cost_usd": 0.15785175,
-    "avg_duration_ms": 13392.593622207642,
-    "avg_tokens_per_request": 1449.0,
+    "total_output_tokens": 1543,
+    "estimated_cost_usd": 0.126825,
+    "avg_duration_ms": 17930.82022666931,
+    "avg_tokens_per_request": 1546.0,
     "models_used": [
       "claude-opus-4-6"
     ],
@@ -25,15 +25,15 @@
   },
   "requests": [
     {
-      "id": "e54c3e8a-1e8d-46b9-996d-3313ed047154",
-      "session_id": "6ad8f831-5251-4b39-b20c-10a953fc8c0a",
-      "raw_capture_id": "05f82407-edc0-471b-8e85-7ce2fe074eb0",
+      "id": "8be4b0af-8d37-4441-ae94-3dd89687e727",
+      "session_id": "76f2d9e6-144e-4815-9389-42e6f61d199d",
+      "raw_capture_id": "46d30e44-bdfe-4f60-993c-aa8ad6b5427a",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T09:19:54.009976",
-      "duration_ms": 13392.593622207642,
-      "time_to_first_token_ms": 2224.431276321411,
+      "timestamp": "2026-05-04T18:42:27.405550",
+      "duration_ms": 17930.82022666931,
+      "time_to_first_token_ms": 1676.4633655548096,
       "provider": "anthropic",
       "model": "claude-opus-4-6",
       "api_endpoint": "https://api.anthropic.com/v1/messages?beta=true",
@@ -53,7 +53,7 @@
           "content": [
             {
               "type": "text",
-              "text": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nListMcpResourcesTool\nNotebookEdit\nRead\nReadMcpResourceTool\nSkill\nTaskOutput\nTaskStop\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__claude_ai_Canva__cancel-editing-transaction\nmcp__claude_ai_Canva__comment-on-design\nmcp__claude_ai_Canva__commit-editing-transaction\nmcp__claude_ai_Canva__create-design-from-candidate\nmcp__claude_ai_Canva__create-folder\nmcp__claude_ai_Canva__export-design\nmcp__claude_ai_Canva__generate-design\nmcp__claude_ai_Canva__generate-design-structured\nmcp__claude_ai_Canva__get-assets\nmcp__claude_ai_Canva__get-design\nmcp__claude_ai_Canva__get-design-content\nmcp__claude_ai_Canva__get-design-pages\nmcp__claude_ai_Canva__get-design-thumbnail\nmcp__claude_ai_Canva__get-export-formats\nmcp__claude_ai_Canva__get-presenter-notes\nmcp__claude_ai_Canva__help\nmcp__claude_ai_Canva__import-design-from-url\nmcp__claude_ai_Canva__list-brand-kits\nmcp__claude_ai_Canva__list-comments\nmcp__claude_ai_Canva__list-folder-items\nmcp__claude_ai_Canva__list-replies\nmcp__claude_ai_Canva__merge-designs\nmcp__claude_ai_Canva__move-item-to-folder\nmcp__claude_ai_Canva__perform-editing-operations\nmcp__claude_ai_Canva__reply-to-comment\nmcp__claude_ai_Canva__request-outline-review\nmcp__claude_ai_Canva__resize-design\nmcp__claude_ai_Canva__resolve-shortlink\nmcp__claude_ai_Canva__search-designs\nmcp__claude_ai_Canva__search-folders\nmcp__claude_ai_Canva__start-editing-transaction\nmcp__claude_ai_Canva__upload-asset-from-url\nmcp__claude_ai_Figma__add_code_connect_map\nmcp__claude_ai_Figma__create_design_system_rules\nmcp__claude_ai_Figma__create_new_file\nmcp__claude_ai_Figma__generate_diagram\nmcp__claude_ai_Figma__get_code_connect_map\nmcp__claude_ai_Figma__get_code_connect_suggestions\nmcp__claude_ai_Figma__get_context_for_code_connect\nmcp__claude_ai_Figma__get_design_context\nmcp__claude_ai_Figma__get_figjam\nmcp__claude_ai_Figma__get_libraries\nmcp__claude_ai_Figma__get_metadata\nmcp__claude_ai_Figma__get_screenshot\nmcp__claude_ai_Figma__get_variable_defs\nmcp__claude_ai_Figma__search_design_system\nmcp__claude_ai_Figma__send_code_connect_mappings\nmcp__claude_ai_Figma__upload_assets\nmcp__claude_ai_Figma__use_figma\nmcp__claude_ai_Figma__whoami\nmcp__claude_ai_Gmail__create_draft\nmcp__claude_ai_Gmail__create_label\nmcp__claude_ai_Gmail__get_thread\nmcp__claude_ai_Gmail__label_message\nmcp__claude_ai_Gmail__label_thread\nmcp__claude_ai_Gmail__list_drafts\nmcp__claude_ai_Gmail__list_labels\nmcp__claude_ai_Gmail__search_threads\nmcp__claude_ai_Gmail__unlabel_message\nmcp__claude_ai_Gmail__unlabel_thread\nmcp__claude_ai_Google_Calendar__create_event\nmcp__claude_ai_Google_Calendar__delete_event\nmcp__claude_ai_Google_Calendar__get_event\nmcp__claude_ai_Google_Calendar__list_calendars\nmcp__claude_ai_Google_Calendar__list_events\nmcp__claude_ai_Google_Calendar__respond_to_event\nmcp__claude_ai_Google_Calendar__suggest_time\nmcp__claude_ai_Google_Calendar__update_event\nmcp__claude_ai_Google_Drive__copy_file\nmcp__claude_ai_Google_Drive__create_file\nmcp__claude_ai_Google_Drive__download_file_content\nmcp__claude_ai_Google_Drive__get_file_metadata\nmcp__claude_ai_Google_Drive__get_file_permissions\nmcp__claude_ai_Google_Drive__list_recent_files\nmcp__claude_ai_Google_Drive__read_file_content\nmcp__claude_ai_Google_Drive__search_files\nmcp__claude_ai_tldraw___exec_callback\nmcp__claude_ai_tldraw___get_canvas_state\nmcp__claude_ai_tldraw__exec\nmcp__claude_ai_tldraw__read_checkpoint\nmcp__claude_ai_tldraw__save_checkpoint\nmcp__claude_ai_tldraw__search\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
+              "text": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nListMcpResourcesTool\nNotebookEdit\nRead\nReadMcpResourceTool\nSendMessage\nSkill\nTaskOutput\nTaskStop\nTeamCreate\nTeamDelete\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
             }
           ]
         },
@@ -109,11 +109,11 @@
           "content": [
             {
               "type": "thinking",
-              "thinking": "The user wants me to list all MCP tools available. I can see them in the available-deferred-tools list. Let me filter for ones that start with \"mcp__\"."
+              "thinking": "The user wants me to list all MCP tools available. I can see them in the available-deferred-tools list. Let me filter for ones starting with \"mcp__\"."
             },
             {
               "type": "text",
-              "text": "Here are all the MCP tools currently available:\n\n```\nmcp__claude_ai_Canva__cancel-editing-transaction\nmcp__claude_ai_Canva__comment-on-design\nmcp__claude_ai_Canva__commit-editing-transaction\nmcp__claude_ai_Canva__create-design-from-candidate\nmcp__claude_ai_Canva__create-folder\nmcp__claude_ai_Canva__export-design\nmcp__claude_ai_Canva__generate-design\nmcp__claude_ai_Canva__generate-design-structured\nmcp__claude_ai_Canva__get-assets\nmcp__claude_ai_Canva__get-design\nmcp__claude_ai_Canva__get-design-content\nmcp__claude_ai_Canva__get-design-pages\nmcp__claude_ai_Canva__get-design-thumbnail\nmcp__claude_ai_Canva__get-export-formats\nmcp__claude_ai_Canva__get-presenter-notes\nmcp__claude_ai_Canva__help\nmcp__claude_ai_Canva__import-design-from-url\nmcp__claude_ai_Canva__list-brand-kits\nmcp__claude_ai_Canva__list-comments\nmcp__claude_ai_Canva__list-folder-items\nmcp__claude_ai_Canva__list-replies\nmcp__claude_ai_Canva__merge-designs\nmcp__claude_ai_Canva__move-item-to-folder\nmcp__claude_ai_Canva__perform-editing-operations\nmcp__claude_ai_Canva__reply-to-comment\nmcp__claude_ai_Canva__request-outline-review\nmcp__claude_ai_Canva__resize-design\nmcp__claude_ai_Canva__resolve-shortlink\nmcp__claude_ai_Canva__search-designs\nmcp__claude_ai_Canva__search-folders\nmcp__claude_ai_Canva__start-editing-transaction\nmcp__claude_ai_Canva__upload-asset-from-url\nmcp__claude_ai_Figma__add_code_connect_map\nmcp__claude_ai_Figma__create_design_system_rules\nmcp__claude_ai_Figma__create_new_file\nmcp__claude_ai_Figma__generate_diagram\nmcp__claude_ai_Figma__get_code_connect_map\nmcp__claude_ai_Figma__get_code_connect_suggestions\nmcp__claude_ai_Figma__get_context_for_code_connect\nmcp__claude_ai_Figma__get_design_context\nmcp__claude_ai_Figma__get_figjam\nmcp__claude_ai_Figma__get_libraries\nmcp__claude_ai_Figma__get_metadata\nmcp__claude_ai_Figma__get_screenshot\nmcp__claude_ai_Figma__get_variable_defs\nmcp__claude_ai_Figma__search_design_system\nmcp__claude_ai_Figma__send_code_connect_mappings\nmcp__claude_ai_Figma__upload_assets\nmcp__claude_ai_Figma__use_figma\nmcp__claude_ai_Figma__whoami\nmcp__claude_ai_Gmail__create_draft\nmcp__claude_ai_Gmail__create_label\nmcp__claude_ai_Gmail__get_thread\nmcp__claude_ai_Gmail__label_message\nmcp__claude_ai_Gmail__label_thread\nmcp__claude_ai_Gmail__list_drafts\nmcp__claude_ai_Gmail__list_labels\nmcp__claude_ai_Gmail__search_threads\nmcp__claude_ai_Gmail__unlabel_message\nmcp__claude_ai_Gmail__unlabel_thread\nmcp__claude_ai_Google_Calendar__create_event\nmcp__claude_ai_Google_Calendar__delete_event\nmcp__claude_ai_Google_Calendar__get_event\nmcp__claude_ai_Google_Calendar__list_calendars\nmcp__claude_ai_Google_Calendar__list_events\nmcp__claude_ai_Google_Calendar__respond_to_event\nmcp__claude_ai_Google_Calendar__suggest_time\nmcp__claude_ai_Google_Calendar__update_event\nmcp__claude_ai_Google_Drive__copy_file\nmcp__claude_ai_Google_Drive__create_file\nmcp__claude_ai_Google_Drive__download_file_content\nmcp__claude_ai_Google_Drive__get_file_metadata\nmcp__claude_ai_Google_Drive__get_file_permissions\nmcp__claude_ai_Google_Drive__list_recent_files\nmcp__claude_ai_Google_Drive__read_file_content\nmcp__claude_ai_Google_Drive__search_files\nmcp__claude_ai_tldraw___exec_callback\nmcp__claude_ai_tldraw___get_canvas_state\nmcp__claude_ai_tldraw__exec\nmcp__claude_ai_tldraw__read_checkpoint\nmcp__claude_ai_tldraw__save_checkpoint\nmcp__claude_ai_tldraw__search\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n```\n\nThat's 72 MCP tools total across 7 servers: Canva, Figma, Gmail, Google Calendar, Google Drive, tldraw, and fixture."
+              "text": "Here are all the MCP tools available:\n\n```\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n```\n\nThat's 78 MCP tools total, spanning 7 servers: Canva, Excalidraw, Figma, Gmail, Google Calendar, Google Drive, tldraw, and a fixture server."
             }
           ]
         }
@@ -121,11 +121,11 @@
       "stop_reason": "end_turn",
       "usage": {
         "input_tokens": 3,
-        "output_tokens": 1446,
-        "cache_creation_input_tokens": 2229,
-        "cache_read_input_tokens": 5042,
-        "total_tokens": 1449,
-        "estimated_cost_usd": 0.15785175
+        "output_tokens": 1543,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 7370,
+        "total_tokens": 1546,
+        "estimated_cost_usd": 0.126825
       },
       "status": "success",
       "request_params": {},
@@ -134,9 +134,9 @@
   ],
   "raw_captures": [
     {
-      "id": "05f82407-edc0-471b-8e85-7ce2fe074eb0",
-      "session_id": "6ad8f831-5251-4b39-b20c-10a953fc8c0a",
-      "timestamp": "2026-05-04T09:19:54.009976",
+      "id": "46d30e44-bdfe-4f60-993c-aa8ad6b5427a",
+      "session_id": "76f2d9e6-144e-4815-9389-42e6f61d199d",
+      "timestamp": "2026-05-04T18:42:27.405550",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -165,14 +165,14 @@
         "accept-language": "*",
         "sec-fetch-mode": "cors",
         "accept-encoding": "identity",
-        "content-length": "27411"
+        "content-length": "27661"
       },
       "request_body": {
         "model": "claude-opus-4-6",
         "messages": [
           {
             "role": "user",
-            "content": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nListMcpResourcesTool\nNotebookEdit\nRead\nReadMcpResourceTool\nSkill\nTaskOutput\nTaskStop\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__claude_ai_Canva__cancel-editing-transaction\nmcp__claude_ai_Canva__comment-on-design\nmcp__claude_ai_Canva__commit-editing-transaction\nmcp__claude_ai_Canva__create-design-from-candidate\nmcp__claude_ai_Canva__create-folder\nmcp__claude_ai_Canva__export-design\nmcp__claude_ai_Canva__generate-design\nmcp__claude_ai_Canva__generate-design-structured\nmcp__claude_ai_Canva__get-assets\nmcp__claude_ai_Canva__get-design\nmcp__claude_ai_Canva__get-design-content\nmcp__claude_ai_Canva__get-design-pages\nmcp__claude_ai_Canva__get-design-thumbnail\nmcp__claude_ai_Canva__get-export-formats\nmcp__claude_ai_Canva__get-presenter-notes\nmcp__claude_ai_Canva__help\nmcp__claude_ai_Canva__import-design-from-url\nmcp__claude_ai_Canva__list-brand-kits\nmcp__claude_ai_Canva__list-comments\nmcp__claude_ai_Canva__list-folder-items\nmcp__claude_ai_Canva__list-replies\nmcp__claude_ai_Canva__merge-designs\nmcp__claude_ai_Canva__move-item-to-folder\nmcp__claude_ai_Canva__perform-editing-operations\nmcp__claude_ai_Canva__reply-to-comment\nmcp__claude_ai_Canva__request-outline-review\nmcp__claude_ai_Canva__resize-design\nmcp__claude_ai_Canva__resolve-shortlink\nmcp__claude_ai_Canva__search-designs\nmcp__claude_ai_Canva__search-folders\nmcp__claude_ai_Canva__start-editing-transaction\nmcp__claude_ai_Canva__upload-asset-from-url\nmcp__claude_ai_Figma__add_code_connect_map\nmcp__claude_ai_Figma__create_design_system_rules\nmcp__claude_ai_Figma__create_new_file\nmcp__claude_ai_Figma__generate_diagram\nmcp__claude_ai_Figma__get_code_connect_map\nmcp__claude_ai_Figma__get_code_connect_suggestions\nmcp__claude_ai_Figma__get_context_for_code_connect\nmcp__claude_ai_Figma__get_design_context\nmcp__claude_ai_Figma__get_figjam\nmcp__claude_ai_Figma__get_libraries\nmcp__claude_ai_Figma__get_metadata\nmcp__claude_ai_Figma__get_screenshot\nmcp__claude_ai_Figma__get_variable_defs\nmcp__claude_ai_Figma__search_design_system\nmcp__claude_ai_Figma__send_code_connect_mappings\nmcp__claude_ai_Figma__upload_assets\nmcp__claude_ai_Figma__use_figma\nmcp__claude_ai_Figma__whoami\nmcp__claude_ai_Gmail__create_draft\nmcp__claude_ai_Gmail__create_label\nmcp__claude_ai_Gmail__get_thread\nmcp__claude_ai_Gmail__label_message\nmcp__claude_ai_Gmail__label_thread\nmcp__claude_ai_Gmail__list_drafts\nmcp__claude_ai_Gmail__list_labels\nmcp__claude_ai_Gmail__search_threads\nmcp__claude_ai_Gmail__unlabel_message\nmcp__claude_ai_Gmail__unlabel_thread\nmcp__claude_ai_Google_Calendar__create_event\nmcp__claude_ai_Google_Calendar__delete_event\nmcp__claude_ai_Google_Calendar__get_event\nmcp__claude_ai_Google_Calendar__list_calendars\nmcp__claude_ai_Google_Calendar__list_events\nmcp__claude_ai_Google_Calendar__respond_to_event\nmcp__claude_ai_Google_Calendar__suggest_time\nmcp__claude_ai_Google_Calendar__update_event\nmcp__claude_ai_Google_Drive__copy_file\nmcp__claude_ai_Google_Drive__create_file\nmcp__claude_ai_Google_Drive__download_file_content\nmcp__claude_ai_Google_Drive__get_file_metadata\nmcp__claude_ai_Google_Drive__get_file_permissions\nmcp__claude_ai_Google_Drive__list_recent_files\nmcp__claude_ai_Google_Drive__read_file_content\nmcp__claude_ai_Google_Drive__search_files\nmcp__claude_ai_tldraw___exec_callback\nmcp__claude_ai_tldraw___get_canvas_state\nmcp__claude_ai_tldraw__exec\nmcp__claude_ai_tldraw__read_checkpoint\nmcp__claude_ai_tldraw__save_checkpoint\nmcp__claude_ai_tldraw__search\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
+            "content": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nListMcpResourcesTool\nNotebookEdit\nRead\nReadMcpResourceTool\nSendMessage\nSkill\nTaskOutput\nTaskStop\nTeamCreate\nTeamDelete\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
           },
           {
             "role": "user",
@@ -245,7 +245,7 @@
           }
         ],
         "metadata": {
-          "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_c7e63cff-0530-4f02-a071-b78cdadfd80b"
+          "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_3ffcb82c-938c-4eee-9bd9-257e93d9552e"
         },
         "max_tokens": 32000,
         "thinking": {
@@ -266,41 +266,42 @@
       },
       "response_status": 200,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 09:19:42 GMT",
+        "Date": "Mon, 04 May 2026 18:42:11 GMT",
         "Content-Type": "text/event-stream; charset=utf-8",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
         "Cache-Control": "no-cache",
-        "anthropic-ratelimit-unified-status": "allowed_warning",
-        "anthropic-ratelimit-unified-5h-status": "allowed_warning",
-        "anthropic-ratelimit-unified-5h-reset": "1777893000",
+        "anthropic-ratelimit-unified-status": "rejected",
+        "anthropic-ratelimit-unified-5h-status": "rejected",
+        "anthropic-ratelimit-unified-5h-reset": "1777929000",
         "anthropic-ratelimit-unified-5h-utilization": "1.0",
-        "anthropic-ratelimit-unified-5h-surpassed-threshold": "0.9",
+        "anthropic-ratelimit-unified-5h-surpassed-threshold": "1.0",
         "anthropic-ratelimit-unified-7d-status": "allowed",
         "anthropic-ratelimit-unified-7d-reset": "1778126400",
-        "anthropic-ratelimit-unified-7d-utilization": "0.43",
+        "anthropic-ratelimit-unified-7d-utilization": "0.51",
         "anthropic-ratelimit-unified-overage-status": "allowed",
         "anthropic-ratelimit-unified-overage-reset": "1780272000",
         "anthropic-ratelimit-unified-overage-utilization": "0.0",
         "anthropic-ratelimit-unified-representative-claim": "five_hour",
         "anthropic-ratelimit-unified-fallback-percentage": "0.5",
-        "anthropic-ratelimit-unified-fallback": "available",
-        "anthropic-ratelimit-unified-reset": "1777893000",
+        "anthropic-ratelimit-unified-reset": "1777929000",
         "anthropic-ratelimit-unified-upgrade-paths": "overage",
-        "request-id": "req_011CahHEAMUGb2w4278FjRXe",
+        "anthropic-ratelimit-unified-overage-in-use": "true",
+        "request-id": "req_011Cai27wC3Bd6BNwJSyuyG7",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-932a1e880ec829f1897561e1b5b3fcb4-88ec591e9ab36ce2-01",
+        "traceresponse": "00-f2be867dfefea1877127c563e2aa331c-9243816f5f33ddb9-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "2113",
+        "x-envoy-upstream-service-time": "1541",
         "X-Robots-Tag": "none",
         "vary": "Accept-Encoding",
+        "server-timing": "x-originResponse;dur=1548",
         "cf-cache-status": "DYNAMIC",
         "set-cookie": "REDACTED",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-        "CF-RAY": "9f666cd7c842cfac-SJC"
+        "CF-RAY": "9f69a4ca1ecfebeb-SJC"
       },
-      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-6\",\"id\":\"msg_01D2ZwwJgcnfdct7JGJEPwtP\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":2229,\"cache_read_input_tokens\":5042,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":2229},\"output_tokens\":37,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}} }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"thinking\",\"thinking\":\"\",\"signature\":\"\"}          }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\"The user wants me to list all MCP tools available. I can see them in the available-deferred-tools list. Let me filter\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\" for ones that start with \\\"mcp__\\\".\"}             }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"signature_delta\",\"signature\":\"EtMCClkIDRgCKkBOsvHg0qFZ4mFGFz2T8B985/Cj9dM0faDQMlB9mzoTooMMqxHU3iJp97eyhHIeT1B8xM2s2qMY+4EJgslsK3x2Mg9jbGF1ZGUtb3B1cy00LTY4ABIMGc+t4vu+9pOfk+rLGgy20et90fJWLz/Ou5kiMIHX8gSeN7cDx3SqTtRpnDDC4bCDM2t6dpKoW4Tqcw21eA9DFsxsEIiTEsAUFhVgtyqnATWrh2yJzHfk/7qmarEcVCbVF539AMCD2tgrJvVStYvoh0RtRaUekjrsCh9eDzwzCZYM89ijB7GSej1ggjzCbuvj51GosINwZQkEnOoceMP3xPX/Kk2JbQ0j69jjRq8VKDeYvOdB2yw/WsmeqLCR429RO9qLw5hbxsHXtOg/IwSd8k+aeuvCL7FqDOq7Xl11sCPjF1EkY2OfkzCWxBbta9b6RWc2DQyxGAE=\"}         }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0       }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":1,\"content_block\":{\"type\":\"text\",\"text\":\"\"} }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Here are all the MCP tools currently available:\\n\\n```\\nmcp__claude_ai_Canva__cancel-editing-\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"transaction\\nmcp__claude_ai_Canva__comment-on-design\\nmcp__claude_ai_Canva__commit-editing-transaction\\nmcp__claude_ai_Canva__create-design-from-candidate\\nmcp__claude_ai_Can\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"va__create-folder\\nmcp__claude_ai_Canva__export-design\\nmcp__claude_ai_Canva__generate-design\\nmcp__claude_ai_Canva__generate-design-structured\\nmcp__claude_ai_Canva__\"}   }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"get-assets\\nmcp__claude_ai_Canva__get-design\\nmcp__claude_ai_Canva__get-design-content\\nmcp__claude_ai_Canva__get-design-pages\\nmcp__claude_ai_Canva__\"} }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"get-design-thumbnail\\nmcp__claude_ai_Canva__get-export-formats\\nmcp__claude_ai_Canva__get-presenter-notes\\nmcp__claude_ai_Canva__help\\nmcp__claude_ai_Canva__\"}       }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"import-design-from-url\\nmcp__claude_ai_Canva__list-brand-kits\\nmcp__claude_ai_Canva__list-comments\\nmcp__claude_ai_Canva__list-folder-items\\nmcp__claude_ai\"}        }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"_Canva__list-replies\\nmcp__claude_ai_Canva__merge-designs\\nmcp__claude_ai_Canva__move-item-to-folder\\nmcp__claude_ai_Canva__perform-editing-operations\\nmcp__claude\"}           }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"_ai_Canva__reply-to-comment\\nmcp__claude_ai_Canva__request-outline-review\\nmcp__claude_ai_Canva__resize-design\\nmcp__claude_ai_Canva__resolve-shortlink\\nmcp__\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"claude_ai_Canva__search-designs\\nmcp__claude_ai_Canva__search-folders\\nmcp__claude_ai_Canva__start-editing-transaction\\nmcp__claude_ai_Canva__upload-asset-from-url\\nm\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"cp__claude_ai_Figma__add_code_connect_map\\nmcp__claude_ai_Figma__create_design_system_rules\\nmcp__claude_ai_Figma__create_new_file\\nmcp__claude_ai_Figma\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"__generate_diagram\\nmcp__claude_ai_Figma__get_code_connect_map\\nmcp__claude_ai_Figma__get_code_connect_suggestions\\nmcp__claude_ai_Figma__get_context_for_code_connect\"}   }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"\\nmcp__claude_ai_Figma__get_design_context\\nmcp__claude_ai_Figma__get_figjam\\nmcp__claude_ai_Figma__get_libraries\\nmcp__claude_ai_Figma__get_metadata\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"\\nmcp__claude_ai_Figma__get_screenshot\\nmcp__claude_ai_Figma__get_variable_defs\\nmcp__claude_ai_Figma__search_design_system\\nmcp__claude_ai_Figma__send_code\"}    }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"_connect_mappings\\nmcp__claude_ai_Figma__upload_assets\\nmcp__claude_ai_Figma__use_figma\\nmcp__claude_ai_Figma__whoami\\nmcp__claude_ai_Gmail__create_draft\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"\\nmcp__claude_ai_Gmail__create_label\\nmcp__claude_ai_Gmail__get_thread\\nmcp__claude_ai_Gmail__label_message\\nmcp__claude_ai_Gmail__label_thread\\nmcp__claude_ai_Gmail__list_draf\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"ts\\nmcp__claude_ai_Gmail__list_labels\\nmcp__claude_ai_Gmail__search_threads\\nmcp__claude_ai_Gmail__unlabel_message\\nmcp__claude_ai_Gmail__unlabel_thread\\nmcp__claude_ai_Google\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"_Calendar__create_event\\nmcp__claude_ai_Google_Calendar__delete_event\\nmcp__claude_ai_Google_Calendar__get_event\\nmcp__claude_ai_Google_Calendar__list_calendars\\nmcp__claude_ai_Google_Calendar__\"}               }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"list_events\\nmcp__claude_ai_Google_Calendar__respond_to_event\\nmcp__claude_ai_Google_Calendar__suggest_time\\nmcp__claude_ai_Google_Calendar__update_event\\nmcp__claude_ai_Google_Drive__copy_\"}  }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"file\\nmcp__claude_ai_Google_Drive__create_file\\nmcp__claude_ai_Google_Drive__download_file_content\\nmcp__claude_ai_Google_Drive__get_file_metadata\\nmcp__claude_ai_Google_Drive__get_\"}    }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"file_permissions\\nmcp__claude_ai_Google_Drive__list_recent_files\\nmcp__claude_ai_Google_Drive__read_file_content\\nmcp__claude_ai_Google_Drive__search_files\\nmcp__claude_ai_tldraw___\"} }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"exec_callback\\nmcp__claude_ai_tldraw___get_canvas_state\\nmcp__claude_ai_tldraw__exec\\nmcp__claude_ai_tldraw__read_checkpoint\\nmcp__claude_ai_tldraw__save_checkpoint\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"\\nmcp__claude_ai_tldraw__search\\nmcp__fixture__tool_001\\nmcp__fixture__tool_002\\nmcp__fixture__tool_003\\n```\\n\\nThat's 72 M\"}  }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"CP tools total across 7 servers: Canva, Figma, Gmail, Google Calendar, Google Drive, tldraw, and fixture\"}}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\".\"}          }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":1  }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":2229,\"cache_read_input_tokens\":5042,\"output_tokens\":1446},\"context_management\":{\"applied_edits\":[]}      }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"         }\n\n",
+      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-6\",\"id\":\"msg_01Lk6rnFegWhuYwNTyH3WrG8\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":7370,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":23,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}          }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"thinking\",\"thinking\":\"\",\"signature\":\"\"}  }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\"The user wants me to list all MCP tools available. I can see\"}}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\" them in the available-deferred-tools list. Let me filter for ones starting\"}   }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\" with \\\"mcp__\\\".\"}    }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"signature_delta\",\"signature\":\"EtECClkIDRgCKkC9YC49wR3e5xoLi12pIWcpPbt2mBw27Z8lYm8sLDvlu7eJKurAwUHdnm/7Zwj/21dDP/rf9VO+FMm8mxLQxH5kMg9jbGF1ZGUtb3B1cy00LTY4ABIMTr44ziJKFFkaE3MBGgxC5Id9hHEIrno5pFQiMMLe+9C1v2Jvov8a0OHkQndxsvzj6UpFG2w+Duf7urgb8f+J64LCkOev66y2+9+o6yqlAZtWdJlf3DREY9h40PPLl4pHsl3aboyn0lJtnmPYk5pa7iJIx3lWiSxt3LQe58/r0hXicFiL/lA3xaC1f6jmJGDtRrvcKX7RmPUIghaj3XbZ5re5psNTB90KYxn3WpeRtsIj7VVYnQen/Du7NsezipSZKoWe81TlWL/Q1RcFOzFuVub7ZaaB06g2xHRKnu4jMpkIJBO3dBByTSfz+3k3VN3vQn89hhgB\"}           }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0  }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":1,\"content_block\":{\"type\":\"text\",\"text\":\"\"}       }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Here are all the MCP tools available:\\n\\n```\"}               }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"-editing-transaction\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Canva__commit-editing-transaction\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Canva__create-folder\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"-design-structured\"}           }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Canva__get-design-content\"}    }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Canva__get-export-formats\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Canva__import-design-from-url\"}    }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Canva__list-folder-items\\nmcp__claude_\"}   }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"ai_Canva__move-item-to-folder\"}           }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Canva__reply-to-comment\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"-design\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Canva__search-folders\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"from-url\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"alidraw\"}               }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Excalidraw__save_checkpoint\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"\"}           }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"_file\"} }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"\"}       }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"\"}       }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Figma__get_libraries\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"efs\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Figma__upload_assets\\nm\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"cp__claude_ai_Gmail__get_thread\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"\"}   }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Google_Calendar__delete_event\"}}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"__respond_to_event\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"_file\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"__list_recent_files\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"___get_canvas_state\\nm\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"cp__fixture__tool_001\\nmcp__fixture__tool_002\\nmcp__fixture__tool_003\\n```\\n\\nThat's 78 MCP tools total, spanning\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\" 7 servers: Canva, Excalidraw, Figma, Gmail, Google Calendar, Google Drive, t\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"ldraw, and a fixture server.\"} }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":1         }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":7370,\"output_tokens\":1543},\"context_management\":{\"applied_edits\":[]} }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"               }\n\n",
       "is_streaming": true,
       "sse_events": [
         {
@@ -309,7 +310,7 @@
             "type": "message_start",
             "message": {
               "model": "claude-opus-4-6",
-              "id": "msg_01D2ZwwJgcnfdct7JGJEPwtP",
+              "id": "msg_01Lk6rnFegWhuYwNTyH3WrG8",
               "type": "message",
               "role": "assistant",
               "content": [],
@@ -318,13 +319,13 @@
               "stop_details": null,
               "usage": {
                 "input_tokens": 3,
-                "cache_creation_input_tokens": 2229,
-                "cache_read_input_tokens": 5042,
+                "cache_creation_input_tokens": 0,
+                "cache_read_input_tokens": 7370,
                 "cache_creation": {
                   "ephemeral_5m_input_tokens": 0,
-                  "ephemeral_1h_input_tokens": 2229
+                  "ephemeral_1h_input_tokens": 0
                 },
-                "output_tokens": 37,
+                "output_tokens": 23,
                 "service_tier": "standard",
                 "inference_geo": "not_available"
               }
@@ -356,7 +357,7 @@
             "index": 0,
             "delta": {
               "type": "thinking_delta",
-              "thinking": "The user wants me to list all MCP tools available. I can see them in the available-deferred-tools list. Let me filter"
+              "thinking": "The user wants me to list all MCP tools available. I can see"
             }
           }
         },
@@ -367,7 +368,18 @@
             "index": 0,
             "delta": {
               "type": "thinking_delta",
-              "thinking": " for ones that start with \"mcp__\"."
+              "thinking": " them in the available-deferred-tools list. Let me filter for ones starting"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 0,
+            "delta": {
+              "type": "thinking_delta",
+              "thinking": " with \"mcp__\"."
             }
           }
         },
@@ -378,7 +390,7 @@
             "index": 0,
             "delta": {
               "type": "signature_delta",
-              "signature": "EtMCClkIDRgCKkBOsvHg0qFZ4mFGFz2T8B985/Cj9dM0faDQMlB9mzoTooMMqxHU3iJp97eyhHIeT1B8xM2s2qMY+4EJgslsK3x2Mg9jbGF1ZGUtb3B1cy00LTY4ABIMGc+t4vu+9pOfk+rLGgy20et90fJWLz/Ou5kiMIHX8gSeN7cDx3SqTtRpnDDC4bCDM2t6dpKoW4Tqcw21eA9DFsxsEIiTEsAUFhVgtyqnATWrh2yJzHfk/7qmarEcVCbVF539AMCD2tgrJvVStYvoh0RtRaUekjrsCh9eDzwzCZYM89ijB7GSej1ggjzCbuvj51GosINwZQkEnOoceMP3xPX/Kk2JbQ0j69jjRq8VKDeYvOdB2yw/WsmeqLCR429RO9qLw5hbxsHXtOg/IwSd8k+aeuvCL7FqDOq7Xl11sCPjF1EkY2OfkzCWxBbta9b6RWc2DQyxGAE="
+              "signature": "EtECClkIDRgCKkC9YC49wR3e5xoLi12pIWcpPbt2mBw27Z8lYm8sLDvlu7eJKurAwUHdnm/7Zwj/21dDP/rf9VO+FMm8mxLQxH5kMg9jbGF1ZGUtb3B1cy00LTY4ABIMTr44ziJKFFkaE3MBGgxC5Id9hHEIrno5pFQiMMLe+9C1v2Jvov8a0OHkQndxsvzj6UpFG2w+Duf7urgb8f+J64LCkOev66y2+9+o6yqlAZtWdJlf3DREY9h40PPLl4pHsl3aboyn0lJtnmPYk5pa7iJIx3lWiSxt3LQe58/r0hXicFiL/lA3xaC1f6jmJGDtRrvcKX7RmPUIghaj3XbZ5re5psNTB90KYxn3WpeRtsIj7VVYnQen/Du7NsezipSZKoWe81TlWL/Q1RcFOzFuVub7ZaaB06g2xHRKnu4jMpkIJBO3dBByTSfz+3k3VN3vQn89hhgB"
             }
           }
         },
@@ -407,7 +419,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "Here are all the MCP tools currently available:\n\n```\nmcp__claude_ai_Canva__cancel-editing-"
+              "text": "Here are all the MCP tools available:\n\n```"
             }
           }
         },
@@ -418,7 +430,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "transaction\nmcp__claude_ai_Canva__comment-on-design\nmcp__claude_ai_Canva__commit-editing-transaction\nmcp__claude_ai_Canva__create-design-from-candidate\nmcp__claude_ai_Can"
+              "text": "-editing-transaction"
             }
           }
         },
@@ -429,7 +441,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "va__create-folder\nmcp__claude_ai_Canva__export-design\nmcp__claude_ai_Canva__generate-design\nmcp__claude_ai_Canva__generate-design-structured\nmcp__claude_ai_Canva__"
+              "text": "Canva__commit-editing-transaction"
             }
           }
         },
@@ -440,7 +452,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "get-assets\nmcp__claude_ai_Canva__get-design\nmcp__claude_ai_Canva__get-design-content\nmcp__claude_ai_Canva__get-design-pages\nmcp__claude_ai_Canva__"
+              "text": "Canva__create-folder"
             }
           }
         },
@@ -451,7 +463,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "get-design-thumbnail\nmcp__claude_ai_Canva__get-export-formats\nmcp__claude_ai_Canva__get-presenter-notes\nmcp__claude_ai_Canva__help\nmcp__claude_ai_Canva__"
+              "text": "-design-structured"
             }
           }
         },
@@ -462,7 +474,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "import-design-from-url\nmcp__claude_ai_Canva__list-brand-kits\nmcp__claude_ai_Canva__list-comments\nmcp__claude_ai_Canva__list-folder-items\nmcp__claude_ai"
+              "text": "Canva__get-design-content"
             }
           }
         },
@@ -473,7 +485,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "_Canva__list-replies\nmcp__claude_ai_Canva__merge-designs\nmcp__claude_ai_Canva__move-item-to-folder\nmcp__claude_ai_Canva__perform-editing-operations\nmcp__claude"
+              "text": "Canva__get-export-formats"
             }
           }
         },
@@ -484,7 +496,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "_ai_Canva__reply-to-comment\nmcp__claude_ai_Canva__request-outline-review\nmcp__claude_ai_Canva__resize-design\nmcp__claude_ai_Canva__resolve-shortlink\nmcp__"
+              "text": "Canva__import-design-from-url"
             }
           }
         },
@@ -495,7 +507,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "claude_ai_Canva__search-designs\nmcp__claude_ai_Canva__search-folders\nmcp__claude_ai_Canva__start-editing-transaction\nmcp__claude_ai_Canva__upload-asset-from-url\nm"
+              "text": "Canva__list-folder-items\nmcp__claude_"
             }
           }
         },
@@ -506,7 +518,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "cp__claude_ai_Figma__add_code_connect_map\nmcp__claude_ai_Figma__create_design_system_rules\nmcp__claude_ai_Figma__create_new_file\nmcp__claude_ai_Figma"
+              "text": "ai_Canva__move-item-to-folder"
             }
           }
         },
@@ -517,7 +529,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "__generate_diagram\nmcp__claude_ai_Figma__get_code_connect_map\nmcp__claude_ai_Figma__get_code_connect_suggestions\nmcp__claude_ai_Figma__get_context_for_code_connect"
+              "text": "Canva__reply-to-comment"
             }
           }
         },
@@ -528,7 +540,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "\nmcp__claude_ai_Figma__get_design_context\nmcp__claude_ai_Figma__get_figjam\nmcp__claude_ai_Figma__get_libraries\nmcp__claude_ai_Figma__get_metadata"
+              "text": "-design"
             }
           }
         },
@@ -539,7 +551,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "\nmcp__claude_ai_Figma__get_screenshot\nmcp__claude_ai_Figma__get_variable_defs\nmcp__claude_ai_Figma__search_design_system\nmcp__claude_ai_Figma__send_code"
+              "text": "Canva__search-folders"
             }
           }
         },
@@ -550,7 +562,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "_connect_mappings\nmcp__claude_ai_Figma__upload_assets\nmcp__claude_ai_Figma__use_figma\nmcp__claude_ai_Figma__whoami\nmcp__claude_ai_Gmail__create_draft"
+              "text": "from-url"
             }
           }
         },
@@ -561,7 +573,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "\nmcp__claude_ai_Gmail__create_label\nmcp__claude_ai_Gmail__get_thread\nmcp__claude_ai_Gmail__label_message\nmcp__claude_ai_Gmail__label_thread\nmcp__claude_ai_Gmail__list_draf"
+              "text": "alidraw"
             }
           }
         },
@@ -572,7 +584,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "ts\nmcp__claude_ai_Gmail__list_labels\nmcp__claude_ai_Gmail__search_threads\nmcp__claude_ai_Gmail__unlabel_message\nmcp__claude_ai_Gmail__unlabel_thread\nmcp__claude_ai_Google"
+              "text": "Excalidraw__save_checkpoint"
             }
           }
         },
@@ -583,7 +595,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "_Calendar__create_event\nmcp__claude_ai_Google_Calendar__delete_event\nmcp__claude_ai_Google_Calendar__get_event\nmcp__claude_ai_Google_Calendar__list_calendars\nmcp__claude_ai_Google_Calendar__"
+              "text": ""
             }
           }
         },
@@ -594,7 +606,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "list_events\nmcp__claude_ai_Google_Calendar__respond_to_event\nmcp__claude_ai_Google_Calendar__suggest_time\nmcp__claude_ai_Google_Calendar__update_event\nmcp__claude_ai_Google_Drive__copy_"
+              "text": "_file"
             }
           }
         },
@@ -605,7 +617,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "file\nmcp__claude_ai_Google_Drive__create_file\nmcp__claude_ai_Google_Drive__download_file_content\nmcp__claude_ai_Google_Drive__get_file_metadata\nmcp__claude_ai_Google_Drive__get_"
+              "text": ""
             }
           }
         },
@@ -616,7 +628,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "file_permissions\nmcp__claude_ai_Google_Drive__list_recent_files\nmcp__claude_ai_Google_Drive__read_file_content\nmcp__claude_ai_Google_Drive__search_files\nmcp__claude_ai_tldraw___"
+              "text": ""
             }
           }
         },
@@ -627,7 +639,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "exec_callback\nmcp__claude_ai_tldraw___get_canvas_state\nmcp__claude_ai_tldraw__exec\nmcp__claude_ai_tldraw__read_checkpoint\nmcp__claude_ai_tldraw__save_checkpoint"
+              "text": "Figma__get_libraries"
             }
           }
         },
@@ -638,7 +650,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "\nmcp__claude_ai_tldraw__search\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n```\n\nThat's 72 M"
+              "text": "efs"
             }
           }
         },
@@ -649,7 +661,7 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "CP tools total across 7 servers: Canva, Figma, Gmail, Google Calendar, Google Drive, tldraw, and fixture"
+              "text": "Figma__upload_assets\nm"
             }
           }
         },
@@ -660,7 +672,106 @@
             "index": 1,
             "delta": {
               "type": "text_delta",
-              "text": "."
+              "text": "cp__claude_ai_Gmail__get_thread"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 1,
+            "delta": {
+              "type": "text_delta",
+              "text": ""
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 1,
+            "delta": {
+              "type": "text_delta",
+              "text": "Google_Calendar__delete_event"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 1,
+            "delta": {
+              "type": "text_delta",
+              "text": "__respond_to_event"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 1,
+            "delta": {
+              "type": "text_delta",
+              "text": "_file"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 1,
+            "delta": {
+              "type": "text_delta",
+              "text": "__list_recent_files"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 1,
+            "delta": {
+              "type": "text_delta",
+              "text": "___get_canvas_state\nm"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 1,
+            "delta": {
+              "type": "text_delta",
+              "text": "cp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n```\n\nThat's 78 MCP tools total, spanning"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 1,
+            "delta": {
+              "type": "text_delta",
+              "text": " 7 servers: Canva, Excalidraw, Figma, Gmail, Google Calendar, Google Drive, t"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 1,
+            "delta": {
+              "type": "text_delta",
+              "text": "ldraw, and a fixture server."
             }
           }
         },
@@ -682,9 +793,9 @@
             },
             "usage": {
               "input_tokens": 3,
-              "cache_creation_input_tokens": 2229,
-              "cache_read_input_tokens": 5042,
-              "output_tokens": 1446
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 7370,
+              "output_tokens": 1543
             },
             "context_management": {
               "applied_edits": []

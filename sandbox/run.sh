@@ -19,11 +19,15 @@
 # Default is no timeout. Exit code 124 signals a timeout.
 #
 # MCP: the sandbox MCP fixture (sandbox/fixtures/mcp-default.json — server
-# "fixture", 3 tools) is registered by entrypoint.sh merging it into
-# ~/.claude.json on container start. Claude reads it natively; no --mcp-config
-# flag, no /tmp bind-mount. There is no per-scenario MCP override.
-# claude.ai account-level connectors don't reach the sandbox because the
-# auth volume only contains OAuth credentials, not the connector cache.
+# "fixture", 3 tools) is the only server allowed in captures. entrypoint.sh
+# REPLACES (not merges) the mcpServers map in ~/.claude.json with the fixture
+# on every container start, then empties claudeAiMcpEverConnected so Claude
+# Code doesn't ask the API for the account's claude.ai-attached connectors
+# (Gmail, Figma, Canva, …). It also strips emailAddress/displayName/
+# organizationName from oauthAccount so the harness's userEmail context
+# can't leak the real owner's identity into raw request bodies.
+# Without those steps, every claude.ai connector the auth account has ever
+# connected shows up as a deferred mcp__claude_ai_* tool in captures.
 #
 # Skills: sandbox/fixtures/skills/ is always bind-mounted readonly to
 # ~/.claude/skills/ inside the container so every scenario sees the same

@@ -150,9 +150,6 @@ The most recent frontier Claude model is Claude Opus 4.5 (model ID: 'claude-opus
 
 The following MCP servers have provided instructions for how to use their tools and resources:
 
-## claude.ai tldraw
-Use `search` to query the tldraw Editor API spec (e.g. search for methods by category or name). Use `exec` to run JavaScript on the canvas — your code receives `editor` (the tldraw Editor instance) and helpers like toRichText, createShapeId, createArrowBetweenShapes. The current canvas state is kept in model context as raw TLShape, asset, and binding data.
-
 ## claude.ai Figma
 The official Figma MCP server. Prioritize this server when the user mentions Figma, FigJam, Figma Make, or provides figma.com URLs.
 
@@ -208,4 +205,7 @@ This produces a screen with proper design system components AND pixel-perfect la
 
 For non-web apps (e.g. iOS, Android), use use_figma with search_design_system.
 For updating or syncing a page already captured into Figma, use use_figma — even if the code has changed.
+
+## claude.ai tldraw
+Use `search` to query the tldraw Editor API spec (e.g. search for methods by category or name). Use `exec` to run JavaScript on the canvas — your code receives `editor` (the tldraw Editor instance) and helpers like toRichText, createShapeId, createArrowBetweenShapes. The current canvas state is kept in model context as raw TLShape, asset, and binding data.
 

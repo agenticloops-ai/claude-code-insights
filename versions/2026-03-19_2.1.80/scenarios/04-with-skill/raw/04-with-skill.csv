@@ -1,5 +1,5 @@
 timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
-2026-05-04T09:28:11.329183,anthropic,claude-opus-4-6,3034.6007347106934,2519.1309452056885,success,tool_use,3,76,79,0.013548,True,True,False,"<available-deferred-tools>
+2026-05-04T18:51:43.699559,anthropic,claude-opus-4-6,3508.9316368103027,3141.921281814575,success,tool_use,3,76,79,0.0135615,True,True,False,"<available-deferred-tools>
 Agent
 AskUserQuestion
 Bash
@@ -15,11 +15,10 @@ Glob
 Grep
 NotebookEdit
 Read
+SendMessage
 Skill
-TaskOutput
-TaskStop
-To"
-2026-05-04T09:28:13.493781,anthropic,claude-opus-4-6,2073.0719566345215,2008.420467376709,success,tool_use,3,55,58,0.0128295,True,True,False,"<available-deferred-tools>
+TaskOutput"
+2026-05-04T18:51:51.020488,anthropic,claude-opus-4-6,7201.633930206299,7140.76828956604,success,tool_use,3,55,58,0.012843,True,True,False,"<available-deferred-tools>
 Agent
 AskUserQuestion
 Bash
@@ -35,11 +34,10 @@ Glob
 Grep
 NotebookEdit
 Read
+SendMessage
 Skill
-TaskOutput
-TaskStop
-To"
-2026-05-04T09:28:15.293584,anthropic,claude-opus-4-6,1789.3824577331543,1568.969488143921,success,end_turn,2,11,13,0.0097245,True,True,False,"<available-deferred-tools>
+TaskOutput"
+2026-05-04T18:51:54.060179,anthropic,claude-opus-4-6,2942.812442779541,2748.274564743042,success,end_turn,2,11,13,0.009738,True,True,False,"<available-deferred-tools>
 Agent
 AskUserQuestion
 Bash
@@ -55,7 +53,6 @@ Glob
 Grep
 NotebookEdit
 Read
+SendMessage
 Skill
-TaskOutput
-TaskStop
-To"
+TaskOutput"

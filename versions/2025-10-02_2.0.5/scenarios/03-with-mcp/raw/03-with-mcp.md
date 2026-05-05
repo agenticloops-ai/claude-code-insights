@@ -350,7 +350,7 @@ Git Safety Protocol:
    - Create the commit with a message ending with:
    🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
-   Co-Authored-By: Claude <noreply@anthropic.com>
+   Co-Authored-By: Claude <<USER_EMAIL>>
    - Run git status to make sure the commit succeeded.
 4. If the commit fails due to pre-commit hook changes, retry ONCE. If it succeeds but files were modified by the hook, verify it's safe to amend:
    - Check authorship: git log -1 --format='%an %ae'
@@ -370,7 +370,7 @@ git commit -m "$(cat <<'EOF'
 
    🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
-   Co-Authored-By: Claude <noreply@anthropic.com>
+   Co-Authored-By: Claude <<USER_EMAIL>>
    EOF
    )"
 </example>

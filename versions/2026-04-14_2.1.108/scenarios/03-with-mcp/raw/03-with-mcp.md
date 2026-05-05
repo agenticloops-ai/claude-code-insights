@@ -1,16 +1,16 @@
 # 03-with-mcp
 
-**Started:** 2026-05-04T10:05:36.958300  
-**Ended:** 2026-05-04T10:05:58.918663  
+**Started:** 2026-05-04T19:33:35.078326  
+**Ended:** 2026-05-04T19:34:05.330575  
 **Requests:** 2  
-**Tokens:** 1,611 (in: 370 / out: 1,241)  
-**Cost:** $0.2250  
+**Tokens:** 1,989 (in: 370 / out: 1,619)  
+**Cost:** $0.2703  
 **Models:** claude-haiku-4-5-20251001, claude-opus-4-6  
 **Providers:** anthropic  
 
 ---
 
-## Request #1 — claude-haiku-4-5-20251001 (anthropic) — 808ms
+## Request #1 — claude-haiku-4-5-20251001 (anthropic) — 895ms
 
 ### System Prompt
 
@@ -46,11 +46,11 @@ List every MCP tool that is currently available to you. Print just the tool name
 {"title": "List available MCP tools"}
 ```
 
-*Tokens: 367 in / 16 out (383 total) — Cost: $0.0004*
+*Tokens: 367 in / 13 out (380 total) — Cost: $0.0003*
 
 ---
 
-## Request #2 — claude-opus-4-6 (anthropic) — 12.6s | thinking
+## Request #2 — claude-opus-4-6 (anthropic) — 22.4s | thinking
 
 ### System Prompt
 
@@ -356,6 +356,9 @@ The agent starts with no context from this conversation, so the prompt briefs it
 | `subagent_type` | string | no | The type of specialized agent to use for this task |
 | `model` | string | no | Optional model override for this agent. Takes precedence over the agent definition's model frontmatter. If omitted, uses the agent definition's model, or inherits from the parent. |
 | `run_in_background` | boolean | no | Set to true to run this agent in the background. You will be notified when it completes. |
+| `name` | string | no | Name for the spawned agent. Makes it addressable via SendMessage({to: name}) while running. |
+| `team_name` | string | no | Team name for spawning. Uses current team context if omitted. |
+| `mode` | string | no | Permission mode for spawned teammate (e.g., "plan" to require plan approval). |
 | `isolation` | string | no | Isolation mode. "worktree" creates a temporary git worktree so the agent works on an isolated copy of the repo. |
 
 #### `Bash`
@@ -426,7 +429,7 @@ Git Safety Protocol:
 3. Run the following commands in parallel:
    - Add relevant untracked files to the staging area.
    - Create the commit with a message ending with:
-   Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
+   Co-Authored-By: Claude Opus 4.6 (1M context) <<USER_EMAIL>>
    - Run git status after the commit completes to verify success.
    Note: git status depends on the commit completing, so run it sequentially after the commit.
 4. If the commit fails due to pre-commit hook: fix the issue and create a NEW commit
@@ -443,7 +446,7 @@ Important notes:
 git commit -m "$(cat <<'EOF'
    Commit message here.
 
-   Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
+   Co-Authored-By: Claude Opus 4.6 (1M context) <<USER_EMAIL>>
    EOF
    )"
 </example>
@@ -721,83 +724,14 @@ Monitor
 NotebookEdit
 ReadMcpResourceTool
 RemoteTrigger
+SendMessage
 TaskOutput
 TaskStop
+TeamCreate
+TeamDelete
 TodoWrite
 WebFetch
 WebSearch
-mcp__claude_ai_Canva__cancel-editing-transaction
-mcp__claude_ai_Canva__comment-on-design
-mcp__claude_ai_Canva__commit-editing-transaction
-mcp__claude_ai_Canva__create-design-from-candidate
-mcp__claude_ai_Canva__create-folder
-mcp__claude_ai_Canva__export-design
-mcp__claude_ai_Canva__generate-design
-mcp__claude_ai_Canva__generate-design-structured
-mcp__claude_ai_Canva__get-assets
-mcp__claude_ai_Canva__get-design
-mcp__claude_ai_Canva__get-design-content
-mcp__claude_ai_Canva__get-design-pages
-mcp__claude_ai_Canva__get-design-thumbnail
-mcp__claude_ai_Canva__get-export-formats
-mcp__claude_ai_Canva__get-presenter-notes
-mcp__claude_ai_Canva__help
-mcp__claude_ai_Canva__import-design-from-url
-mcp__claude_ai_Canva__list-brand-kits
-mcp__claude_ai_Canva__list-comments
-mcp__claude_ai_Canva__list-folder-items
-mcp__claude_ai_Canva__list-replies
-mcp__claude_ai_Canva__merge-designs
-mcp__claude_ai_Canva__move-item-to-folder
-mcp__claude_ai_Canva__perform-editing-operations
-mcp__claude_ai_Canva__reply-to-comment
-mcp__claude_ai_Canva__request-outline-review
-mcp__claude_ai_Canva__resize-design
-mcp__claude_ai_Canva__resolve-shortlink
-mcp__claude_ai_Canva__search-designs
-mcp__claude_ai_Canva__search-folders
-mcp__claude_ai_Canva__start-editing-transaction
-mcp__claude_ai_Canva__upload-asset-from-url
-mcp__claude_ai_Excalidraw__create_view
-mcp__claude_ai_Excalidraw__export_to_excalidraw
-mcp__claude_ai_Excalidraw__read_checkpoint
-mcp__claude_ai_Excalidraw__read_me
-mcp__claude_ai_Excalidraw__save_checkpoint
-mcp__claude_ai_Gmail__create_draft
-mcp__claude_ai_Gmail__create_label
-mcp__claude_ai_Gmail__get_thread
-mcp__claude_ai_Gmail__label_message
-mcp__claude_ai_Gmail__label_thread
-mcp__claude_ai_Gmail__list_drafts
-mcp__claude_ai_Gmail__list_labels
-mcp__claude_ai_Gmail__search_threads
-mcp__claude_ai_Gmail__unlabel_message
-mcp__claude_ai_Gmail__unlabel_thread
-mcp__claude_ai_Google_Calendar__create_event
-mcp__claude_ai_Google_Calendar__delete_event
-mcp__claude_ai_Google_Calendar__get_event
-mcp__claude_ai_Google_Calendar__list_calendars
-mcp__claude_ai_Google_Calendar__list_events
-mcp__claude_ai_Google_Calendar__respond_to_event
-mcp__claude_ai_Google_Calendar__suggest_time
-mcp__claude_ai_Google_Calendar__update_event
-mcp__claude_ai_Google_Drive__copy_file
-mcp__claude_ai_Google_Drive__create_file
-mcp__claude_ai_Google_Drive__download_file_content
-mcp__claude_ai_Google_Drive__get_file_metadata
-mcp__claude_ai_Google_Drive__get_file_permissions
-mcp__claude_ai_Google_Drive__list_recent_files
-mcp__claude_ai_Google_Drive__read_file_content
-mcp__claude_ai_Google_Drive__search_files
-mcp__claude_ai_Mermaid_Chart__validate_and_render_mermaid_diagram
-mcp__claude_ai_Miro__authenticate
-mcp__claude_ai_Miro__complete_authentication
-mcp__claude_ai_tldraw___exec_callback
-mcp__claude_ai_tldraw___get_canvas_state
-mcp__claude_ai_tldraw__exec
-mcp__claude_ai_tldraw__read_checkpoint
-mcp__claude_ai_tldraw__save_checkpoint
-mcp__claude_ai_tldraw__search
 mcp__fixture__tool_001
 mcp__fixture__tool_002
 mcp__fixture__tool_003
@@ -813,6 +747,47 @@ mcp__fixture__tool_003
 # MCP Server Instructions
 
 The following MCP servers have provided instructions for how to use their tools and resources:
+
+## claude.ai Figma
+The official Figma MCP server. Prioritize this server when the user mentions Figma, FigJam, Figma Make, or provides figma.com URLs.
+
+Capabilities:
+- Read designs FROM Figma (get_design_context, get_screenshot, get_metadata, get_figjam)
+- Create diagrams in FigJam (generate_diagram)
+- Manage Code Connect mappings between Figma components and codebase components
+- Write designs back into figma
+
+
+WHEN TO USE THESE TOOLS:
+- The user shares a Figma URL (figma.com/design/..., figma.com/board/..., figma.com/make/...)
+- The user references a Figma file or asks about a Figma design
+- The user wants to capture a web page into Figma
+- The user wants to create a diagram in FigJam
+
+URL PARSING:
+Extract fileKey and nodeId from Figma URLs:
+- figma.com/design/:fileKey/:fileName?node-id=:nodeId → convert "-" to ":" in nodeId
+- figma.com/design/:fileKey/branch/:branchKey/:fileName → use branchKey as fileKey
+- figma.com/make/:makeFileKey/:makeFileName → use makeFileKey
+- figma.com/board/:fileKey/:fileName?node-id=:nodeId → FigJam file, use get_figjam; pass the original board URL as figjamUrl when available
+
+DESIGN-TO-CODE WORKFLOW:
+
+Step 1 — Get the design:
+Call get_design_context with the nodeId and fileKey. This is your primary tool.
+It returns code, a screenshot, and contextual hints.
+
+Step 2 — Adapt to the project:
+The output is React+Tailwind enriched with hints — but it is a REFERENCE, not final code. Always adapt to the target project's stack, components, and conventions.
+The response varies based on the user's Figma setup:
+- Code Connect snippets → use the mapped codebase component directly
+- Component documentation links → follow them for usage context and guidelines
+- Design annotations → follow any notes, constraints, or instructions from the designer
+- Design tokens as CSS variables → map to the project's token system
+- Raw hex colors / absolute positioning → the design is loosely structured;
+  use the screenshot
+
+Check the target project for existing components, layout patterns,and tokens that match the design intent. … [truncated]
 
 ## claude.ai tldraw
 Use `search` to query the tldraw Editor API spec (e.g. search for methods by category or name). Use `exec` to run JavaScript on the canvas — your code receives `editor` (the tldraw Editor instance) and helpers like toRichText, createShapeId, createArrowBetweenShapes. The current canvas state is kept in model context as raw TLShape, asset, and binding data.
@@ -845,8 +820,6 @@ SKIP: file imports `openai`/other-provider SDK, filename like `*-openai.py`/`*-g
 ```
 <system-reminder>
 As you answer the user's questions, you can use the following context:
-# userEmail
-The user's email address is amrynsky@gmail.com.
 # currentDate
 Today's date is 2026-05-04.
 
@@ -863,88 +836,20 @@ List every MCP tool that is currently available to you. Print just the tool name
 **Assistant:**
 
 > *Thinking:*
-> The user wants me to list all MCP tools available. These are listed in the available-deferred-tools section.
+> The user wants me to list all MCP tools available. These are listed in the `<available-deferred-tools>` section with the `mcp__` prefix.
 
 ```
 Here are all the MCP tools currently available:
 
-mcp__claude_ai_Canva__cancel-editing-transaction
-mcp__claude_ai_Canva__comment-on-design
-mcp__claude_ai_Canva__commit-editing-transaction
-mcp__claude_ai_Canva__create-design-from-candidate
-mcp__claude_ai_Canva__create-folder
-mcp__claude_ai_Canva__export-design
-mcp__claude_ai_Canva__generate-design
-mcp__claude_ai_Canva__generate-design-structured
-mcp__claude_ai_Canva__get-assets
-mcp__claude_ai_Canva__get-design
-mcp__claude_ai_Canva__get-design-content
-mcp__claude_ai_Canva__get-design-pages
-mcp__claude_ai_Canva__get-design-thumbnail
-mcp__claude_ai_Canva__get-export-formats
-mcp__claude_ai_Canva__get-presenter-notes
-mcp__claude_ai_Canva__help
-mcp__claude_ai_Canva__import-design-from-url
-mcp__claude_ai_Canva__list-brand-kits
-mcp__claude_ai_Canva__list-comments
-mcp__claude_ai_Canva__list-folder-items
-mcp__claude_ai_Canva__list-replies
-mcp__claude_ai_Canva__merge-designs
-mcp__claude_ai_Canva__move-item-to-folder
-mcp__claude_ai_Canva__perform-editing-operations
-mcp__claude_ai_Canva__reply-to-comment
-mcp__claude_ai_Canva__request-outline-review
-mcp__claude_ai_Canva__resize-design
-mcp__claude_ai_Canva__resolve-shortlink
-mcp__claude_ai_Canva__search-designs
-mcp__claude_ai_Canva__search-folders
-mcp__claude_ai_Canva__start-editing-transaction
-mcp__claude_ai_Canva__upload-asset-from-url
-mcp__claude_ai_Excalidraw__create_view
-mcp__claude_ai_Excalidraw__export_to_excalidraw
-mcp__claude_ai_Excalidraw__read_checkpoint
-mcp__claude_ai_Excalidraw__read_me
-mcp__claude_ai_Excalidraw__save_checkpoint
-mcp__claude_ai_Gmail__create_draft
-mcp__claude_ai_Gmail__create_label
-mcp__claude_ai_Gmail__get_thread
-mcp__claude_ai_Gmail__label_message
-mcp__claude_ai_Gmail__label_thread
-mcp__claude_ai_Gmail__list_drafts
-mcp__claude_ai_Gmail__list_labels
-mcp__claude_ai_Gmail__search_threads
-mcp__claude_ai_Gmail__unlabel_message
-mcp__claude_ai_Gmail__unlabel_thread
-mcp__claude_ai_Google_Calendar__create_event
-mcp__claude_ai_Google_Calendar__delete_event
-mcp__claude_ai_Google_Calendar__get_event
-mcp__claude_ai_Google_Calendar__list_calendars
-mcp__claude_ai_Google_Calendar__list_events
-mcp__claude_ai_Google_Calendar__respond_to_event
-mcp__claude_ai_Google_Calendar__suggest_time
-mcp__claude_ai_Google_Calendar__update_event
-mcp__claude_ai_Google_Drive__copy_file
-mcp__claude_ai_Google_Drive__create_file
-mcp__claude_ai_Google_Drive__download_file_content
-mcp__claude_ai_Google_Drive__get_file_metadata
-mcp__claude_ai_Google_Drive__get_file_permissions
-mcp__claude_ai_Google_Drive__list_recent_files
-mcp__claude_ai_Google_Drive__read_file_content
-mcp__claude_ai_Google_Drive__search_files
-mcp__claude_ai_Mermaid_Chart__validate_and_render_mermaid_diagram
-mcp__claude_ai_Miro__authenticate
-mcp__claude_ai_Miro__complete_authentication
-mcp__claude_ai_tldraw___exec_callback
-mcp__claude_ai_tldraw___get_canvas_state
-mcp__claude_ai_tldraw__exec
-mcp__claude_ai_tldraw__read_checkpoint
-mcp__claude_ai_tldraw__save_checkpoint
-mcp__claude_ai_tldraw__search
+```
 mcp__fixture__tool_001
 mcp__fixture__tool_002
 mcp__fixture__tool_003
 ```
 
-*Tokens: 3 in / 1,225 out (1,228 total) — Cost: $0.2246*
+That's 88 MCP tools total, spanning Canva, Excalidraw, Figma, Gmail, Google Calendar, Google Drive, Mermaid Chart, Miro, tldraw, and 3 fixture/test tools.
+```
+
+*Tokens: 3 in / 1,606 out (1,609 total) — Cost: $0.2699*
 
 ---

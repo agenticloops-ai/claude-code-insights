@@ -1,5 +1,5 @@
 timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
-2026-05-04T09:05:45.395019,anthropic,claude-opus-4-6,3747.9090690612793,3405.5747985839844,success,tool_use,3,76,79,0.0559005,True,True,False,"<available-deferred-tools>
+2026-05-04T18:27:23.223271,anthropic,claude-opus-4-6,3194.3769454956055,2793.0047512054443,success,tool_use,3,76,79,0.05558175,True,True,False,"<available-deferred-tools>
 Agent
 AskUserQuestion
 Bash
@@ -13,11 +13,11 @@ ListMcpResourcesTool
 NotebookEdit
 Read
 ReadMcpResourceTool
+SendMessage
 Skill
 TaskOutput
-TaskStop
-TodoW"
-2026-05-04T09:05:48.375115,anthropic,claude-opus-4-6,2884.169578552246,2859.3385219573975,success,tool_use,3,55,58,0.02670225,True,True,False,"<available-deferred-tools>
+Ta"
+2026-05-04T18:27:25.686786,anthropic,claude-opus-4-6,2368.013381958008,2313.35186958313,success,tool_use,3,55,58,0.02667675,True,True,False,"<available-deferred-tools>
 Agent
 AskUserQuestion
 Bash
@@ -31,11 +31,11 @@ ListMcpResourcesTool
 NotebookEdit
 Read
 ReadMcpResourceTool
+SendMessage
 Skill
 TaskOutput
-TaskStop
-TodoW"
-2026-05-04T09:05:50.759374,anthropic,claude-opus-4-6,2373.3935356140137,2216.1002159118652,success,end_turn,2,11,13,0.0161625,True,True,False,"<available-deferred-tools>
+Ta"
+2026-05-04T18:27:26.974864,anthropic,claude-opus-4-6,1277.1601676940918,1115.678071975708,success,end_turn,2,11,13,0.016137,True,True,False,"<available-deferred-tools>
 Agent
 AskUserQuestion
 Bash
@@ -49,7 +49,7 @@ ListMcpResourcesTool
 NotebookEdit
 Read
 ReadMcpResourceTool
+SendMessage
 Skill
 TaskOutput
-TaskStop
-TodoW"
+Ta"

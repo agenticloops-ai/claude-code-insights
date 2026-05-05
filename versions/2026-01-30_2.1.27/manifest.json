@@ -17,15 +17,15 @@
   "scenarios": {
     "01-cli-help": {
       "mode": "local",
-      "output_chars": 6885,
-      "output_lines": 60,
+      "output_chars": 6909,
+      "output_lines": 61,
       "exit_code": 0
     },
     "02-bare": {
       "version": "2.1.27",
       "dir_name": "2026-01-30_2.1.27",
       "scenario": "02-bare",
-      "captured_at": "2026-05-04T07:49:57.315912",
+      "captured_at": "2026-05-04T17:04:53.525503",
       "request_count": 2,
       "models": [
         "claude-haiku-4-5-20251001",
@@ -43,16 +43,16 @@
         "input": 11,
         "output": 13,
         "cache_read": 0,
-        "cache_creation": 22314,
+        "cache_creation": 22340,
         "total": 24
       },
-      "duration_ms_total": 2679
+      "duration_ms_total": 2221
     },
     "03-with-mcp": {
       "version": "2.1.27",
       "dir_name": "2026-01-30_2.1.27",
       "scenario": "03-with-mcp",
-      "captured_at": "2026-05-04T07:50:29.614285",
+      "captured_at": "2026-05-04T17:05:25.318934",
       "request_count": 2,
       "models": [
         "claude-haiku-4-5-20251001",
@@ -73,13 +73,13 @@
         "cache_creation": 22368,
         "total": 1493
       },
-      "duration_ms_total": 21336
+      "duration_ms_total": 19704
     },
     "04-with-skill": {
       "version": "2.1.27",
       "dir_name": "2026-01-30_2.1.27",
       "scenario": "04-with-skill",
-      "captured_at": "2026-05-04T07:50:50.147005",
+      "captured_at": "2026-05-04T17:05:48.632140",
       "request_count": 3,
       "models": [
         "claude-haiku-4-5-20251001",
@@ -100,7 +100,7 @@
         "cache_creation": 22468,
         "total": 78
       },
-      "duration_ms_total": 5696
+      "duration_ms_total": 4197
     }
   }
 }

@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-6",
-        "id": "msg_01MxoJHxQCVMdgRsUhoJYXwL",
+        "id": "msg_01NK6SiTzc1PcRbFvN55ue45",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,11 +14,11 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 3,
-          "cache_creation_input_tokens": 6628,
-          "cache_read_input_tokens": 11117,
+          "cache_creation_input_tokens": 6611,
+          "cache_read_input_tokens": 11246,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 6628
+            "ephemeral_1h_input_tokens": 6611
           },
           "output_tokens": 2,
           "service_tier": "standard",
@@ -84,8 +84,8 @@
       },
       "usage": {
         "input_tokens": 3,
-        "cache_creation_input_tokens": 6628,
-        "cache_read_input_tokens": 11117,
+        "cache_creation_input_tokens": 6611,
+        "cache_read_input_tokens": 11246,
         "output_tokens": 13
       },
       "context_management": {

@@ -1,21 +1,21 @@
 {
   "session": {
-    "id": "87d588e9-91e3-4e38-a6ec-f7ba68d9a14c",
+    "id": "ba5dfa36-f8be-4205-9a8b-059080cedc9e",
     "name": "02-bare",
-    "started_at": "2026-05-04T09:25:49.954651",
-    "ended_at": "2026-05-04T09:25:59.263633",
+    "started_at": "2026-05-04T18:49:15.082370",
+    "ended_at": "2026-05-04T18:49:23.761347",
     "request_count": 0,
     "total_tokens": 0,
     "estimated_cost_usd": 0.0
   },
   "stats": {
     "total_requests": 1,
-    "total_tokens": 44,
+    "total_tokens": 16,
     "total_input_tokens": 3,
-    "total_output_tokens": 41,
-    "estimated_cost_usd": 0.100395,
-    "avg_duration_ms": 4561.863899230957,
-    "avg_tokens_per_request": 44.0,
+    "total_output_tokens": 13,
+    "estimated_cost_usd": 0.09846375,
+    "avg_duration_ms": 2620.567798614502,
+    "avg_tokens_per_request": 16.0,
     "models_used": [
       "claude-opus-4-6"
     ],
@@ -25,15 +25,15 @@
   },
   "requests": [
     {
-      "id": "cbac5436-93c1-46f0-81b9-00611710a236",
-      "session_id": "87d588e9-91e3-4e38-a6ec-f7ba68d9a14c",
-      "raw_capture_id": "db447f83-3749-4604-a4bd-8857f8f093b7",
+      "id": "784ddd87-35b8-4b1e-b86e-e92105815836",
+      "session_id": "ba5dfa36-f8be-4205-9a8b-059080cedc9e",
+      "raw_capture_id": "ead745c7-a9da-47be-9463-dd972e0094a6",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T09:25:56.870586",
-      "duration_ms": 4561.863899230957,
-      "time_to_first_token_ms": 4274.533271789551,
+      "timestamp": "2026-05-04T18:49:21.378744",
+      "duration_ms": 2620.567798614502,
+      "time_to_first_token_ms": 2108.9982986450195,
       "provider": "anthropic",
       "model": "claude-opus-4-6",
       "api_endpoint": "https://api.anthropic.com/v1/messages?beta=true",
@@ -53,7 +53,7 @@
           "content": [
             {
               "type": "text",
-              "text": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nNotebookEdit\nRead\nSkill\nTaskOutput\nTaskStop\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
+              "text": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nNotebookEdit\nRead\nSendMessage\nSkill\nTaskOutput\nTaskStop\nTeamCreate\nTeamDelete\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
             }
           ]
         },
@@ -108,12 +108,8 @@
           "role": "assistant",
           "content": [
             {
-              "type": "thinking",
-              "thinking": "The user said \"hi\". I'll give a brief greeting."
-            },
-            {
               "type": "text",
-              "text": "Hi! How can I help you today?"
+              "text": "\n\nHi! How can I help you today?"
             }
           ]
         }
@@ -121,11 +117,11 @@
       "stop_reason": "end_turn",
       "usage": {
         "input_tokens": 3,
-        "output_tokens": 41,
-        "cache_creation_input_tokens": 5188,
+        "output_tokens": 13,
+        "cache_creation_input_tokens": 5197,
         "cache_read_input_tokens": 0,
-        "total_tokens": 44,
-        "estimated_cost_usd": 0.100395
+        "total_tokens": 16,
+        "estimated_cost_usd": 0.09846375
       },
       "status": "success",
       "request_params": {},
@@ -134,9 +130,9 @@
   ],
   "raw_captures": [
     {
-      "id": "db447f83-3749-4604-a4bd-8857f8f093b7",
-      "session_id": "87d588e9-91e3-4e38-a6ec-f7ba68d9a14c",
-      "timestamp": "2026-05-04T09:25:56.870586",
+      "id": "ead745c7-a9da-47be-9463-dd972e0094a6",
+      "session_id": "ba5dfa36-f8be-4205-9a8b-059080cedc9e",
+      "timestamp": "2026-05-04T18:49:21.378744",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -165,14 +161,14 @@
         "accept-language": "*",
         "sec-fetch-mode": "cors",
         "accept-encoding": "identity",
-        "content-length": "21213"
+        "content-length": "21250"
       },
       "request_body": {
         "model": "claude-opus-4-6",
         "messages": [
           {
             "role": "user",
-            "content": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nNotebookEdit\nRead\nSkill\nTaskOutput\nTaskStop\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
+            "content": "<available-deferred-tools>\nAgent\nAskUserQuestion\nBash\nCronCreate\nCronDelete\nCronList\nEdit\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nGlob\nGrep\nNotebookEdit\nRead\nSendMessage\nSkill\nTaskOutput\nTaskStop\nTeamCreate\nTeamDelete\nTodoWrite\nWebFetch\nWebSearch\nWrite\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n</available-deferred-tools>"
           },
           {
             "role": "user",
@@ -245,7 +241,7 @@
           }
         ],
         "metadata": {
-          "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"0c7ca316-af81-4256-b828-7b502a249438\"}"
+          "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"ef111a4a-bd42-4fbf-bba1-fb67eafca2b0\"}"
         },
         "max_tokens": 64000,
         "thinking": {
@@ -266,42 +262,41 @@
       },
       "response_status": 200,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 09:25:56 GMT",
+        "Date": "Mon, 04 May 2026 18:49:20 GMT",
         "Content-Type": "text/event-stream; charset=utf-8",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
         "Cache-Control": "no-cache",
-        "anthropic-ratelimit-unified-status": "allowed_warning",
-        "anthropic-ratelimit-unified-5h-status": "allowed_warning",
-        "anthropic-ratelimit-unified-5h-reset": "1777893000",
+        "anthropic-ratelimit-unified-status": "rejected",
+        "anthropic-ratelimit-unified-5h-status": "rejected",
+        "anthropic-ratelimit-unified-5h-reset": "1777929000",
         "anthropic-ratelimit-unified-5h-utilization": "1.0",
-        "anthropic-ratelimit-unified-5h-surpassed-threshold": "0.9",
+        "anthropic-ratelimit-unified-5h-surpassed-threshold": "1.0",
         "anthropic-ratelimit-unified-7d-status": "allowed",
         "anthropic-ratelimit-unified-7d-reset": "1778126400",
-        "anthropic-ratelimit-unified-7d-utilization": "0.43",
+        "anthropic-ratelimit-unified-7d-utilization": "0.51",
         "anthropic-ratelimit-unified-overage-status": "allowed",
         "anthropic-ratelimit-unified-overage-reset": "1780272000",
         "anthropic-ratelimit-unified-overage-utilization": "0.0",
         "anthropic-ratelimit-unified-representative-claim": "five_hour",
         "anthropic-ratelimit-unified-fallback-percentage": "0.5",
-        "anthropic-ratelimit-unified-fallback": "available",
-        "anthropic-ratelimit-unified-reset": "1777893000",
+        "anthropic-ratelimit-unified-reset": "1777929000",
         "anthropic-ratelimit-unified-upgrade-paths": "overage",
         "anthropic-ratelimit-unified-overage-in-use": "true",
-        "request-id": "req_011CahHhZVkyUM9FJN3iX3fK",
+        "request-id": "req_011Cai2faZTB5yNUEuCQNfG5",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-8e02df307590249c3f8e680cf500d87f-333f28489e9728a2-01",
+        "traceresponse": "00-8037f2eb24a788744b96138521deafe3-3790bc3483445713-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "4164",
+        "x-envoy-upstream-service-time": "1986",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
         "vary": "Accept-Encoding",
         "set-cookie": "REDACTED",
         "X-Robots-Tag": "none",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "9f6675eaeaf1a709-SJC"
+        "CF-RAY": "9f69af452cbbf005-SJC"
       },
-      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-6\",\"id\":\"msg_016GYSwckPAaSELtYbK4TiaR\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":5188,\"cache_read_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":5188},\"output_tokens\":28,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}               }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"thinking\",\"thinking\":\"\",\"signature\":\"\"}  }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"thinking_delta\",\"thinking\":\"The user said \\\"hi\\\". I'll give a brief greeting.\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"signature_delta\",\"signature\":\"EuoBClkIDRgCKkAVvkkqEB3nQGd2iUt5f+MWhrb0lQt+G9NrsvAYQ7Td+OZttOahSYIsEKh67S4RciI6rcZeRo9HHVwPZrZ7kss/Mg9jbGF1ZGUtb3B1cy00LTY4ABIMucfgdOkgukK9aij7GgyiHnqOenxauYhEYd4iMHmrdUl9enw/QnMyl/QsTYtAo8NNETJ2YQ7t4cjMMdq/gmUW2JrZT2U3Dn/F6m0OHyo/5I8RBR5hiStCFmVtPs2zkZd4gR1RHGHtOdbDMfdy335LtgMAX20MyNZadvN07OPQXerLwyGAGx+ffYfrme/WGAE=\"}             }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0}\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":1,\"content_block\":{\"type\":\"text\",\"text\":\"\"}  }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"text_delta\",\"text\":\"Hi! How can I help you today?\"}             }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":1}\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":5188,\"cache_read_input_tokens\":0,\"output_tokens\":41},\"context_management\":{\"applied_edits\":[]}              }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"               }\n\n",
+      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-6\",\"id\":\"msg_013sGrfNNxP1TuqdmCgHfK1v\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":5197,\"cache_read_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":5197},\"output_tokens\":2,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}          }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}          }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"\\n\\nHi\"}       }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"! How can I help you today?\"} }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0             }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":5197,\"cache_read_input_tokens\":0,\"output_tokens\":13},\"context_management\":{\"applied_edits\":[]}         }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"            }\n\n",
       "is_streaming": true,
       "sse_events": [
         {
@@ -310,7 +305,7 @@
             "type": "message_start",
             "message": {
               "model": "claude-opus-4-6",
-              "id": "msg_016GYSwckPAaSELtYbK4TiaR",
+              "id": "msg_013sGrfNNxP1TuqdmCgHfK1v",
               "type": "message",
               "role": "assistant",
               "content": [],
@@ -319,13 +314,13 @@
               "stop_details": null,
               "usage": {
                 "input_tokens": 3,
-                "cache_creation_input_tokens": 5188,
+                "cache_creation_input_tokens": 5197,
                 "cache_read_input_tokens": 0,
                 "cache_creation": {
                   "ephemeral_5m_input_tokens": 0,
-                  "ephemeral_1h_input_tokens": 5188
+                  "ephemeral_1h_input_tokens": 5197
                 },
-                "output_tokens": 28,
+                "output_tokens": 2,
                 "service_tier": "standard",
                 "inference_geo": "not_available"
               }
@@ -338,9 +333,8 @@
             "type": "content_block_start",
             "index": 0,
             "content_block": {
-              "type": "thinking",
-              "thinking": "",
-              "signature": ""
+              "type": "text",
+              "text": ""
             }
           }
         },
@@ -356,8 +350,8 @@
             "type": "content_block_delta",
             "index": 0,
             "delta": {
-              "type": "thinking_delta",
-              "thinking": "The user said \"hi\". I'll give a brief greeting."
+              "type": "text_delta",
+              "text": "\n\nHi"
             }
           }
         },
@@ -367,8 +361,8 @@
             "type": "content_block_delta",
             "index": 0,
             "delta": {
-              "type": "signature_delta",
-              "signature": "EuoBClkIDRgCKkAVvkkqEB3nQGd2iUt5f+MWhrb0lQt+G9NrsvAYQ7Td+OZttOahSYIsEKh67S4RciI6rcZeRo9HHVwPZrZ7kss/Mg9jbGF1ZGUtb3B1cy00LTY4ABIMucfgdOkgukK9aij7GgyiHnqOenxauYhEYd4iMHmrdUl9enw/QnMyl/QsTYtAo8NNETJ2YQ7t4cjMMdq/gmUW2JrZT2U3Dn/F6m0OHyo/5I8RBR5hiStCFmVtPs2zkZd4gR1RHGHtOdbDMfdy335LtgMAX20MyNZadvN07OPQXerLwyGAGx+ffYfrme/WGAE="
+              "type": "text_delta",
+              "text": "! How can I help you today?"
             }
           }
         },
@@ -377,35 +371,6 @@
           "data": {
             "type": "content_block_stop",
             "index": 0
-          }
-        },
-        {
-          "event": "content_block_start",
-          "data": {
-            "type": "content_block_start",
-            "index": 1,
-            "content_block": {
-              "type": "text",
-              "text": ""
-            }
-          }
-        },
-        {
-          "event": "content_block_delta",
-          "data": {
-            "type": "content_block_delta",
-            "index": 1,
-            "delta": {
-              "type": "text_delta",
-              "text": "Hi! How can I help you today?"
-            }
-          }
-        },
-        {
-          "event": "content_block_stop",
-          "data": {
-            "type": "content_block_stop",
-            "index": 1
           }
         },
         {
@@ -419,9 +384,9 @@
             },
             "usage": {
               "input_tokens": 3,
-              "cache_creation_input_tokens": 5188,
+              "cache_creation_input_tokens": 5197,
               "cache_read_input_tokens": 0,
-              "output_tokens": 41
+              "output_tokens": 13
             },
             "context_management": {
               "applied_edits": []

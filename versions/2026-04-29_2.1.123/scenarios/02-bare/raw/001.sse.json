@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-7",
-        "id": "msg_01DihRmHE5dLcC2J44ojbjvg",
+        "id": "msg_01RnwkKthd532Sb1dHry7ZNo",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,13 +14,13 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 6,
-          "cache_creation_input_tokens": 0,
-          "cache_read_input_tokens": 26345,
+          "cache_creation_input_tokens": 10185,
+          "cache_read_input_tokens": 16367,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 0
+            "ephemeral_1h_input_tokens": 10185
           },
-          "output_tokens": 3,
+          "output_tokens": 8,
           "service_tier": "standard",
           "inference_geo": "not_available"
         },
@@ -52,7 +52,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "Hi"
+        "text": "Hi! What would you like"
       }
     }
   },
@@ -63,7 +63,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "! How can I help?"
+        "text": " to work on?"
       }
     }
   },
@@ -85,18 +85,18 @@
       },
       "usage": {
         "input_tokens": 6,
-        "cache_creation_input_tokens": 0,
-        "cache_read_input_tokens": 26345,
-        "output_tokens": 13,
+        "cache_creation_input_tokens": 10185,
+        "cache_read_input_tokens": 16367,
+        "output_tokens": 16,
         "iterations": [
           {
             "input_tokens": 6,
-            "output_tokens": 13,
-            "cache_read_input_tokens": 26345,
-            "cache_creation_input_tokens": 0,
+            "output_tokens": 16,
+            "cache_read_input_tokens": 16367,
+            "cache_creation_input_tokens": 10185,
             "cache_creation": {
               "ephemeral_5m_input_tokens": 0,
-              "ephemeral_1h_input_tokens": 0
+              "ephemeral_1h_input_tokens": 10185
             },
             "type": "message"
           }

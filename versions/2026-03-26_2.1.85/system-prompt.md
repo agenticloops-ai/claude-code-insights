@@ -226,9 +226,6 @@ You have been invoked in the following environment:
 
 The following MCP servers have provided instructions for how to use their tools and resources:
 
-## claude.ai tldraw
-Use `search` to query the tldraw Editor API spec (e.g. search for methods by category or name). Use `exec` to run JavaScript on the canvas — your code receives `editor` (the tldraw Editor instance) and helpers like toRichText, createShapeId, createArrowBetweenShapes. The current canvas state is kept in model context as raw TLShape, asset, and binding data.
-
 ## claude.ai Figma
 The official Figma MCP server. Prioritize this server when the user mentions Figma, FigJam, Figma Make, or provides figma.com URLs.
 

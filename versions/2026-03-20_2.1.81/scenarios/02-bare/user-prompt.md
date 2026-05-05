@@ -15,9 +15,12 @@ Grep
 NotebookEdit
 Read
 RemoteTrigger
+SendMessage
 Skill
 TaskOutput
 TaskStop
+TeamCreate
+TeamDelete
 TodoWrite
 WebFetch
 WebSearch

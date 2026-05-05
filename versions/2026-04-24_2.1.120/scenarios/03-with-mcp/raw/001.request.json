@@ -1,8 +1,8 @@
 {
   "index": 1,
-  "request_id": "cdc2d05f-6ff5-4676-b556-aa2d410b1bfa",
-  "session_id": "728d92eb-7b1c-4052-885d-bcaeb056d148",
-  "timestamp": "2026-05-04T10:32:07.874895",
+  "request_id": "dd47f719-bbb2-4a71-bb52-71634c7e7ad7",
+  "session_id": "99b9f891-48b6-42a5-a2ab-d4f29409e53b",
+  "timestamp": "2026-05-04T20:01:12.067206",
   "provider": "anthropic",
   "method": "POST",
   "url": "https://api.anthropic.com/v1/messages?beta=true",
@@ -11,7 +11,7 @@
     "Authorization": "REDACTED",
     "Content-Type": "application/json",
     "User-Agent": "claude-cli/2.1.120 (external, sdk-cli)",
-    "X-Claude-Code-Session-Id": "545ad013-6daa-4408-9ba7-f0829933f3b5",
+    "X-Claude-Code-Session-Id": "393adddb-dfe8-482e-9728-8a2da53ddb2b",
     "X-Stainless-Arch": "x64",
     "X-Stainless-Lang": "js",
     "X-Stainless-OS": "Linux",
@@ -24,7 +24,7 @@
     "anthropic-dangerous-direct-browser-access": "true",
     "anthropic-version": "2023-06-01",
     "x-app": "cli",
-    "x-client-request-id": "5521ca3f-0861-4e43-9924-d4de712e8802",
+    "x-client-request-id": "f2ecb675-e1ea-4efa-9a07-6a88f8cfd758",
     "Connection": "keep-alive",
     "Host": "api.anthropic.com",
     "Accept-Encoding": "identity",
@@ -46,7 +46,7 @@
     "system": [
       {
         "type": "text",
-        "text": "x-anthropic-billing-header: cc_version=2.1.120.289; cc_entrypoint=sdk-cli; cch=29119;"
+        "text": "x-anthropic-billing-header: cc_version=2.1.120.289; cc_entrypoint=sdk-cli; cch=697c5;"
       },
       {
         "type": "text",
@@ -59,7 +59,7 @@
     ],
     "tools": [],
     "metadata": {
-      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"545ad013-6daa-4408-9ba7-f0829933f3b5\"}"
+      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"393adddb-dfe8-482e-9728-8a2da53ddb2b\"}"
     },
     "max_tokens": 32000,
     "temperature": 1,

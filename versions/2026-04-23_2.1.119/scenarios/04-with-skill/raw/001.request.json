@@ -1,8 +1,8 @@
 {
   "index": 1,
-  "request_id": "961cdb8d-8134-44ee-b6d8-e4992cf4a875",
-  "session_id": "f047cebf-6394-41c5-a07b-0d2256890d82",
-  "timestamp": "2026-05-04T10:30:16.480289",
+  "request_id": "a466e0d9-e589-4270-8418-7615ea484aef",
+  "session_id": "bd8ce247-0975-4631-858e-67190dd85565",
+  "timestamp": "2026-05-04T19:59:03.098063",
   "provider": "anthropic",
   "method": "POST",
   "url": "https://api.anthropic.com/v1/messages?beta=true",
@@ -11,7 +11,7 @@
     "Authorization": "REDACTED",
     "Content-Type": "application/json",
     "User-Agent": "claude-cli/2.1.119 (external, sdk-cli)",
-    "X-Claude-Code-Session-Id": "68324f51-399c-4555-96bd-d6f73ab7566c",
+    "X-Claude-Code-Session-Id": "10d0b8c4-3472-4220-ae7f-c93d5cf0594a",
     "X-Stainless-Arch": "x64",
     "X-Stainless-Lang": "js",
     "X-Stainless-OS": "Linux",
@@ -24,7 +24,7 @@
     "anthropic-dangerous-direct-browser-access": "true",
     "anthropic-version": "2023-06-01",
     "x-app": "cli",
-    "x-client-request-id": "ce6f2cae-9a18-4bb1-b184-e62c8f00562d",
+    "x-client-request-id": "c3251427-43b5-4318-b811-5f0083309f3e",
     "Connection": "keep-alive",
     "Host": "api.anthropic.com",
     "Accept-Encoding": "identity",
@@ -46,7 +46,7 @@
     "system": [
       {
         "type": "text",
-        "text": "x-anthropic-billing-header: cc_version=2.1.119.739; cc_entrypoint=sdk-cli; cch=97ce1;"
+        "text": "x-anthropic-billing-header: cc_version=2.1.119.739; cc_entrypoint=sdk-cli; cch=a81d6;"
       },
       {
         "type": "text",
@@ -59,7 +59,7 @@
     ],
     "tools": [],
     "metadata": {
-      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"68324f51-399c-4555-96bd-d6f73ab7566c\"}"
+      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"10d0b8c4-3472-4220-ae7f-c93d5cf0594a\"}"
     },
     "max_tokens": 32000,
     "temperature": 1,
