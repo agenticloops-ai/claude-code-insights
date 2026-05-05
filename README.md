@@ -3,7 +3,7 @@
 # 🔬 Claude Code Insights
 
 **The changelog Anthropic doesn't publish.**\
-Black-box capture and diff of [`@anthropic-ai/claude-code`](https://www.npmjs.com/package/@anthropic-ai/claude-code) across releases — system prompt, tool catalog, deferred-tool registry, skills, and `<system-reminder>` injections, version by version.
+What actually changes inside Claude Code from one release to the next — system prompt, tools, skills, the hidden reminders it injects into your messages — captured and diffed, version by version.
 
 *by [AgenticLoops.ai](https://agenticloops.ai) — for engineers, from engineers*
 
@@ -14,32 +14,101 @@ Black-box capture and diff of [`@anthropic-ai/claude-code`](https://www.npmjs.co
 
 </div>
 
-> **You don't need the leaked source code to understand Claude Code.** The interesting part isn't the TypeScript — it's the **prompts and the tool use**. Both travel over the wire on every single request, in plaintext, on their way to `api.anthropic.com`. Pin a version, capture the traffic, diff against the next version. That's the changelog Anthropic doesn't publish.
+> **You don't need leaked source code to understand Claude Code.** The interesting part isn't the TypeScript — it's the **prompts and tool use**. Both travel over the wire on every request, in plaintext, on their way to `api.anthropic.com`. Pin a version, capture the traffic, diff against the next. That's the changelog Anthropic doesn't publish.
 >
-> If the *why* of "prompts and tool use are the whole game" doesn't click yet, read [**How agents work — the patterns behind**](https://open.substack.com/pub/agenticloopsai/p/how-agents-work-the-patterns-behind?r=1lm8w&utm_medium=ios) first. Then come back here for the receipts, version by version.
+> New to *why* prompts and tool use matter? Read [**How agents work — the patterns behind**](https://open.substack.com/pub/agenticloopsai/p/how-agents-work-the-patterns-behind?r=1lm8w&utm_medium=ios) first. Then come back here for the receipts.
 
-## 🔍 What's Inside
+---
 
-For each pinned version, this repo contains the parts of Claude Code that travel on the wire — captured through an MITM proxy under a controlled Docker sandbox, scrubbed of volatile fingerprints, and committed as plain text so the diff between any two releases is one `git diff` away.
+## 👋 Just want to browse?
 
-**For each captured version you'll find:**
+You don't need to run anything. Everything is committed as plain text and Markdown. Pick a path:
 
-- **System Prompt** — the exact instructions Claude Code feeds the model on every request
-- **Tool Catalog** — every advertised tool with its full JSON schema, sorted and normalized
-- **Deferred Tools** — names hidden behind `ToolSearch` (the lazy-loading mechanism that landed in 2.1.x)
-- **Skills** — the `{name, description}` pairs surfaced in the "available skills" reminder
-- **`<system-reminder>` blocks** — every piece of context Claude Code injects into your first user message
-- **Per-scenario stats** — request count, model routing, token totals, durations, stop reasons
-- **Version-to-version diff** — markdown report covering tools added/removed/moved-to-deferred, skill changes, system-prompt unified diff, CLI flag deltas
+### 🆕 Show me what's new in the latest release
+→ Open the newest folder in [`versions/`](versions/) and click `diff-from-<previous>.md`. Start at the metric table at the top, then scan the section headers.
 
-> **Things you can already discover by reading the diffs:**
->
-> 🤖 [**The default model swapped six times in fourteen months**](versions/) — sonnet-3-7 → opus-4 → opus-4-1 → sonnet-4-5 → opus-4-5 → opus-4-6 → opus-4-7. Every release walks the metric table.\
-> 🪄 [**`ToolSearch` and the deferred-tools mechanism appeared in 2.1.x**](versions/2026-04-30_2.1.126/diff-from-2025-09-29_2.0.0.md#tools) — `WebFetch`, `WebSearch`, `NotebookEdit`, `TodoWrite`, `ExitPlanMode` all moved from advertised to deferred between 2.0.0 and 2.1.126.\
-> 📈 [**The system prompt more than doubled at 2.1**](versions/2026-04-30_2.1.126/diff-from-2025-09-29_2.0.0.md) — 12339 → 26719 chars. Most of the new bytes are tone, planning, and "executing actions with care" sections.\
-> 🛠️ [**16 new top-level tools at 2.1**](versions/2026-04-30_2.1.126/diff-from-2025-09-29_2.0.0.md#tools) — `Agent`, `AskUserQuestion`, `CronCreate`, `EnterPlanMode`, `Skill`, `ToolSearch`, `ScheduleWakeup`, `Monitor`, `RemoteTrigger`, `PushNotification`, and more. Built-in skills jumped from zero to ten.
+### 🔁 Compare any two versions
+→ Use [`VERSIONS.md`](VERSIONS.md) — the full release index marks which versions are captured and links to each diff.
 
-**Useful for:**
+### 🧠 Just show me the system prompt for version X
+→ [`versions/<release-date>_<version>/system-prompt.md`](versions/) — that's the exact text Claude Code sends on every request, with volatile bits scrubbed.
+
+### 🛠️ What tools / skills does version X advertise?
+→ Same folder: [`tools.json`](versions/), [`deferred-tools.json`](versions/), [`skills.json`](versions/).
+
+### 🧰 I'd rather click than scroll Markdown
+Two small browsers ship in [`tools/`](tools/):
+
+```bash
+# Web — pick two versions in a sidebar, get a tabbed diff in the browser
+( cd tools/web && npm install && npm run dev )      # http://localhost:5173
+
+# CLI — scriptable + interactive (as-you-type filtering on `diff` with no args)
+( cd tools/cli && npm install && npm run build && npm link )
+cci versions
+cci show 2.1.128
+cci diff 2.0.45 2.1.128
+```
+
+See [`tools/README.md`](tools/README.md) for the full command reference.
+
+### 💡 I want a 30-second story, not files
+A few things you can already discover by reading the diffs:
+
+> 🤖 [**The default model swapped six times in fourteen months**](VERSIONS.md) — sonnet-3-7 → opus-4 → opus-4-1 → sonnet-4-5 → opus-4-5 → opus-4-6 → opus-4-7.\
+> 🪄 [**`ToolSearch` and lazy-loaded tools appeared in 2.1**](versions/2026-04-30_2.1.126/diff-from-2025-09-29_2.0.0.md) — `WebFetch`, `WebSearch`, `NotebookEdit`, `TodoWrite`, `ExitPlanMode` all moved from advertised to deferred.\
+> 📈 [**The system prompt more than doubled at 2.1**](versions/2026-04-30_2.1.126/diff-from-2025-09-29_2.0.0.md) — 12,339 → 26,719 chars. Most of the new bytes are tone, planning, and "executing actions with care" sections.\
+> 🛠️ [**16 new top-level tools at 2.1**](versions/2026-04-30_2.1.126/diff-from-2025-09-29_2.0.0.md) — `Agent`, `AskUserQuestion`, `CronCreate`, `Skill`, `ToolSearch`, `ScheduleWakeup`, `Monitor`, `RemoteTrigger`, `PushNotification`, and more. Built-in skills jumped from zero to ten.
+
+---
+
+## 📚 Reading guide
+
+### What's captured for each version
+
+For each pinned release, the repo contains the parts of Claude Code that travel on the wire — system prompt, tool catalog, skills, injected reminders, per-scenario stats — captured through an MITM proxy and committed as plain text so any two releases are one `git diff` apart.
+
+| File in `versions/<v>/` | What it is |
+|---|---|
+| `system-prompt.md` | The exact instructions sent to the model on every request |
+| `tools.json` | Every advertised tool with its full JSON schema |
+| `deferred-tools.json` | Tools hidden behind `ToolSearch` (lazy-loaded, since 2.1.x) |
+| `skills.json` | Skills surfaced in the "available skills" reminder |
+| `user-prompt.md` | The `<system-reminder>` blocks Claude Code injects into your first message |
+| `stats.md` | At-a-glance per-scenario summary table |
+| `manifest.json` | Aggregate counts (tools, skills, tokens, durations, models) |
+| `release-notes.md` | The upstream CHANGELOG entry for this version |
+| `diff-from-<earlier>.md` | Markdown diff vs. the previous captured version |
+
+### Anatomy of a diff file
+
+`diff-from-<earlier>.md` follows a fixed template, so every version's delta reads the same way:
+
+1. **Metric table** — net change in tool count, deferred-tool count, system-prompt size, reminder count, model.
+2. **`## tools`** — added / removed / moved-to-deferred / moved-to-advertised / modified.
+3. **`## skills`** — added / removed / description-changed.
+4. **`## system prompt`** — unified diff of the system prompt.
+5. **`## user prompt`** — unified diff of the injected `<system-reminder>` blocks.
+6. **`## cli: 01-cli-help`** — added/removed CLI flags, with the full `claude --help` diff.
+
+If a section is missing, nothing changed at that surface in this release.
+
+### "Where do I look for…"
+
+| Question | Look here |
+|---|---|
+| Did the default model change? | Metric table at the top of the diff, or `manifest.json → baseline.models` |
+| Was a tool renamed or moved behind `ToolSearch`? | `## tools` in the diff |
+| Did a tool description change? | `## tools → modified` in the diff; full text in `tools.json` |
+| Did a built-in skill appear or change wording? | `## skills` in the diff; full descriptions in `skills.json` |
+| Did the system prompt grow / shrink / reorder? | Metric table + `## system prompt` |
+| Did Claude Code start injecting a new `<system-reminder>`? | `## user prompt` |
+| Did a new CLI flag ship? | `## cli: 01-cli-help` |
+| How does scenario X behave on this version? | `versions/<v>/scenarios/<NN>-<name>/stats.json` |
+
+---
+
+## 🎯 Who this is for
 
 - **Engineers pinning Claude Code in production** — see what's about to change in the prompt that drives every response *before* you upgrade.
 - **Prompt and tool-use authors** — Anthropic ships some of the best-tuned agent prompts in production. The diffs are a free apprenticeship in how a real shop iterates on tool descriptions, reminder phrasing, deferred-tool thresholds, and model routing.
@@ -48,129 +117,47 @@ For each pinned version, this repo contains the parts of Claude Code that travel
 
 ---
 
-## 🗺️ Start Here
+<details>
+<summary><strong>🔬 How the captures are made</strong> (click for the technical pipeline)</summary>
 
-New to the repo? Follow this reading path:
+All artifacts are captured using [**AgentLens**](https://github.com/agenticloops-ai/agentlens), an open-source MITM proxy that intercepts LLM API traffic during normal agent use, plus a thin Docker sandbox that pins one Claude Code version per image so captures are byte-comparable across hosts and months.
 
-1. **Pick two versions** — `ls versions/` lists the captured set. Folder names are `<release-date>_<version>` so they sort chronologically.
-2. **Open the newer version's `diff-from-<earlier>.md`** — start with the metric table at the top, then scan the section headers (`## tools`, `## skills`, `## system prompt`, …).
-3. **Drill into the unified diffs** — `## system prompt` and `## user prompt (incl. system-reminder blocks)` are where the prose-level changes live.
-4. **Compare the full extracted artifacts** — `versions/<v>/system-prompt.md`, `tools.json`, `skills.json`, `deferred-tools.json` are what every session sees regardless of how `claude` is invoked.
-5. **Dig into a scenario** — `versions/<v>/scenarios/<NN>-<name>/` holds the per-probe extraction (multi-turn agent loop, MCP/skill probes, …) and the raw agentlens capture under `raw/`.
-
----
-
-## 🧭 Tracing changes across versions
-
-The repo is organized as a chain of captured snapshots; each newer version carries a diff against the previous one. The fastest way to read the history is to walk the diff chain in `versions/`. [`VERSIONS.md`](VERSIONS.md) (regenerated by `/refresh-versions`) is the full npm release index and marks which versions are captured.
-
-### How to read a single version
-
-Open `versions/<release-date>_<version>/` and you'll find:
-
-```
-versions/<release-date>_<version>/
-├── stats.md                # at-a-glance per-scenario summary table
-├── manifest.json           # aggregate counts (tools, skills, tokens, durations)
-├── system-prompt.md        # baseline scenario's system prompt (volatile bits scrubbed)
-├── user-prompt.md          # baseline first user message — only the claude-code-injected blocks
-├── tools.json              # built-in tool list (sorted, normalized)
-├── deferred-tools.json     # tools hidden behind ToolSearch
-├── skills.json             # skills surfaced in the "available skills" reminder
-├── release-notes.md        # upstream CHANGELOG.md entry (or "no entry")
-├── diff-from-<earlier>.md  # markdown diff vs the previous captured version
-└── scenarios/<NN>-<name>/
-    ├── system-prompt.md    # this scenario's extracted artifacts
-    ├── user-prompt.md      #   (mirror the version-root files for the baseline)
-    ├── tools.json
-    ├── deferred-tools.json
-    ├── skills.json
-    ├── requests.json       # per-request summary (model, duration, tokens, stop reason)
-    ├── stats.json          # this scenario's aggregate counts
-    └── raw/                # everything agentlens captured, kept verbatim
-        ├── agentlens.log
-        ├── <scenario>.json   # full session export
-        ├── <scenario>.md
-        ├── <scenario>.csv
-        ├── 001.request.json  # per-request raw (split-raw.py output)
-        ├── 001.response.json
-        └── 001.sse.json
-```
-
-The version-root files are the **baseline** scenario's extracted artifacts (`02-bare`, single-turn `hi`, with the always-mounted MCP fixture and skill fixture) promoted up. They're what every session sees regardless of how you invoke `claude`. Per-scenario folders dig into anything specific (multi-turn agent loop, MCP/skill probes).
-
-### How to read a diff
-
-`diff-from-<earlier>.md` follows a fixed template so each version's delta is comparable:
-
-1. **Metric table** — net change in tool count, deferred-tool count, system-prompt size, reminder count, model.
-2. **`## tools`** — tools added / removed / moved-to-deferred / moved-to-advertised / new-deferred / modified.
-3. **`## skills`** — skills added / removed / description-changed.
-4. **`## system prompt`** — unified diff of the system prompt.
-5. **`## user prompt (incl. system-reminder blocks)`** — unified diff of the injected user-message context.
-6. **`## cli: 01-cli-help`** — added/removed CLI flags & commands, with the full `claude --help` diff in a `<details>` block.
-
-If a section is missing, nothing changed at that surface in this release.
-
-### Asking "what changed about X"
-
-| question | where to look |
-|---|---|
-| Did the default model change? | `manifest.json → baseline.models`, or the metric table at the top of the diff |
-| Was a tool renamed / moved behind `ToolSearch`? | `## tools` in the diff (`moved_to_deferred`, `moved_to_advertised`) |
-| Did a tool description change? | `## tools → modified` in the diff; full text in `tools.json` |
-| Did a built-in skill appear or change wording? | `## skills` in the diff; full descriptions in `skills.json` |
-| Did the system prompt grow / shrink / reorder? | metric table (`system_prompt_chars`) + `## system prompt` |
-| Did claude-code start injecting a new `<system-reminder>`? | `## user prompt (incl. system-reminder blocks)` |
-| Did a new CLI flag ship? | `## cli: 01-cli-help` |
-| How does scenario X behave on this version? | `versions/<v>/scenarios/<NN>-<name>/stats.json` and `requests.json` |
-
----
-
-## 🔬 Research approach
-
-All artifacts in this repo were captured using [**AgentLens**](https://github.com/agenticloops-ai/agentlens), an open-source MITM proxy that intercepts LLM API traffic during normal agent use, plus a thin Docker sandbox that pins one Claude Code version per image so captures are byte-comparable across hosts and months.
-
-**How it works:**
+**The pipeline:**
 
 1. **Pin** — `sandbox/Dockerfile` builds an image with one fixed `@anthropic-ai/claude-code` version plus `agentlens-proxy` and a deterministic fixture set (one demo MCP server, one fixture skill, a stripped settings file). No host `~/.claude`, no host MCP, no host git.
 2. **Capture** — `scripts/capture-version.sh <version>` runs every scenario in a fresh container. AgentLens transparently records every request and response (system prompt, tool definitions, messages, token usage, timing) to `versions/<v>/scenarios/<s>/raw/`.
-3. **Extract** — `scripts/extract.py` reads the agentlens session JSON and writes the version-comparable artifacts (`system-prompt.md`, `tools.json`, `deferred-tools.json`, `skills.json`, `requests.json`, `stats.json`) to the scenario root. Volatile fingerprints (UUIDs, timestamps, cache-busters, the user email) are scrubbed so artifacts diff cleanly across runs.
+3. **Extract** — `scripts/extract.py` reads the AgentLens session JSON and writes the version-comparable artifacts. Volatile fingerprints (UUIDs, timestamps, cache-busters, the user email) are scrubbed so artifacts diff cleanly.
 4. **Diff** — `scripts/diff-versions.py <from> <to>` produces the markdown report at `versions/<to>/diff-from-<from>.md`.
 
 The whole pipeline is driven by a single slash command: `/process-version <version> [--diff-from <previous-version>]`.
 
----
+### Sandbox isolation
 
-## 📂 Repository layout
+- Every scenario runs in a fresh `docker run --rm` container; the `cch-auth` Docker volume is wiped of transient state at entrypoint (only OAuth credentials and the mitmproxy CA survive).
+- The MCP server is sandbox-permanent: `sandbox/fixtures/mcp-default.json` (single `fixture` server, 3 tools) is merged into `~/.claude.json` on every container start. Account-level connectors don't bleed in.
+- The fixture skill set under `sandbox/fixtures/skills/` is bind-mounted at `~/.claude/skills/` so skill discovery is deterministic.
+- For older Claude versions that lack `--strict-mcp-config`, `sandbox/run.sh` probes `claude --help` and conditionally drops unsupported flags.
 
-```
-.
-├── scenarios/             # one black-box probe per directory (prompt + meta)
-├── sandbox/               # Docker image + entrypoint + run.sh + fixtures (mcp, skills, settings)
-├── scripts/               # capture / extract / summarize / diff / release-notes / refresh-versions
-├── .claude/skills/        # /process-version, /extract-capture, /diff-versions
-├── versions/              # captured artifacts, one folder per version
-└── VERSIONS.md            # generated index of every npm release, regenerated by /refresh-versions
-```
+See [`sandbox/README.md`](sandbox/README.md) for the full auth model and layout.
 
 ### Scenarios
 
-Five probes, ordered so the always-runnable static probe comes first (`01` works on every version) and the agent-mode probes follow. The MCP fixture (server `fixture`, 3 tools) and the skill fixture (`say-hello`) are sandbox-permanent, but `03-with-mcp` and `04-with-skill` exercise those surfaces explicitly so the diff captures any change in how claude registers and surfaces them. Scenarios that exercise a feature introduced later carry a `min_version` and are skipped (not failed) on older releases:
+Five black-box probes, ordered so the always-runnable static probe comes first. Probes that exercise a feature introduced later carry a `min_version` and are skipped (not failed) on older releases:
 
 | # | name | mode | min_version | what it probes |
 |---|---|---|---|---|
 | 01 | cli-help | local | — | top-level `claude --help` flag/command surface |
 | 03 | bare | agent | — | baseline system prompt, default tools, default model |
 | 04 | agent-task | agent | — | multi-turn loop with Write/Read/Bash + any haiku side-call pipeline |
-| 05 | with-mcp | agent | — | MCP tool registration & naming convention (probes the always-mounted fixture) |
+| 05 | with-mcp | agent | — | MCP tool registration & naming convention |
 | 06 | with-skill | agent | 2.0.28 | skill discovery via `<system-reminder>` and the `Skill` tool |
 
-`02-bare` is the **baseline** — its extracted artifacts are mirrored to the version root. Every other scenario adds one isolated probe surface on top. See `scenarios/README.md` for the full `meta.json` schema and isolation guarantees.
+`02-bare` is the **baseline** — its extracted artifacts are mirrored to the version root. See [`scenarios/README.md`](scenarios/README.md) for the full schema.
 
----
+</details>
 
-## 🚀 Quick start
+<details>
+<summary><strong>🚀 Run the pipeline yourself</strong> (click to expand)</summary>
 
 Once-per-host setup (any version works to populate the `cch-auth` Docker volume):
 
@@ -201,54 +188,43 @@ Refresh the version index:
 claude /refresh-versions       # or: python3 scripts/refresh-versions.py
 ```
 
-### Skills
+### Slash commands
 
-Three slash commands live in `.claude/skills/`. They're how the pipeline is meant to be driven — the LLM owns orchestration, the bash/Python scripts under `scripts/` are thin primitives the skills call via the Bash tool.
+Three slash commands live in `.claude/skills/`. They drive the pipeline — the LLM owns orchestration, the bash/Python scripts under `scripts/` are thin primitives the skills call via the Bash tool.
 
-**`/process-version <version> [--diff-from <previous-version>]`** — end-to-end orchestrator. Runs every scenario through the sandbox, extracts each capture, promotes the baseline to the version root, fetches the upstream release notes, and (optionally) writes a diff against a prior version. Idempotent.
+- **`/process-version <version> [--diff-from <previous-version>]`** — end-to-end orchestrator. Runs every scenario through the sandbox, extracts each capture, promotes the baseline, fetches the upstream release notes, and (optionally) writes a diff. Idempotent.
+- **`/extract-capture <scenario-dir>`** — turn one raw AgentLens capture into the version-comparable artifacts. Used internally by `/process-version`.
+- **`/diff-versions <from-version> <to-version>`** — generate a markdown diff between any two captured versions.
 
-**`/extract-capture <scenario-dir>`** — turn one raw agentlens capture (`scenarios/<NN>/raw/`) into the version-comparable artifacts at the scenario root. Used internally by `/process-version`.
-
-**`/diff-versions <from-version> <to-version>`** — generate a markdown diff between **any two captured versions**. Output lands at `versions/<to-dir>/diff-from-<from-dir>.md`. Either argument can be the npm version (`2.1.126`) or the dated folder name (`2026-04-30_2.1.126`).
-
-### Browsing the captures
-
-The Python pipeline writes the artifacts; two small TypeScript apps under [`tools/`](tools/README.md) make them browseable:
-
-- **`tools/cli/`** — `cci versions | show <v> | diff <from> <to> [--json]`. Interactive `diff` (no args) supports as-you-type filtering.
-- **`tools/web/`** — Vite + Preact app: pick two versions in a sidebar, get a tabbed metrics / tools / skills / system-prompt / user-prompt diff view in the browser. The dev server reads `versions/` directly via a `/api/*` middleware, so no separate build step is needed during development.
-
-```bash
-( cd tools/cli && npm install && npm run build )
-tools/cli/dist/index.js diff 2.0.45 2.1.128
-
-( cd tools/web && npm install && npm run dev )       # http://localhost:5173
-```
-
----
-
-## 🛡️ Sandbox isolation
-
-- Every scenario runs in a fresh `docker run --rm` container; the `cch-auth` Docker volume is wiped of transient state at entrypoint (only OAuth credentials and the mitmproxy CA survive).
-- The MCP server is sandbox-permanent: `sandbox/fixtures/mcp-default.json` (single `fixture` server, 3 tools) is merged into `~/.claude.json` by `entrypoint.sh` on every container start. claude reads it natively, no `--mcp-config` flag. claude.ai account-level connectors don't bleed in because the auth volume only holds OAuth credentials.
-- The fixture skill set under `sandbox/fixtures/skills/` is bind-mounted at `~/.claude/skills/` so skill discovery is deterministic.
-- For older claude versions that lack `--strict-mcp-config`, `sandbox/run.sh` probes `claude --help` and conditionally drops unsupported flags.
-
-See `sandbox/README.md` for the auth model, layout, and what gets pinned in the image.
-
----
-
-## 🗺️ Coverage strategy
-
-The captured set under `versions/` currently spans the lowest and highest published version of each major (`0.x`, `1.x`, `2.x`). Some scenarios fail on older versions because they exercise flags or models introduced later (`--permission-mode plan`, `--allowed-tools`, retired models, etc.) — those failures are visible per-scenario in the version's `manifest.json` and are expected.
-
-Once the scenario set is finalized, `/process-version` will be re-run across every captured version so the chain of `diff-from-*.md` files reflects the same probes end-to-end.
-
-## 📋 Requirements
+### Requirements
 
 - Docker Desktop / Docker Engine
-- Python 3 on the host (used for MCP-config merging and the helper scripts)
+- Python 3 on the host
 - A Claude subscription (logged in once via `sandbox/login.sh`)
+
+</details>
+
+<details>
+<summary><strong>📂 Repository layout</strong></summary>
+
+```
+.
+├── versions/              # captured artifacts, one folder per version  ← start here
+├── VERSIONS.md            # generated index of every npm release
+├── scenarios/             # one black-box probe per directory (prompt + meta)
+├── sandbox/               # Docker image + entrypoint + run.sh + fixtures
+├── scripts/               # capture / extract / summarize / diff / release-notes
+├── tools/                 # CLI + web app for browsing the captures
+└── .claude/skills/        # /process-version, /extract-capture, /diff-versions
+```
+
+</details>
+
+---
+
+## 🗺️ Coverage
+
+The captured set spans the lowest and highest published version of each major (`0.x`, `1.x`, `2.x`), with newer 2.1.x releases captured more densely. Some scenarios fail on older versions because they exercise flags or models introduced later — those failures are visible per-scenario in `manifest.json` and are expected.
 
 ---
 
