@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🔬 Claude Code Evolution
+# 🔬 Claude Code Insights
 
 **The changelog Anthropic doesn't publish.**\
 Black-box capture and diff of [`@anthropic-ai/claude-code`](https://www.npmjs.com/package/@anthropic-ai/claude-code) across releases — system prompt, tool catalog, deferred-tool registry, skills, and `<system-reminder>` injections, version by version.
@@ -34,7 +34,7 @@ For each pinned version, this repo contains the parts of Claude Code that travel
 
 > **Things you can already discover by reading the diffs:**
 >
-> 🤖 [**The default model swapped four times in twelve months**](versions/) — sonnet-3-7 → opus-4 → opus-4-1 → sonnet-4-5 → opus-4-7. Every release walks the metric table.\
+> 🤖 [**The default model swapped six times in fourteen months**](versions/) — sonnet-3-7 → opus-4 → opus-4-1 → sonnet-4-5 → opus-4-5 → opus-4-6 → opus-4-7. Every release walks the metric table.\
 > 🪄 [**`ToolSearch` and the deferred-tools mechanism appeared in 2.1.x**](versions/2026-04-30_2.1.126/diff-from-2025-09-29_2.0.0.md#tools) — `WebFetch`, `WebSearch`, `NotebookEdit`, `TodoWrite`, `ExitPlanMode` all moved from advertised to deferred between 2.0.0 and 2.1.126.\
 > 📈 [**The system prompt more than doubled at 2.1**](versions/2026-04-30_2.1.126/diff-from-2025-09-29_2.0.0.md) — 12339 → 26719 chars. Most of the new bytes are tone, planning, and "executing actions with care" sections.\
 > 🛠️ [**16 new top-level tools at 2.1**](versions/2026-04-30_2.1.126/diff-from-2025-09-29_2.0.0.md#tools) — `Agent`, `AskUserQuestion`, `CronCreate`, `EnterPlanMode`, `Skill`, `ToolSearch`, `ScheduleWakeup`, `Monitor`, `RemoteTrigger`, `PushNotification`, and more. Built-in skills jumped from zero to ten.
@@ -139,26 +139,6 @@ All artifacts in this repo were captured using [**AgentLens**](https://github.co
 4. **Diff** — `scripts/diff-versions.py <from> <to>` produces the markdown report at `versions/<to>/diff-from-<from>.md`.
 
 The whole pipeline is driven by a single slash command: `/process-version <version> [--diff-from <previous-version>]`.
-
----
-
-## 💡 Key insights so far
-
-These are patterns that jumped out while walking the diff chain `0.2.126 → 1.0.0 → 1.0.128 → 2.0.0 → 2.1.126`. Open the linked diff to see the receipts.
-
-1. **Tool count is *not* a useful signal on its own.** From 1.0.128 → 2.0.0 the advertised tool count dropped by one (16 → 15) and the system prompt shrank (13878 → 12339 chars). That looks like a simplification. From 2.0.0 → 2.1.126 the advertised tool count *also* dropped (15 → 10) — but it shipped with **17 new deferred tools** behind `ToolSearch`, **16 net-new top-level tools**, and a **system prompt that more than doubled** (12339 → 26719 chars). The metric table is the only honest at-a-glance summary.
-
-2. **`ToolSearch` is the architectural shift of 2.1.** Before 2.1, every tool was advertised on every request — a flat namespace. 2.1 introduced lazy-loaded "deferred" tools fetched on demand. `WebFetch`, `WebSearch`, `NotebookEdit`, `TodoWrite`, and `ExitPlanMode` were silently moved off the advertised list. The same release added 12 new tools that exist *only* in the deferred set (`AskUserQuestion`, `CronCreate`, `Monitor`, `RemoteTrigger`, …). If you're targeting Claude Code's tool surface in production, the deferred set is real and you cannot tell from a single request which tools the model can reach.
-
-3. **Behavior is shaped by injection, not just by the system prompt.** The system prompt is identical across plan and agent modes. Plan mode is enforced by a `<system-reminder>` block in the *first user message* — runtime-injected, scenario-specific. The reminder count metric in each diff (0 → 1 → 1 → 1 → 3) tracks how aggressively claude-code packs the user turn with context.
-
-4. **Built-in skills appeared from nothing in 2.1.** Versions 0.x → 2.0 surface zero skills in the discovery reminder. 2.1 ships with ten: `claude-api`, `simplify`, `update-config`, `keybindings-help`, `init`, `loop`, `review`, `schedule`, `security-review`, `fewer-permission-prompts`. Skills are a parallel surface to tools — discoverable through a separate `<system-reminder>` and invoked through the new `Skill` tool.
-
-5. **The CLI surface grew faster than the agent surface.** The `claude --help` flag list expanded by ~24 flags between 2.0.0 and 2.1.126 (`--agent`, `--auto-mode`, `--effort`, `--betas`, `--from-pr`, `--max-budget-usd`, `--ultrareview`, …) and added six new subcommands. Lots of the new product surface lives on the CLI side, not the model side.
-
-6. **Anthropic ships a haiku side-call pipeline.** Across every version, the baseline scenario shows a small Haiku model (`claude-3-5-haiku-*` → `claude-haiku-4-5-*`) running alongside the main Opus/Sonnet model. Per-scenario `requests.json` shows it's used as a warm-up / file-path-extraction step, not titling. Anthropic's own agent uses a multi-model pipeline.
-
-These will get fleshed out version-by-version once `/process-version` is re-run end-to-end across the whole captured set. For now, follow the diff links above for the unmodified evidence.
 
 ---
 
