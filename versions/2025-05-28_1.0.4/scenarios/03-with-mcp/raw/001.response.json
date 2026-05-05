@@ -1,25 +1,25 @@
 {
   "index": 1,
-  "request_id": "f0fedd14-90da-4380-b6cc-ed634f68ebbb",
+  "request_id": "922e9b54-dd8b-481f-a60d-9de1730dfa41",
   "status": 404,
   "headers": {
-    "Date": "Mon, 04 May 2026 02:56:21 GMT",
+    "Date": "Tue, 05 May 2026 09:13:22 GMT",
     "Content-Type": "application/json",
     "Transfer-Encoding": "chunked",
     "Connection": "keep-alive",
     "x-should-retry": "false",
-    "request-id": "req_011CagmzkLMSamLSEUzTEkX9",
+    "request-id": "req_011CajAZCujGfYbPueUcUYjq",
     "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
     "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-    "traceresponse": "00-743df08a44e064b37d64246854f0e89a-fc3a08b8c0713d4f-01",
+    "traceresponse": "00-21c93effeb1580675c7c200aafb61f8e-acdd10d595c2127a-01",
     "Server": "cloudflare",
-    "x-envoy-upstream-service-time": "119",
-    "X-Robots-Tag": "none",
-    "vary": "Accept-Encoding",
-    "cf-cache-status": "DYNAMIC",
-    "set-cookie": "REDACTED",
+    "x-envoy-upstream-service-time": "77",
     "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-    "CF-RAY": "9f643b531e925476-SJC"
+    "vary": "Accept-Encoding",
+    "set-cookie": "REDACTED",
+    "X-Robots-Tag": "none",
+    "cf-cache-status": "DYNAMIC",
+    "CF-RAY": "9f6ea0fccfea98ce-SJC"
   },
   "is_streaming": false,
   "body": {
@@ -28,6 +28,6 @@
       "type": "not_found_error",
       "message": "model: claude-3-5-haiku-20241022"
     },
-    "request_id": "req_011CagmzkLMSamLSEUzTEkX9"
+    "request_id": "req_011CajAZCujGfYbPueUcUYjq"
   }
 }

@@ -1,30 +1,31 @@
 {
   "version": "2.0.73",
   "dir_name": "2025-12-18_2.0.73",
-  "baseline_scenario": "02-bare",
+  "baseline_scenario": "03-with-mcp",
   "baseline": {
     "models": [
-      "claude-haiku-4-5-20251001"
+      "claude-haiku-4-5-20251001",
+      "claude-opus-4-5-20251101"
     ],
-    "tool_count": 0,
+    "tool_count": 17,
     "deferred_tool_count": 0,
     "mcp_tool_count_advertised": 0,
     "mcp_tool_count_deferred": 0,
-    "system_prompt_chars": 0,
+    "system_prompt_chars": 13421,
     "reminder_count": 0
   },
   "scenarios": {
     "01-cli-help": {
       "mode": "local",
-      "output_chars": 6448,
-      "output_lines": 57,
+      "output_chars": 6472,
+      "output_lines": 58,
       "exit_code": 0
     },
     "02-bare": {
       "version": "2.0.73",
       "dir_name": "2025-12-18_2.0.73",
       "scenario": "02-bare",
-      "captured_at": "2026-05-04T06:58:47.561495",
+      "captured_at": "2026-05-05T11:08:34.854984",
       "request_count": 1,
       "models": [
         "claude-haiku-4-5-20251001"
@@ -44,39 +45,40 @@
         "cache_creation": 0,
         "total": 9
       },
-      "duration_ms_total": 659
+      "duration_ms_total": 808
     },
     "03-with-mcp": {
       "version": "2.0.73",
       "dir_name": "2025-12-18_2.0.73",
       "scenario": "03-with-mcp",
-      "captured_at": "2026-05-04T06:58:59.313077",
-      "request_count": 1,
+      "captured_at": "2026-05-05T11:09:56.843530",
+      "request_count": 4,
       "models": [
-        "claude-haiku-4-5-20251001"
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
       ],
-      "tool_count_first_request": 0,
+      "tool_count_first_request": 17,
       "deferred_tool_count": 0,
       "mcp_tool_count_advertised": 0,
       "mcp_tool_count_deferred": 0,
-      "system_prompt_chars": 0,
+      "system_prompt_chars": 13421,
       "user_prompt_chars": 0,
       "skill_count": 0,
       "reminder_count": 0,
       "tokens": {
-        "input": 8,
-        "output": 1,
+        "input": 1676,
+        "output": 353,
         "cache_read": 0,
-        "cache_creation": 0,
-        "total": 9
+        "cache_creation": 18204,
+        "total": 2029
       },
-      "duration_ms_total": 730
+      "duration_ms_total": 10733
     },
     "04-with-skill": {
       "version": "2.0.73",
       "dir_name": "2025-12-18_2.0.73",
       "scenario": "04-with-skill",
-      "captured_at": "2026-05-04T06:59:11.121385",
+      "captured_at": "2026-05-05T11:11:44.179822",
       "request_count": 1,
       "models": [
         "claude-haiku-4-5-20251001"
@@ -96,7 +98,7 @@
         "cache_creation": 0,
         "total": 9
       },
-      "duration_ms_total": 683
+      "duration_ms_total": 569
     }
   }
 }

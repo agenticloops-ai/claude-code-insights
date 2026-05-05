@@ -2,7 +2,7 @@
   {
     "index": 1,
     "model": "claude-haiku-4-5-20251001",
-    "duration_ms": 569.4284439086914,
+    "duration_ms": 942.9752826690674,
     "tool_count": 0,
     "stop_reason": "max_tokens",
     "input_tokens": 8,
@@ -11,19 +11,28 @@
   {
     "index": 2,
     "model": "claude-haiku-4-5-20251001",
-    "duration_ms": 1545.4835891723633,
+    "duration_ms": 2378.8065910339355,
     "tool_count": 0,
     "stop_reason": "end_turn",
     "input_tokens": 590,
-    "output_tokens": 111
+    "output_tokens": 142
   },
   {
     "index": 3,
     "model": "claude-sonnet-4-5-20250929",
-    "duration_ms": 3149.7457027435303,
+    "duration_ms": 3050.1513481140137,
+    "tool_count": 0,
+    "stop_reason": "end_turn",
+    "input_tokens": 601,
+    "output_tokens": 111
+  },
+  {
+    "index": 4,
+    "model": "claude-sonnet-4-5-20250929",
+    "duration_ms": 3300.6534576416016,
     "tool_count": 19,
     "stop_reason": "end_turn",
     "input_tokens": 2,
-    "output_tokens": 80
+    "output_tokens": 77
   }
 ]

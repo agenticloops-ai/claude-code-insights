@@ -1,9 +1,9 @@
 {
   "session": {
-    "id": "839843dc-2281-4899-87d4-c9af7dd9fe57",
+    "id": "00f300b9-cb11-4bbf-8b59-a21077108989",
     "name": "04-with-skill",
-    "started_at": "2026-05-04T07:02:31.195461",
-    "ended_at": "2026-05-04T07:02:37.841010",
+    "started_at": "2026-05-05T11:16:40.310887",
+    "ended_at": "2026-05-05T11:16:45.241266",
     "request_count": 0,
     "total_tokens": 0,
     "estimated_cost_usd": 0.0
@@ -14,7 +14,7 @@
     "total_input_tokens": 8,
     "total_output_tokens": 1,
     "estimated_cost_usd": 1.04e-05,
-    "avg_duration_ms": 620.5389499664307,
+    "avg_duration_ms": 776.2537002563477,
     "avg_tokens_per_request": 9.0,
     "models_used": [
       "claude-haiku-4-5-20251001"
@@ -25,14 +25,14 @@
   },
   "requests": [
     {
-      "id": "8582d836-f579-455f-a589-f459072133da",
-      "session_id": "839843dc-2281-4899-87d4-c9af7dd9fe57",
-      "raw_capture_id": "4ed63a25-5caf-48c7-bcac-756456c50473",
+      "id": "2b34409f-179c-4d8a-9043-a32afc5576ed",
+      "session_id": "00f300b9-cb11-4bbf-8b59-a21077108989",
+      "raw_capture_id": "d17035b0-52e2-4283-9ffd-e3598cc6b0bb",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T07:02:33.475755",
-      "duration_ms": 620.5389499664307,
+      "timestamp": "2026-05-05T11:16:42.950489",
+      "duration_ms": 776.2537002563477,
       "time_to_first_token_ms": null,
       "provider": "anthropic",
       "model": "claude-haiku-4-5-20251001",
@@ -82,9 +82,9 @@
   ],
   "raw_captures": [
     {
-      "id": "4ed63a25-5caf-48c7-bcac-756456c50473",
-      "session_id": "839843dc-2281-4899-87d4-c9af7dd9fe57",
-      "timestamp": "2026-05-04T07:02:33.475755",
+      "id": "d17035b0-52e2-4283-9ffd-e3598cc6b0bb",
+      "session_id": "00f300b9-cb11-4bbf-8b59-a21077108989",
+      "timestamp": "2026-05-05T11:16:42.950489",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -125,44 +125,44 @@
           }
         ],
         "metadata": {
-          "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_f0a437af-b370-4874-9ee0-495cedb72d05"
+          "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_bbf92664-ce1a-4e11-a56f-dba5da3d44f1"
         }
       },
       "response_status": 200,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 07:02:33 GMT",
+        "Date": "Tue, 05 May 2026 11:16:42 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
         "anthropic-ratelimit-unified-status": "allowed",
         "anthropic-ratelimit-unified-5h-status": "allowed",
-        "anthropic-ratelimit-unified-5h-reset": "1777893000",
-        "anthropic-ratelimit-unified-5h-utilization": "0.08",
+        "anthropic-ratelimit-unified-5h-reset": "1777996200",
+        "anthropic-ratelimit-unified-5h-utilization": "0.14",
         "anthropic-ratelimit-unified-7d-status": "allowed",
         "anthropic-ratelimit-unified-7d-reset": "1778126400",
-        "anthropic-ratelimit-unified-7d-utilization": "0.35",
+        "anthropic-ratelimit-unified-7d-utilization": "0.61",
         "anthropic-ratelimit-unified-overage-status": "allowed",
         "anthropic-ratelimit-unified-overage-reset": "1780272000",
         "anthropic-ratelimit-unified-overage-utilization": "0.0",
         "anthropic-ratelimit-unified-representative-claim": "five_hour",
         "anthropic-ratelimit-unified-fallback-percentage": "0.5",
-        "anthropic-ratelimit-unified-reset": "1777893000",
-        "request-id": "req_011Cah6mf9Qs4ZPgFk3JQLgH",
+        "anthropic-ratelimit-unified-reset": "1777996200",
+        "request-id": "req_011CajKxf7kbVLJCpUNZQz9t",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-a8f8fdbb1a1037a37cf41f47d97ab271-edfb681c480a0c29-01",
+        "traceresponse": "00-45cf232f081538fd6d5cf905415bf475-7e3612d0705e607b-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "513",
-        "X-Robots-Tag": "none",
-        "vary": "Accept-Encoding",
-        "cf-cache-status": "DYNAMIC",
-        "set-cookie": "REDACTED",
+        "x-envoy-upstream-service-time": "664",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-        "CF-RAY": "9f65a3f87f6c14c7-SJC"
+        "vary": "Accept-Encoding",
+        "set-cookie": "REDACTED",
+        "X-Robots-Tag": "none",
+        "cf-cache-status": "DYNAMIC",
+        "CF-RAY": "9f6f55a3ea401d99-SJC"
       },
       "response_body": {
         "model": "claude-haiku-4-5-20251001",
-        "id": "msg_01AfXu9NBm8wKsWmnwipf8W6",
+        "id": "msg_01C29mBnPdXQc4Do6u6AgTar",
         "type": "message",
         "role": "assistant",
         "content": [

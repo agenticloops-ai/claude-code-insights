@@ -4,99 +4,103 @@
   "baseline_scenario": "02-bare",
   "baseline": {
     "models": [
-      "claude-haiku-4-5-20251001"
+      "claude-haiku-4-5-20251001",
+      "claude-opus-4-5-20251101"
     ],
-    "tool_count": 0,
+    "tool_count": 17,
     "deferred_tool_count": 0,
     "mcp_tool_count_advertised": 0,
     "mcp_tool_count_deferred": 0,
-    "system_prompt_chars": 0,
+    "system_prompt_chars": 12413,
     "reminder_count": 0
   },
   "scenarios": {
     "01-cli-help": {
       "mode": "local",
-      "output_chars": 5781,
-      "output_lines": 51,
+      "output_chars": 5805,
+      "output_lines": 52,
       "exit_code": 0
     },
     "02-bare": {
       "version": "2.0.52",
       "dir_name": "2025-11-24_2.0.52",
       "scenario": "02-bare",
-      "captured_at": "2026-05-04T06:29:17.103600",
-      "request_count": 1,
+      "captured_at": "2026-05-05T09:32:13.488490",
+      "request_count": 3,
       "models": [
-        "claude-haiku-4-5-20251001"
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
       ],
-      "tool_count_first_request": 0,
+      "tool_count_first_request": 17,
       "deferred_tool_count": 0,
       "mcp_tool_count_advertised": 0,
       "mcp_tool_count_deferred": 0,
-      "system_prompt_chars": 0,
+      "system_prompt_chars": 12413,
       "user_prompt_chars": 0,
       "skill_count": 0,
       "reminder_count": 0,
       "tokens": {
-        "input": 8,
-        "output": 1,
-        "cache_read": 0,
+        "input": 668,
+        "output": 129,
+        "cache_read": 17016,
         "cache_creation": 0,
-        "total": 9
+        "total": 797
       },
-      "duration_ms_total": 580
+      "duration_ms_total": 4161
     },
     "03-with-mcp": {
       "version": "2.0.52",
       "dir_name": "2025-11-24_2.0.52",
       "scenario": "03-with-mcp",
-      "captured_at": "2026-05-04T06:29:26.651401",
-      "request_count": 1,
+      "captured_at": "2026-05-05T09:32:45.798395",
+      "request_count": 4,
       "models": [
-        "claude-haiku-4-5-20251001"
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
       ],
-      "tool_count_first_request": 0,
+      "tool_count_first_request": 17,
       "deferred_tool_count": 0,
       "mcp_tool_count_advertised": 0,
       "mcp_tool_count_deferred": 0,
-      "system_prompt_chars": 0,
+      "system_prompt_chars": 12413,
       "user_prompt_chars": 0,
       "skill_count": 0,
       "reminder_count": 0,
       "tokens": {
-        "input": 8,
-        "output": 1,
-        "cache_read": 0,
+        "input": 1513,
+        "output": 289,
+        "cache_read": 17044,
         "cache_creation": 0,
-        "total": 9
+        "total": 1802
       },
-      "duration_ms_total": 540
+      "duration_ms_total": 7717
     },
     "04-with-skill": {
       "version": "2.0.52",
       "dir_name": "2025-11-24_2.0.52",
       "scenario": "04-with-skill",
-      "captured_at": "2026-05-04T06:29:36.182259",
-      "request_count": 1,
+      "captured_at": "2026-05-05T09:33:24.805692",
+      "request_count": 5,
       "models": [
-        "claude-haiku-4-5-20251001"
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
       ],
-      "tool_count_first_request": 0,
+      "tool_count_first_request": 17,
       "deferred_tool_count": 0,
       "mcp_tool_count_advertised": 0,
       "mcp_tool_count_deferred": 0,
-      "system_prompt_chars": 0,
+      "system_prompt_chars": 12413,
       "user_prompt_chars": 0,
       "skill_count": 0,
       "reminder_count": 0,
       "tokens": {
-        "input": 8,
-        "output": 1,
-        "cache_read": 0,
+        "input": 1513,
+        "output": 401,
+        "cache_read": 34143,
         "cache_creation": 0,
-        "total": 9
+        "total": 1914
       },
-      "duration_ms_total": 585
+      "duration_ms_total": 21813
     }
   }
 }

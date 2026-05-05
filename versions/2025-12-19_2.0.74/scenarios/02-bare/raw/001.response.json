@@ -1,64 +1,40 @@
 {
   "index": 1,
-  "request_id": "3fc0abd4-ea7a-49a6-a829-b974b6db6e5a",
+  "request_id": "7fd025d2-073e-4c4e-99f2-905d0c965e31",
   "status": 200,
   "headers": {
-    "Date": "Mon, 04 May 2026 07:00:28 GMT",
-    "Content-Type": "application/json",
+    "Date": "Tue, 05 May 2026 10:48:16 GMT",
+    "Content-Type": "text/event-stream; charset=utf-8",
     "Transfer-Encoding": "chunked",
     "Connection": "keep-alive",
+    "Cache-Control": "no-cache",
     "anthropic-ratelimit-unified-status": "allowed",
     "anthropic-ratelimit-unified-5h-status": "allowed",
-    "anthropic-ratelimit-unified-5h-reset": "1777893000",
-    "anthropic-ratelimit-unified-5h-utilization": "0.08",
+    "anthropic-ratelimit-unified-5h-reset": "1777978200",
+    "anthropic-ratelimit-unified-5h-utilization": "0.86",
     "anthropic-ratelimit-unified-7d-status": "allowed",
     "anthropic-ratelimit-unified-7d-reset": "1778126400",
-    "anthropic-ratelimit-unified-7d-utilization": "0.35",
+    "anthropic-ratelimit-unified-7d-utilization": "0.59",
     "anthropic-ratelimit-unified-overage-status": "allowed",
     "anthropic-ratelimit-unified-overage-reset": "1780272000",
     "anthropic-ratelimit-unified-overage-utilization": "0.0",
     "anthropic-ratelimit-unified-representative-claim": "five_hour",
     "anthropic-ratelimit-unified-fallback-percentage": "0.5",
-    "anthropic-ratelimit-unified-reset": "1777893000",
-    "request-id": "req_011Cah6cRnVPdMT2oJmj9WWJ",
+    "anthropic-ratelimit-unified-fallback": "available",
+    "anthropic-ratelimit-unified-reset": "1777978200",
+    "request-id": "req_011CajHnrg2DDHKLEebgwgD5",
     "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
     "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-    "traceresponse": "00-687e0a85a46e8042a1d559d9f102dfa9-82776d09da8a2442-01",
+    "traceresponse": "00-961b45381548ed4338f36699cb2e0324-ed991867a9d2a225-01",
     "Server": "cloudflare",
-    "x-envoy-upstream-service-time": "656",
+    "x-envoy-upstream-service-time": "1112",
     "X-Robots-Tag": "none",
     "vary": "Accept-Encoding",
     "cf-cache-status": "DYNAMIC",
     "set-cookie": "REDACTED",
     "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-    "CF-RAY": "9f65a0e9d9e3cc90-SJC"
+    "CF-RAY": "9f6f2bf95bc9ceb5-SJC"
   },
-  "is_streaming": false,
-  "body": {
-    "model": "claude-haiku-4-5-20251001",
-    "id": "msg_017Py34ggui2AAcbboJh86mr",
-    "type": "message",
-    "role": "assistant",
-    "content": [
-      {
-        "type": "text",
-        "text": "#"
-      }
-    ],
-    "stop_reason": "max_tokens",
-    "stop_sequence": null,
-    "stop_details": null,
-    "usage": {
-      "input_tokens": 8,
-      "cache_creation_input_tokens": 0,
-      "cache_read_input_tokens": 0,
-      "cache_creation": {
-        "ephemeral_5m_input_tokens": 0,
-        "ephemeral_1h_input_tokens": 0
-      },
-      "output_tokens": 1,
-      "service_tier": "standard",
-      "inference_geo": "not_available"
-    }
-  }
+  "is_streaming": true,
+  "body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-5-20251101\",\"id\":\"msg_011jxunGHrPDR2My4cecBEFe\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":18525,\"cache_read_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":18525,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":3,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}    }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}          }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Hello! How\"}}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" can I help you today?\"}  }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0     }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":18525,\"cache_read_input_tokens\":0,\"output_tokens\":12}              }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"   }\n\n"
 }

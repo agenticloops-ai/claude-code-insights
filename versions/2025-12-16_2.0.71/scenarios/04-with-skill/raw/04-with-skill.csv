@@ -1,2 +1,6 @@
 timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
-2026-05-04T06:55:38.369914,anthropic,claude-haiku-4-5-20251001,599.8406410217285,,success,max_tokens,8,1,9,1.04e-05,False,False,False,quota
+2026-05-05T10:32:19.097893,anthropic,claude-haiku-4-5-20251001,551.9042015075684,,success,max_tokens,8,1,9,1.04e-05,False,False,False,quota
+2026-05-05T10:32:20.326172,anthropic,claude-haiku-4-5-20251001,1682.7270984649658,564.6946430206299,success,end_turn,769,100,869,0.0010152,True,False,False,Warmup
+2026-05-05T10:32:21.098023,anthropic,claude-opus-4-5-20251101,1833.5952758789062,1200.282335281372,success,tool_use,2,54,56,0.03752925,True,True,False,"Use the say-hello skill. Print only its output, nothing else."
+2026-05-05T10:32:22.051853,anthropic,claude-opus-4-5-20251101,3427.0966053009033,1317.8346157073975,success,end_turn,897,111,1008,0.02178,True,False,False,Warmup
+2026-05-05T10:32:22.817747,anthropic,claude-opus-4-5-20251101,1689.9592876434326,1434.9839687347412,success,end_turn,0,7,7,0.0355305,True,True,False,"Use the say-hello skill. Print only its output, nothing else."

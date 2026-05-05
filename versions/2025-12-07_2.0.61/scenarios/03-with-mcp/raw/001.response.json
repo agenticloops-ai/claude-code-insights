@@ -1,64 +1,40 @@
 {
   "index": 1,
-  "request_id": "63d5fc9a-b588-4387-8ec9-e3af56ce8675",
+  "request_id": "13be1d90-9b6e-4ec8-99f9-9ed3efefe4a2",
   "status": 200,
   "headers": {
-    "Date": "Mon, 04 May 2026 06:42:31 GMT",
-    "Content-Type": "application/json",
+    "Date": "Tue, 05 May 2026 10:07:42 GMT",
+    "Content-Type": "text/event-stream; charset=utf-8",
     "Transfer-Encoding": "chunked",
     "Connection": "keep-alive",
+    "Cache-Control": "no-cache",
     "anthropic-ratelimit-unified-status": "allowed",
     "anthropic-ratelimit-unified-5h-status": "allowed",
-    "anthropic-ratelimit-unified-5h-reset": "1777893000",
-    "anthropic-ratelimit-unified-5h-utilization": "0.05",
+    "anthropic-ratelimit-unified-5h-reset": "1777978200",
+    "anthropic-ratelimit-unified-5h-utilization": "0.7",
     "anthropic-ratelimit-unified-7d-status": "allowed",
     "anthropic-ratelimit-unified-7d-reset": "1778126400",
-    "anthropic-ratelimit-unified-7d-utilization": "0.35",
+    "anthropic-ratelimit-unified-7d-utilization": "0.58",
     "anthropic-ratelimit-unified-overage-status": "allowed",
     "anthropic-ratelimit-unified-overage-reset": "1780272000",
     "anthropic-ratelimit-unified-overage-utilization": "0.0",
     "anthropic-ratelimit-unified-representative-claim": "five_hour",
     "anthropic-ratelimit-unified-fallback-percentage": "0.5",
-    "anthropic-ratelimit-unified-reset": "1777893000",
-    "request-id": "req_011Cah5F3MurUE6MHjHTkZxq",
+    "anthropic-ratelimit-unified-fallback": "available",
+    "anthropic-ratelimit-unified-reset": "1777978200",
+    "request-id": "req_011CajEhSrZjFPM8fT9BvPAf",
     "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
     "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-    "traceresponse": "00-0e26552c9d1994ebbb97089bc95436c3-74d1e6a27013c271-01",
+    "traceresponse": "00-46323b59cfc16aceab12f53f3c500221-8540febe578c8863-01",
     "Server": "cloudflare",
-    "x-envoy-upstream-service-time": "780",
-    "X-Robots-Tag": "none",
-    "vary": "Accept-Encoding",
-    "cf-cache-status": "DYNAMIC",
-    "set-cookie": "REDACTED",
+    "x-envoy-upstream-service-time": "427",
     "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-    "CF-RAY": "9f65869ee906f957-SJC"
+    "vary": "Accept-Encoding",
+    "set-cookie": "REDACTED",
+    "X-Robots-Tag": "none",
+    "cf-cache-status": "DYNAMIC",
+    "CF-RAY": "9f6ef08dfa34a249-SJC"
   },
-  "is_streaming": false,
-  "body": {
-    "model": "claude-haiku-4-5-20251001",
-    "id": "msg_01DDhzUU7nJiKLbahMhmVr3i",
-    "type": "message",
-    "role": "assistant",
-    "content": [
-      {
-        "type": "text",
-        "text": "#"
-      }
-    ],
-    "stop_reason": "max_tokens",
-    "stop_sequence": null,
-    "stop_details": null,
-    "usage": {
-      "input_tokens": 8,
-      "cache_creation_input_tokens": 0,
-      "cache_read_input_tokens": 0,
-      "cache_creation": {
-        "ephemeral_5m_input_tokens": 0,
-        "ephemeral_1h_input_tokens": 0
-      },
-      "output_tokens": 1,
-      "service_tier": "standard",
-      "inference_geo": "not_available"
-    }
-  }
+  "is_streaming": true,
+  "body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-haiku-4-5-20251001\",\"id\":\"msg_014rn4G9yn4NSdsbZjYuTHqz\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":728,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":1,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}  }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}         }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Hello\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"! I'm Claude Code, Anthropic's file search specialist for exploring codebases. I'm ready to help you navigate\"}             }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" and analyze code repositories efficiently.\\n\\nI'm operating in READ-ONLY mode,\"}     }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" which means I can:\\n- Search files using glob patterns\\n- Search code contents\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" with regex using grep\\n- Read and analyze file contents\\n- Run read-only bash commands (\"}       }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ls, find, cat, etc.)\\n\\nI cannot:\\n- Create, modify, or delete files\\n- Make any changes\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" to the system state\\n\\nTo get started, you can ask me to:\\n- Find specific\"}      }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" files in your codebase\\n- Search for code patterns or implementations\\n-\"}    }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" Analyze file contents\\n- Explore directory structures\\n- Locate where specific functions,\"}    }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" classes, or variables are defined\\n\\nWhat would you like me to search for in your codebase?\"}       }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0 }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":728,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":184}      }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"             }\n\n"
 }

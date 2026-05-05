@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-5-20251101",
-        "id": "msg_01YXgFA7iUuYfkxXZtxdE5zt",
+        "id": "msg_01EdcCEzqQvPEG3b4aYtYReK",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -13,14 +13,14 @@
         "stop_sequence": null,
         "stop_details": null,
         "usage": {
-          "input_tokens": 2,
-          "cache_creation_input_tokens": 17822,
+          "input_tokens": 856,
+          "cache_creation_input_tokens": 0,
           "cache_read_input_tokens": 0,
           "cache_creation": {
-            "ephemeral_5m_input_tokens": 17822,
+            "ephemeral_5m_input_tokens": 0,
             "ephemeral_1h_input_tokens": 0
           },
-          "output_tokens": 1,
+          "output_tokens": 2,
           "service_tier": "standard",
           "inference_geo": "not_available"
         }
@@ -51,7 +51,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "Based"
+        "text": "I understand"
       }
     }
   },
@@ -62,7 +62,40 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": " on my available tools, here are the MCP tools currently available to me:\n\n```\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n```"
+        "text": ". I'm ready to explore a codebase and design implementation plans in read-only mode. Please provide me with:\n\n1. The requirements you"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": "'d like me to analyze\n2. Any specific perspective or approach you'd like me to take\n3. Any initial files you"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": "'d like me to examine\n\nI'll use read-only tools (Glob, Grep, Read, and read-only"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": " Bash commands) to explore the codebase, understand patterns, and create a detailed implementation plan without modifying any files."
       }
     }
   },
@@ -83,10 +116,10 @@
         "stop_details": null
       },
       "usage": {
-        "input_tokens": 2,
-        "cache_creation_input_tokens": 17822,
+        "input_tokens": 856,
+        "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
-        "output_tokens": 51
+        "output_tokens": 114
       }
     }
   },

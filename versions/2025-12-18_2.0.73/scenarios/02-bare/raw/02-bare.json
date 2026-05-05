@@ -1,9 +1,9 @@
 {
   "session": {
-    "id": "96fcf7eb-58ee-4bc4-b7db-94c36c6d655b",
+    "id": "2e4610b6-f601-41bb-a840-3824e52256ea",
     "name": "02-bare",
-    "started_at": "2026-05-04T06:58:40.803806",
-    "ended_at": "2026-05-04T06:58:47.561495",
+    "started_at": "2026-05-05T11:08:30.075506",
+    "ended_at": "2026-05-05T11:08:34.854984",
     "request_count": 0,
     "total_tokens": 0,
     "estimated_cost_usd": 0.0
@@ -14,7 +14,7 @@
     "total_input_tokens": 8,
     "total_output_tokens": 1,
     "estimated_cost_usd": 1.04e-05,
-    "avg_duration_ms": 659.5950126647949,
+    "avg_duration_ms": 808.0852031707764,
     "avg_tokens_per_request": 9.0,
     "models_used": [
       "claude-haiku-4-5-20251001"
@@ -25,14 +25,14 @@
   },
   "requests": [
     {
-      "id": "2933914b-10e2-4c00-9e5e-88c6b4681055",
-      "session_id": "96fcf7eb-58ee-4bc4-b7db-94c36c6d655b",
-      "raw_capture_id": "1036e9a7-b260-416a-82a7-43a93a3d9ebf",
+      "id": "473e399c-369d-4c9c-8f6f-d975f9f106ff",
+      "session_id": "2e4610b6-f601-41bb-a840-3824e52256ea",
+      "raw_capture_id": "bc7af805-a847-42a7-94ad-6c2dfec9a3c7",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T06:58:43.249846",
-      "duration_ms": 659.5950126647949,
+      "timestamp": "2026-05-05T11:08:32.714036",
+      "duration_ms": 808.0852031707764,
       "time_to_first_token_ms": null,
       "provider": "anthropic",
       "model": "claude-haiku-4-5-20251001",
@@ -82,9 +82,9 @@
   ],
   "raw_captures": [
     {
-      "id": "1036e9a7-b260-416a-82a7-43a93a3d9ebf",
-      "session_id": "96fcf7eb-58ee-4bc4-b7db-94c36c6d655b",
-      "timestamp": "2026-05-04T06:58:43.249846",
+      "id": "bc7af805-a847-42a7-94ad-6c2dfec9a3c7",
+      "session_id": "2e4610b6-f601-41bb-a840-3824e52256ea",
+      "timestamp": "2026-05-05T11:08:32.714036",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -125,44 +125,44 @@
           }
         ],
         "metadata": {
-          "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_c25803ec-3e3b-4fef-bc70-6851ee92e056"
+          "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_8976e765-7889-4240-a3e2-9143992c03a4"
         }
       },
       "response_status": 200,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 06:58:43 GMT",
+        "Date": "Tue, 05 May 2026 11:08:32 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
         "anthropic-ratelimit-unified-status": "allowed",
         "anthropic-ratelimit-unified-5h-status": "allowed",
-        "anthropic-ratelimit-unified-5h-reset": "1777893000",
-        "anthropic-ratelimit-unified-5h-utilization": "0.07",
+        "anthropic-ratelimit-unified-5h-reset": "1777996200",
+        "anthropic-ratelimit-unified-5h-utilization": "0.09",
         "anthropic-ratelimit-unified-7d-status": "allowed",
         "anthropic-ratelimit-unified-7d-reset": "1778126400",
-        "anthropic-ratelimit-unified-7d-utilization": "0.35",
+        "anthropic-ratelimit-unified-7d-utilization": "0.6",
         "anthropic-ratelimit-unified-overage-status": "allowed",
         "anthropic-ratelimit-unified-overage-reset": "1780272000",
         "anthropic-ratelimit-unified-overage-utilization": "0.0",
         "anthropic-ratelimit-unified-representative-claim": "five_hour",
         "anthropic-ratelimit-unified-fallback-percentage": "0.5",
-        "anthropic-ratelimit-unified-reset": "1777893000",
-        "request-id": "req_011Cah6UgeyZtBrWXZBSFhkX",
+        "anthropic-ratelimit-unified-reset": "1777996200",
+        "request-id": "req_011CajKLX4pK68pnnf7CZP62",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-1db16377760211c33bc63b5f6a8d5f06-a5209eede289b193-01",
+        "traceresponse": "00-6fa4913f95bedddb9666dc6218d6d10b-92570b4ee14b01fe-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "574",
+        "x-envoy-upstream-service-time": "709",
         "X-Robots-Tag": "none",
         "vary": "Accept-Encoding",
         "cf-cache-status": "DYNAMIC",
         "set-cookie": "REDACTED",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-        "CF-RAY": "9f659e5949bb3451-SJC"
+        "CF-RAY": "9f6f49abcac47ad0-SJC"
       },
       "response_body": {
         "model": "claude-haiku-4-5-20251001",
-        "id": "msg_01HXo1faAfPJrzueiTwWfSfU",
+        "id": "msg_01Dmf8836sLnU9Lij27gKYF3",
         "type": "message",
         "role": "assistant",
         "content": [

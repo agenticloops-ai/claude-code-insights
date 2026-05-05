@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-haiku-4-5-20251001",
-        "id": "msg_01FuCYWCbWRTbtHLvkNeVGxN",
+        "id": "msg_016M1n5shKhkmj66wCASaiyF",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -62,7 +62,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": " ready to help you search and explore code! I'm Claude Code, Anthropic's CLI"
+        "text": " ready to help you explore and search through code! I'm Claude Code,"
       }
     }
   },
@@ -73,7 +73,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": " file search specialist.\n\nI can help you:\n- **Find files** using"
+        "text": " Anthropic's file search specialist for the Claude Code CLI.\n\nI can help"
       }
     }
   },
@@ -84,7 +84,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": " glob patterns\n- **Search code content** with regex patterns\n- **Read and analyze** specific files\n- **Navigate cod"
+        "text": " you:\n- **Find files** using glob patterns to locate files by name, extension, or path"
       }
     }
   },
@@ -95,7 +95,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "ebases** efficiently\n\nJust let me know what you're looking for in the `/work` directory, and I'll help you locate and analyze"
+        "text": "\n- **Search code** using regex patterns to find specific content, functions, imports, etc"
       }
     }
   },
@@ -106,7 +106,29 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": " the code you need.\n\nWhat would you like me to search for?"
+        "text": ".\n- **Read files** to analyze their contents in detail\n- **Explore codebases** by navigating directories and understanding structure\n\nJust"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": " let me know what you're looking for in your codebase at `/work`, and I'll help"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": " you find it efficiently. What would you like to search for?"
       }
     }
   },
@@ -130,7 +152,7 @@
         "input_tokens": 590,
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
-        "output_tokens": 111
+        "output_tokens": 142
       }
     }
   },

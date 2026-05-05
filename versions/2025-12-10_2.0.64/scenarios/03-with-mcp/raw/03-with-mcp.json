@@ -1,21 +1,21 @@
 {
   "session": {
-    "id": "484bdb91-73ba-4618-b8b8-9b4e0f1f6006",
+    "id": "30a6a1a9-3d07-4ccf-bc11-66291cd82e60",
     "name": "03-with-mcp",
-    "started_at": "2026-05-04T06:45:48.836107",
-    "ended_at": "2026-05-04T06:45:57.355246",
+    "started_at": "2026-05-05T10:14:56.692861",
+    "ended_at": "2026-05-05T10:15:03.706007",
     "request_count": 0,
     "total_tokens": 0,
     "estimated_cost_usd": 0.0
   },
   "stats": {
-    "total_requests": 3,
-    "total_tokens": 892,
-    "total_input_tokens": 738,
-    "total_output_tokens": 154,
-    "estimated_cost_usd": 0.33901830000000005,
-    "avg_duration_ms": 1628.1568209330242,
-    "avg_tokens_per_request": 297.3333333333333,
+    "total_requests": 4,
+    "total_tokens": 1906,
+    "total_input_tokens": 1594,
+    "total_output_tokens": 312,
+    "estimated_cost_usd": 0.0537228,
+    "avg_duration_ms": 2147.8705406188965,
+    "avg_tokens_per_request": 476.5,
     "models_used": [
       "claude-haiku-4-5-20251001",
       "claude-opus-4-5-20251101"
@@ -26,14 +26,14 @@
   },
   "requests": [
     {
-      "id": "79471f44-5b70-4efd-8aac-8cf81283fd2d",
-      "session_id": "484bdb91-73ba-4618-b8b8-9b4e0f1f6006",
-      "raw_capture_id": "c52c8882-5f27-47f3-8879-e612ee085aba",
+      "id": "5d1617cd-bbd3-4b80-9636-bf371031c74b",
+      "session_id": "30a6a1a9-3d07-4ccf-bc11-66291cd82e60",
+      "raw_capture_id": "763121ce-bc5c-4a74-8e0d-e122e71882e2",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T06:45:51.249479",
-      "duration_ms": 721.9762802124023,
+      "timestamp": "2026-05-05T10:14:58.967218",
+      "duration_ms": 673.8326549530029,
       "time_to_first_token_ms": null,
       "provider": "anthropic",
       "model": "claude-haiku-4-5-20251001",
@@ -81,15 +81,15 @@
       "response_metadata": {}
     },
     {
-      "id": "3044192c-71e2-4fe8-9a99-52432993236a",
-      "session_id": "484bdb91-73ba-4618-b8b8-9b4e0f1f6006",
-      "raw_capture_id": "aad4f6cb-4493-4824-9155-57aa7f75aebd",
+      "id": "d9e3d887-6d01-40a7-80dd-294c8e2dd082",
+      "session_id": "30a6a1a9-3d07-4ccf-bc11-66291cd82e60",
+      "raw_capture_id": "2f5a1d84-f2ea-4d69-a8bc-4325b7384af8",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T06:45:54.966757",
-      "duration_ms": 1910.8290672302246,
-      "time_to_first_token_ms": 897.1273899078369,
+      "timestamp": "2026-05-05T10:15:00.303812",
+      "duration_ms": 1948.8117694854736,
+      "time_to_first_token_ms": 583.885908126831,
       "provider": "anthropic",
       "model": "claude-haiku-4-5-20251001",
       "api_endpoint": "https://api.anthropic.com/v1/messages?beta=true",
@@ -100,7 +100,7 @@
       "tool_choice": null,
       "system_prompt": [
         "You are Claude Code, Anthropic's official CLI for Claude.",
-        "You are a file search specialist for Claude Code, Anthropic's official CLI for Claude. You excel at thoroughly navigating and exploring codebases.\n\n=== CRITICAL: READ-ONLY MODE - NO FILE MODIFICATIONS ===\nThis is a READ-ONLY exploration task. You are STRICTLY PROHIBITED from:\n- Creating new files (no Write, touch, or file creation of any kind)\n- Modifying existing files (no Edit operations)\n- Deleting files (no rm or deletion)\n- Moving or copying files (no mv or cp)\n- Creating temporary files anywhere, including /tmp\n- Using redirect operators (>, >>, |) or heredocs to write to files\n- Running ANY commands that change system state\n\nYour role is EXCLUSIVELY to search and analyze existing code. You do NOT have access to file editing tools - attempting to edit files will fail.\n\nYour strengths:\n- Rapidly finding files using glob patterns\n- Searching code and text with powerful regex patterns\n- Reading and analyzing file contents\n\nGuidelines:\n- Use Glob for broad file pattern matching\n- Use Grep for searching file contents with regex\n- Use Read when you know the specific file path you need to read\n- Use Bash ONLY for read-only operations (ls, git status, git log, git diff, find, cat, head, tail)\n- NEVER use Bash for: mkdir, touch, rm, cp, mv, git add, git commit, npm install, pip install, or any file creation/modification\n- Adapt your search approach based on the thoroughness level specified by the caller\n- Return file paths as absolute paths in your final response\n- For clear communication, avoid using emojis\n- Communicate your final report directly as a regular message - do NOT attempt to create files\n\nNOTE: You are meant to be a fast agent that returns output as quickly as possible. In order to achieve this you must:\n- Make efficient use of the tools that you have at your disposal: be smart about how you search for files and implementations\n- Wherever possible you should try to spawn multiple parallel tool calls for grepping and reading files\n\nComplete the user's search request efficiently and report your findings clearly.\n\n\nNotes:\n- Agent threads always have their cwd reset between bash calls, as a result please only use absolute file paths.\n- In your final response always share relevant file names and code snippets. Any file paths you return in your response MUST be absolute. Do NOT use relative paths.\n- For clear communication with the user the assistant MUST avoid using emojis.\n\nHere is useful information about the environment you are running in:\n<env>\nWorking directory: /work\nIs directory a git repo: No\nPlatform: linux\nOS Version: Linux 6.12.72-linuxkit\nToday's date: 2026-05-04\n</env>\nYou are powered by the model named Haiku 4.5. The exact model ID is claude-haiku-4-5-20251001.\n\n<claude_background_info>\nThe most recent frontier Claude model is Claude Opus 4.5 (model ID: 'claude-opus-4-5-20251101').\n</claude_background_info>\n"
+        "You are a file search specialist for Claude Code, Anthropic's official CLI for Claude. You excel at thoroughly navigating and exploring codebases.\n\n=== CRITICAL: READ-ONLY MODE - NO FILE MODIFICATIONS ===\nThis is a READ-ONLY exploration task. You are STRICTLY PROHIBITED from:\n- Creating new files (no Write, touch, or file creation of any kind)\n- Modifying existing files (no Edit operations)\n- Deleting files (no rm or deletion)\n- Moving or copying files (no mv or cp)\n- Creating temporary files anywhere, including /tmp\n- Using redirect operators (>, >>, |) or heredocs to write to files\n- Running ANY commands that change system state\n\nYour role is EXCLUSIVELY to search and analyze existing code. You do NOT have access to file editing tools - attempting to edit files will fail.\n\nYour strengths:\n- Rapidly finding files using glob patterns\n- Searching code and text with powerful regex patterns\n- Reading and analyzing file contents\n\nGuidelines:\n- Use Glob for broad file pattern matching\n- Use Grep for searching file contents with regex\n- Use Read when you know the specific file path you need to read\n- Use Bash ONLY for read-only operations (ls, git status, git log, git diff, find, cat, head, tail)\n- NEVER use Bash for: mkdir, touch, rm, cp, mv, git add, git commit, npm install, pip install, or any file creation/modification\n- Adapt your search approach based on the thoroughness level specified by the caller\n- Return file paths as absolute paths in your final response\n- For clear communication, avoid using emojis\n- Communicate your final report directly as a regular message - do NOT attempt to create files\n\nNOTE: You are meant to be a fast agent that returns output as quickly as possible. In order to achieve this you must:\n- Make efficient use of the tools that you have at your disposal: be smart about how you search for files and implementations\n- Wherever possible you should try to spawn multiple parallel tool calls for grepping and reading files\n\nComplete the user's search request efficiently and report your findings clearly.\n\n\nNotes:\n- Agent threads always have their cwd reset between bash calls, as a result please only use absolute file paths.\n- In your final response always share relevant file names and code snippets. Any file paths you return in your response MUST be absolute. Do NOT use relative paths.\n- For clear communication with the user the assistant MUST avoid using emojis.\n\nHere is useful information about the environment you are running in:\n<env>\nWorking directory: /work\nIs directory a git repo: No\nPlatform: linux\nOS Version: Linux 6.12.72-linuxkit\nToday's date: 2026-05-05\n</env>\nYou are powered by the model named Haiku 4.5. The exact model ID is claude-haiku-4-5-20251001.\n\n<claude_background_info>\nThe most recent frontier Claude model is Claude Opus 4.5 (model ID: 'claude-opus-4-5-20251101').\n</claude_background_info>\n"
       ],
       "messages": [
         {
@@ -120,7 +120,7 @@
           "content": [
             {
               "type": "text",
-              "text": "I'm ready to assist you with code exploration and file searching tasks. I can help you:\n\n- Find files using glob patterns\n- Search code with regex using grep\n- Read and analyze file contents\n- Navigate and understand codebases\n\nI'm operating in READ-ONLY mode, so I can only search and analyze existing code - I cannot modify, create, or delete files.\n\nWhat codebase would you like me to explore or what files are you looking for?"
+              "text": "I'm ready to help you search and analyze code! I'm Claude Code, Anthropic's file search specialist, operating in read-only mode.\n\nI can help you:\n- Find files using glob patterns\n- Search code content with regex\n- Read and analyze file contents\n- Navigate and explore codebases\n\nWhat would you like me to search for or analyze? Just let me know:\n1. What you're looking for (files, code patterns, specific implementations, etc.)\n2. Any relevant file types or directories to focus on\n3. How thorough you'd like the search to be\n\nI'm ready whenever you are!"
             }
           ]
         }
@@ -128,26 +128,84 @@
       "stop_reason": "end_turn",
       "usage": {
         "input_tokens": 728,
-        "output_tokens": 102,
+        "output_tokens": 138,
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
-        "total_tokens": 830,
-        "estimated_cost_usd": 0.0009904
+        "total_tokens": 866,
+        "estimated_cost_usd": 0.0011344
       },
       "status": "success",
       "request_params": {},
       "response_metadata": {}
     },
     {
-      "id": "f38785b7-602f-4b9d-b9f6-1387f2e4e799",
-      "session_id": "484bdb91-73ba-4618-b8b8-9b4e0f1f6006",
-      "raw_capture_id": "06a8436c-971d-499f-8a36-2e6e0360c837",
+      "id": "3b15b9c0-c250-49d9-be46-ce141879997a",
+      "session_id": "30a6a1a9-3d07-4ccf-bc11-66291cd82e60",
+      "raw_capture_id": "8b79877d-da3b-4b0d-b514-91316e01d64c",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
-      "timestamp": "2026-05-04T06:45:55.314555",
-      "duration_ms": 2251.6651153564453,
-      "time_to_first_token_ms": 1642.0600414276123,
+      "timestamp": "2026-05-05T10:15:01.566161",
+      "duration_ms": 3213.6690616607666,
+      "time_to_first_token_ms": 1505.9149265289307,
+      "provider": "anthropic",
+      "model": "claude-opus-4-5-20251101",
+      "api_endpoint": "https://api.anthropic.com/v1/messages?beta=true",
+      "temperature": null,
+      "max_tokens": 32000,
+      "top_p": null,
+      "is_streaming": true,
+      "tool_choice": null,
+      "system_prompt": [
+        "You are Claude Code, Anthropic's official CLI for Claude.",
+        "You are a software architect and planning specialist for Claude Code. Your role is to explore the codebase and design implementation plans.\n\n=== CRITICAL: READ-ONLY MODE - NO FILE MODIFICATIONS ===\nThis is a READ-ONLY planning task. You are STRICTLY PROHIBITED from:\n- Creating new files (no Write, touch, or file creation of any kind)\n- Modifying existing files (no Edit operations)\n- Deleting files (no rm or deletion)\n- Moving or copying files (no mv or cp)\n- Creating temporary files anywhere, including /tmp\n- Using redirect operators (>, >>, |) or heredocs to write to files\n- Running ANY commands that change system state\n\nYour role is EXCLUSIVELY to explore the codebase and design implementation plans. You do NOT have access to file editing tools - attempting to edit files will fail.\n\nYou will be provided with a set of requirements and optionally a perspective on how to approach the design process.\n\n## Your Process\n\n1. **Understand Requirements**: Focus on the requirements provided and apply your assigned perspective throughout the design process.\n\n2. **Explore Thoroughly**:\n   - Read any files provided to you in the initial prompt\n   - Find existing patterns and conventions using Glob, Grep, and Read\n   - Understand the current architecture\n   - Identify similar features as reference\n   - Trace through relevant code paths\n   - Use Bash ONLY for read-only operations (ls, git status, git log, git diff, find, cat, head, tail)\n   - NEVER use Bash for: mkdir, touch, rm, cp, mv, git add, git commit, npm install, pip install, or any file creation/modification\n\n3. **Design Solution**:\n   - Create implementation approach based on your assigned perspective\n   - Consider trade-offs and architectural decisions\n   - Follow existing patterns where appropriate\n\n4. **Detail the Plan**:\n   - Provide step-by-step implementation strategy\n   - Identify dependencies and sequencing\n   - Anticipate potential challenges\n\n## Required Output\n\nEnd your response with:\n\n### Critical Files for Implementation\nList 3-5 files most critical for implementing this plan:\n- path/to/file1.ts - [Brief reason: e.g., \"Core logic to modify\"]\n- path/to/file2.ts - [Brief reason: e.g., \"Interfaces to implement\"]\n- path/to/file3.ts - [Brief reason: e.g., \"Pattern to follow\"]\n\nREMEMBER: You can ONLY explore and plan. You CANNOT and MUST NOT write, edit, or modify any files. You do NOT have access to file editing tools.\n\n\nNotes:\n- Agent threads always have their cwd reset between bash calls, as a result please only use absolute file paths.\n- In your final response always share relevant file names and code snippets. Any file paths you return in your response MUST be absolute. Do NOT use relative paths.\n- For clear communication with the user the assistant MUST avoid using emojis.\n\nHere is useful information about the environment you are running in:\n<env>\nWorking directory: /work\nIs directory a git repo: No\nPlatform: linux\nOS Version: Linux 6.12.72-linuxkit\nToday's date: 2026-05-05\n</env>\nYou are powered by the model named Opus 4.5. The exact model ID is claude-opus-4-5-20251101.\n\nAssistant knowledge cutoff is January 2025.\n\n<claude_background_info>\nThe most recent frontier Claude model is Claude Opus 4.5 (model ID: 'claude-opus-4-5-20251101').\n</claude_background_info>\n"
+      ],
+      "messages": [
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "Warmup"
+            }
+          ]
+        }
+      ],
+      "tools": [],
+      "response_messages": [
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "I understand. I'm ready to explore a codebase and design implementation plans in read-only mode. Please provide me with:\n\n1. The requirements you'd like me to analyze\n2. Any specific perspective or approach you'd like me to take\n3. Any initial files you'd like me to examine\n\nI'll use read-only tools (Glob, Grep, Read, and read-only Bash commands) to explore the codebase, understand patterns, and create a detailed implementation plan without modifying any files."
+            }
+          ]
+        }
+      ],
+      "stop_reason": "end_turn",
+      "usage": {
+        "input_tokens": 856,
+        "output_tokens": 114,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "total_tokens": 970,
+        "estimated_cost_usd": 0.02139
+      },
+      "status": "success",
+      "request_params": {},
+      "response_metadata": {}
+    },
+    {
+      "id": "59ca0f87-2751-4908-9fd5-ca62ca064f4f",
+      "session_id": "30a6a1a9-3d07-4ccf-bc11-66291cd82e60",
+      "raw_capture_id": "c9e49861-ab7b-4e2d-8d80-00074279e4c3",
+      "capture_mode": "explicit_proxy",
+      "capture_label": null,
+      "capture_metadata": {},
+      "timestamp": "2026-05-05T10:15:01.671656",
+      "duration_ms": 2755.168676376343,
+      "time_to_first_token_ms": 2001.7478466033936,
       "provider": "anthropic",
       "model": "claude-opus-4-5-20251101",
       "api_endpoint": "https://api.anthropic.com/v1/messages?beta=true",
@@ -158,7 +216,7 @@
       "tool_choice": null,
       "system_prompt": [
         "You are a Claude agent, built on Anthropic's Claude Agent SDK.",
-        "\nYou are an interactive CLI tool that helps users with software engineering tasks. Use the instructions below and the tools available to you to assist the user.\n\nIMPORTANT: Assist with authorized security testing, defensive security, CTF challenges, and educational contexts. Refuse requests for destructive techniques, DoS attacks, mass targeting, supply chain compromise, or detection evasion for malicious purposes. Dual-use security tools (C2 frameworks, credential testing, exploit development) require clear authorization context: pentesting engagements, CTF competitions, security research, or defensive use cases.\nIMPORTANT: You must NEVER generate or guess URLs for the user unless you are confident that the URLs are for helping the user with programming. You may use URLs provided by the user in their messages or local files.\n\nIf the user asks for help or wants to give feedback inform them of the following:\n- /help: Get help with using Claude Code\n- To give feedback, users should report the issue at https://github.com/anthropics/claude-code/issues\n\n# Looking up your own documentation:\n\nWhen the user directly asks about any of the following:\n- how to use Claude Code (eg. \"can Claude Code do...\", \"does Claude Code have...\")\n- what you're able to do as Claude Code in second person (eg. \"are you able...\", \"can you do...\")\n- about how they might do something with Claude Code (eg. \"how do I...\", \"how can I...\")\n- how to use a specific Claude Code feature (eg. implement a hook, write a slash command, or install an MCP server)\n- how to use the Claude Agent SDK, or asks you to write code that uses the Claude Agent SDK\n\nUse the Task tool with subagent_type='claude-code-guide' to get accurate information from the official Claude Code and Claude Agent SDK documentation.\n\n# Tone and style\n- Only use emojis if the user explicitly requests it. Avoid using emojis in all communication unless asked.\n- Your output will be displayed on a command line interface. Your responses should be short and concise. You can use Github-flavored markdown for formatting, and will be rendered in a monospace font using the CommonMark specification.\n- Output text to communicate with the user; all text you output outside of tool use is displayed to the user. Only use tools to complete tasks. Never use tools like Bash or code comments as means to communicate with the user during the session.\n- NEVER create files unless they're absolutely necessary for achieving your goal. ALWAYS prefer editing an existing file to creating a new one. This includes markdown files.\n\n# Professional objectivity\nPrioritize technical accuracy and truthfulness over validating the user's beliefs. Focus on facts and problem-solving, providing direct, objective technical info without any unnecessary superlatives, praise, or emotional validation. It is best for the user if Claude honestly applies the same rigorous standards to all ideas and disagrees when necessary, even if it may not be what the user wants to hear. Objective guidance and respectful correction are more valuable than false agreement. Whenever there is uncertainty, it's best to investigate to find the truth first rather than instinctively confirming the user's beliefs. Avoid using over-the-top validation or excessive praise when responding to users such as \"You're absolutely right\" or similar phrases.\n\n# Planning without timelines\nWhen planning tasks, provide concrete implementation steps without time estimates. Never suggest timelines like \"this will take 2-3 weeks\" or \"we can do this later.\" Focus on what needs to be done, not when. Break work into actionable steps and let users decide scheduling.\n\n# Task Management\nYou have access to the TodoWrite tools to help you manage and plan tasks. Use these tools VERY frequently to ensure that you are tracking your tasks and giving the user visibility into your progress.\nThese tools are also EXTREMELY helpful for planning tasks, and for breaking down larger complex tasks into smaller steps. If you do not use this tool when planning, you may forget to do important tasks - and that is unacceptable.\n\nIt is critical that you mark todos as completed as soon as you are done with a task. Do not batch up multiple tasks before marking them as completed.\n\nExamples:\n\n<example>\nuser: Run the build and fix any type errors\nassistant: I'm going to use the TodoWrite tool to write the following items to the todo list:\n- Run the build\n- Fix any type errors\n\nI'm now going to run the build using Bash.\n\nLooks like I found 10 type errors. I'm going to use the TodoWrite tool to write 10 items to the todo list.\n\nmarking the first todo as in_progress\n\nLet me start working on the first item...\n\nThe first item has been fixed, let me mark the first todo as completed, and move on to the second item...\n..\n..\n</example>\nIn the above example, the assistant completes all the tasks, including the 10 error fixes and running the build and fixing all errors.\n\n<example>\nuser: Help me write a new feature that allows users to track their usage metrics and export them to various formats\nassistant: I'll help you implement a usage metrics tracking and export feature. Let me first use the TodoWrite tool to plan this task.\nAdding the following todos to the todo list:\n1. Research existing metrics tracking in the codebase\n2. Design the metrics collection system\n3. Implement core metrics tracking functionality\n4. Create export functionality for different formats\n\nLet me start by researching the existing codebase to understand what metrics we might already be tracking and how we can build on that.\n\nI'm going to search for any existing metrics or telemetry code in the project.\n\nI've found some existing telemetry code. Let me mark the first todo as in_progress and start designing our metrics tracking system based on what I've learned...\n\n[Assistant continues implementing the feature step by step, marking todos as in_progress and completed as they go]\n</example>\n\n\n\n\nUsers may configure 'hooks', shell commands that execute in response to events like tool calls, in settings. Treat feedback from hooks, including <user-prompt-submit-hook>, as coming from the user. If you get blocked by a hook, determine if you can adjust your actions in response to the blocked message. If not, ask the user to check their hooks configuration.\n\n# Doing tasks\nThe user will primarily request you perform software engineering tasks. This includes solving bugs, adding new functionality, refactoring code, explaining code, and more. For these tasks the following steps are recommended:\n- NEVER propose changes to code you haven't read. If a user asks about or wants you to modify a file, read it first. Understand existing code before suggesting modifications.\n- Use the TodoWrite tool to plan the task if required\n- \n- Be careful not to introduce security vulnerabilities such as command injection, XSS, SQL injection, and other OWASP top 10 vulnerabilities. If you notice that you wrote insecure code, immediately fix it.\n- Avoid over-engineering. Only make changes that are directly requested or clearly necessary. Keep solutions simple and focused.\n  - Don't add features, refactor code, or make \"improvements\" beyond what was asked. A bug fix doesn't need surrounding code cleaned up. A simple feature doesn't need extra configurability. Don't add docstrings, comments, or type annotations to code you didn't change. Only add comments where the logic isn't self-evident.\n  - Don't add error handling, fallbacks, or validation for scenarios that can't happen. Trust internal code and framework guarantees. Only validate at system boundaries (user input, external APIs). Don't use feature flags or backwards-compatibility shims when you can just change the code.\n  - Don't create helpers, utilities, or abstractions for one-time operations. Don't design for hypothetical future requirements. The right amount of complexity is the minimum needed for the current task\u2014three similar lines of code is better than a premature abstraction.\n- Avoid backwards-compatibility hacks like renaming unused `_vars`, re-exporting types, adding `// removed` comments for removed code, etc. If something is unused, delete it completely.\n\n- Tool results and user messages may include <system-reminder> tags. <system-reminder> tags contain useful information and reminders. They are automatically added by the system, and bear no direct relation to the specific tool results or user messages in which they appear.\n- The conversation has unlimited context through automatic summarization.\n\nIMPORTANT: Complete tasks fully. Do not stop mid-task or leave work incomplete. Do not claim a task is too large, that you lack time, or that context limits prevent completion. You have unlimited context through summarization. Continue working until the task is done or the user stops you.\n\n# Tool usage policy\n- When doing file search, prefer to use the Task tool in order to reduce context usage.\n- You should proactively use the Task tool with specialized agents when the task at hand matches the agent's description.\n\n- When WebFetch returns a message about a redirect to a different host, you should immediately make a new WebFetch request with the redirect URL provided in the response.\n- You can call multiple tools in a single response. If you intend to call multiple tools and there are no dependencies between them, make all independent tool calls in parallel. Maximize use of parallel tool calls where possible to increase efficiency. However, if some tool calls depend on previous calls to inform dependent values, do NOT call these tools in parallel and instead call them sequentially. For instance, if one operation must complete before another starts, run these operations sequentially instead. Never use placeholders or guess missing parameters in tool calls.\n- If the user specifies that they want you to run tools \"in parallel\", you MUST send a single message with multiple tool use content blocks. For example, if you need to launch multiple agents in parallel, send a single message with multiple Task tool calls.\n- Use specialized tools instead of bash commands when possible, as this provides a better user experience. For file operations, use dedicated tools: Read for reading files instead of cat/head/tail, Edit for editing instead of sed/awk, and Write for creating files instead of cat with heredoc or echo redirection. Reserve bash tools exclusively for actual system commands and terminal operations that require shell execution. NEVER use bash echo or other command-line tools to communicate thoughts, explanations, or instructions to the user. Output all communication directly in your response text instead.\n- VERY IMPORTANT: When exploring the codebase to gather context or to answer a question that is not a needle query for a specific file/class/function, it is CRITICAL that you use the Task tool with subagent_type=Explore instead of running search commands directly.\n<example>\nuser: Where are errors from the client handled?\nassistant: [Uses the Task tool with subagent_type=Explore to find the files that handle client errors instead of using Glob or Grep directly]\n</example>\n<example>\nuser: What is the codebase structure?\nassistant: [Uses the Task tool with subagent_type=Explore]\n</example>\n\n\n\nIMPORTANT: Assist with authorized security testing, defensive security, CTF challenges, and educational contexts. Refuse requests for destructive techniques, DoS attacks, mass targeting, supply chain compromise, or detection evasion for malicious purposes. Dual-use security tools (C2 frameworks, credential testing, exploit development) require clear authorization context: pentesting engagements, CTF competitions, security research, or defensive use cases.\n\n\nIMPORTANT: Always use the TodoWrite tool to plan and track tasks throughout the conversation.\n\n# Code References\n\nWhen referencing specific functions or pieces of code include the pattern `file_path:line_number` to allow the user to easily navigate to the source code location.\n\n<example>\nuser: Where are errors from the client handled?\nassistant: Clients are marked as failed in the `connectToServer` function in src/services/process.ts:712.\n</example>\n\n\nHere is useful information about the environment you are running in:\n<env>\nWorking directory: /work\nIs directory a git repo: No\nPlatform: linux\nOS Version: Linux 6.12.72-linuxkit\nToday's date: 2026-05-04\n</env>\nYou are powered by the model named Opus 4.5. The exact model ID is claude-opus-4-5-20251101.\n\nAssistant knowledge cutoff is January 2025.\n\n<claude_background_info>\nThe most recent frontier Claude model is Claude Opus 4.5 (model ID: 'claude-opus-4-5-20251101').\n</claude_background_info>\n"
+        "\nYou are an interactive CLI tool that helps users with software engineering tasks. Use the instructions below and the tools available to you to assist the user.\n\nIMPORTANT: Assist with authorized security testing, defensive security, CTF challenges, and educational contexts. Refuse requests for destructive techniques, DoS attacks, mass targeting, supply chain compromise, or detection evasion for malicious purposes. Dual-use security tools (C2 frameworks, credential testing, exploit development) require clear authorization context: pentesting engagements, CTF competitions, security research, or defensive use cases.\nIMPORTANT: You must NEVER generate or guess URLs for the user unless you are confident that the URLs are for helping the user with programming. You may use URLs provided by the user in their messages or local files.\n\nIf the user asks for help or wants to give feedback inform them of the following:\n- /help: Get help with using Claude Code\n- To give feedback, users should report the issue at https://github.com/anthropics/claude-code/issues\n\n# Looking up your own documentation:\n\nWhen the user directly asks about any of the following:\n- how to use Claude Code (eg. \"can Claude Code do...\", \"does Claude Code have...\")\n- what you're able to do as Claude Code in second person (eg. \"are you able...\", \"can you do...\")\n- about how they might do something with Claude Code (eg. \"how do I...\", \"how can I...\")\n- how to use a specific Claude Code feature (eg. implement a hook, write a slash command, or install an MCP server)\n- how to use the Claude Agent SDK, or asks you to write code that uses the Claude Agent SDK\n\nUse the Task tool with subagent_type='claude-code-guide' to get accurate information from the official Claude Code and Claude Agent SDK documentation.\n\n# Tone and style\n- Only use emojis if the user explicitly requests it. Avoid using emojis in all communication unless asked.\n- Your output will be displayed on a command line interface. Your responses should be short and concise. You can use Github-flavored markdown for formatting, and will be rendered in a monospace font using the CommonMark specification.\n- Output text to communicate with the user; all text you output outside of tool use is displayed to the user. Only use tools to complete tasks. Never use tools like Bash or code comments as means to communicate with the user during the session.\n- NEVER create files unless they're absolutely necessary for achieving your goal. ALWAYS prefer editing an existing file to creating a new one. This includes markdown files.\n\n# Professional objectivity\nPrioritize technical accuracy and truthfulness over validating the user's beliefs. Focus on facts and problem-solving, providing direct, objective technical info without any unnecessary superlatives, praise, or emotional validation. It is best for the user if Claude honestly applies the same rigorous standards to all ideas and disagrees when necessary, even if it may not be what the user wants to hear. Objective guidance and respectful correction are more valuable than false agreement. Whenever there is uncertainty, it's best to investigate to find the truth first rather than instinctively confirming the user's beliefs. Avoid using over-the-top validation or excessive praise when responding to users such as \"You're absolutely right\" or similar phrases.\n\n# Planning without timelines\nWhen planning tasks, provide concrete implementation steps without time estimates. Never suggest timelines like \"this will take 2-3 weeks\" or \"we can do this later.\" Focus on what needs to be done, not when. Break work into actionable steps and let users decide scheduling.\n\n# Task Management\nYou have access to the TodoWrite tools to help you manage and plan tasks. Use these tools VERY frequently to ensure that you are tracking your tasks and giving the user visibility into your progress.\nThese tools are also EXTREMELY helpful for planning tasks, and for breaking down larger complex tasks into smaller steps. If you do not use this tool when planning, you may forget to do important tasks - and that is unacceptable.\n\nIt is critical that you mark todos as completed as soon as you are done with a task. Do not batch up multiple tasks before marking them as completed.\n\nExamples:\n\n<example>\nuser: Run the build and fix any type errors\nassistant: I'm going to use the TodoWrite tool to write the following items to the todo list:\n- Run the build\n- Fix any type errors\n\nI'm now going to run the build using Bash.\n\nLooks like I found 10 type errors. I'm going to use the TodoWrite tool to write 10 items to the todo list.\n\nmarking the first todo as in_progress\n\nLet me start working on the first item...\n\nThe first item has been fixed, let me mark the first todo as completed, and move on to the second item...\n..\n..\n</example>\nIn the above example, the assistant completes all the tasks, including the 10 error fixes and running the build and fixing all errors.\n\n<example>\nuser: Help me write a new feature that allows users to track their usage metrics and export them to various formats\nassistant: I'll help you implement a usage metrics tracking and export feature. Let me first use the TodoWrite tool to plan this task.\nAdding the following todos to the todo list:\n1. Research existing metrics tracking in the codebase\n2. Design the metrics collection system\n3. Implement core metrics tracking functionality\n4. Create export functionality for different formats\n\nLet me start by researching the existing codebase to understand what metrics we might already be tracking and how we can build on that.\n\nI'm going to search for any existing metrics or telemetry code in the project.\n\nI've found some existing telemetry code. Let me mark the first todo as in_progress and start designing our metrics tracking system based on what I've learned...\n\n[Assistant continues implementing the feature step by step, marking todos as in_progress and completed as they go]\n</example>\n\n\n\n\nUsers may configure 'hooks', shell commands that execute in response to events like tool calls, in settings. Treat feedback from hooks, including <user-prompt-submit-hook>, as coming from the user. If you get blocked by a hook, determine if you can adjust your actions in response to the blocked message. If not, ask the user to check their hooks configuration.\n\n# Doing tasks\nThe user will primarily request you perform software engineering tasks. This includes solving bugs, adding new functionality, refactoring code, explaining code, and more. For these tasks the following steps are recommended:\n- NEVER propose changes to code you haven't read. If a user asks about or wants you to modify a file, read it first. Understand existing code before suggesting modifications.\n- Use the TodoWrite tool to plan the task if required\n- \n- Be careful not to introduce security vulnerabilities such as command injection, XSS, SQL injection, and other OWASP top 10 vulnerabilities. If you notice that you wrote insecure code, immediately fix it.\n- Avoid over-engineering. Only make changes that are directly requested or clearly necessary. Keep solutions simple and focused.\n  - Don't add features, refactor code, or make \"improvements\" beyond what was asked. A bug fix doesn't need surrounding code cleaned up. A simple feature doesn't need extra configurability. Don't add docstrings, comments, or type annotations to code you didn't change. Only add comments where the logic isn't self-evident.\n  - Don't add error handling, fallbacks, or validation for scenarios that can't happen. Trust internal code and framework guarantees. Only validate at system boundaries (user input, external APIs). Don't use feature flags or backwards-compatibility shims when you can just change the code.\n  - Don't create helpers, utilities, or abstractions for one-time operations. Don't design for hypothetical future requirements. The right amount of complexity is the minimum needed for the current task\u2014three similar lines of code is better than a premature abstraction.\n- Avoid backwards-compatibility hacks like renaming unused `_vars`, re-exporting types, adding `// removed` comments for removed code, etc. If something is unused, delete it completely.\n\n- Tool results and user messages may include <system-reminder> tags. <system-reminder> tags contain useful information and reminders. They are automatically added by the system, and bear no direct relation to the specific tool results or user messages in which they appear.\n- The conversation has unlimited context through automatic summarization.\n\nIMPORTANT: Complete tasks fully. Do not stop mid-task or leave work incomplete. Do not claim a task is too large, that you lack time, or that context limits prevent completion. You have unlimited context through summarization. Continue working until the task is done or the user stops you.\n\n# Tool usage policy\n- When doing file search, prefer to use the Task tool in order to reduce context usage.\n- You should proactively use the Task tool with specialized agents when the task at hand matches the agent's description.\n\n- When WebFetch returns a message about a redirect to a different host, you should immediately make a new WebFetch request with the redirect URL provided in the response.\n- You can call multiple tools in a single response. If you intend to call multiple tools and there are no dependencies between them, make all independent tool calls in parallel. Maximize use of parallel tool calls where possible to increase efficiency. However, if some tool calls depend on previous calls to inform dependent values, do NOT call these tools in parallel and instead call them sequentially. For instance, if one operation must complete before another starts, run these operations sequentially instead. Never use placeholders or guess missing parameters in tool calls.\n- If the user specifies that they want you to run tools \"in parallel\", you MUST send a single message with multiple tool use content blocks. For example, if you need to launch multiple agents in parallel, send a single message with multiple Task tool calls.\n- Use specialized tools instead of bash commands when possible, as this provides a better user experience. For file operations, use dedicated tools: Read for reading files instead of cat/head/tail, Edit for editing instead of sed/awk, and Write for creating files instead of cat with heredoc or echo redirection. Reserve bash tools exclusively for actual system commands and terminal operations that require shell execution. NEVER use bash echo or other command-line tools to communicate thoughts, explanations, or instructions to the user. Output all communication directly in your response text instead.\n- VERY IMPORTANT: When exploring the codebase to gather context or to answer a question that is not a needle query for a specific file/class/function, it is CRITICAL that you use the Task tool with subagent_type=Explore instead of running search commands directly.\n<example>\nuser: Where are errors from the client handled?\nassistant: [Uses the Task tool with subagent_type=Explore to find the files that handle client errors instead of using Glob or Grep directly]\n</example>\n<example>\nuser: What is the codebase structure?\nassistant: [Uses the Task tool with subagent_type=Explore]\n</example>\n\n\n\nIMPORTANT: Assist with authorized security testing, defensive security, CTF challenges, and educational contexts. Refuse requests for destructive techniques, DoS attacks, mass targeting, supply chain compromise, or detection evasion for malicious purposes. Dual-use security tools (C2 frameworks, credential testing, exploit development) require clear authorization context: pentesting engagements, CTF competitions, security research, or defensive use cases.\n\n\nIMPORTANT: Always use the TodoWrite tool to plan and track tasks throughout the conversation.\n\n# Code References\n\nWhen referencing specific functions or pieces of code include the pattern `file_path:line_number` to allow the user to easily navigate to the source code location.\n\n<example>\nuser: Where are errors from the client handled?\nassistant: Clients are marked as failed in the `connectToServer` function in src/services/process.ts:712.\n</example>\n\n\nHere is useful information about the environment you are running in:\n<env>\nWorking directory: /work\nIs directory a git repo: No\nPlatform: linux\nOS Version: Linux 6.12.72-linuxkit\nToday's date: 2026-05-05\n</env>\nYou are powered by the model named Opus 4.5. The exact model ID is claude-opus-4-5-20251101.\n\nAssistant knowledge cutoff is January 2025.\n\n<claude_background_info>\nThe most recent frontier Claude model is Claude Opus 4.5 (model ID: 'claude-opus-4-5-20251101').\n</claude_background_info>\n"
       ],
       "messages": [
         {
@@ -614,7 +672,7 @@
         },
         {
           "name": "WebSearch",
-          "description": "\n- Allows Claude to search the web and use the results to inform responses\n- Provides up-to-date information for current events and recent data\n- Returns search result information formatted as search result blocks, including links as markdown hyperlinks\n- Use this tool for accessing information beyond Claude's knowledge cutoff\n- Searches are performed automatically within a single API call\n\nCRITICAL REQUIREMENT - You MUST follow this:\n  - After answering the user's question, you MUST include a \"Sources:\" section at the end of your response\n  - In the Sources section, list all relevant URLs from the search results as markdown hyperlinks: [Title](URL)\n  - This is MANDATORY - never skip including sources in your response\n  - Example format:\n\n    [Your answer here]\n\n    Sources:\n    - [Source Title 1](https://example.com/1)\n    - [Source Title 2](https://example.com/2)\n\nUsage notes:\n  - Domain filtering is supported to include or block specific websites\n  - Web search is only available in the US\n\nIMPORTANT - Use the correct year in search queries:\n  - Today's date is 2026-05-04. You MUST use this year when searching for recent information, documentation, or current events.\n  - Example: If today is 2025-07-15 and the user asks for \"latest React docs\", search for \"React documentation 2025\", NOT \"React documentation 2024\"\n",
+          "description": "\n- Allows Claude to search the web and use the results to inform responses\n- Provides up-to-date information for current events and recent data\n- Returns search result information formatted as search result blocks, including links as markdown hyperlinks\n- Use this tool for accessing information beyond Claude's knowledge cutoff\n- Searches are performed automatically within a single API call\n\nCRITICAL REQUIREMENT - You MUST follow this:\n  - After answering the user's question, you MUST include a \"Sources:\" section at the end of your response\n  - In the Sources section, list all relevant URLs from the search results as markdown hyperlinks: [Title](URL)\n  - This is MANDATORY - never skip including sources in your response\n  - Example format:\n\n    [Your answer here]\n\n    Sources:\n    - [Source Title 1](https://example.com/1)\n    - [Source Title 2](https://example.com/2)\n\nUsage notes:\n  - Domain filtering is supported to include or block specific websites\n  - Web search is only available in the US\n\nIMPORTANT - Use the correct year in search queries:\n  - Today's date is 2026-05-05. You MUST use this year when searching for recent information, documentation, or current events.\n  - Example: If today is 2025-07-15 and the user asks for \"latest React docs\", search for \"React documentation 2025\", NOT \"React documentation 2024\"\n",
           "input_schema": {
             "type": "object",
             "properties": {
@@ -807,7 +865,7 @@
           "content": [
             {
               "type": "text",
-              "text": "Based on my available tools, here are the MCP tools currently available to me:\n\n```\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n```"
+              "text": "Based on the tools available to me, here are the MCP tools (tools prefixed with `mcp__`):\n\n```\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n```"
             }
           ]
         }
@@ -815,11 +873,11 @@
       "stop_reason": "end_turn",
       "usage": {
         "input_tokens": 2,
-        "output_tokens": 51,
-        "cache_creation_input_tokens": 17822,
-        "cache_read_input_tokens": 0,
-        "total_tokens": 53,
-        "estimated_cost_usd": 0.3380175
+        "output_tokens": 59,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 17822,
+        "total_tokens": 61,
+        "estimated_cost_usd": 0.031188
       },
       "status": "success",
       "request_params": {},
@@ -828,9 +886,9 @@
   ],
   "raw_captures": [
     {
-      "id": "c52c8882-5f27-47f3-8879-e612ee085aba",
-      "session_id": "484bdb91-73ba-4618-b8b8-9b4e0f1f6006",
-      "timestamp": "2026-05-04T06:45:51.249479",
+      "id": "763121ce-bc5c-4a74-8e0d-e122e71882e2",
+      "session_id": "30a6a1a9-3d07-4ccf-bc11-66291cd82e60",
+      "timestamp": "2026-05-05T10:14:58.967218",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -871,44 +929,45 @@
           }
         ],
         "metadata": {
-          "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_1895d4ef-039b-45b7-b1e6-188630cde4f0"
+          "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_8f45d7b3-df0b-4d8b-ad9f-4852c6b207b5"
         }
       },
       "response_status": 200,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 06:45:51 GMT",
+        "Date": "Tue, 05 May 2026 10:14:59 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
         "anthropic-ratelimit-unified-status": "allowed",
         "anthropic-ratelimit-unified-5h-status": "allowed",
-        "anthropic-ratelimit-unified-5h-reset": "1777893000",
-        "anthropic-ratelimit-unified-5h-utilization": "0.05",
+        "anthropic-ratelimit-unified-5h-reset": "1777978200",
+        "anthropic-ratelimit-unified-5h-utilization": "0.73",
         "anthropic-ratelimit-unified-7d-status": "allowed",
         "anthropic-ratelimit-unified-7d-reset": "1778126400",
-        "anthropic-ratelimit-unified-7d-utilization": "0.35",
+        "anthropic-ratelimit-unified-7d-utilization": "0.58",
         "anthropic-ratelimit-unified-overage-status": "allowed",
         "anthropic-ratelimit-unified-overage-reset": "1780272000",
         "anthropic-ratelimit-unified-overage-utilization": "0.0",
         "anthropic-ratelimit-unified-representative-claim": "five_hour",
         "anthropic-ratelimit-unified-fallback-percentage": "0.5",
-        "anthropic-ratelimit-unified-reset": "1777893000",
-        "request-id": "req_011Cah5VmdXZ9pKBJcCEtcVR",
+        "anthropic-ratelimit-unified-fallback": "available",
+        "anthropic-ratelimit-unified-reset": "1777978200",
+        "request-id": "req_011CajFFe5tFb3QMeWATegmW",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-fc5b8ee6ebbdd2a0b0c1919f74136703-6ba1a2cf9b0c8cff-01",
+        "traceresponse": "00-34f0857ed8f4b4e09bfca6d7a10c6657-b0620ec704120c51-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "628",
+        "x-envoy-upstream-service-time": "564",
         "X-Robots-Tag": "none",
         "vary": "Accept-Encoding",
         "cf-cache-status": "DYNAMIC",
         "set-cookie": "REDACTED",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-        "CF-RAY": "9f658b7fbe8ec8de-SJC"
+        "CF-RAY": "9f6efb379e2ef3db-SJC"
       },
       "response_body": {
         "model": "claude-haiku-4-5-20251001",
-        "id": "msg_014T5m3TPThNfX5hTaLFC1aY",
+        "id": "msg_01RqtR4H8y9vAzyMK48iFH19",
         "type": "message",
         "role": "assistant",
         "content": [
@@ -937,9 +996,9 @@
       "sse_events": []
     },
     {
-      "id": "aad4f6cb-4493-4824-9155-57aa7f75aebd",
-      "session_id": "484bdb91-73ba-4618-b8b8-9b4e0f1f6006",
-      "timestamp": "2026-05-04T06:45:54.966757",
+      "id": "2f5a1d84-f2ea-4d69-a8bc-4325b7384af8",
+      "session_id": "30a6a1a9-3d07-4ccf-bc11-66291cd82e60",
+      "timestamp": "2026-05-05T10:15:00.303812",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -997,7 +1056,7 @@
           },
           {
             "type": "text",
-            "text": "You are a file search specialist for Claude Code, Anthropic's official CLI for Claude. You excel at thoroughly navigating and exploring codebases.\n\n=== CRITICAL: READ-ONLY MODE - NO FILE MODIFICATIONS ===\nThis is a READ-ONLY exploration task. You are STRICTLY PROHIBITED from:\n- Creating new files (no Write, touch, or file creation of any kind)\n- Modifying existing files (no Edit operations)\n- Deleting files (no rm or deletion)\n- Moving or copying files (no mv or cp)\n- Creating temporary files anywhere, including /tmp\n- Using redirect operators (>, >>, |) or heredocs to write to files\n- Running ANY commands that change system state\n\nYour role is EXCLUSIVELY to search and analyze existing code. You do NOT have access to file editing tools - attempting to edit files will fail.\n\nYour strengths:\n- Rapidly finding files using glob patterns\n- Searching code and text with powerful regex patterns\n- Reading and analyzing file contents\n\nGuidelines:\n- Use Glob for broad file pattern matching\n- Use Grep for searching file contents with regex\n- Use Read when you know the specific file path you need to read\n- Use Bash ONLY for read-only operations (ls, git status, git log, git diff, find, cat, head, tail)\n- NEVER use Bash for: mkdir, touch, rm, cp, mv, git add, git commit, npm install, pip install, or any file creation/modification\n- Adapt your search approach based on the thoroughness level specified by the caller\n- Return file paths as absolute paths in your final response\n- For clear communication, avoid using emojis\n- Communicate your final report directly as a regular message - do NOT attempt to create files\n\nNOTE: You are meant to be a fast agent that returns output as quickly as possible. In order to achieve this you must:\n- Make efficient use of the tools that you have at your disposal: be smart about how you search for files and implementations\n- Wherever possible you should try to spawn multiple parallel tool calls for grepping and reading files\n\nComplete the user's search request efficiently and report your findings clearly.\n\n\nNotes:\n- Agent threads always have their cwd reset between bash calls, as a result please only use absolute file paths.\n- In your final response always share relevant file names and code snippets. Any file paths you return in your response MUST be absolute. Do NOT use relative paths.\n- For clear communication with the user the assistant MUST avoid using emojis.\n\nHere is useful information about the environment you are running in:\n<env>\nWorking directory: /work\nIs directory a git repo: No\nPlatform: linux\nOS Version: Linux 6.12.72-linuxkit\nToday's date: 2026-05-04\n</env>\nYou are powered by the model named Haiku 4.5. The exact model ID is claude-haiku-4-5-20251001.\n\n<claude_background_info>\nThe most recent frontier Claude model is Claude Opus 4.5 (model ID: 'claude-opus-4-5-20251101').\n</claude_background_info>\n",
+            "text": "You are a file search specialist for Claude Code, Anthropic's official CLI for Claude. You excel at thoroughly navigating and exploring codebases.\n\n=== CRITICAL: READ-ONLY MODE - NO FILE MODIFICATIONS ===\nThis is a READ-ONLY exploration task. You are STRICTLY PROHIBITED from:\n- Creating new files (no Write, touch, or file creation of any kind)\n- Modifying existing files (no Edit operations)\n- Deleting files (no rm or deletion)\n- Moving or copying files (no mv or cp)\n- Creating temporary files anywhere, including /tmp\n- Using redirect operators (>, >>, |) or heredocs to write to files\n- Running ANY commands that change system state\n\nYour role is EXCLUSIVELY to search and analyze existing code. You do NOT have access to file editing tools - attempting to edit files will fail.\n\nYour strengths:\n- Rapidly finding files using glob patterns\n- Searching code and text with powerful regex patterns\n- Reading and analyzing file contents\n\nGuidelines:\n- Use Glob for broad file pattern matching\n- Use Grep for searching file contents with regex\n- Use Read when you know the specific file path you need to read\n- Use Bash ONLY for read-only operations (ls, git status, git log, git diff, find, cat, head, tail)\n- NEVER use Bash for: mkdir, touch, rm, cp, mv, git add, git commit, npm install, pip install, or any file creation/modification\n- Adapt your search approach based on the thoroughness level specified by the caller\n- Return file paths as absolute paths in your final response\n- For clear communication, avoid using emojis\n- Communicate your final report directly as a regular message - do NOT attempt to create files\n\nNOTE: You are meant to be a fast agent that returns output as quickly as possible. In order to achieve this you must:\n- Make efficient use of the tools that you have at your disposal: be smart about how you search for files and implementations\n- Wherever possible you should try to spawn multiple parallel tool calls for grepping and reading files\n\nComplete the user's search request efficiently and report your findings clearly.\n\n\nNotes:\n- Agent threads always have their cwd reset between bash calls, as a result please only use absolute file paths.\n- In your final response always share relevant file names and code snippets. Any file paths you return in your response MUST be absolute. Do NOT use relative paths.\n- For clear communication with the user the assistant MUST avoid using emojis.\n\nHere is useful information about the environment you are running in:\n<env>\nWorking directory: /work\nIs directory a git repo: No\nPlatform: linux\nOS Version: Linux 6.12.72-linuxkit\nToday's date: 2026-05-05\n</env>\nYou are powered by the model named Haiku 4.5. The exact model ID is claude-haiku-4-5-20251001.\n\n<claude_background_info>\nThe most recent frontier Claude model is Claude Opus 4.5 (model ID: 'claude-opus-4-5-20251101').\n</claude_background_info>\n",
             "cache_control": {
               "type": "ephemeral"
             }
@@ -1005,45 +1064,46 @@
         ],
         "tools": [],
         "metadata": {
-          "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_1895d4ef-039b-45b7-b1e6-188630cde4f0"
+          "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_8f45d7b3-df0b-4d8b-ad9f-4852c6b207b5"
         },
         "max_tokens": 32000,
         "stream": true
       },
       "response_status": 200,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 06:45:54 GMT",
+        "Date": "Tue, 05 May 2026 10:14:59 GMT",
         "Content-Type": "text/event-stream; charset=utf-8",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
         "Cache-Control": "no-cache",
         "anthropic-ratelimit-unified-status": "allowed",
         "anthropic-ratelimit-unified-5h-status": "allowed",
-        "anthropic-ratelimit-unified-5h-reset": "1777893000",
-        "anthropic-ratelimit-unified-5h-utilization": "0.05",
+        "anthropic-ratelimit-unified-5h-reset": "1777978200",
+        "anthropic-ratelimit-unified-5h-utilization": "0.73",
         "anthropic-ratelimit-unified-7d-status": "allowed",
         "anthropic-ratelimit-unified-7d-reset": "1778126400",
-        "anthropic-ratelimit-unified-7d-utilization": "0.35",
+        "anthropic-ratelimit-unified-7d-utilization": "0.58",
         "anthropic-ratelimit-unified-overage-status": "allowed",
         "anthropic-ratelimit-unified-overage-reset": "1780272000",
         "anthropic-ratelimit-unified-overage-utilization": "0.0",
         "anthropic-ratelimit-unified-representative-claim": "five_hour",
         "anthropic-ratelimit-unified-fallback-percentage": "0.5",
-        "anthropic-ratelimit-unified-reset": "1777893000",
-        "request-id": "req_011Cah5VxZMH7yx9L9uaAMEj",
+        "anthropic-ratelimit-unified-fallback": "available",
+        "anthropic-ratelimit-unified-reset": "1777978200",
+        "request-id": "req_011CajFFeMkhakXV9UxuFaZf",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-9dd91c599fb297d1e345471f4c4381b7-0b32e77868cfce26-01",
+        "traceresponse": "00-8dab84139f807433e976ff28055493bf-ff3c345985ae16fd-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "733",
+        "x-envoy-upstream-service-time": "479",
         "X-Robots-Tag": "none",
         "vary": "Accept-Encoding",
         "cf-cache-status": "DYNAMIC",
         "set-cookie": "REDACTED",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-        "CF-RAY": "9f658b8f9af4c8de-SJC"
+        "CF-RAY": "9f6efb37f8d7cf31-SJC"
       },
-      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-haiku-4-5-20251001\",\"id\":\"msg_01CrvyHX5vWvueUufzojxGXq\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":728,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":2,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}      }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}        }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"I'm\"}    }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" ready to assist you with code exploration and file searching tasks. I can help you:\"}}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"\\n\\n- Find files using glob patterns\\n- Search code with regex using grep\\n- Read and analyze file contents\\n- Navigate\"}   }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" and understand codebases\\n\\nI'm operating in READ\"}              }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"-ONLY mode, so I can only search and analyze existing code - I cannot modify, create, or delete files.\\n\\nWhat codebase would you like me to explore\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" or what files are you looking for?\"}           }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0            }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":728,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":102}               }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"}\n\n",
+      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-haiku-4-5-20251001\",\"id\":\"msg_01XgS5Z3XrsGA2vXSBgpp9GF\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":728,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":2,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}               }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}       }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"I'm\"}         }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" ready to help you search and analyze code! I'm Claude Code, Anthropic's file search specialist\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\", operating in read-only mode.\\n\\nI can help you:\\n- Find files using glob patterns\\n- Search code content\"} }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" with regex\\n- Read and analyze file contents\\n- Navigate and explore codebases\\n\\nWhat would you like me to search for or analyze? Just let me know:\"}}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"\\n1. What you're looking for (files, code patterns, specific implementations,\"}    }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" etc.)\\n2. Any relevant file types or directories to focus on\\n3. How thor\"}          }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ough you'd like the search to be\\n\\nI'm ready whenever you are!\"}              }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0       }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":728,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":138}}\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"}\n\n",
       "is_streaming": true,
       "sse_events": [
         {
@@ -1052,7 +1112,7 @@
             "type": "message_start",
             "message": {
               "model": "claude-haiku-4-5-20251001",
-              "id": "msg_01CrvyHX5vWvueUufzojxGXq",
+              "id": "msg_01XgS5Z3XrsGA2vXSBgpp9GF",
               "type": "message",
               "role": "assistant",
               "content": [],
@@ -1109,7 +1169,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": " ready to assist you with code exploration and file searching tasks. I can help you:"
+              "text": " ready to help you search and analyze code! I'm Claude Code, Anthropic's file search specialist"
             }
           }
         },
@@ -1120,7 +1180,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "\n\n- Find files using glob patterns\n- Search code with regex using grep\n- Read and analyze file contents\n- Navigate"
+              "text": ", operating in read-only mode.\n\nI can help you:\n- Find files using glob patterns\n- Search code content"
             }
           }
         },
@@ -1131,7 +1191,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": " and understand codebases\n\nI'm operating in READ"
+              "text": " with regex\n- Read and analyze file contents\n- Navigate and explore codebases\n\nWhat would you like me to search for or analyze? Just let me know:"
             }
           }
         },
@@ -1142,7 +1202,7 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": "-ONLY mode, so I can only search and analyze existing code - I cannot modify, create, or delete files.\n\nWhat codebase would you like me to explore"
+              "text": "\n1. What you're looking for (files, code patterns, specific implementations,"
             }
           }
         },
@@ -1153,7 +1213,18 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": " or what files are you looking for?"
+              "text": " etc.)\n2. Any relevant file types or directories to focus on\n3. How thor"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 0,
+            "delta": {
+              "type": "text_delta",
+              "text": "ough you'd like the search to be\n\nI'm ready whenever you are!"
             }
           }
         },
@@ -1177,7 +1248,7 @@
               "input_tokens": 728,
               "cache_creation_input_tokens": 0,
               "cache_read_input_tokens": 0,
-              "output_tokens": 102
+              "output_tokens": 138
             }
           }
         },
@@ -1190,9 +1261,252 @@
       ]
     },
     {
-      "id": "06a8436c-971d-499f-8a36-2e6e0360c837",
-      "session_id": "484bdb91-73ba-4618-b8b8-9b4e0f1f6006",
-      "timestamp": "2026-05-04T06:45:55.314555",
+      "id": "8b79877d-da3b-4b0d-b514-91316e01d64c",
+      "session_id": "30a6a1a9-3d07-4ccf-bc11-66291cd82e60",
+      "timestamp": "2026-05-05T10:15:01.566161",
+      "capture_mode": "explicit_proxy",
+      "capture_label": null,
+      "capture_metadata": {},
+      "provider": "anthropic",
+      "request_url": "https://api.anthropic.com/v1/messages?beta=true",
+      "request_method": "POST",
+      "request_headers": {
+        "host": "api.anthropic.com",
+        "connection": "keep-alive",
+        "Accept": "application/json",
+        "X-Stainless-Retry-Count": "0",
+        "X-Stainless-Timeout": "600",
+        "X-Stainless-Lang": "js",
+        "X-Stainless-Package-Version": "0.70.0",
+        "X-Stainless-OS": "Linux",
+        "X-Stainless-Arch": "x64",
+        "X-Stainless-Runtime": "node",
+        "X-Stainless-Runtime-Version": "v20.20.2",
+        "anthropic-dangerous-direct-browser-access": "true",
+        "anthropic-version": "2023-06-01",
+        "authorization": "REDACTED",
+        "x-app": "cli",
+        "User-Agent": "claude-cli/2.0.64 (external, sdk-cli)",
+        "content-type": "application/json",
+        "anthropic-beta": "claude-code-20250219,oauth-2025-04-20,interleaved-thinking-2025-05-14",
+        "x-stainless-helper-method": "stream",
+        "accept-language": "*",
+        "sec-fetch-mode": "cors",
+        "accept-encoding": "identity",
+        "content-length": "3928"
+      },
+      "request_body": {
+        "model": "claude-opus-4-5-20251101",
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Warmup",
+                "cache_control": {
+                  "type": "ephemeral"
+                }
+              }
+            ]
+          }
+        ],
+        "system": [
+          {
+            "type": "text",
+            "text": "You are Claude Code, Anthropic's official CLI for Claude.",
+            "cache_control": {
+              "type": "ephemeral"
+            }
+          },
+          {
+            "type": "text",
+            "text": "You are a software architect and planning specialist for Claude Code. Your role is to explore the codebase and design implementation plans.\n\n=== CRITICAL: READ-ONLY MODE - NO FILE MODIFICATIONS ===\nThis is a READ-ONLY planning task. You are STRICTLY PROHIBITED from:\n- Creating new files (no Write, touch, or file creation of any kind)\n- Modifying existing files (no Edit operations)\n- Deleting files (no rm or deletion)\n- Moving or copying files (no mv or cp)\n- Creating temporary files anywhere, including /tmp\n- Using redirect operators (>, >>, |) or heredocs to write to files\n- Running ANY commands that change system state\n\nYour role is EXCLUSIVELY to explore the codebase and design implementation plans. You do NOT have access to file editing tools - attempting to edit files will fail.\n\nYou will be provided with a set of requirements and optionally a perspective on how to approach the design process.\n\n## Your Process\n\n1. **Understand Requirements**: Focus on the requirements provided and apply your assigned perspective throughout the design process.\n\n2. **Explore Thoroughly**:\n   - Read any files provided to you in the initial prompt\n   - Find existing patterns and conventions using Glob, Grep, and Read\n   - Understand the current architecture\n   - Identify similar features as reference\n   - Trace through relevant code paths\n   - Use Bash ONLY for read-only operations (ls, git status, git log, git diff, find, cat, head, tail)\n   - NEVER use Bash for: mkdir, touch, rm, cp, mv, git add, git commit, npm install, pip install, or any file creation/modification\n\n3. **Design Solution**:\n   - Create implementation approach based on your assigned perspective\n   - Consider trade-offs and architectural decisions\n   - Follow existing patterns where appropriate\n\n4. **Detail the Plan**:\n   - Provide step-by-step implementation strategy\n   - Identify dependencies and sequencing\n   - Anticipate potential challenges\n\n## Required Output\n\nEnd your response with:\n\n### Critical Files for Implementation\nList 3-5 files most critical for implementing this plan:\n- path/to/file1.ts - [Brief reason: e.g., \"Core logic to modify\"]\n- path/to/file2.ts - [Brief reason: e.g., \"Interfaces to implement\"]\n- path/to/file3.ts - [Brief reason: e.g., \"Pattern to follow\"]\n\nREMEMBER: You can ONLY explore and plan. You CANNOT and MUST NOT write, edit, or modify any files. You do NOT have access to file editing tools.\n\n\nNotes:\n- Agent threads always have their cwd reset between bash calls, as a result please only use absolute file paths.\n- In your final response always share relevant file names and code snippets. Any file paths you return in your response MUST be absolute. Do NOT use relative paths.\n- For clear communication with the user the assistant MUST avoid using emojis.\n\nHere is useful information about the environment you are running in:\n<env>\nWorking directory: /work\nIs directory a git repo: No\nPlatform: linux\nOS Version: Linux 6.12.72-linuxkit\nToday's date: 2026-05-05\n</env>\nYou are powered by the model named Opus 4.5. The exact model ID is claude-opus-4-5-20251101.\n\nAssistant knowledge cutoff is January 2025.\n\n<claude_background_info>\nThe most recent frontier Claude model is Claude Opus 4.5 (model ID: 'claude-opus-4-5-20251101').\n</claude_background_info>\n",
+            "cache_control": {
+              "type": "ephemeral"
+            }
+          }
+        ],
+        "tools": [],
+        "metadata": {
+          "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_8f45d7b3-df0b-4d8b-ad9f-4852c6b207b5"
+        },
+        "max_tokens": 32000,
+        "stream": true
+      },
+      "response_status": 200,
+      "response_headers": {
+        "Date": "Tue, 05 May 2026 10:15:00 GMT",
+        "Content-Type": "text/event-stream; charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Cache-Control": "no-cache",
+        "anthropic-ratelimit-unified-status": "allowed",
+        "anthropic-ratelimit-unified-5h-status": "allowed",
+        "anthropic-ratelimit-unified-5h-reset": "1777978200",
+        "anthropic-ratelimit-unified-5h-utilization": "0.73",
+        "anthropic-ratelimit-unified-7d-status": "allowed",
+        "anthropic-ratelimit-unified-7d-reset": "1778126400",
+        "anthropic-ratelimit-unified-7d-utilization": "0.58",
+        "anthropic-ratelimit-unified-overage-status": "allowed",
+        "anthropic-ratelimit-unified-overage-reset": "1780272000",
+        "anthropic-ratelimit-unified-overage-utilization": "0.0",
+        "anthropic-ratelimit-unified-representative-claim": "five_hour",
+        "anthropic-ratelimit-unified-fallback-percentage": "0.5",
+        "anthropic-ratelimit-unified-fallback": "available",
+        "anthropic-ratelimit-unified-reset": "1777978200",
+        "request-id": "req_011CajFFeJ37ksCHRwqUqDoz",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
+        "traceresponse": "00-1b5e9151d15d284404219a2d0231db78-74f253edb1e0ddf0-01",
+        "Server": "cloudflare",
+        "x-envoy-upstream-service-time": "1411",
+        "X-Robots-Tag": "none",
+        "vary": "Accept-Encoding",
+        "cf-cache-status": "DYNAMIC",
+        "set-cookie": "REDACTED",
+        "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
+        "CF-RAY": "9f6efb37ec4a2847-SJC"
+      },
+      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-5-20251101\",\"id\":\"msg_01EdcCEzqQvPEG3b4aYtYReK\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":856,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":2,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}      }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}  }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"I understand\"}}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\". I'm ready to explore a codebase and design implementation plans in read-only mode. Please provide me with:\\n\\n1. The requirements you\"}       }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"'d like me to analyze\\n2. Any specific perspective or approach you'd like me to take\\n3. Any initial files you\"}             }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"'d like me to examine\\n\\nI'll use read-only tools (Glob, Grep, Read, and read-only\"}       }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" Bash commands) to explore the codebase, understand patterns, and create a detailed implementation plan without modifying any files.\"}           }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0        }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":856,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":114}       }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"           }\n\n",
+      "is_streaming": true,
+      "sse_events": [
+        {
+          "event": "message_start",
+          "data": {
+            "type": "message_start",
+            "message": {
+              "model": "claude-opus-4-5-20251101",
+              "id": "msg_01EdcCEzqQvPEG3b4aYtYReK",
+              "type": "message",
+              "role": "assistant",
+              "content": [],
+              "stop_reason": null,
+              "stop_sequence": null,
+              "stop_details": null,
+              "usage": {
+                "input_tokens": 856,
+                "cache_creation_input_tokens": 0,
+                "cache_read_input_tokens": 0,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 0
+                },
+                "output_tokens": 2,
+                "service_tier": "standard",
+                "inference_geo": "not_available"
+              }
+            }
+          }
+        },
+        {
+          "event": "content_block_start",
+          "data": {
+            "type": "content_block_start",
+            "index": 0,
+            "content_block": {
+              "type": "text",
+              "text": ""
+            }
+          }
+        },
+        {
+          "event": "ping",
+          "data": {
+            "type": "ping"
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 0,
+            "delta": {
+              "type": "text_delta",
+              "text": "I understand"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 0,
+            "delta": {
+              "type": "text_delta",
+              "text": ". I'm ready to explore a codebase and design implementation plans in read-only mode. Please provide me with:\n\n1. The requirements you"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 0,
+            "delta": {
+              "type": "text_delta",
+              "text": "'d like me to analyze\n2. Any specific perspective or approach you'd like me to take\n3. Any initial files you"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 0,
+            "delta": {
+              "type": "text_delta",
+              "text": "'d like me to examine\n\nI'll use read-only tools (Glob, Grep, Read, and read-only"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 0,
+            "delta": {
+              "type": "text_delta",
+              "text": " Bash commands) to explore the codebase, understand patterns, and create a detailed implementation plan without modifying any files."
+            }
+          }
+        },
+        {
+          "event": "content_block_stop",
+          "data": {
+            "type": "content_block_stop",
+            "index": 0
+          }
+        },
+        {
+          "event": "message_delta",
+          "data": {
+            "type": "message_delta",
+            "delta": {
+              "stop_reason": "end_turn",
+              "stop_sequence": null,
+              "stop_details": null
+            },
+            "usage": {
+              "input_tokens": 856,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "output_tokens": 114
+            }
+          }
+        },
+        {
+          "event": "message_stop",
+          "data": {
+            "type": "message_stop"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c9e49861-ab7b-4e2d-8d80-00074279e4c3",
+      "session_id": "30a6a1a9-3d07-4ccf-bc11-66291cd82e60",
+      "timestamp": "2026-05-05T10:15:01.671656",
       "capture_mode": "explicit_proxy",
       "capture_label": null,
       "capture_metadata": {},
@@ -1250,7 +1564,7 @@
           },
           {
             "type": "text",
-            "text": "\nYou are an interactive CLI tool that helps users with software engineering tasks. Use the instructions below and the tools available to you to assist the user.\n\nIMPORTANT: Assist with authorized security testing, defensive security, CTF challenges, and educational contexts. Refuse requests for destructive techniques, DoS attacks, mass targeting, supply chain compromise, or detection evasion for malicious purposes. Dual-use security tools (C2 frameworks, credential testing, exploit development) require clear authorization context: pentesting engagements, CTF competitions, security research, or defensive use cases.\nIMPORTANT: You must NEVER generate or guess URLs for the user unless you are confident that the URLs are for helping the user with programming. You may use URLs provided by the user in their messages or local files.\n\nIf the user asks for help or wants to give feedback inform them of the following:\n- /help: Get help with using Claude Code\n- To give feedback, users should report the issue at https://github.com/anthropics/claude-code/issues\n\n# Looking up your own documentation:\n\nWhen the user directly asks about any of the following:\n- how to use Claude Code (eg. \"can Claude Code do...\", \"does Claude Code have...\")\n- what you're able to do as Claude Code in second person (eg. \"are you able...\", \"can you do...\")\n- about how they might do something with Claude Code (eg. \"how do I...\", \"how can I...\")\n- how to use a specific Claude Code feature (eg. implement a hook, write a slash command, or install an MCP server)\n- how to use the Claude Agent SDK, or asks you to write code that uses the Claude Agent SDK\n\nUse the Task tool with subagent_type='claude-code-guide' to get accurate information from the official Claude Code and Claude Agent SDK documentation.\n\n# Tone and style\n- Only use emojis if the user explicitly requests it. Avoid using emojis in all communication unless asked.\n- Your output will be displayed on a command line interface. Your responses should be short and concise. You can use Github-flavored markdown for formatting, and will be rendered in a monospace font using the CommonMark specification.\n- Output text to communicate with the user; all text you output outside of tool use is displayed to the user. Only use tools to complete tasks. Never use tools like Bash or code comments as means to communicate with the user during the session.\n- NEVER create files unless they're absolutely necessary for achieving your goal. ALWAYS prefer editing an existing file to creating a new one. This includes markdown files.\n\n# Professional objectivity\nPrioritize technical accuracy and truthfulness over validating the user's beliefs. Focus on facts and problem-solving, providing direct, objective technical info without any unnecessary superlatives, praise, or emotional validation. It is best for the user if Claude honestly applies the same rigorous standards to all ideas and disagrees when necessary, even if it may not be what the user wants to hear. Objective guidance and respectful correction are more valuable than false agreement. Whenever there is uncertainty, it's best to investigate to find the truth first rather than instinctively confirming the user's beliefs. Avoid using over-the-top validation or excessive praise when responding to users such as \"You're absolutely right\" or similar phrases.\n\n# Planning without timelines\nWhen planning tasks, provide concrete implementation steps without time estimates. Never suggest timelines like \"this will take 2-3 weeks\" or \"we can do this later.\" Focus on what needs to be done, not when. Break work into actionable steps and let users decide scheduling.\n\n# Task Management\nYou have access to the TodoWrite tools to help you manage and plan tasks. Use these tools VERY frequently to ensure that you are tracking your tasks and giving the user visibility into your progress.\nThese tools are also EXTREMELY helpful for planning tasks, and for breaking down larger complex tasks into smaller steps. If you do not use this tool when planning, you may forget to do important tasks - and that is unacceptable.\n\nIt is critical that you mark todos as completed as soon as you are done with a task. Do not batch up multiple tasks before marking them as completed.\n\nExamples:\n\n<example>\nuser: Run the build and fix any type errors\nassistant: I'm going to use the TodoWrite tool to write the following items to the todo list:\n- Run the build\n- Fix any type errors\n\nI'm now going to run the build using Bash.\n\nLooks like I found 10 type errors. I'm going to use the TodoWrite tool to write 10 items to the todo list.\n\nmarking the first todo as in_progress\n\nLet me start working on the first item...\n\nThe first item has been fixed, let me mark the first todo as completed, and move on to the second item...\n..\n..\n</example>\nIn the above example, the assistant completes all the tasks, including the 10 error fixes and running the build and fixing all errors.\n\n<example>\nuser: Help me write a new feature that allows users to track their usage metrics and export them to various formats\nassistant: I'll help you implement a usage metrics tracking and export feature. Let me first use the TodoWrite tool to plan this task.\nAdding the following todos to the todo list:\n1. Research existing metrics tracking in the codebase\n2. Design the metrics collection system\n3. Implement core metrics tracking functionality\n4. Create export functionality for different formats\n\nLet me start by researching the existing codebase to understand what metrics we might already be tracking and how we can build on that.\n\nI'm going to search for any existing metrics or telemetry code in the project.\n\nI've found some existing telemetry code. Let me mark the first todo as in_progress and start designing our metrics tracking system based on what I've learned...\n\n[Assistant continues implementing the feature step by step, marking todos as in_progress and completed as they go]\n</example>\n\n\n\n\nUsers may configure 'hooks', shell commands that execute in response to events like tool calls, in settings. Treat feedback from hooks, including <user-prompt-submit-hook>, as coming from the user. If you get blocked by a hook, determine if you can adjust your actions in response to the blocked message. If not, ask the user to check their hooks configuration.\n\n# Doing tasks\nThe user will primarily request you perform software engineering tasks. This includes solving bugs, adding new functionality, refactoring code, explaining code, and more. For these tasks the following steps are recommended:\n- NEVER propose changes to code you haven't read. If a user asks about or wants you to modify a file, read it first. Understand existing code before suggesting modifications.\n- Use the TodoWrite tool to plan the task if required\n- \n- Be careful not to introduce security vulnerabilities such as command injection, XSS, SQL injection, and other OWASP top 10 vulnerabilities. If you notice that you wrote insecure code, immediately fix it.\n- Avoid over-engineering. Only make changes that are directly requested or clearly necessary. Keep solutions simple and focused.\n  - Don't add features, refactor code, or make \"improvements\" beyond what was asked. A bug fix doesn't need surrounding code cleaned up. A simple feature doesn't need extra configurability. Don't add docstrings, comments, or type annotations to code you didn't change. Only add comments where the logic isn't self-evident.\n  - Don't add error handling, fallbacks, or validation for scenarios that can't happen. Trust internal code and framework guarantees. Only validate at system boundaries (user input, external APIs). Don't use feature flags or backwards-compatibility shims when you can just change the code.\n  - Don't create helpers, utilities, or abstractions for one-time operations. Don't design for hypothetical future requirements. The right amount of complexity is the minimum needed for the current task\u2014three similar lines of code is better than a premature abstraction.\n- Avoid backwards-compatibility hacks like renaming unused `_vars`, re-exporting types, adding `// removed` comments for removed code, etc. If something is unused, delete it completely.\n\n- Tool results and user messages may include <system-reminder> tags. <system-reminder> tags contain useful information and reminders. They are automatically added by the system, and bear no direct relation to the specific tool results or user messages in which they appear.\n- The conversation has unlimited context through automatic summarization.\n\nIMPORTANT: Complete tasks fully. Do not stop mid-task or leave work incomplete. Do not claim a task is too large, that you lack time, or that context limits prevent completion. You have unlimited context through summarization. Continue working until the task is done or the user stops you.\n\n# Tool usage policy\n- When doing file search, prefer to use the Task tool in order to reduce context usage.\n- You should proactively use the Task tool with specialized agents when the task at hand matches the agent's description.\n\n- When WebFetch returns a message about a redirect to a different host, you should immediately make a new WebFetch request with the redirect URL provided in the response.\n- You can call multiple tools in a single response. If you intend to call multiple tools and there are no dependencies between them, make all independent tool calls in parallel. Maximize use of parallel tool calls where possible to increase efficiency. However, if some tool calls depend on previous calls to inform dependent values, do NOT call these tools in parallel and instead call them sequentially. For instance, if one operation must complete before another starts, run these operations sequentially instead. Never use placeholders or guess missing parameters in tool calls.\n- If the user specifies that they want you to run tools \"in parallel\", you MUST send a single message with multiple tool use content blocks. For example, if you need to launch multiple agents in parallel, send a single message with multiple Task tool calls.\n- Use specialized tools instead of bash commands when possible, as this provides a better user experience. For file operations, use dedicated tools: Read for reading files instead of cat/head/tail, Edit for editing instead of sed/awk, and Write for creating files instead of cat with heredoc or echo redirection. Reserve bash tools exclusively for actual system commands and terminal operations that require shell execution. NEVER use bash echo or other command-line tools to communicate thoughts, explanations, or instructions to the user. Output all communication directly in your response text instead.\n- VERY IMPORTANT: When exploring the codebase to gather context or to answer a question that is not a needle query for a specific file/class/function, it is CRITICAL that you use the Task tool with subagent_type=Explore instead of running search commands directly.\n<example>\nuser: Where are errors from the client handled?\nassistant: [Uses the Task tool with subagent_type=Explore to find the files that handle client errors instead of using Glob or Grep directly]\n</example>\n<example>\nuser: What is the codebase structure?\nassistant: [Uses the Task tool with subagent_type=Explore]\n</example>\n\n\n\nIMPORTANT: Assist with authorized security testing, defensive security, CTF challenges, and educational contexts. Refuse requests for destructive techniques, DoS attacks, mass targeting, supply chain compromise, or detection evasion for malicious purposes. Dual-use security tools (C2 frameworks, credential testing, exploit development) require clear authorization context: pentesting engagements, CTF competitions, security research, or defensive use cases.\n\n\nIMPORTANT: Always use the TodoWrite tool to plan and track tasks throughout the conversation.\n\n# Code References\n\nWhen referencing specific functions or pieces of code include the pattern `file_path:line_number` to allow the user to easily navigate to the source code location.\n\n<example>\nuser: Where are errors from the client handled?\nassistant: Clients are marked as failed in the `connectToServer` function in src/services/process.ts:712.\n</example>\n\n\nHere is useful information about the environment you are running in:\n<env>\nWorking directory: /work\nIs directory a git repo: No\nPlatform: linux\nOS Version: Linux 6.12.72-linuxkit\nToday's date: 2026-05-04\n</env>\nYou are powered by the model named Opus 4.5. The exact model ID is claude-opus-4-5-20251101.\n\nAssistant knowledge cutoff is January 2025.\n\n<claude_background_info>\nThe most recent frontier Claude model is Claude Opus 4.5 (model ID: 'claude-opus-4-5-20251101').\n</claude_background_info>\n",
+            "text": "\nYou are an interactive CLI tool that helps users with software engineering tasks. Use the instructions below and the tools available to you to assist the user.\n\nIMPORTANT: Assist with authorized security testing, defensive security, CTF challenges, and educational contexts. Refuse requests for destructive techniques, DoS attacks, mass targeting, supply chain compromise, or detection evasion for malicious purposes. Dual-use security tools (C2 frameworks, credential testing, exploit development) require clear authorization context: pentesting engagements, CTF competitions, security research, or defensive use cases.\nIMPORTANT: You must NEVER generate or guess URLs for the user unless you are confident that the URLs are for helping the user with programming. You may use URLs provided by the user in their messages or local files.\n\nIf the user asks for help or wants to give feedback inform them of the following:\n- /help: Get help with using Claude Code\n- To give feedback, users should report the issue at https://github.com/anthropics/claude-code/issues\n\n# Looking up your own documentation:\n\nWhen the user directly asks about any of the following:\n- how to use Claude Code (eg. \"can Claude Code do...\", \"does Claude Code have...\")\n- what you're able to do as Claude Code in second person (eg. \"are you able...\", \"can you do...\")\n- about how they might do something with Claude Code (eg. \"how do I...\", \"how can I...\")\n- how to use a specific Claude Code feature (eg. implement a hook, write a slash command, or install an MCP server)\n- how to use the Claude Agent SDK, or asks you to write code that uses the Claude Agent SDK\n\nUse the Task tool with subagent_type='claude-code-guide' to get accurate information from the official Claude Code and Claude Agent SDK documentation.\n\n# Tone and style\n- Only use emojis if the user explicitly requests it. Avoid using emojis in all communication unless asked.\n- Your output will be displayed on a command line interface. Your responses should be short and concise. You can use Github-flavored markdown for formatting, and will be rendered in a monospace font using the CommonMark specification.\n- Output text to communicate with the user; all text you output outside of tool use is displayed to the user. Only use tools to complete tasks. Never use tools like Bash or code comments as means to communicate with the user during the session.\n- NEVER create files unless they're absolutely necessary for achieving your goal. ALWAYS prefer editing an existing file to creating a new one. This includes markdown files.\n\n# Professional objectivity\nPrioritize technical accuracy and truthfulness over validating the user's beliefs. Focus on facts and problem-solving, providing direct, objective technical info without any unnecessary superlatives, praise, or emotional validation. It is best for the user if Claude honestly applies the same rigorous standards to all ideas and disagrees when necessary, even if it may not be what the user wants to hear. Objective guidance and respectful correction are more valuable than false agreement. Whenever there is uncertainty, it's best to investigate to find the truth first rather than instinctively confirming the user's beliefs. Avoid using over-the-top validation or excessive praise when responding to users such as \"You're absolutely right\" or similar phrases.\n\n# Planning without timelines\nWhen planning tasks, provide concrete implementation steps without time estimates. Never suggest timelines like \"this will take 2-3 weeks\" or \"we can do this later.\" Focus on what needs to be done, not when. Break work into actionable steps and let users decide scheduling.\n\n# Task Management\nYou have access to the TodoWrite tools to help you manage and plan tasks. Use these tools VERY frequently to ensure that you are tracking your tasks and giving the user visibility into your progress.\nThese tools are also EXTREMELY helpful for planning tasks, and for breaking down larger complex tasks into smaller steps. If you do not use this tool when planning, you may forget to do important tasks - and that is unacceptable.\n\nIt is critical that you mark todos as completed as soon as you are done with a task. Do not batch up multiple tasks before marking them as completed.\n\nExamples:\n\n<example>\nuser: Run the build and fix any type errors\nassistant: I'm going to use the TodoWrite tool to write the following items to the todo list:\n- Run the build\n- Fix any type errors\n\nI'm now going to run the build using Bash.\n\nLooks like I found 10 type errors. I'm going to use the TodoWrite tool to write 10 items to the todo list.\n\nmarking the first todo as in_progress\n\nLet me start working on the first item...\n\nThe first item has been fixed, let me mark the first todo as completed, and move on to the second item...\n..\n..\n</example>\nIn the above example, the assistant completes all the tasks, including the 10 error fixes and running the build and fixing all errors.\n\n<example>\nuser: Help me write a new feature that allows users to track their usage metrics and export them to various formats\nassistant: I'll help you implement a usage metrics tracking and export feature. Let me first use the TodoWrite tool to plan this task.\nAdding the following todos to the todo list:\n1. Research existing metrics tracking in the codebase\n2. Design the metrics collection system\n3. Implement core metrics tracking functionality\n4. Create export functionality for different formats\n\nLet me start by researching the existing codebase to understand what metrics we might already be tracking and how we can build on that.\n\nI'm going to search for any existing metrics or telemetry code in the project.\n\nI've found some existing telemetry code. Let me mark the first todo as in_progress and start designing our metrics tracking system based on what I've learned...\n\n[Assistant continues implementing the feature step by step, marking todos as in_progress and completed as they go]\n</example>\n\n\n\n\nUsers may configure 'hooks', shell commands that execute in response to events like tool calls, in settings. Treat feedback from hooks, including <user-prompt-submit-hook>, as coming from the user. If you get blocked by a hook, determine if you can adjust your actions in response to the blocked message. If not, ask the user to check their hooks configuration.\n\n# Doing tasks\nThe user will primarily request you perform software engineering tasks. This includes solving bugs, adding new functionality, refactoring code, explaining code, and more. For these tasks the following steps are recommended:\n- NEVER propose changes to code you haven't read. If a user asks about or wants you to modify a file, read it first. Understand existing code before suggesting modifications.\n- Use the TodoWrite tool to plan the task if required\n- \n- Be careful not to introduce security vulnerabilities such as command injection, XSS, SQL injection, and other OWASP top 10 vulnerabilities. If you notice that you wrote insecure code, immediately fix it.\n- Avoid over-engineering. Only make changes that are directly requested or clearly necessary. Keep solutions simple and focused.\n  - Don't add features, refactor code, or make \"improvements\" beyond what was asked. A bug fix doesn't need surrounding code cleaned up. A simple feature doesn't need extra configurability. Don't add docstrings, comments, or type annotations to code you didn't change. Only add comments where the logic isn't self-evident.\n  - Don't add error handling, fallbacks, or validation for scenarios that can't happen. Trust internal code and framework guarantees. Only validate at system boundaries (user input, external APIs). Don't use feature flags or backwards-compatibility shims when you can just change the code.\n  - Don't create helpers, utilities, or abstractions for one-time operations. Don't design for hypothetical future requirements. The right amount of complexity is the minimum needed for the current task\u2014three similar lines of code is better than a premature abstraction.\n- Avoid backwards-compatibility hacks like renaming unused `_vars`, re-exporting types, adding `// removed` comments for removed code, etc. If something is unused, delete it completely.\n\n- Tool results and user messages may include <system-reminder> tags. <system-reminder> tags contain useful information and reminders. They are automatically added by the system, and bear no direct relation to the specific tool results or user messages in which they appear.\n- The conversation has unlimited context through automatic summarization.\n\nIMPORTANT: Complete tasks fully. Do not stop mid-task or leave work incomplete. Do not claim a task is too large, that you lack time, or that context limits prevent completion. You have unlimited context through summarization. Continue working until the task is done or the user stops you.\n\n# Tool usage policy\n- When doing file search, prefer to use the Task tool in order to reduce context usage.\n- You should proactively use the Task tool with specialized agents when the task at hand matches the agent's description.\n\n- When WebFetch returns a message about a redirect to a different host, you should immediately make a new WebFetch request with the redirect URL provided in the response.\n- You can call multiple tools in a single response. If you intend to call multiple tools and there are no dependencies between them, make all independent tool calls in parallel. Maximize use of parallel tool calls where possible to increase efficiency. However, if some tool calls depend on previous calls to inform dependent values, do NOT call these tools in parallel and instead call them sequentially. For instance, if one operation must complete before another starts, run these operations sequentially instead. Never use placeholders or guess missing parameters in tool calls.\n- If the user specifies that they want you to run tools \"in parallel\", you MUST send a single message with multiple tool use content blocks. For example, if you need to launch multiple agents in parallel, send a single message with multiple Task tool calls.\n- Use specialized tools instead of bash commands when possible, as this provides a better user experience. For file operations, use dedicated tools: Read for reading files instead of cat/head/tail, Edit for editing instead of sed/awk, and Write for creating files instead of cat with heredoc or echo redirection. Reserve bash tools exclusively for actual system commands and terminal operations that require shell execution. NEVER use bash echo or other command-line tools to communicate thoughts, explanations, or instructions to the user. Output all communication directly in your response text instead.\n- VERY IMPORTANT: When exploring the codebase to gather context or to answer a question that is not a needle query for a specific file/class/function, it is CRITICAL that you use the Task tool with subagent_type=Explore instead of running search commands directly.\n<example>\nuser: Where are errors from the client handled?\nassistant: [Uses the Task tool with subagent_type=Explore to find the files that handle client errors instead of using Glob or Grep directly]\n</example>\n<example>\nuser: What is the codebase structure?\nassistant: [Uses the Task tool with subagent_type=Explore]\n</example>\n\n\n\nIMPORTANT: Assist with authorized security testing, defensive security, CTF challenges, and educational contexts. Refuse requests for destructive techniques, DoS attacks, mass targeting, supply chain compromise, or detection evasion for malicious purposes. Dual-use security tools (C2 frameworks, credential testing, exploit development) require clear authorization context: pentesting engagements, CTF competitions, security research, or defensive use cases.\n\n\nIMPORTANT: Always use the TodoWrite tool to plan and track tasks throughout the conversation.\n\n# Code References\n\nWhen referencing specific functions or pieces of code include the pattern `file_path:line_number` to allow the user to easily navigate to the source code location.\n\n<example>\nuser: Where are errors from the client handled?\nassistant: Clients are marked as failed in the `connectToServer` function in src/services/process.ts:712.\n</example>\n\n\nHere is useful information about the environment you are running in:\n<env>\nWorking directory: /work\nIs directory a git repo: No\nPlatform: linux\nOS Version: Linux 6.12.72-linuxkit\nToday's date: 2026-05-05\n</env>\nYou are powered by the model named Opus 4.5. The exact model ID is claude-opus-4-5-20251101.\n\nAssistant knowledge cutoff is January 2025.\n\n<claude_background_info>\nThe most recent frontier Claude model is Claude Opus 4.5 (model ID: 'claude-opus-4-5-20251101').\n</claude_background_info>\n",
             "cache_control": {
               "type": "ephemeral"
             }
@@ -1675,7 +1989,7 @@
           },
           {
             "name": "WebSearch",
-            "description": "\n- Allows Claude to search the web and use the results to inform responses\n- Provides up-to-date information for current events and recent data\n- Returns search result information formatted as search result blocks, including links as markdown hyperlinks\n- Use this tool for accessing information beyond Claude's knowledge cutoff\n- Searches are performed automatically within a single API call\n\nCRITICAL REQUIREMENT - You MUST follow this:\n  - After answering the user's question, you MUST include a \"Sources:\" section at the end of your response\n  - In the Sources section, list all relevant URLs from the search results as markdown hyperlinks: [Title](URL)\n  - This is MANDATORY - never skip including sources in your response\n  - Example format:\n\n    [Your answer here]\n\n    Sources:\n    - [Source Title 1](https://example.com/1)\n    - [Source Title 2](https://example.com/2)\n\nUsage notes:\n  - Domain filtering is supported to include or block specific websites\n  - Web search is only available in the US\n\nIMPORTANT - Use the correct year in search queries:\n  - Today's date is 2026-05-04. You MUST use this year when searching for recent information, documentation, or current events.\n  - Example: If today is 2025-07-15 and the user asks for \"latest React docs\", search for \"React documentation 2025\", NOT \"React documentation 2024\"\n",
+            "description": "\n- Allows Claude to search the web and use the results to inform responses\n- Provides up-to-date information for current events and recent data\n- Returns search result information formatted as search result blocks, including links as markdown hyperlinks\n- Use this tool for accessing information beyond Claude's knowledge cutoff\n- Searches are performed automatically within a single API call\n\nCRITICAL REQUIREMENT - You MUST follow this:\n  - After answering the user's question, you MUST include a \"Sources:\" section at the end of your response\n  - In the Sources section, list all relevant URLs from the search results as markdown hyperlinks: [Title](URL)\n  - This is MANDATORY - never skip including sources in your response\n  - Example format:\n\n    [Your answer here]\n\n    Sources:\n    - [Source Title 1](https://example.com/1)\n    - [Source Title 2](https://example.com/2)\n\nUsage notes:\n  - Domain filtering is supported to include or block specific websites\n  - Web search is only available in the US\n\nIMPORTANT - Use the correct year in search queries:\n  - Today's date is 2026-05-05. You MUST use this year when searching for recent information, documentation, or current events.\n  - Example: If today is 2025-07-15 and the user asks for \"latest React docs\", search for \"React documentation 2025\", NOT \"React documentation 2024\"\n",
             "input_schema": {
               "type": "object",
               "properties": {
@@ -1845,46 +2159,46 @@
           }
         ],
         "metadata": {
-          "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_1895d4ef-039b-45b7-b1e6-188630cde4f0"
+          "user_id": "user_dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82_account_d5e57ed4-123a-49ef-8d7e-8977ec9697c8_session_8f45d7b3-df0b-4d8b-ad9f-4852c6b207b5"
         },
         "max_tokens": 32000,
         "stream": true
       },
       "response_status": 200,
       "response_headers": {
-        "Date": "Mon, 04 May 2026 06:45:54 GMT",
+        "Date": "Tue, 05 May 2026 10:15:01 GMT",
         "Content-Type": "text/event-stream; charset=utf-8",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
         "Cache-Control": "no-cache",
         "anthropic-ratelimit-unified-status": "allowed",
         "anthropic-ratelimit-unified-5h-status": "allowed",
-        "anthropic-ratelimit-unified-5h-reset": "1777893000",
-        "anthropic-ratelimit-unified-5h-utilization": "0.05",
+        "anthropic-ratelimit-unified-5h-reset": "1777978200",
+        "anthropic-ratelimit-unified-5h-utilization": "0.73",
         "anthropic-ratelimit-unified-7d-status": "allowed",
         "anthropic-ratelimit-unified-7d-reset": "1778126400",
-        "anthropic-ratelimit-unified-7d-utilization": "0.35",
+        "anthropic-ratelimit-unified-7d-utilization": "0.58",
         "anthropic-ratelimit-unified-overage-status": "allowed",
         "anthropic-ratelimit-unified-overage-reset": "1780272000",
         "anthropic-ratelimit-unified-overage-utilization": "0.0",
         "anthropic-ratelimit-unified-representative-claim": "five_hour",
         "anthropic-ratelimit-unified-fallback-percentage": "0.5",
-        "anthropic-ratelimit-unified-reset": "1777893000",
-        "request-id": "req_011Cah5VxnFMa2TvJsbjUEHz",
+        "anthropic-ratelimit-unified-fallback": "available",
+        "anthropic-ratelimit-unified-reset": "1777978200",
+        "request-id": "req_011CajFFgxXZzzU6afBFasL8",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-        "traceresponse": "00-7f5dd51e58ed46d9bed5280ffe93a564-b467f9c668292de0-01",
+        "traceresponse": "00-90616ed1bf3f7203d4cb9579ff285eb7-a4a547a4f39da61b-01",
         "Server": "cloudflare",
-        "x-envoy-upstream-service-time": "1465",
-        "X-Robots-Tag": "none",
-        "vary": "Accept-Encoding",
-        "server-timing": "x-originResponse;dur=1467",
-        "cf-cache-status": "DYNAMIC",
-        "set-cookie": "REDACTED",
+        "x-envoy-upstream-service-time": "1840",
         "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
-        "CF-RAY": "9f658b8f9869fab2-SJC"
+        "vary": "Accept-Encoding",
+        "set-cookie": "REDACTED",
+        "X-Robots-Tag": "none",
+        "cf-cache-status": "DYNAMIC",
+        "CF-RAY": "9f6efb3b6abc2db6-SJC"
       },
-      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-5-20251101\",\"id\":\"msg_01YXgFA7iUuYfkxXZtxdE5zt\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":17822,\"cache_read_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":17822,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":1,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}               }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}          }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Based\"}   }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" on my available tools, here are the MCP tools currently available to me:\\n\\n```\\nmcp__fixture__tool_001\\nmcp__fixture__tool_002\\nmcp__fixture__tool_003\\n```\"}            }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0    }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":17822,\"cache_read_input_tokens\":0,\"output_tokens\":51} }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"        }\n\n",
+      "response_body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-5-20251101\",\"id\":\"msg_01UU1JLh9XjJt3AdjyArmkTv\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":17822,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":1,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}} }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"} }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Based\"}            }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" on the tools available to me, here are the MCP tools (tools prefixed with `mcp__`):\\n\\n```\\nmcp__fixture__tool_\"}        }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"001\\nmcp__fixture__tool_002\\nmcp__fixture__tool_003\\n```\"}           }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0      }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":17822,\"output_tokens\":59}        }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"    }\n\n",
       "is_streaming": true,
       "sse_events": [
         {
@@ -1893,7 +2207,7 @@
             "type": "message_start",
             "message": {
               "model": "claude-opus-4-5-20251101",
-              "id": "msg_01YXgFA7iUuYfkxXZtxdE5zt",
+              "id": "msg_01UU1JLh9XjJt3AdjyArmkTv",
               "type": "message",
               "role": "assistant",
               "content": [],
@@ -1902,10 +2216,10 @@
               "stop_details": null,
               "usage": {
                 "input_tokens": 2,
-                "cache_creation_input_tokens": 17822,
-                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 0,
+                "cache_read_input_tokens": 17822,
                 "cache_creation": {
-                  "ephemeral_5m_input_tokens": 17822,
+                  "ephemeral_5m_input_tokens": 0,
                   "ephemeral_1h_input_tokens": 0
                 },
                 "output_tokens": 1,
@@ -1950,7 +2264,18 @@
             "index": 0,
             "delta": {
               "type": "text_delta",
-              "text": " on my available tools, here are the MCP tools currently available to me:\n\n```\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n```"
+              "text": " on the tools available to me, here are the MCP tools (tools prefixed with `mcp__`):\n\n```\nmcp__fixture__tool_"
+            }
+          }
+        },
+        {
+          "event": "content_block_delta",
+          "data": {
+            "type": "content_block_delta",
+            "index": 0,
+            "delta": {
+              "type": "text_delta",
+              "text": "001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n```"
             }
           }
         },
@@ -1972,9 +2297,9 @@
             },
             "usage": {
               "input_tokens": 2,
-              "cache_creation_input_tokens": 17822,
-              "cache_read_input_tokens": 0,
-              "output_tokens": 51
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 17822,
+              "output_tokens": 59
             }
           }
         },

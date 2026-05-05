@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-5-20251101",
-        "id": "msg_01Jt8Fdzq4y9Pj2i3p9PCKFJ",
+        "id": "msg_01UA1TD1efimkoY1BKf4gApZ",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,10 +14,10 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 2,
-          "cache_creation_input_tokens": 17511,
-          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 349,
+          "cache_read_input_tokens": 17162,
           "cache_creation": {
-            "ephemeral_5m_input_tokens": 17511,
+            "ephemeral_5m_input_tokens": 349,
             "ephemeral_1h_input_tokens": 0
           },
           "output_tokens": 1,
@@ -62,7 +62,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": " on the tools available to me, here are the MCP tools (tools that start with `mcp__"
+        "text": " on my available tools, here are the MCP tools currently available to me:\n\n```\nmcp__fixture"
       }
     }
   },
@@ -73,18 +73,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "`):\n\n```\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "_003\n```"
+        "text": "__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n```"
       }
     }
   },
@@ -106,9 +95,9 @@
       },
       "usage": {
         "input_tokens": 2,
-        "cache_creation_input_tokens": 17511,
-        "cache_read_input_tokens": 0,
-        "output_tokens": 59
+        "cache_creation_input_tokens": 349,
+        "cache_read_input_tokens": 17162,
+        "output_tokens": 51
       }
     }
   },

@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-haiku-4-5-20251001",
-        "id": "msg_01CFY7NzhZDD7cRg3p64NyH6",
+        "id": "msg_01GYF7j3YtvffGSsRA951vxT",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -62,7 +62,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": " ready to help! I'm Claude Code, Anthropic's CLI file search specialist. I'm"
+        "text": " ready to help! I'm Claude Code, Anthropic's CLI file"
       }
     }
   },
@@ -73,7 +73,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": " in READ-ONLY mode and can help you:\n\n- **Search for files** using glob patterns\n- **Find code"
+        "text": " search specialist. I'm operating in READ-ONLY mode, so I can efficiently search, explore"
       }
     }
   },
@@ -84,7 +84,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "** using regex with grep\n- **Read and analyze** specific files\n- **Explore codebases** efficiently\n\nI'm currently"
+        "text": ", and analyze codebases without any file modifications.\n\nI'm prepared to help you with:\n- **File searches** using glob patterns"
       }
     }
   },
@@ -95,7 +95,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": " in the `/work` directory, which is not a git repository.\n\nWhat would you like me to search for or explore"
+        "text": "\n- **Content searches** using grep and regex\n- **File analysis** by reading and examining code\n- **Codebase exploration"
       }
     }
   },
@@ -106,7 +106,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "? Just let me know:\n- What files or patterns you're looking for\n- What code"
+        "text": "** to understand structure and relationships\n\nI'm currently in the"
       }
     }
   },
@@ -117,7 +117,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": " or functionality you need to understand\n- Any specific implementations you want to locate\n\nI"
+        "text": " `/work` directory, which is not a git repository.\n\nWhat would you like me to search for or explore?"
       }
     }
   },
@@ -128,7 +128,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "'ll search efficiently and report my findings with absolute file paths and relevant"
+        "text": " Just let me know:\n1. What you're looking for\n2. Any"
       }
     }
   },
@@ -139,7 +139,18 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": " code snippets."
+        "text": " specific file patterns or extensions\n3. How thorough you'd like the search to be\n\nI'll use efficient parallel"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": " searches to get you answers quickly!"
       }
     }
   },
@@ -163,7 +174,7 @@
         "input_tokens": 728,
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
-        "output_tokens": 158
+        "output_tokens": 182
       }
     }
   },

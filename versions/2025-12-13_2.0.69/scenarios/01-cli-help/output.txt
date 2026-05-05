@@ -1,3 +1,4 @@
+>>> building cch:2.0.69
 Usage: claude [options] [command] [prompt]
 
 Claude Code - starts an interactive session by default, use -p/--print for

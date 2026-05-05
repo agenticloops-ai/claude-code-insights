@@ -1,2 +1,4 @@
 timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
-2026-05-04T06:44:14.068219,anthropic,claude-haiku-4-5-20251001,480.2563190460205,,success,max_tokens,8,1,9,1.04e-05,False,False,False,quota
+2026-05-05T10:12:01.220348,anthropic,claude-haiku-4-5-20251001,634.5059871673584,,success,max_tokens,8,1,9,1.04e-05,False,False,False,quota
+2026-05-05T10:12:02.653218,anthropic,claude-haiku-4-5-20251001,2033.217191696167,494.25411224365234,success,end_turn,728,178,906,0.0012944,True,False,False,Warmup
+2026-05-05T10:12:03.647068,anthropic,claude-opus-4-5-20251101,2441.441774368286,1467.6191806793213,success,end_turn,2,59,61,0.03720825,True,True,False,"List every MCP tool that is currently available to you. Print just the tool names, one per line. Do not call any of them."
