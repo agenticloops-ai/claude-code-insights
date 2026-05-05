@@ -2,7 +2,7 @@
 
 - **published:** 2026-05-04
 - **source:** [CHANGELOG.md#21128](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21128)
-- **fetched:** 2026-05-04
+- **fetched:** 2026-05-05
 
 - Bare `/color` (no args) now picks a random session color
 - `/mcp` now shows the tool count for connected servers and flags servers that connected with 0 tools

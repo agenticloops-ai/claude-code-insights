@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-7",
-        "id": "msg_0196ag3q5n6wez4u7mx7k1YY",
+        "id": "msg_01NkoYqgVGxRvueJyBAf9QsY",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,11 +14,11 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 6,
-          "cache_creation_input_tokens": 9998,
+          "cache_creation_input_tokens": 10243,
           "cache_read_input_tokens": 16367,
           "cache_creation": {
-            "ephemeral_5m_input_tokens": 9998,
-            "ephemeral_1h_input_tokens": 0
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 10243
           },
           "output_tokens": 1,
           "service_tier": "standard",
@@ -63,7 +63,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "cp__claude_ai_Canva__cancel-"
+        "text": "cp__claude_ai_Canva__cancel-edit"
       }
     }
   },
@@ -74,7 +74,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "editing-transaction"
+        "text": "ing-transaction"
       }
     }
   },
@@ -85,7 +85,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "it-editing-transaction"
+        "text": "it-editing-transaction\nmcp__cla"
       }
     }
   },
@@ -96,7 +96,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "__create-folder"
+        "text": "ude_ai_Canva__create-folder"
       }
     }
   },
@@ -107,7 +107,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "\nmcp__claude"
+        "text": "ate-design\nmcp__claude"
       }
     }
   },
@@ -129,7 +129,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "-design-pages"
+        "text": ""
       }
     }
   },
@@ -140,7 +140,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "-formats"
+        "text": "ats"
       }
     }
   },
@@ -151,7 +151,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "help"
+        "text": ""
       }
     }
   },
@@ -162,7 +162,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "and-kits"
+        "text": "-kits"
       }
     }
   },
@@ -195,7 +195,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "ing-operations"
+        "text": "form-editing-operations"
       }
     }
   },
@@ -206,7 +206,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "line-review"
+        "text": "Canva__request-outline-review\nmcp__cla"
       }
     }
   },
@@ -217,7 +217,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "ve-shortlink\nmcp__claude"
+        "text": "ude_ai_Canva__resolve-shortlink\nmcp__claude_"
       }
     }
   },
@@ -228,18 +228,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "_ai_Canva__search-folders"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": "load-asset-from-url"
+        "text": "ai_Canva__search-designs"
       }
     }
   },
@@ -261,7 +250,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "_checkpoint"
+        "text": "idraw__create_view"
       }
     }
   },
@@ -272,7 +261,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "_checkpoint\nmcp__claude_"
+        "text": "alidraw"
       }
     }
   },
@@ -283,7 +272,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "ai_Figma__create_design_system_rules"
+        "text": ""
       }
     }
   },
@@ -294,7 +283,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "_file"
+        "text": "code_connect_map"
       }
     }
   },
@@ -305,7 +294,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "_connect_map"
+        "text": "_design_system_rules"
       }
     }
   },
@@ -316,7 +305,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "for_code_connect"
+        "text": "\nmc"
       }
     }
   },
@@ -327,7 +316,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "jam"
+        "text": "p__claude_ai_Figma__get_code_connect_suggestions"
       }
     }
   },
@@ -338,7 +327,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "adata"
+        "text": "\nmcp__claude_"
       }
     }
   },
@@ -349,7 +338,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "s"
+        "text": "ai_Figma__get_libraries"
       }
     }
   },
@@ -360,7 +349,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "_connect_mappings\nmcp__claude_"
+        "text": "enshot"
       }
     }
   },
@@ -371,7 +360,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "ai_Figma__use_figma"
+        "text": "search_design_system"
       }
     }
   },
@@ -382,7 +371,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "_draft"
+        "text": "ings"
       }
     }
   },
@@ -393,7 +382,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "read"
+        "text": "ma"
       }
     }
   },
@@ -404,7 +393,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "Gmail__list_drafts"
+        "text": "ft\nmcp__claude"
       }
     }
   },
@@ -415,7 +404,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "ads\nmcp__"
+        "text": "_ai_Gmail__label_message"
       }
     }
   },
@@ -426,7 +415,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "claude_ai_Google_Calendar__create_event\nmcp__"
+        "text": "_drafts\nmcp__claude"
       }
     }
   },
@@ -437,7 +426,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "claude_ai_Google_Calendar__get_event\nmcp__cla"
+        "text": "_ai_Gmail__unlabel_message"
       }
     }
   },
@@ -448,7 +437,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "ude_ai_Google_Calendar__list_events"
+        "text": "_Calendar__create_event"
       }
     }
   },
@@ -459,7 +448,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "suggest_time"
+        "text": "event"
       }
     }
   },
@@ -470,7 +459,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "enticate"
+        "text": "\nmcp"
       }
     }
   },
@@ -481,7 +470,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "ec_callback"
+        "text": "__claude_ai_Google_Calendar__update_event"
       }
     }
   },
@@ -492,7 +481,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "exec"
+        "text": "_Drive__create_file\nmcp__claude_"
       }
     }
   },
@@ -503,7 +492,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "_checkpoint\nmcp__fixture__t"
+        "text": "ai_Google_Drive__get_file_metadata"
       }
     }
   },
@@ -514,7 +503,84 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "ool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003"
+        "text": "_recent_files"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": "_files"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": "_mermaid_diagram\nmcp__"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": "claude_ai_Miro__complete_authentication"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": "exec_callback"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": "ldraw__exec"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": "ldraw__save_checkpoint\nmcp__fixture__"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "text_delta",
+        "text": "tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003"
       }
     }
   },
@@ -536,18 +602,18 @@
       },
       "usage": {
         "input_tokens": 6,
-        "cache_creation_input_tokens": 9998,
+        "cache_creation_input_tokens": 10243,
         "cache_read_input_tokens": 16367,
-        "output_tokens": 1773,
+        "output_tokens": 1993,
         "iterations": [
           {
             "input_tokens": 6,
-            "output_tokens": 1773,
+            "output_tokens": 1993,
             "cache_read_input_tokens": 16367,
-            "cache_creation_input_tokens": 9998,
+            "cache_creation_input_tokens": 10243,
             "cache_creation": {
-              "ephemeral_5m_input_tokens": 9998,
-              "ephemeral_1h_input_tokens": 0
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 10243
             },
             "type": "message"
           }

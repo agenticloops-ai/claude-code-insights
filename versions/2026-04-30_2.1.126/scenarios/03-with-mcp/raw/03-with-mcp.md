@@ -1,21 +1,21 @@
 # 03-with-mcp
 
-**Started:** 2026-05-04T20:10:54.846773  
-**Ended:** 2026-05-04T20:11:27.960336  
+**Started:** 2026-05-05T07:40:27.346990  
+**Ended:** 2026-05-05T07:40:55.982094  
 **Requests:** 2  
-**Tokens:** 2,159 (in: 373 / out: 1,786)  
-**Cost:** $0.3454  
+**Tokens:** 2,379 (in: 373 / out: 2,006)  
+**Cost:** $0.3665  
 **Models:** claude-haiku-4-5-20251001, claude-opus-4-7  
 **Providers:** anthropic  
 
 ---
 
-## Request #1 — claude-haiku-4-5-20251001 (anthropic) — 905ms
+## Request #1 — claude-haiku-4-5-20251001 (anthropic) — 848ms
 
 ### System Prompt
 
 ```
-x-anthropic-billing-header: cc_version=2.1.126.d59; cc_entrypoint=sdk-cli; cch=f8ea7;
+x-anthropic-billing-header: cc_version=2.1.126.d59; cc_entrypoint=sdk-cli; cch=86829;
 
 You are a Claude agent, built on Anthropic's Claude Agent SDK.
 
@@ -50,12 +50,12 @@ List every MCP tool that is currently available to you. Print just the tool name
 
 ---
 
-## Request #2 — claude-opus-4-7 (anthropic) — 22.7s
+## Request #2 — claude-opus-4-7 (anthropic) — 21.6s
 
 ### System Prompt
 
 ```
-x-anthropic-billing-header: cc_version=2.1.126.d59; cc_entrypoint=sdk-cli; cch=e636d;
+x-anthropic-billing-header: cc_version=2.1.126.d59; cc_entrypoint=sdk-cli; cch=4a825;
 
 You are a Claude agent, built on Anthropic's Claude Agent SDK.
 
@@ -762,7 +762,7 @@ Capabilities:
 
 
 WHEN TO USE THESE TOOLS:
-- The user shares a Figma URL (figma.com/design/..., figma.com/board/..., figma.com/make/...)
+- The user shares a Figma URL (figma.com/design/..., figma.com/board/..., figma.com/slides/..., figma.com/make/...)
 - The user references a Figma file or asks about a Figma design
 - The user wants to capture a web page into Figma
 - The user wants to create a diagram in FigJam
@@ -773,6 +773,7 @@ Extract fileKey and nodeId from Figma URLs:
 - figma.com/design/:fileKey/branch/:branchKey/:fileName → use branchKey as fileKey
 - figma.com/make/:makeFileKey/:makeFileName → use makeFileKey
 - figma.com/board/:fileKey/:fileName?node-id=:nodeId → FigJam file, use get_figjam; pass the original board URL as figjamUrl when available
+- figma.com/slides/:fileKey/:fileName?node-id=:nodeId → Figma Slides file
 
 DESIGN-TO-CODE WORKFLOW:
 
@@ -790,7 +791,7 @@ The response varies based on the user's Figma setup:
 - Raw hex colors / absolute positioning → the design is loosely structured;
   use the screenshot
 
-Check the target project for existing components, layout patterns,and tokens that match the design intent. … [truncated]
+Check the t… [truncated]
 
 ## claude.ai tldraw
 Use `search` to query the tldraw Editor API spec (e.g. search for methods by category or name). Use `exec` to run JavaScript on the canvas — your code receives `editor` (the tldraw Editor instance) and helpers like toRichText, createShapeId, createArrowBetweenShapes. The current canvas state is kept in model context as raw TLShape, asset, and binding data.
@@ -822,7 +823,7 @@ SKIP: file imports `openai`/other-provider SDK, filename like `*-openai.py`/`*-g
 <system-reminder>
 As you answer the user's questions, you can use the following context:
 # currentDate
-Today's date is 2026-05-04.
+Today's date is 2026-05-05.
 
       IMPORTANT: this context may or may not be relevant to your tasks. You should not respond to this context unless it is highly relevant to your task.
 </system-reminder>
@@ -842,6 +843,6 @@ mcp__fixture__tool_002
 mcp__fixture__tool_003
 ```
 
-*Tokens: 6 in / 1,773 out (1,779 total) — Cost: $0.3451*
+*Tokens: 6 in / 1,993 out (1,999 total) — Cost: $0.3662*
 
 ---

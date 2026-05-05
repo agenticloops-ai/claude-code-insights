@@ -1,8 +1,8 @@
 {
   "index": 2,
-  "request_id": "bd10ce74-f0fe-41b9-82a1-735a72887533",
-  "session_id": "dd8945c9-8753-4cb5-bcfe-2fb765ee093b",
-  "timestamp": "2026-05-05T06:49:58.804036",
+  "request_id": "9a219850-9ba1-4232-a939-a71890b23e75",
+  "session_id": "311f1d7e-70f3-4127-81b9-190a687ee832",
+  "timestamp": "2026-05-05T07:42:59.973796",
   "provider": "anthropic",
   "method": "POST",
   "url": "https://api.anthropic.com/v1/messages?beta=true",
@@ -11,7 +11,7 @@
     "Authorization": "REDACTED",
     "Content-Type": "application/json",
     "User-Agent": "claude-cli/2.1.128 (external, sdk-cli)",
-    "X-Claude-Code-Session-Id": "a16dbb8a-8c52-487d-9b32-b80cb8a57067",
+    "X-Claude-Code-Session-Id": "19d5cb31-99ed-4bb9-8a56-e14689b16274",
     "X-Stainless-Arch": "x64",
     "X-Stainless-Lang": "js",
     "X-Stainless-OS": "Linux",
@@ -24,7 +24,7 @@
     "anthropic-dangerous-direct-browser-access": "true",
     "anthropic-version": "2023-06-01",
     "x-app": "cli",
-    "x-client-request-id": "4a18c75c-1e3a-4506-be33-afedd75e26ae",
+    "x-client-request-id": "bf3ae5ca-8bf5-4856-8c10-45ebe7a110b8",
     "Connection": "keep-alive",
     "Host": "api.anthropic.com",
     "Accept-Encoding": "identity",
@@ -66,7 +66,7 @@
     "system": [
       {
         "type": "text",
-        "text": "x-anthropic-billing-header: cc_version=2.1.128.1b9; cc_entrypoint=sdk-cli; cch=1f589;"
+        "text": "x-anthropic-billing-header: cc_version=2.1.128.1b9; cc_entrypoint=sdk-cli; cch=daa55;"
       },
       {
         "type": "text",
@@ -479,7 +479,7 @@
       }
     ],
     "metadata": {
-      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"a16dbb8a-8c52-487d-9b32-b80cb8a57067\"}"
+      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"19d5cb31-99ed-4bb9-8a56-e14689b16274\"}"
     },
     "max_tokens": 64000,
     "thinking": {

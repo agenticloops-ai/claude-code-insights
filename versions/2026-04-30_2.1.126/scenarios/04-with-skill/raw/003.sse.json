@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-7",
-        "id": "msg_01D5ZDXamJQCvJQabi36BUEh",
+        "id": "msg_01WpBdwHNB2d5VkTAWuCxg4t",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,11 +14,11 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 5,
-          "cache_creation_input_tokens": 0,
-          "cache_read_input_tokens": 26763,
+          "cache_creation_input_tokens": 228,
+          "cache_read_input_tokens": 26560,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 0
+            "ephemeral_1h_input_tokens": 228
           },
           "output_tokens": 9,
           "service_tier": "standard",
@@ -85,18 +85,18 @@
       },
       "usage": {
         "input_tokens": 5,
-        "cache_creation_input_tokens": 0,
-        "cache_read_input_tokens": 26763,
+        "cache_creation_input_tokens": 228,
+        "cache_read_input_tokens": 26560,
         "output_tokens": 19,
         "iterations": [
           {
             "input_tokens": 5,
             "output_tokens": 19,
-            "cache_read_input_tokens": 26763,
-            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 26560,
+            "cache_creation_input_tokens": 228,
             "cache_creation": {
               "ephemeral_5m_input_tokens": 0,
-              "ephemeral_1h_input_tokens": 0
+              "ephemeral_1h_input_tokens": 228
             },
             "type": "message"
           }

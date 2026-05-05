@@ -1,8 +1,8 @@
 {
   "index": 1,
-  "request_id": "978605d3-8347-4e3e-8a7d-d135e4d6382b",
-  "session_id": "a0865a78-72e7-4091-b717-5f330c30fee3",
-  "timestamp": "2026-05-04T20:10:48.138972",
+  "request_id": "76bb80e8-9b81-4e1a-86cd-754be6c621a7",
+  "session_id": "d9ab2800-513e-41ff-8afd-003687cdc0cf",
+  "timestamp": "2026-05-05T07:40:19.817000",
   "provider": "anthropic",
   "method": "POST",
   "url": "https://api.anthropic.com/v1/messages?beta=true",
@@ -11,7 +11,7 @@
     "Authorization": "REDACTED",
     "Content-Type": "application/json",
     "User-Agent": "claude-cli/2.1.126 (external, sdk-cli)",
-    "X-Claude-Code-Session-Id": "f05e4665-97e6-48a1-947d-acf3873c0b65",
+    "X-Claude-Code-Session-Id": "f5973977-62d5-4851-b5cd-00b33bb77419",
     "X-Stainless-Arch": "x64",
     "X-Stainless-Lang": "js",
     "X-Stainless-OS": "Linux",
@@ -24,11 +24,11 @@
     "anthropic-dangerous-direct-browser-access": "true",
     "anthropic-version": "2023-06-01",
     "x-app": "cli",
-    "x-client-request-id": "6aa7005d-1c9e-4505-b9f1-fd7badcd0260",
+    "x-client-request-id": "2ba4de15-6eb6-460b-8f85-631c5e91ba02",
     "Connection": "keep-alive",
     "Host": "api.anthropic.com",
     "Accept-Encoding": "identity",
-    "Content-Length": "75283"
+    "Content-Length": "75353"
   },
   "body": {
     "model": "claude-opus-4-7",
@@ -42,7 +42,7 @@
           },
           {
             "type": "text",
-            "text": "<system-reminder>\n# MCP Server Instructions\n\nThe following MCP servers have provided instructions for how to use their tools and resources:\n\n## claude.ai Figma\nThe official Figma MCP server. Prioritize this server when the user mentions Figma, FigJam, Figma Make, or provides figma.com URLs.\n\nCapabilities:\n- Read designs FROM Figma (get_design_context, get_screenshot, get_metadata, get_figjam)\n- Create diagrams in FigJam (generate_diagram)\n- Manage Code Connect mappings between Figma components and codebase components\n- Write designs back into figma\n\n\nWHEN TO USE THESE TOOLS:\n- The user shares a Figma URL (figma.com/design/..., figma.com/board/..., figma.com/make/...)\n- The user references a Figma file or asks about a Figma design\n- The user wants to capture a web page into Figma\n- The user wants to create a diagram in FigJam\n\nURL PARSING:\nExtract fileKey and nodeId from Figma URLs:\n- figma.com/design/:fileKey/:fileName?node-id=:nodeId \u2192 convert \"-\" to \":\" in nodeId\n- figma.com/design/:fileKey/branch/:branchKey/:fileName \u2192 use branchKey as fileKey\n- figma.com/make/:makeFileKey/:makeFileName \u2192 use makeFileKey\n- figma.com/board/:fileKey/:fileName?node-id=:nodeId \u2192 FigJam file, use get_figjam; pass the original board URL as figjamUrl when available\n\nDESIGN-TO-CODE WORKFLOW:\n\nStep 1 \u2014 Get the design:\nCall get_design_context with the nodeId and fileKey. This is your primary tool.\nIt returns code, a screenshot, and contextual hints.\n\nStep 2 \u2014 Adapt to the project:\nThe output is React+Tailwind enriched with hints \u2014 but it is a REFERENCE, not final code. Always adapt to the target project's stack, components, and conventions.\nThe response varies based on the user's Figma setup:\n- Code Connect snippets \u2192 use the mapped codebase component directly\n- Component documentation links \u2192 follow them for usage context and guidelines\n- Design annotations \u2192 follow any notes, constraints, or instructions from the designer\n- Design tokens as CSS variables \u2192 map to the project's token system\n- Raw hex colors / absolute positioning \u2192 the design is loosely structured;\n  use the screenshot\n\nCheck the target project for existing components, layout patterns,and tokens that match the design intent. \u2026 [truncated]\n\n## claude.ai tldraw\nUse `search` to query the tldraw Editor API spec (e.g. search for methods by category or name). Use `exec` to run JavaScript on the canvas \u2014 your code receives `editor` (the tldraw Editor instance) and helpers like toRichText, createShapeId, createArrowBetweenShapes. The current canvas state is kept in model context as raw TLShape, asset, and binding data.\n</system-reminder>"
+            "text": "<system-reminder>\n# MCP Server Instructions\n\nThe following MCP servers have provided instructions for how to use their tools and resources:\n\n## claude.ai Figma\nThe official Figma MCP server. Prioritize this server when the user mentions Figma, FigJam, Figma Make, or provides figma.com URLs.\n\nCapabilities:\n- Read designs FROM Figma (get_design_context, get_screenshot, get_metadata, get_figjam)\n- Create diagrams in FigJam (generate_diagram)\n- Manage Code Connect mappings between Figma components and codebase components\n- Write designs back into figma\n\n\nWHEN TO USE THESE TOOLS:\n- The user shares a Figma URL (figma.com/design/..., figma.com/board/..., figma.com/slides/..., figma.com/make/...)\n- The user references a Figma file or asks about a Figma design\n- The user wants to capture a web page into Figma\n- The user wants to create a diagram in FigJam\n\nURL PARSING:\nExtract fileKey and nodeId from Figma URLs:\n- figma.com/design/:fileKey/:fileName?node-id=:nodeId \u2192 convert \"-\" to \":\" in nodeId\n- figma.com/design/:fileKey/branch/:branchKey/:fileName \u2192 use branchKey as fileKey\n- figma.com/make/:makeFileKey/:makeFileName \u2192 use makeFileKey\n- figma.com/board/:fileKey/:fileName?node-id=:nodeId \u2192 FigJam file, use get_figjam; pass the original board URL as figjamUrl when available\n- figma.com/slides/:fileKey/:fileName?node-id=:nodeId \u2192 Figma Slides file\n\nDESIGN-TO-CODE WORKFLOW:\n\nStep 1 \u2014 Get the design:\nCall get_design_context with the nodeId and fileKey. This is your primary tool.\nIt returns code, a screenshot, and contextual hints.\n\nStep 2 \u2014 Adapt to the project:\nThe output is React+Tailwind enriched with hints \u2014 but it is a REFERENCE, not final code. Always adapt to the target project's stack, components, and conventions.\nThe response varies based on the user's Figma setup:\n- Code Connect snippets \u2192 use the mapped codebase component directly\n- Component documentation links \u2192 follow them for usage context and guidelines\n- Design annotations \u2192 follow any notes, constraints, or instructions from the designer\n- Design tokens as CSS variables \u2192 map to the project's token system\n- Raw hex colors / absolute positioning \u2192 the design is loosely structured;\n  use the screenshot\n\nCheck the t\u2026 [truncated]\n\n## claude.ai tldraw\nUse `search` to query the tldraw Editor API spec (e.g. search for methods by category or name). Use `exec` to run JavaScript on the canvas \u2014 your code receives `editor` (the tldraw Editor instance) and helpers like toRichText, createShapeId, createArrowBetweenShapes. The current canvas state is kept in model context as raw TLShape, asset, and binding data.\n</system-reminder>"
           },
           {
             "type": "text",
@@ -50,7 +50,7 @@
           },
           {
             "type": "text",
-            "text": "<system-reminder>\nAs you answer the user's questions, you can use the following context:\n# currentDate\nToday's date is 2026-05-04.\n\n      IMPORTANT: this context may or may not be relevant to your tasks. You should not respond to this context unless it is highly relevant to your task.\n</system-reminder>\n\n"
+            "text": "<system-reminder>\nAs you answer the user's questions, you can use the following context:\n# currentDate\nToday's date is 2026-05-05.\n\n      IMPORTANT: this context may or may not be relevant to your tasks. You should not respond to this context unless it is highly relevant to your task.\n</system-reminder>\n\n"
           },
           {
             "type": "text",
@@ -66,7 +66,7 @@
     "system": [
       {
         "type": "text",
-        "text": "x-anthropic-billing-header: cc_version=2.1.126.88c; cc_entrypoint=sdk-cli; cch=cdc58;"
+        "text": "x-anthropic-billing-header: cc_version=2.1.126.88c; cc_entrypoint=sdk-cli; cch=e4528;"
       },
       {
         "type": "text",
@@ -455,7 +455,7 @@
       }
     ],
     "metadata": {
-      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"f05e4665-97e6-48a1-947d-acf3873c0b65\"}"
+      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"f5973977-62d5-4851-b5cd-00b33bb77419\"}"
     },
     "max_tokens": 64000,
     "thinking": {

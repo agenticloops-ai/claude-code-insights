@@ -1,21 +1,21 @@
 # 03-with-mcp
 
-**Started:** 2026-05-05T06:49:32.961929  
-**Ended:** 2026-05-05T06:50:01.113706  
+**Started:** 2026-05-05T07:42:29.450112  
+**Ended:** 2026-05-05T07:43:02.284017  
 **Requests:** 2  
 **Tokens:** 2,343 (in: 373 / out: 1,970)  
-**Cost:** $0.3637  
+**Cost:** $0.1876  
 **Models:** claude-haiku-4-5-20251001, claude-opus-4-7  
 **Providers:** anthropic  
 
 ---
 
-## Request #1 — claude-haiku-4-5-20251001 (anthropic) — 828ms
+## Request #1 — claude-haiku-4-5-20251001 (anthropic) — 873ms
 
 ### System Prompt
 
 ```
-x-anthropic-billing-header: cc_version=2.1.128.1b9; cc_entrypoint=sdk-cli; cch=bedf4;
+x-anthropic-billing-header: cc_version=2.1.128.1b9; cc_entrypoint=sdk-cli; cch=45e4e;
 
 You are a Claude agent, built on Anthropic's Claude Agent SDK.
 
@@ -50,12 +50,12 @@ List every MCP tool that is currently available to you. Print just the tool name
 
 ---
 
-## Request #2 — claude-opus-4-7 (anthropic) — 19.6s
+## Request #2 — claude-opus-4-7 (anthropic) — 26.2s
 
 ### System Prompt
 
 ```
-x-anthropic-billing-header: cc_version=2.1.128.1b9; cc_entrypoint=sdk-cli; cch=1f589;
+x-anthropic-billing-header: cc_version=2.1.128.1b9; cc_entrypoint=sdk-cli; cch=daa55;
 
 You are a Claude agent, built on Anthropic's Claude Agent SDK.
 
@@ -856,6 +856,6 @@ mcp__fixture__tool_002
 mcp__fixture__tool_003
 ```
 
-*Tokens: 6 in / 1,957 out (1,963 total) — Cost: $0.3633*
+*Tokens: 6 in / 1,957 out (1,963 total) — Cost: $0.1873*
 
 ---

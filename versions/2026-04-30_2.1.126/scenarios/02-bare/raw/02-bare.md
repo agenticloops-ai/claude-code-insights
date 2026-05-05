@@ -1,21 +1,21 @@
 # 02-bare
 
-**Started:** 2026-05-04T20:10:38.986958  
-**Ended:** 2026-05-04T20:10:50.588259  
+**Started:** 2026-05-05T07:40:09.148486  
+**Ended:** 2026-05-05T07:40:22.197596  
 **Requests:** 1  
 **Tokens:** 22 (in: 6 / out: 16)  
-**Cost:** $0.0411  
+**Cost:** $0.2173  
 **Models:** claude-opus-4-7  
 **Providers:** anthropic  
 
 ---
 
-## Request #1 — claude-opus-4-7 (anthropic) — 2.7s
+## Request #1 — claude-opus-4-7 (anthropic) — 2.4s
 
 ### System Prompt
 
 ```
-x-anthropic-billing-header: cc_version=2.1.126.88c; cc_entrypoint=sdk-cli; cch=cdc58;
+x-anthropic-billing-header: cc_version=2.1.126.88c; cc_entrypoint=sdk-cli; cch=e4528;
 
 You are a Claude agent, built on Anthropic's Claude Agent SDK.
 
@@ -722,7 +722,7 @@ Capabilities:
 
 
 WHEN TO USE THESE TOOLS:
-- The user shares a Figma URL (figma.com/design/..., figma.com/board/..., figma.com/make/...)
+- The user shares a Figma URL (figma.com/design/..., figma.com/board/..., figma.com/slides/..., figma.com/make/...)
 - The user references a Figma file or asks about a Figma design
 - The user wants to capture a web page into Figma
 - The user wants to create a diagram in FigJam
@@ -733,6 +733,7 @@ Extract fileKey and nodeId from Figma URLs:
 - figma.com/design/:fileKey/branch/:branchKey/:fileName → use branchKey as fileKey
 - figma.com/make/:makeFileKey/:makeFileName → use makeFileKey
 - figma.com/board/:fileKey/:fileName?node-id=:nodeId → FigJam file, use get_figjam; pass the original board URL as figjamUrl when available
+- figma.com/slides/:fileKey/:fileName?node-id=:nodeId → Figma Slides file
 
 DESIGN-TO-CODE WORKFLOW:
 
@@ -750,7 +751,7 @@ The response varies based on the user's Figma setup:
 - Raw hex colors / absolute positioning → the design is loosely structured;
   use the screenshot
 
-Check the target project for existing components, layout patterns,and tokens that match the design intent. … [truncated]
+Check the t… [truncated]
 
 ## claude.ai tldraw
 Use `search` to query the tldraw Editor API spec (e.g. search for methods by category or name). Use `exec` to run JavaScript on the canvas — your code receives `editor` (the tldraw Editor instance) and helpers like toRichText, createShapeId, createArrowBetweenShapes. The current canvas state is kept in model context as raw TLShape, asset, and binding data.
@@ -782,7 +783,7 @@ SKIP: file imports `openai`/other-provider SDK, filename like `*-openai.py`/`*-g
 <system-reminder>
 As you answer the user's questions, you can use the following context:
 # currentDate
-Today's date is 2026-05-04.
+Today's date is 2026-05-05.
 
       IMPORTANT: this context may or may not be relevant to your tasks. You should not respond to this context unless it is highly relevant to your task.
 </system-reminder>
@@ -800,6 +801,6 @@ hi
 Hi! What would you like to work on?
 ```
 
-*Tokens: 6 in / 16 out (22 total) — Cost: $0.0411*
+*Tokens: 6 in / 16 out (22 total) — Cost: $0.2173*
 
 ---

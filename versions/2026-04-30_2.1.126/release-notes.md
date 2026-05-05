@@ -2,7 +2,7 @@
 
 - **published:** 2026-04-30
 - **source:** [CHANGELOG.md#21126](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21126)
-- **fetched:** 2026-05-04
+- **fetched:** 2026-05-05
 
 - The `/model` picker now lists models from your gateway's `/v1/models` endpoint when `ANTHROPIC_BASE_URL` points at an Anthropic-compatible gateway
 - - Added `claude project purge [path]` to delete all Claude Code state for a project (transcripts, tasks, file history, config entry) — supports `--dry-run`, `-y/--yes`, `-i/--interactive`, and `--all`

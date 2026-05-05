@@ -1,8 +1,8 @@
 {
   "index": 1,
-  "request_id": "7a5939f7-6b3e-4183-b6cd-d2c9d2405462",
-  "session_id": "dd8945c9-8753-4cb5-bcfe-2fb765ee093b",
-  "timestamp": "2026-05-05T06:49:39.894254",
+  "request_id": "cc9333ca-1484-4d1a-9fd0-63554ae7507a",
+  "session_id": "311f1d7e-70f3-4127-81b9-190a687ee832",
+  "timestamp": "2026-05-05T07:42:34.561375",
   "provider": "anthropic",
   "method": "POST",
   "url": "https://api.anthropic.com/v1/messages?beta=true",
@@ -11,7 +11,7 @@
     "Authorization": "REDACTED",
     "Content-Type": "application/json",
     "User-Agent": "claude-cli/2.1.128 (external, sdk-cli)",
-    "X-Claude-Code-Session-Id": "a16dbb8a-8c52-487d-9b32-b80cb8a57067",
+    "X-Claude-Code-Session-Id": "19d5cb31-99ed-4bb9-8a56-e14689b16274",
     "X-Stainless-Arch": "x64",
     "X-Stainless-Lang": "js",
     "X-Stainless-OS": "Linux",
@@ -24,7 +24,7 @@
     "anthropic-dangerous-direct-browser-access": "true",
     "anthropic-version": "2023-06-01",
     "x-app": "cli",
-    "x-client-request-id": "8d4ce73a-e9f4-42bb-a333-9cd12380a3b6",
+    "x-client-request-id": "8313707b-50dd-496a-908c-3884c08bedf7",
     "Connection": "keep-alive",
     "Host": "api.anthropic.com",
     "Accept-Encoding": "identity",
@@ -46,7 +46,7 @@
     "system": [
       {
         "type": "text",
-        "text": "x-anthropic-billing-header: cc_version=2.1.128.1b9; cc_entrypoint=sdk-cli; cch=bedf4;"
+        "text": "x-anthropic-billing-header: cc_version=2.1.128.1b9; cc_entrypoint=sdk-cli; cch=45e4e;"
       },
       {
         "type": "text",
@@ -59,7 +59,7 @@
     ],
     "tools": [],
     "metadata": {
-      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"a16dbb8a-8c52-487d-9b32-b80cb8a57067\"}"
+      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"19d5cb31-99ed-4bb9-8a56-e14689b16274\"}"
     },
     "max_tokens": 32000,
     "temperature": 1,
