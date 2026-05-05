@@ -18,7 +18,10 @@ CHANGELOG_URL = "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.m
 NPM_URL = "https://www.npmjs.com/package/@anthropic-ai/claude-code/v"
 NPM_BADGE = "https://img.shields.io/badge/npm-cb3837?logo=npm&logoColor=white"
 NOTES_BADGE = "https://img.shields.io/badge/changelog-blue?logo=github&logoColor=white"
-OUT = pathlib.Path(__file__).resolve().parent.parent / "VERSIONS.md"
+DIFF_BADGE = "https://img.shields.io/badge/diff-555?logo=git&logoColor=white"
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+OUT = ROOT / "VERSIONS.md"
+VERSIONS_DIR = ROOT / "versions"
 
 
 def fetch(url: str) -> bytes:
@@ -40,6 +43,25 @@ def slug(v: str) -> str:
     return s
 
 
+def scan_diffs() -> dict[str, str]:
+    """Map version string -> repo-relative path to its diff-from-*.md, if present."""
+    out: dict[str, str] = {}
+    if not VERSIONS_DIR.is_dir():
+        return out
+    for d in VERSIONS_DIR.iterdir():
+        if not d.is_dir():
+            continue
+            # dir name is "<date>_<version>"
+        m = re.match(r"^\d{4}-\d{2}-\d{2}_(.+)$", d.name)
+        if not m:
+            continue
+        version = m.group(1)
+        diff = next(d.glob("diff-from-*.md"), None)
+        if diff is not None:
+            out[version] = f"versions/{d.name}/{diff.name}"
+    return out
+
+
 def main() -> int:
     meta = json.loads(fetch(NPM_META_URL))
     times = meta.get("time", {})
@@ -55,6 +77,7 @@ def main() -> int:
     changelog = fetch(CHANGELOG_RAW).decode()
     documented = set(re.findall(r"^##\s+([0-9]+\.[0-9]+\.[0-9]+(?:[-.][\w.]+)?)\s*$",
                                  changelog, re.M))
+    diffs = scan_diffs()
 
     lines: list[str] = [
         "# Claude Code Versions",
@@ -70,8 +93,8 @@ def main() -> int:
         "",
         "Versions without a changelog entry are usually silent patches or pre-1.0 cuts.",
         "",
-        "| Version | Released | Changelog | npm |",
-        "|---------|----------|-----------|-----|",
+        "| Version | Released | Changelog | Diff | npm |",
+        "|---------|----------|-----------|------|-----|",
     ]
     for v, t in versions:
         date = t[:10]
@@ -79,13 +102,18 @@ def main() -> int:
             f"[![changelog]({NOTES_BADGE})]({CHANGELOG_URL}#{slug(v)})"
             if v in documented else "—"
         )
+        diff = (
+            f"[![diff]({DIFF_BADGE})]({diffs[v]})"
+            if v in diffs else "—"
+        )
         npm = f"[![npm]({NPM_BADGE})]({NPM_URL}/{v})"
-        lines.append(f"| `{v}` | {date} | {notes} | {npm} |")
+        lines.append(f"| `{v}` | {date} | {notes} | {diff} | {npm} |")
 
     OUT.write_text("\n".join(lines) + "\n")
     print(
         f"wrote {OUT.name}: {len(versions)} versions, "
-        f"{sum(1 for v, _ in versions if v in documented)} with CHANGELOG entries"
+        f"{sum(1 for v, _ in versions if v in documented)} with CHANGELOG entries, "
+        f"{len(diffs)} with diff files"
     )
     return 0
 
