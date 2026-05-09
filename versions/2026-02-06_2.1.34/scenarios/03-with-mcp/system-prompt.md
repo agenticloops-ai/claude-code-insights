@@ -146,7 +146,7 @@ Working directory: /work
 Is directory a git repo: No
 Platform: linux
 OS Version: Linux 6.12.72-linuxkit
-Today's date: 2026-05-04
+Today's date: 2026-05-05
 </env>
 You are powered by the model named Opus 4.6. The exact model ID is claude-opus-4-6.
 
@@ -155,7 +155,3 @@ Assistant knowledge cutoff is May 2025.
 <claude_background_info>
 The most recent frontier Claude model is Claude Opus 4.6 (model ID: 'claude-opus-4-6').
 </claude_background_info>
-
-# MCP Server Instructions
-
-The following MCP servers have provided instructions for how to use their tools and resources:

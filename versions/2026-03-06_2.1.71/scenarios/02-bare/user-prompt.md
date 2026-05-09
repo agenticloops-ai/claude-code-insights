@@ -11,10 +11,8 @@ EnterWorktree
 ExitPlanMode
 Glob
 Grep
-ListMcpResourcesTool
 NotebookEdit
 Read
-ReadMcpResourceTool
 SendMessage
 Skill
 TaskOutput

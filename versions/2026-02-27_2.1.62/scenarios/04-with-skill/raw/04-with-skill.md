@@ -1,10 +1,10 @@
 # 04-with-skill
 
-**Started:** 2026-05-04T18:13:41.883579  
-**Ended:** 2026-05-04T18:13:54.199301  
+**Started:** 2026-05-05T16:56:09.751386  
+**Ended:** 2026-05-05T16:56:21.021723  
 **Requests:** 2  
 **Tokens:** 72 (in: 5 / out: 67)  
-**Cost:** $1.0543  
+**Cost:** $0.0787  
 **Models:** claude-opus-4-6  
 **Providers:** anthropic  
 
@@ -142,10 +142,134 @@ Assistant knowledge cutoff is May 2025.
 <fast_mode_info>
 Fast mode for Claude Code uses the same Claude Opus 4.6 model with faster output. It does NOT switch to a different model. It can be toggled with /fast.
 </fast_mode_info>
+```
 
-# MCP Server Instructions
+### Tools
 
-The following MCP servers have provided instructions for how to use their tools and resources:
+#### `Task`
+
+```
+Launch a new agent to handle complex, multi-step tasks autonomously.
+
+The Task tool launches specialized agents (subprocesses) that autonomously handle complex tasks. Each agent type has specific capabilities and tools available to it.
+
+Available agent types and the tools they have access to:
+- general-purpose: General-purpose agent for researching complex questions, searching for code, and executing multi-step tasks. When you are searching for a keyword or file and are not confident that you will find the right match in the first few tries use this agent to perform the search for you. (Tools: *)
+- statusline-setup: Use this agent to configure the user's Claude Code status line setting. (Tools: Read, Edit)
+- Explore: Fast agent specialized for exploring codebases. Use this when you need to quickly find files by patterns (eg. "src/components/**/*.tsx"), search code for keywords (eg. "API endpoints"), or answer questions about the codebase (eg. "how do API endpoints work?"). When calling this agent, specify the desired thoroughness level: "quick" for basic searches, "medium" for moderate exploration, or "very thorough" for comprehensive analysis across multiple locations and naming conventions. (Tools: All tools except Task, ExitPlanMode, Edit, Write, NotebookEdit)
+- Plan: Software architect agent for designing implementation plans. Use this when you need to plan the implementation strategy for a task. Returns step-by-step plans, identifies critical files, and considers architectural trade-offs. (Tools: All tools except Task, ExitPlanMode, Edit, Write, NotebookEdit)
+
+When using the Task tool, you must specify a subagent_type parameter to select which agent type to use.
+
+When NOT to use the Task tool:
+- If you want to read a specific file path, use the Read or Glob tool instead of the Task tool, to find the match more quickly
+- If you are searching for a specific class definition like "class Foo", use the Glob tool instead, to find the match more quickly
+- If you are searching for code within a specific file or set of 2-3 files, use the Read tool instead of the Task tool, to find the match more quickly
+- Other tasks that are not related to the agent descriptions above
+
+
+Usage notes:
+- Always include a short description (3-5 words) summarizing what the agent will do
+- Launch multiple agents concurrently whenever possible, to maximize performance; to do that, use a single message with multiple tool uses
+- When the agent is done, it will return a single message back to you. The result returned by the agent is not visible to the user. To show the user the result, you should send a text message back to the user with a concise summary of the result.
+- You can optionally run agents in the background using the run_in_background parameter. When an agent runs in the background, you will be automatically notified when it completes — do NOT sleep, poll, or proactively check on its progress. Continue with other work or respond to the user instead.
+- **Foreground vs background**: Use foreground (default) when you need the agent's results before you can proceed — e.g., research agents whose findings inform your next steps. Use background when you have genuinely independent work to do in parallel.
+- Agents can be resumed using the `resume` parameter by passing the agent ID from a previous invocation. When resumed, the agent continues with its full previous context preserved. When NOT resuming, each invocation starts fresh and you should provide a detailed task description with all necessary context.
+- When the agent is done, it will return a single message back to you along with its agent ID. You can use this ID to resume the agent later if needed for follow-up work.
+- Provide clear, detailed prompts so the agent can work autonomously and return exactly the information you need.
+- Agents with "access to current context" can see the full conversation history before the tool call. When using these agents, you can write concise prompts that reference earlier context (e.g., "investigate the error discussed above") instead of repeating information. The agent will receive all prior messages and understand the context.
+- The agent's outputs should generally be trusted
+- Clearly tell the agent whether you expect it to write code or just to do research (search, file reads, web fetches, etc.), since it is not aware of the user's intent
+- If the agent description mentions that it should be used proactively, then you should try your best to use it without the user having to ask for it first. Use your judgement.
+- If the user specifies that they want you to run agents "in parallel", you MUST send a single message with multiple Task tool use content blocks. For example, if you need to launch both a build-validator agent and a test-runner agent in parallel, send a single message with both tool calls.
+- You can optionally set `isolation: "worktree"` to run the agent in a temporary git worktree, giving it an isolated copy of the repository. The worktree is automatically cleaned up if the agent makes no changes; if changes are made, the worktree path and branch are returned in the result.
+
+Example usage:
+
+<example_agent_descriptions>
+"test-runner": use this agent after you are done writing code to run tests
+"greeting-responder": use this agent to respond to user greetings with a friendly joke
+</example_agent_descriptions>
+
+<example>
+user: "Please write a function that checks if a number is prime"
+assistant: Sure let me write a function that checks if a number is prime
+assistant: First let me use the Write tool to write a function that checks if a number is prime
+assistant: I'm going to use the Write tool to write the following code:
+<code>
+function isPrime(n) {
+  if (n <= 1) return false
+  for (let i = 2; i * i <= n; i++) {
+    if (n % i === 0) return false
+  }
+  return true
+}
+</code>
+<commentary>
+Since a significant piece of code was written and the task was completed, now use the test-runner agent to run the tests
+</commentary>
+assistant: Now let me use the test-runner agent to run the tests
+assistant: Uses the Task tool to launch the test-runner agent
+</example>
+
+<example>
+user: "Hello"
+<commentary>
+Since the user is greeting, use the greeting-responder agent to respond with a friendly joke
+</commentary>
+assistant: "I'm going to use the Task tool to launch the greeting-responder agent"
+</example>
+
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `description` | string | yes | A short (3-5 word) description of the task |
+| `prompt` | string | yes | The task for the agent to perform |
+| `subagent_type` | string | yes | The type of specialized agent to use for this task |
+| `model` | string | no | Optional model to use for this agent. If not specified, inherits from parent. Prefer haiku for quick, straightforward tasks to minimize cost and latency. |
+| `resume` | string | no | Optional agent ID to resume from. If provided, the agent will continue from the previous execution transcript. |
+| `run_in_background` | boolean | no | Set to true to run this agent in the background. The tool result will include an output_file path - use Read tool or Bash tail to check on output. |
+| `max_turns` | integer | no | Maximum number of agentic turns (API round-trips) before stopping. Used internally for warmup. |
+| `name` | string | no | Name for the spawned agent |
+| `team_name` | string | no | Team name for spawning. Uses current team context if omitted. |
+| `mode` | string | no | Permission mode for spawned teammate (e.g., "plan" to require plan approval). |
+| `isolation` | string | no | Isolation mode. "worktree" creates a temporary git worktree so the agent works on an isolated copy of the repo. |
+
+#### `TaskOutput`
+
+```
+- Retrieves output from a running or completed task (background shell, agent, or remote session)
+- Takes a task_id parameter identifying the task
+- Returns the task output along with status information
+- Use block=true (default) to wait for task completion
+- Use block=false for non-blocking check of current status
+- Task IDs can be found using the /tasks command
+- Works with all task types: background shells, async agents, and remote sessions
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `task_id` | string | yes | The task ID to get output from |
+| `block` | boolean | yes | Whether to wait for completion |
+| `timeout` | number | yes | Max wait time in ms |
+
+#### `Bash`
+
+```
+Executes a given bash command and returns its output.
+
+The working directory persists between commands, but shell state does not. The shell environment is initialized from the user's profile (bash or zsh).
+
+IMPORTANT: Avoid using this tool to run `find`, `grep`, `cat`, `head`, `tail`, `sed`, `awk`, or `echo` commands, unless explicitly instructed or after you have verified that a dedicated tool cannot accomplish your task. Instead, use the appropriate dedicated tool as this will provide a much better experience for the user:
+
+ - File search: Use Glob (NOT find or ls)
+ - Content search: Use Grep (NOT grep or rg)
+ - Read files: Use Read (NOT cat/head/tail)
+ - Edit files: Use Edit (NOT sed/awk)
+ - Write files: Use Write (NOT echo >/cat <<EOF)
+ - Communication: Output text directly (NOT echo/printf)
+While the Bash tool can do similar things, it’s better to use the built-in tools as they provide a better user experience and make it easier to review tool calls and give permission.
 
 # Instructions
  - If your command will create new directories or files, first use this tool to run `ls` to verify the parent directory exists and is the correct location.
@@ -197,7 +321,7 @@ Git Safety Protocol:
 3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands:
    - Add relevant untracked files to the staging area.
    - Create the commit with a message ending with:
-   Co-Authored-By: Claude Opus 4.6 <<USER_EMAIL>>
+   Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
    - Run git status after the commit completes to verify success.
    Note: git status depends on the commit completing, so run it sequentially after the commit.
 4. If the commit fails due to pre-commit hook: fix the issue and create a NEW commit
@@ -214,7 +338,7 @@ Important notes:
 git commit -m "$(cat <<'EOF'
    Commit message here.
 
-   Co-Authored-By: Claude Opus 4.6 <<USER_EMAIL>>
+   Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
    EOF
    )"
 </example>
@@ -1187,125 +1311,35 @@ The teammate will receive the rejection with your feedback and can revise their 
 | `request_id` | string | no | Request ID to respond to (required for shutdown_response, plan_approval_response) |
 | `approve` | boolean | no | Whether to approve the request (required for shutdown_response, plan_approval_response) |
 
-#### `ToolSearch`
+#### `mcp__fixture__tool_001` (MCP: fixture)
 
 ```
-Search for or select deferred tools to make them available for use.
-
-**MANDATORY PREREQUISITE - THIS IS A HARD REQUIREMENT**
-
-You MUST use this tool to load deferred tools BEFORE calling them directly.
-
-This is a BLOCKING REQUIREMENT - deferred tools listed below are NOT available until you load them using this tool. Both query modes (keyword search and direct selection) load the returned tools — once a tool appears in the results, it is immediately available to call.
-
-**Why this is non-negotiable:**
-- Deferred tools are not loaded until discovered via this tool
-- Calling a deferred tool without first loading it will fail
-
-**Query modes:**
-
-1. **Keyword search** - Use keywords when you're unsure which tool to use or need to discover multiple tools at once:
-   - "list directory" - find tools for listing directories
-   - "notebook jupyter" - find notebook editing tools
-   - "slack message" - find slack messaging tools
-   - Returns up to 5 matching tools ranked by relevance
-   - All returned tools are immediately available to call — no further selection step needed
-
-2. **Direct selection** - Use `select:<tool_name>` when you know the exact tool name and only need that one tool:
-   - "select:mcp__slack__read_channel"
-   - "select:NotebookEdit"
-   - Returns just that tool if it exists
-
-**IMPORTANT:** Both modes load tools equally. Do NOT follow up a keyword search with `select:` calls for tools already returned — they are already loaded.
-
-3. **Required keyword** - Prefix with `+` to require a match:
-   - "+linear create issue" - only tools from "linear", ranked by "create"/"issue"
-   - "+slack send" - only "slack" tools, ranked by "send"
-   - Useful when you know the service name but not the exact tool
-
-**CORRECT Usage Patterns:**
-
-<example>
-User: I need to work with slack somehow
-Assistant: Let me search for slack tools.
-[Calls ToolSearch with query: "slack"]
-Assistant: Found several options including mcp__slack__read_channel.
-[Calls mcp__slack__read_channel directly — it was loaded by the keyword search]
-</example>
-
-<example>
-User: Edit the Jupyter notebook
-Assistant: Let me load the notebook editing tool.
-[Calls ToolSearch with query: "select:NotebookEdit"]
-[Calls NotebookEdit]
-</example>
-
-<example>
-User: List files in the src directory
-Assistant: I can see mcp__filesystem__list_directory in the available tools. Let me select it.
-[Calls ToolSearch with query: "select:mcp__filesystem__list_directory"]
-[Calls the tool]
-</example>
-
-**INCORRECT Usage Patterns - NEVER DO THESE:**
-
-<bad-example>
-User: Read my slack messages
-Assistant: [Directly calls mcp__slack__read_channel without loading it first]
-WRONG - You must load the tool FIRST using this tool
-</bad-example>
-
-<bad-example>
-Assistant: [Calls ToolSearch with query: "slack", gets back mcp__slack__read_channel]
-Assistant: [Calls ToolSearch with query: "select:mcp__slack__read_channel"]
-WRONG - The keyword search already loaded the tool. The select call is redundant.
-</bad-example>
-
-Available deferred tools (must be loaded before use):
-mcp__fixture__tool_001
-mcp__fixture__tool_002
-mcp__fixture__tool_003
+Synthetic fixture tool #1. Echoes the supplied 'text' argument in its response. Exists only so claude-code registers a deterministic, version-comparable MCP tool.
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `query` | string | yes | Query to find deferred tools. Use "select:<tool_name>" for direct selection, or keywords to search. |
-| `max_results` | number | yes | Maximum number of results to return (default: 5) |
+| `text` | string | yes | Text to echo back. |
 
-#### `ListMcpResourcesTool`
+#### `mcp__fixture__tool_002` (MCP: fixture)
 
 ```
-
-List available resources from configured MCP servers.
-Each returned resource will include all standard MCP resource fields plus a 'server' field 
-indicating which server the resource belongs to.
-
-Parameters:
-- server (optional): The name of a specific MCP server to get resources from. If not provided,
-  resources from all servers will be returned.
-
+Synthetic fixture tool #2. Echoes the supplied 'text' argument in its response. Exists only so claude-code registers a deterministic, version-comparable MCP tool.
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `server` | string | no | Optional server name to filter resources by |
+| `text` | string | yes | Text to echo back. |
 
-#### `ReadMcpResourceTool`
+#### `mcp__fixture__tool_003` (MCP: fixture)
 
 ```
-
-Reads a specific resource from an MCP server, identified by server name and resource URI.
-
-Parameters:
-- server (required): The name of the MCP server from which to read the resource
-- uri (required): The URI of the resource to read
-
+Synthetic fixture tool #3. Echoes the supplied 'text' argument in its response. Exists only so claude-code registers a deterministic, version-comparable MCP tool.
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `server` | string | yes | The MCP server name |
-| `uri` | string | yes | The resource URI to read |
+| `text` | string | yes | Text to echo back. |
 
 
 **User:**
@@ -1336,7 +1370,7 @@ CRITICAL: Check the existing code's imports FIRST. If it imports `openai` or ano
 <system-reminder>
 As you answer the user's questions, you can use the following context:
 # currentDate
-Today's date is 2026-05-04.
+Today's date is 2026-05-05.
 
       IMPORTANT: this context may or may not be relevant to your tasks. You should not respond to this context unless it is highly relevant to your task.
 </system-reminder>
@@ -1355,11 +1389,11 @@ Use the say-hello skill. Print only its output, nothing else.
 }
 ```
 
-*Tokens: 3 in / 55 out (58 total) — Cost: $0.5275*
+*Tokens: 3 in / 55 out (58 total) — Cost: $0.0408*
 
 ---
 
-## Request #2 — claude-opus-4-6 (anthropic) — 2.5s
+## Request #2 — claude-opus-4-6 (anthropic) — 3.6s
 
 ### System Prompt
 
@@ -1491,10 +1525,134 @@ Assistant knowledge cutoff is May 2025.
 <fast_mode_info>
 Fast mode for Claude Code uses the same Claude Opus 4.6 model with faster output. It does NOT switch to a different model. It can be toggled with /fast.
 </fast_mode_info>
+```
 
-# MCP Server Instructions
+### Tools
 
-The following MCP servers have provided instructions for how to use their tools and resources:
+#### `Task`
+
+```
+Launch a new agent to handle complex, multi-step tasks autonomously.
+
+The Task tool launches specialized agents (subprocesses) that autonomously handle complex tasks. Each agent type has specific capabilities and tools available to it.
+
+Available agent types and the tools they have access to:
+- general-purpose: General-purpose agent for researching complex questions, searching for code, and executing multi-step tasks. When you are searching for a keyword or file and are not confident that you will find the right match in the first few tries use this agent to perform the search for you. (Tools: *)
+- statusline-setup: Use this agent to configure the user's Claude Code status line setting. (Tools: Read, Edit)
+- Explore: Fast agent specialized for exploring codebases. Use this when you need to quickly find files by patterns (eg. "src/components/**/*.tsx"), search code for keywords (eg. "API endpoints"), or answer questions about the codebase (eg. "how do API endpoints work?"). When calling this agent, specify the desired thoroughness level: "quick" for basic searches, "medium" for moderate exploration, or "very thorough" for comprehensive analysis across multiple locations and naming conventions. (Tools: All tools except Task, ExitPlanMode, Edit, Write, NotebookEdit)
+- Plan: Software architect agent for designing implementation plans. Use this when you need to plan the implementation strategy for a task. Returns step-by-step plans, identifies critical files, and considers architectural trade-offs. (Tools: All tools except Task, ExitPlanMode, Edit, Write, NotebookEdit)
+
+When using the Task tool, you must specify a subagent_type parameter to select which agent type to use.
+
+When NOT to use the Task tool:
+- If you want to read a specific file path, use the Read or Glob tool instead of the Task tool, to find the match more quickly
+- If you are searching for a specific class definition like "class Foo", use the Glob tool instead, to find the match more quickly
+- If you are searching for code within a specific file or set of 2-3 files, use the Read tool instead of the Task tool, to find the match more quickly
+- Other tasks that are not related to the agent descriptions above
+
+
+Usage notes:
+- Always include a short description (3-5 words) summarizing what the agent will do
+- Launch multiple agents concurrently whenever possible, to maximize performance; to do that, use a single message with multiple tool uses
+- When the agent is done, it will return a single message back to you. The result returned by the agent is not visible to the user. To show the user the result, you should send a text message back to the user with a concise summary of the result.
+- You can optionally run agents in the background using the run_in_background parameter. When an agent runs in the background, you will be automatically notified when it completes — do NOT sleep, poll, or proactively check on its progress. Continue with other work or respond to the user instead.
+- **Foreground vs background**: Use foreground (default) when you need the agent's results before you can proceed — e.g., research agents whose findings inform your next steps. Use background when you have genuinely independent work to do in parallel.
+- Agents can be resumed using the `resume` parameter by passing the agent ID from a previous invocation. When resumed, the agent continues with its full previous context preserved. When NOT resuming, each invocation starts fresh and you should provide a detailed task description with all necessary context.
+- When the agent is done, it will return a single message back to you along with its agent ID. You can use this ID to resume the agent later if needed for follow-up work.
+- Provide clear, detailed prompts so the agent can work autonomously and return exactly the information you need.
+- Agents with "access to current context" can see the full conversation history before the tool call. When using these agents, you can write concise prompts that reference earlier context (e.g., "investigate the error discussed above") instead of repeating information. The agent will receive all prior messages and understand the context.
+- The agent's outputs should generally be trusted
+- Clearly tell the agent whether you expect it to write code or just to do research (search, file reads, web fetches, etc.), since it is not aware of the user's intent
+- If the agent description mentions that it should be used proactively, then you should try your best to use it without the user having to ask for it first. Use your judgement.
+- If the user specifies that they want you to run agents "in parallel", you MUST send a single message with multiple Task tool use content blocks. For example, if you need to launch both a build-validator agent and a test-runner agent in parallel, send a single message with both tool calls.
+- You can optionally set `isolation: "worktree"` to run the agent in a temporary git worktree, giving it an isolated copy of the repository. The worktree is automatically cleaned up if the agent makes no changes; if changes are made, the worktree path and branch are returned in the result.
+
+Example usage:
+
+<example_agent_descriptions>
+"test-runner": use this agent after you are done writing code to run tests
+"greeting-responder": use this agent to respond to user greetings with a friendly joke
+</example_agent_descriptions>
+
+<example>
+user: "Please write a function that checks if a number is prime"
+assistant: Sure let me write a function that checks if a number is prime
+assistant: First let me use the Write tool to write a function that checks if a number is prime
+assistant: I'm going to use the Write tool to write the following code:
+<code>
+function isPrime(n) {
+  if (n <= 1) return false
+  for (let i = 2; i * i <= n; i++) {
+    if (n % i === 0) return false
+  }
+  return true
+}
+</code>
+<commentary>
+Since a significant piece of code was written and the task was completed, now use the test-runner agent to run the tests
+</commentary>
+assistant: Now let me use the test-runner agent to run the tests
+assistant: Uses the Task tool to launch the test-runner agent
+</example>
+
+<example>
+user: "Hello"
+<commentary>
+Since the user is greeting, use the greeting-responder agent to respond with a friendly joke
+</commentary>
+assistant: "I'm going to use the Task tool to launch the greeting-responder agent"
+</example>
+
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `description` | string | yes | A short (3-5 word) description of the task |
+| `prompt` | string | yes | The task for the agent to perform |
+| `subagent_type` | string | yes | The type of specialized agent to use for this task |
+| `model` | string | no | Optional model to use for this agent. If not specified, inherits from parent. Prefer haiku for quick, straightforward tasks to minimize cost and latency. |
+| `resume` | string | no | Optional agent ID to resume from. If provided, the agent will continue from the previous execution transcript. |
+| `run_in_background` | boolean | no | Set to true to run this agent in the background. The tool result will include an output_file path - use Read tool or Bash tail to check on output. |
+| `max_turns` | integer | no | Maximum number of agentic turns (API round-trips) before stopping. Used internally for warmup. |
+| `name` | string | no | Name for the spawned agent |
+| `team_name` | string | no | Team name for spawning. Uses current team context if omitted. |
+| `mode` | string | no | Permission mode for spawned teammate (e.g., "plan" to require plan approval). |
+| `isolation` | string | no | Isolation mode. "worktree" creates a temporary git worktree so the agent works on an isolated copy of the repo. |
+
+#### `TaskOutput`
+
+```
+- Retrieves output from a running or completed task (background shell, agent, or remote session)
+- Takes a task_id parameter identifying the task
+- Returns the task output along with status information
+- Use block=true (default) to wait for task completion
+- Use block=false for non-blocking check of current status
+- Task IDs can be found using the /tasks command
+- Works with all task types: background shells, async agents, and remote sessions
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `task_id` | string | yes | The task ID to get output from |
+| `block` | boolean | yes | Whether to wait for completion |
+| `timeout` | number | yes | Max wait time in ms |
+
+#### `Bash`
+
+```
+Executes a given bash command and returns its output.
+
+The working directory persists between commands, but shell state does not. The shell environment is initialized from the user's profile (bash or zsh).
+
+IMPORTANT: Avoid using this tool to run `find`, `grep`, `cat`, `head`, `tail`, `sed`, `awk`, or `echo` commands, unless explicitly instructed or after you have verified that a dedicated tool cannot accomplish your task. Instead, use the appropriate dedicated tool as this will provide a much better experience for the user:
+
+ - File search: Use Glob (NOT find or ls)
+ - Content search: Use Grep (NOT grep or rg)
+ - Read files: Use Read (NOT cat/head/tail)
+ - Edit files: Use Edit (NOT sed/awk)
+ - Write files: Use Write (NOT echo >/cat <<EOF)
+ - Communication: Output text directly (NOT echo/printf)
+While the Bash tool can do similar things, it’s better to use the built-in tools as they provide a better user experience and make it easier to review tool calls and give permission.
 
 # Instructions
  - If your command will create new directories or files, first use this tool to run `ls` to verify the parent directory exists and is the correct location.
@@ -1546,7 +1704,7 @@ Git Safety Protocol:
 3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands:
    - Add relevant untracked files to the staging area.
    - Create the commit with a message ending with:
-   Co-Authored-By: Claude Opus 4.6 <<USER_EMAIL>>
+   Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
    - Run git status after the commit completes to verify success.
    Note: git status depends on the commit completing, so run it sequentially after the commit.
 4. If the commit fails due to pre-commit hook: fix the issue and create a NEW commit
@@ -1563,7 +1721,7 @@ Important notes:
 git commit -m "$(cat <<'EOF'
    Commit message here.
 
-   Co-Authored-By: Claude Opus 4.6 <<USER_EMAIL>>
+   Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
    EOF
    )"
 </example>
@@ -2536,125 +2694,35 @@ The teammate will receive the rejection with your feedback and can revise their 
 | `request_id` | string | no | Request ID to respond to (required for shutdown_response, plan_approval_response) |
 | `approve` | boolean | no | Whether to approve the request (required for shutdown_response, plan_approval_response) |
 
-#### `ToolSearch`
+#### `mcp__fixture__tool_001` (MCP: fixture)
 
 ```
-Search for or select deferred tools to make them available for use.
-
-**MANDATORY PREREQUISITE - THIS IS A HARD REQUIREMENT**
-
-You MUST use this tool to load deferred tools BEFORE calling them directly.
-
-This is a BLOCKING REQUIREMENT - deferred tools listed below are NOT available until you load them using this tool. Both query modes (keyword search and direct selection) load the returned tools — once a tool appears in the results, it is immediately available to call.
-
-**Why this is non-negotiable:**
-- Deferred tools are not loaded until discovered via this tool
-- Calling a deferred tool without first loading it will fail
-
-**Query modes:**
-
-1. **Keyword search** - Use keywords when you're unsure which tool to use or need to discover multiple tools at once:
-   - "list directory" - find tools for listing directories
-   - "notebook jupyter" - find notebook editing tools
-   - "slack message" - find slack messaging tools
-   - Returns up to 5 matching tools ranked by relevance
-   - All returned tools are immediately available to call — no further selection step needed
-
-2. **Direct selection** - Use `select:<tool_name>` when you know the exact tool name and only need that one tool:
-   - "select:mcp__slack__read_channel"
-   - "select:NotebookEdit"
-   - Returns just that tool if it exists
-
-**IMPORTANT:** Both modes load tools equally. Do NOT follow up a keyword search with `select:` calls for tools already returned — they are already loaded.
-
-3. **Required keyword** - Prefix with `+` to require a match:
-   - "+linear create issue" - only tools from "linear", ranked by "create"/"issue"
-   - "+slack send" - only "slack" tools, ranked by "send"
-   - Useful when you know the service name but not the exact tool
-
-**CORRECT Usage Patterns:**
-
-<example>
-User: I need to work with slack somehow
-Assistant: Let me search for slack tools.
-[Calls ToolSearch with query: "slack"]
-Assistant: Found several options including mcp__slack__read_channel.
-[Calls mcp__slack__read_channel directly — it was loaded by the keyword search]
-</example>
-
-<example>
-User: Edit the Jupyter notebook
-Assistant: Let me load the notebook editing tool.
-[Calls ToolSearch with query: "select:NotebookEdit"]
-[Calls NotebookEdit]
-</example>
-
-<example>
-User: List files in the src directory
-Assistant: I can see mcp__filesystem__list_directory in the available tools. Let me select it.
-[Calls ToolSearch with query: "select:mcp__filesystem__list_directory"]
-[Calls the tool]
-</example>
-
-**INCORRECT Usage Patterns - NEVER DO THESE:**
-
-<bad-example>
-User: Read my slack messages
-Assistant: [Directly calls mcp__slack__read_channel without loading it first]
-WRONG - You must load the tool FIRST using this tool
-</bad-example>
-
-<bad-example>
-Assistant: [Calls ToolSearch with query: "slack", gets back mcp__slack__read_channel]
-Assistant: [Calls ToolSearch with query: "select:mcp__slack__read_channel"]
-WRONG - The keyword search already loaded the tool. The select call is redundant.
-</bad-example>
-
-Available deferred tools (must be loaded before use):
-mcp__fixture__tool_001
-mcp__fixture__tool_002
-mcp__fixture__tool_003
+Synthetic fixture tool #1. Echoes the supplied 'text' argument in its response. Exists only so claude-code registers a deterministic, version-comparable MCP tool.
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `query` | string | yes | Query to find deferred tools. Use "select:<tool_name>" for direct selection, or keywords to search. |
-| `max_results` | number | yes | Maximum number of results to return (default: 5) |
+| `text` | string | yes | Text to echo back. |
 
-#### `ListMcpResourcesTool`
+#### `mcp__fixture__tool_002` (MCP: fixture)
 
 ```
-
-List available resources from configured MCP servers.
-Each returned resource will include all standard MCP resource fields plus a 'server' field 
-indicating which server the resource belongs to.
-
-Parameters:
-- server (optional): The name of a specific MCP server to get resources from. If not provided,
-  resources from all servers will be returned.
-
+Synthetic fixture tool #2. Echoes the supplied 'text' argument in its response. Exists only so claude-code registers a deterministic, version-comparable MCP tool.
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `server` | string | no | Optional server name to filter resources by |
+| `text` | string | yes | Text to echo back. |
 
-#### `ReadMcpResourceTool`
+#### `mcp__fixture__tool_003` (MCP: fixture)
 
 ```
-
-Reads a specific resource from an MCP server, identified by server name and resource URI.
-
-Parameters:
-- server (required): The name of the MCP server from which to read the resource
-- uri (required): The URI of the resource to read
-
+Synthetic fixture tool #3. Echoes the supplied 'text' argument in its response. Exists only so claude-code registers a deterministic, version-comparable MCP tool.
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `server` | string | yes | The MCP server name |
-| `uri` | string | yes | The resource URI to read |
+| `text` | string | yes | Text to echo back. |
 
 
 **User:**
@@ -2685,7 +2753,7 @@ CRITICAL: Check the existing code's imports FIRST. If it imports `openai` or ano
 <system-reminder>
 As you answer the user's questions, you can use the following context:
 # currentDate
-Today's date is 2026-05-04.
+Today's date is 2026-05-05.
 
       IMPORTANT: this context may or may not be relevant to your tasks. You should not respond to this context unless it is highly relevant to your task.
 </system-reminder>
@@ -2710,7 +2778,7 @@ Use the say-hello skill. Print only its output, nothing else.
 
 **User:**
 
-> **Tool Result** (id: toolu_01ScEtQA1ctZwxgTZR577THy)
+> **Tool Result** (id: toolu_01LLCibkJTKZ6LPNXkWbDh3n)
 > Launching skill: say-hello
 
 ```
@@ -2729,11 +2797,9 @@ Do nothing else. Do not call any tools. Do not ask follow-up questions.
 **Assistant:**
 
 ```
-
-
 > Hello from the sandbox fixture skill!
 ```
 
-*Tokens: 2 in / 12 out (14 total) — Cost: $0.5268*
+*Tokens: 2 in / 12 out (14 total) — Cost: $0.0378*
 
 ---

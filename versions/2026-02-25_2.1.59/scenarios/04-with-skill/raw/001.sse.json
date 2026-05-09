@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-6",
-        "id": "msg_016kY6UiPwhgygi1Q4GxEgfg",
+        "id": "msg_01BATV9TSR8eaWANCfxVoGgi",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,13 +14,13 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 3,
-          "cache_creation_input_tokens": 15852,
-          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 24453,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 15852
+            "ephemeral_1h_input_tokens": 0
           },
-          "output_tokens": 43,
+          "output_tokens": 55,
           "service_tier": "standard",
           "inference_geo": "not_available"
         }
@@ -34,8 +34,8 @@
       "index": 0,
       "content_block": {
         "type": "tool_use",
-        "id": "toolu_01C4UjPpmaDxxubT8c6a75ED",
-        "name": "ToolSearch",
+        "id": "toolu_018avRVS8CvL7V87pZYrpmto",
+        "name": "Skill",
         "input": {},
         "caller": {
           "type": "direct"
@@ -67,7 +67,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\"quer"
+        "partial_json": "{\"skil"
       }
     }
   },
@@ -78,7 +78,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "y\": \"selec"
+        "partial_json": "l\": \"say-"
       }
     }
   },
@@ -89,7 +89,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "t:S"
+        "partial_json": "hello"
       }
     }
   },
@@ -100,40 +100,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "kill\""
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "input_json_delta",
-        "partial_json": ", \""
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "input_json_delta",
-        "partial_json": "max_results"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "input_json_delta",
-        "partial_json": "\": 1}"
+        "partial_json": "\"}"
       }
     }
   },
@@ -155,9 +122,9 @@
       },
       "usage": {
         "input_tokens": 3,
-        "cache_creation_input_tokens": 15852,
-        "cache_read_input_tokens": 0,
-        "output_tokens": 76
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 24453,
+        "output_tokens": 55
       },
       "context_management": {
         "applied_edits": []

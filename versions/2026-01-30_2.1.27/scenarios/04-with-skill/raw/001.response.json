@@ -1,68 +1,39 @@
 {
   "index": 1,
-  "request_id": "2b954039-522d-42bd-9479-384968de016f",
+  "request_id": "f431d009-8522-4a36-876b-7c873d13dde8",
   "status": 200,
   "headers": {
-    "Date": "Mon, 04 May 2026 17:05:32 GMT",
-    "Content-Type": "application/json",
+    "Date": "Tue, 05 May 2026 15:55:45 GMT",
+    "Content-Type": "text/event-stream; charset=utf-8",
     "Transfer-Encoding": "chunked",
     "Connection": "keep-alive",
+    "Cache-Control": "no-cache",
     "anthropic-ratelimit-unified-status": "allowed",
     "anthropic-ratelimit-unified-5h-status": "allowed",
-    "anthropic-ratelimit-unified-5h-reset": "1777929000",
-    "anthropic-ratelimit-unified-5h-utilization": "0.54",
+    "anthropic-ratelimit-unified-5h-reset": "1778014200",
+    "anthropic-ratelimit-unified-5h-utilization": "0.01",
     "anthropic-ratelimit-unified-7d-status": "allowed",
     "anthropic-ratelimit-unified-7d-reset": "1778126400",
-    "anthropic-ratelimit-unified-7d-utilization": "0.49",
+    "anthropic-ratelimit-unified-7d-utilization": "0.62",
     "anthropic-ratelimit-unified-overage-status": "allowed",
     "anthropic-ratelimit-unified-overage-reset": "1780272000",
     "anthropic-ratelimit-unified-overage-utilization": "0.0",
     "anthropic-ratelimit-unified-representative-claim": "five_hour",
     "anthropic-ratelimit-unified-fallback-percentage": "0.5",
-    "anthropic-ratelimit-unified-fallback": "available",
-    "anthropic-ratelimit-unified-reset": "1777929000",
-    "request-id": "req_011CahtkXGDpP5Q3MUzu7z4G",
+    "anthropic-ratelimit-unified-reset": "1778014200",
+    "request-id": "req_011CajhEpNWtiwkok8mXQmrw",
     "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
     "anthropic-organization-id": "76bfc32b-9bce-469a-a16b-43882255c430",
-    "traceresponse": "00-161f176fb00600105dc41c9ddf1d1bc7-5445032c170f6972-01",
+    "traceresponse": "00-9b10dd1999d5cf920bfb59646a287c24-96bf34118813bcd8-01",
     "Server": "cloudflare",
-    "x-envoy-upstream-service-time": "561",
+    "x-envoy-upstream-service-time": "1179",
     "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
     "vary": "Accept-Encoding",
     "set-cookie": "REDACTED",
     "X-Robots-Tag": "none",
     "cf-cache-status": "DYNAMIC",
-    "CF-RAY": "9f69173b4f948bdb-SJC"
+    "CF-RAY": "9f70ee63fc83fa62-SJC"
   },
-  "is_streaming": false,
-  "body": {
-    "model": "claude-haiku-4-5-20251001",
-    "id": "msg_011uVKDcjdrHQJpCt5n4gvnF",
-    "type": "message",
-    "role": "assistant",
-    "content": [
-      {
-        "type": "text",
-        "text": "#"
-      }
-    ],
-    "stop_reason": "max_tokens",
-    "stop_sequence": null,
-    "stop_details": null,
-    "usage": {
-      "input_tokens": 8,
-      "cache_creation_input_tokens": 0,
-      "cache_read_input_tokens": 0,
-      "cache_creation": {
-        "ephemeral_5m_input_tokens": 0,
-        "ephemeral_1h_input_tokens": 0
-      },
-      "output_tokens": 1,
-      "service_tier": "standard",
-      "inference_geo": "not_available"
-    },
-    "context_management": {
-      "applied_edits": []
-    }
-  }
+  "is_streaming": true,
+  "body": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-opus-4-5-20251101\",\"id\":\"msg_01SidxtBiJJEmSJruoSxToxx\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":18898,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":1,\"service_tier\":\"standard\",\"inference_geo\":\"not_available\"}}      }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"tool_use\",\"id\":\"toolu_01Pu7Ppd8w6TgoEL1gyBTXHD\",\"name\":\"Skill\",\"input\":{},\"caller\":{\"type\":\"direct\"}}          }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"input_json_delta\",\"partial_json\":\"\"}               }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"input_json_delta\",\"partial_json\":\"{\\\"\"}        }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"input_json_delta\",\"partial_json\":\"skill\\\"\"}  }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"input_json_delta\",\"partial_json\":\": \\\"say-he\"}  }\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"input_json_delta\",\"partial_json\":\"llo\\\"}\"}            }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0}\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"tool_use\",\"stop_sequence\":null,\"stop_details\":null},\"usage\":{\"input_tokens\":3,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":18898,\"output_tokens\":54},\"context_management\":{\"applied_edits\":[]}   }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"      }\n\n"
 }

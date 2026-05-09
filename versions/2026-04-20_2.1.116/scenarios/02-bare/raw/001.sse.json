@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-7",
-        "id": "msg_01WorTTud9mY7SA2barrf1YX",
+        "id": "msg_01W7iKBRVDJsYubtZrUKxF16",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,11 +14,11 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 6,
-          "cache_creation_input_tokens": 9985,
+          "cache_creation_input_tokens": 7028,
           "cache_read_input_tokens": 16331,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 9985
+            "ephemeral_1h_input_tokens": 7028
           },
           "output_tokens": 5,
           "service_tier": "standard",
@@ -62,7 +62,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": " would you like to work on?"
+        "text": " can I help you with?"
       }
     }
   },
@@ -84,18 +84,18 @@
       },
       "usage": {
         "input_tokens": 6,
-        "cache_creation_input_tokens": 9985,
+        "cache_creation_input_tokens": 7028,
         "cache_read_input_tokens": 16331,
-        "output_tokens": 16,
+        "output_tokens": 15,
         "iterations": [
           {
             "input_tokens": 6,
-            "output_tokens": 16,
+            "output_tokens": 15,
             "cache_read_input_tokens": 16331,
-            "cache_creation_input_tokens": 9985,
+            "cache_creation_input_tokens": 7028,
             "cache_creation": {
               "ephemeral_5m_input_tokens": 0,
-              "ephemeral_1h_input_tokens": 9985
+              "ephemeral_1h_input_tokens": 7028
             },
             "type": "message"
           }

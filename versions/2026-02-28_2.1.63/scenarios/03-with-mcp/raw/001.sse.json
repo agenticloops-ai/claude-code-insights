@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-6",
-        "id": "msg_01Y8pAzyLNLsnD6NvuMkKuQY",
+        "id": "msg_01VjFQmHjPsBjvvn7cHLJJ8h",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,13 +14,13 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 3,
-          "cache_creation_input_tokens": 27720,
-          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 689,
+          "cache_read_input_tokens": 23601,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 27720
+            "ephemeral_1h_input_tokens": 689
           },
-          "output_tokens": 29,
+          "output_tokens": 26,
           "service_tier": "standard",
           "inference_geo": "not_available"
         }
@@ -52,7 +52,7 @@
       "index": 0,
       "delta": {
         "type": "thinking_delta",
-        "thinking": "The user wants me to list all MCP tools available to me. I can see these in the de"
+        "thinking": "The user wants me to list all MCP tools available to me. Looking at my tool"
       }
     }
   },
@@ -63,7 +63,7 @@
       "index": 0,
       "delta": {
         "type": "thinking_delta",
-        "thinking": "ferred tools list from the ToolSearch tool description. Let me list"
+        "thinking": " definitions, MCP tools are prefixed with `mcp__`. Let me identify them.\n\nFrom the tools"
       }
     }
   },
@@ -74,7 +74,18 @@
       "index": 0,
       "delta": {
         "type": "thinking_delta",
-        "thinking": " them all."
+        "thinking": " listed:\n- `mcp__fixture__tool_001`"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": "\n- `mcp__fixture__tool_002`\n- `mcp__fixture__tool_003`\n\nThose are the three MCP tools available."
       }
     }
   },
@@ -85,7 +96,7 @@
       "index": 0,
       "delta": {
         "type": "signature_delta",
-        "signature": "EtsCClkIDRgCKkAeuYbkITDPosVNNbejwOhG0QD8zjXS6yG+iaVitsTFMgfF8LbxrBY9D4/wG4b6j3qviG5oFm5ZncOEhZDHs7nfMg9jbGF1ZGUtb3B1cy00LTY4ABIMQMqBSWNabeRhu9SnGgwORKgoTrp1ZYyLOW8iMJxjLyUv6oXoVTgh2/wRbkMNtThpV19f8HIuUPvIq9sUHLBVlSatcsaLZFkCR/TY3CqvAYCTI/beLLV0pObEkaiaqlmasvjxX07NQaUAtBIqS1Qn85fBt1OeTElAhx5uonoVq+PSoRSr04Nby/eYmi96lZ1Mu5afir0gHEfvlHGeOFcaH0SICRxEhJgHIWf7TqFrx4qskZxRCKaKevzhSFRDT35Q1V3vLjjWFKC3Xmv4KB2lQDAkPpEGcV/FYT5+miakygguJaijLYjX7vrnpvX5x+4qZgE6vkBfqzP+BGepKhQYAQ=="
+        "signature": "EuEDClkIDRgCKkDVj4Cct0iwTBbSfdF1U/9BvLmoCIepW1W7QGItPbjrl02BEB6IxRdPmLx5w7ZmdZrkYGxgul2fxaKgHWzBaeicMg9jbGF1ZGUtb3B1cy00LTY4ABIML4rhCCi46UftJT7dGgwC+gwhdbZgC+IWqwQiMM+f0Ge0eI879gppZpzHMhedNYremDwt3+J2is0B/vtxpDxfsd+cPAtfp/SLdt8IFyq1Aulm8bfp+vUz6qxpDMvJxOffFCMg/AJx2Dn/Znr0sfTgK/pNuRR1s4bo5eHflMsLdDKjAHyvnlf/bKFKm5uxICSw2OTSbRudWDTtFPsLUZj6imapxQSnyw7qHKbshhLMgi8cWIecnlWiL/AsJZBBJLtEz5Oshtbu0EDPrXuU3VT1JN6/eAw4trPtRmvd93vcFij0t9JC1jC3lVsq5HJLtgLPfGW/2I4ncCRZN9OP+ezG2bAJULFWhuSK3x5Cl+2eoivKCtK7I0vwxPTPDFvTYQwcX9jmc/ZA2PQgqlo9GapA4j4eeCsp/K+CIAEZ0KZtGA314FTwyZJPtzi7uWiHHYGbvj0rfvJ3WR2WVCi8YUx1wIXWyqKpSPPJ4cV41Fkyvwu4mv3cThZxAaKjHYzTDA5EmH9HGRgB"
       }
     }
   },
@@ -114,7 +125,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "Here are all the MCP tools currently available:\n\n```\nm"
+        "text": "```"
       }
     }
   },
@@ -125,414 +136,7 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "cp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\nmcp__claude"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "_ai_Google_Calendar__list_events"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "_event"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "_event"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "Excalidraw__read_me"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "_to_excalidraw"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "_checkpoint"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": ""
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "abel_thread\nmcp__claude"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "_ai_Gmail__create_label"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": ""
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "get_file_permissions\nmcp__"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "claude_ai_Google_Drive__search_files"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "-from-url"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "-designs"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": ""
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "-design-from-url"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "-formats"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "to-folder"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": ""
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "-to-comment"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "-design-structured"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "review"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "Canva__resize-design"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "-editing-operations\nmcp__"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "claude_ai_Canva__get-design-thumbnail"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "Canva__merge-designs"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "exec_callback"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "read_checkpoint"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": ""
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "Figma__get_design_context"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "_Figma__get_figjam"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": ""
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "_code_connect_suggestions"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "_for_code_connect"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "Figma__search_design_system"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": "_assets\n```\n\nThat's 80 MCP tools total across 7"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "text_delta",
-        "text": " servers: fixture, Google Calendar, Excalidraw, Gmail, Google Drive, Canva, tldraw, and Figma."
+        "text": "\nmcp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003\n```"
       }
     }
   },
@@ -554,9 +158,9 @@
       },
       "usage": {
         "input_tokens": 3,
-        "cache_creation_input_tokens": 27720,
-        "cache_read_input_tokens": 0,
-        "output_tokens": 1541
+        "cache_creation_input_tokens": 689,
+        "cache_read_input_tokens": 23601,
+        "output_tokens": 138
       },
       "context_management": {
         "applied_edits": []

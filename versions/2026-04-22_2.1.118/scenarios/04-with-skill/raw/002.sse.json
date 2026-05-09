@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-7",
-        "id": "msg_01Tbx6gjv1MjbQH1HxUseSwN",
+        "id": "msg_01EzgLBgiw3muQbXBetpA24V",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,11 +14,11 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 6,
-          "cache_creation_input_tokens": 10203,
+          "cache_creation_input_tokens": 7246,
           "cache_read_input_tokens": 16329,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 10203
+            "ephemeral_1h_input_tokens": 7246
           },
           "output_tokens": 8,
           "service_tier": "standard",
@@ -52,7 +52,7 @@
       "index": 0,
       "delta": {
         "type": "signature_delta",
-        "signature": "EoICClkIDRgCKkDEf0mQ0dHx3mKBYDSyLZQEwOmqvofen1HEfj9R9hEyJZmuJYJjrLfN8XW1+sG0yrGPxAAH0I53gCELQT2p0qWtMg9jbGF1ZGUtb3B1cy00LTc4ABIMEgZlu8YkGFGuS3KxGgzJDE9I8YHXmLLE1NsiMMQe3BnzNWCv8G7EbvpWt53+QqVZ9J99RPzuyVOwlIq0b8xpAmtsTIAsKBBkfnaEISpXrOB9oS1INitlUJY1W9ZBrmLBpjLTgbsxZ+3uCPUiwTPOwPbSKQ9nd/Xly+eQrHOotPlB9epzp/RcjhRK0n5UKZCnX6Kpml+G+LLHsYmSfNkP1HcILqCcGAE="
+        "signature": "EoUCClkIDRgCKkAlMaWqmNAjL6ILLOKbmZt/sInFDe5kbaSC2Y4kvI/2gnvqhygK5cV1eQgMnn9X6Z0QbURoDk9UWLE/Tj5Ia8PDMg9jbGF1ZGUtb3B1cy00LTc4ABIMbcF8TY1pFB08nVRuGgw8WAbO5xwtraE5+XIiMKKbKwmk9VmP3EDW08PA+sg064plO56ww2ysfnujncIfJmI9C+WH0NYXWYH4R8W/JypaffvEMdMWeS3cvCP88Yvyd3C4Q/9S7U8H7isaiPqtIfu9aMT3q9BmlPbJTv/IoIrc9M5VZc388s/Icm65RVLUANQ32jgifXONld13mtGXec12ebdKoWr8Mc1kGAE="
       }
     }
   },
@@ -70,7 +70,7 @@
       "index": 1,
       "content_block": {
         "type": "tool_use",
-        "id": "toolu_01KX3RGYfBVzqTzh6LMYgZVs",
+        "id": "toolu_01Qx8Poo9GKARpWL1JrmWgwe",
         "name": "Skill",
         "input": {},
         "caller": {
@@ -97,7 +97,7 @@
       "index": 1,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\"ski"
+        "partial_json": "{\"skill\": "
       }
     }
   },
@@ -108,7 +108,7 @@
       "index": 1,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "ll\": \"sa"
+        "partial_json": "\"say-he"
       }
     }
   },
@@ -119,7 +119,7 @@
       "index": 1,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "y-hello\"}"
+        "partial_json": "llo\"}"
       }
     }
   },
@@ -141,18 +141,18 @@
       },
       "usage": {
         "input_tokens": 6,
-        "cache_creation_input_tokens": 10203,
+        "cache_creation_input_tokens": 7246,
         "cache_read_input_tokens": 16329,
-        "output_tokens": 106,
+        "output_tokens": 108,
         "iterations": [
           {
             "input_tokens": 6,
-            "output_tokens": 106,
+            "output_tokens": 108,
             "cache_read_input_tokens": 16329,
-            "cache_creation_input_tokens": 10203,
+            "cache_creation_input_tokens": 7246,
             "cache_creation": {
               "ephemeral_5m_input_tokens": 0,
-              "ephemeral_1h_input_tokens": 10203
+              "ephemeral_1h_input_tokens": 7246
             },
             "type": "message"
           }

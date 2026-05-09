@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-6",
-        "id": "msg_018maEiYkf2aP8kEWPLK37qR",
+        "id": "msg_01Xk3yra6xMvKkf1suE7mkHr",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,13 +14,13 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 2,
-          "cache_creation_input_tokens": 6769,
-          "cache_read_input_tokens": 11285,
+          "cache_creation_input_tokens": 140,
+          "cache_read_input_tokens": 15766,
           "cache_creation": {
-            "ephemeral_5m_input_tokens": 6769,
-            "ephemeral_1h_input_tokens": 0
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 140
           },
-          "output_tokens": 1,
+          "output_tokens": 7,
           "service_tier": "standard",
           "inference_geo": "not_available"
         }
@@ -51,18 +51,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": ">"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "text_delta",
-        "text": " Hello from the sandbox fixture skill!"
+        "text": "Hello from the sandbox fixture skill!"
       }
     }
   },
@@ -84,18 +73,18 @@
       },
       "usage": {
         "input_tokens": 2,
-        "cache_creation_input_tokens": 6769,
-        "cache_read_input_tokens": 11285,
-        "output_tokens": 11,
+        "cache_creation_input_tokens": 140,
+        "cache_read_input_tokens": 15766,
+        "output_tokens": 10,
         "iterations": [
           {
             "input_tokens": 2,
-            "output_tokens": 11,
-            "cache_read_input_tokens": 11285,
-            "cache_creation_input_tokens": 6769,
+            "output_tokens": 10,
+            "cache_read_input_tokens": 15766,
+            "cache_creation_input_tokens": 140,
             "cache_creation": {
-              "ephemeral_5m_input_tokens": 6769,
-              "ephemeral_1h_input_tokens": 0
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 140
             },
             "type": "message"
           }

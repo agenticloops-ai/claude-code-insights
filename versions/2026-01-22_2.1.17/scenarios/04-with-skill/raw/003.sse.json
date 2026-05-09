@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-5-20251101",
-        "id": "msg_01Qxsk5PGm459KQSNS9i8SnG",
+        "id": "msg_01CVEaNRjhqFW8QBqn4TSCGP",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -15,7 +15,7 @@
         "usage": {
           "input_tokens": 0,
           "cache_creation_input_tokens": 83,
-          "cache_read_input_tokens": 22144,
+          "cache_read_input_tokens": 19020,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 83,
             "ephemeral_1h_input_tokens": 0
@@ -62,7 +62,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": ", world!"
+        "text": " from the say-hello skill!"
       }
     }
   },
@@ -85,8 +85,8 @@
       "usage": {
         "input_tokens": 0,
         "cache_creation_input_tokens": 83,
-        "cache_read_input_tokens": 22144,
-        "output_tokens": 7
+        "cache_read_input_tokens": 19020,
+        "output_tokens": 11
       }
     }
   },

@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-6",
-        "id": "msg_019ConHRnUSoWy1Q2KvpdC7k",
+        "id": "msg_01B1iXJb4VMXKhyuHCUVaTBE",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -15,10 +15,10 @@
         "usage": {
           "input_tokens": 1,
           "cache_creation_input_tokens": 565,
-          "cache_read_input_tokens": 7867,
+          "cache_read_input_tokens": 5504,
           "cache_creation": {
-            "ephemeral_5m_input_tokens": 565,
-            "ephemeral_1h_input_tokens": 0
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 565
           },
           "output_tokens": 54,
           "service_tier": "standard",
@@ -34,7 +34,7 @@
       "index": 0,
       "content_block": {
         "type": "tool_use",
-        "id": "toolu_013CufxRD6pYdvbVmAfHQRGH",
+        "id": "toolu_01Et4UYvn2g472CjfVGN1i3J",
         "name": "Skill",
         "input": {},
         "caller": {
@@ -67,7 +67,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\"sk"
+        "partial_json": "{\""
       }
     }
   },
@@ -78,7 +78,29 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "ill\": \"say"
+        "partial_json": "sk"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "ill"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "\": \"say"
       }
     }
   },
@@ -112,7 +134,7 @@
       "usage": {
         "input_tokens": 1,
         "cache_creation_input_tokens": 565,
-        "cache_read_input_tokens": 7867,
+        "cache_read_input_tokens": 5504,
         "output_tokens": 54
       },
       "context_management": {

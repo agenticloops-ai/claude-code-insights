@@ -8,7 +8,7 @@ The following skills are available for use with the Skill tool:
 <system-reminder>
 As you answer the user's questions, you can use the following context:
 # currentDate
-Today's date is 2026-05-04.
+Today's date is 2026-05-05.
 
       IMPORTANT: this context may or may not be relevant to your tasks. You should not respond to this context unless it is highly relevant to your task.
 </system-reminder>

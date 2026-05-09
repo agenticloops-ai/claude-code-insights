@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-6",
-        "id": "msg_01BDHPSZhUjgvRuRPTvU9LJj",
+        "id": "msg_0127gsGutGLJM8tVkrKCzc3T",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,13 +14,13 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 3,
-          "cache_creation_input_tokens": 6223,
-          "cache_read_input_tokens": 11341,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 15631,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 6223
+            "ephemeral_1h_input_tokens": 0
           },
-          "output_tokens": 42,
+          "output_tokens": 33,
           "service_tier": "standard",
           "inference_geo": "not_available"
         }
@@ -52,7 +52,7 @@
       "index": 0,
       "delta": {
         "type": "thinking_delta",
-        "thinking": "The user said \"hi\". Let me respond with a simple greeting."
+        "thinking": "The user said \"hi\". Let me respond with a friendly greeting."
       }
     }
   },
@@ -63,7 +63,7 @@
       "index": 0,
       "delta": {
         "type": "signature_delta",
-        "signature": "EvUBClkIDRgCKkAEOCUKC935lvycWJT7+VtN5RjGPGvxdLab2I1kj3g1TFwxNs90yBrPxqyPIov49iu0MnhFhe9XmnihTmXI0qahMg9jbGF1ZGUtb3B1cy00LTY4ABIM71BSlRQXjqOJhlbNGgxhza5Fll+eF6Sd4bQiMNgNN/ck46q37JZ+cF9d0EYeAw9MeotKpTKgmiNEdMHkvKh3IzLigXprIBFRNBmiIypKr5lkYDehY/co7qNuZvrYnpdf7APiLIIhXVb6hS7IQGHvj0XG8qSvoCZlHZuy820hIZ2P7lGJTtOw1nC+kQ6mtQQHrYP59QrWHQ8YAQ=="
+        "signature": "EvcBClkIDRgCKkBtKTZOoB4e8kf8zHw3AfhezKMMaoSQhnGA4Qk93kETNoo4IXj4DU3cW+7lclKeIDFfFCZ+rclA/tqczxb4zz1TMg9jbGF1ZGUtb3B1cy00LTY4ABIM7pL7nYqbtUcMEP2UGgzhdMF0NYf7L56XMZUiMBU2FmNZz9acWCyp9GpAqV7r556lqz9qT0W0yi+SUiolnmsMuNMuYslYVl3EfMQjMCpMUr7viodYL2I1qjORUoYkYy0SERYHUTKAm0vbmDTKNNECD3h5bL98aa1BabvWoNjMWz5sWYzhZrR8AHScqBc3SIkGpiruFXGWDMp7RRgB"
       }
     }
   },
@@ -92,7 +92,18 @@
       "index": 1,
       "delta": {
         "type": "text_delta",
-        "text": "Hi! How can I help you today?"
+        "text": "Hi! How"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": " can I help you today?"
       }
     }
   },
@@ -114,8 +125,8 @@
       },
       "usage": {
         "input_tokens": 3,
-        "cache_creation_input_tokens": 6223,
-        "cache_read_input_tokens": 11341,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 15631,
         "output_tokens": 42
       },
       "context_management": {

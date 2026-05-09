@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-7",
-        "id": "msg_01BAX2sfyQDLpLdsiaPhX2rL",
+        "id": "msg_01QJxsccnV1iip4pSUvqNHDu",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,17 +14,16 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 5,
-          "cache_creation_input_tokens": 228,
-          "cache_read_input_tokens": 26532,
+          "cache_creation_input_tokens": 7476,
+          "cache_read_input_tokens": 16329,
           "cache_creation": {
-            "ephemeral_5m_input_tokens": 228,
-            "ephemeral_1h_input_tokens": 0
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 7476
           },
           "output_tokens": 9,
           "service_tier": "standard",
           "inference_geo": "not_available"
-        },
-        "diagnostics": null
+        }
       }
     }
   },
@@ -85,18 +84,18 @@
       },
       "usage": {
         "input_tokens": 5,
-        "cache_creation_input_tokens": 228,
-        "cache_read_input_tokens": 26532,
+        "cache_creation_input_tokens": 7476,
+        "cache_read_input_tokens": 16329,
         "output_tokens": 19,
         "iterations": [
           {
             "input_tokens": 5,
             "output_tokens": 19,
-            "cache_read_input_tokens": 26532,
-            "cache_creation_input_tokens": 228,
+            "cache_read_input_tokens": 16329,
+            "cache_creation_input_tokens": 7476,
             "cache_creation": {
-              "ephemeral_5m_input_tokens": 228,
-              "ephemeral_1h_input_tokens": 0
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 7476
             },
             "type": "message"
           }

@@ -2,10 +2,10 @@
   {
     "index": 1,
     "model": "claude-opus-4-6",
-    "duration_ms": 20275.561332702637,
+    "duration_ms": 8486.047744750977,
     "tool_count": 9,
     "stop_reason": "end_turn",
     "input_tokens": 3,
-    "output_tokens": 1493
+    "output_tokens": 51
   }
 ]

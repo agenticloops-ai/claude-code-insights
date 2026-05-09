@@ -1,5 +1,5 @@
 timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
-2026-05-04T19:35:49.285477,anthropic,claude-opus-4-6,1531.177282333374,1285.3388786315918,success,end_turn,3,13,16,0.1499085,True,True,False,"<available-deferred-tools>
+2026-05-05T20:20:35.698262,anthropic,claude-opus-4-6,1920.2814102172852,1697.3648071289062,success,end_turn,3,13,16,0.0264615,True,True,False,"<available-deferred-tools>
 AskUserQuestion
 CronCreate
 CronDelete
@@ -8,8 +8,10 @@ EnterPlanMode
 EnterWorktree
 ExitPlanMode
 ExitWorktree
-ListMcpResourcesTool
 Monitor
 NotebookEdit
-ReadMcpResourceTool
-RemoteTrig"
+RemoteTrigger
+SendMessage
+TaskOutput
+TaskStop
+TeamC"

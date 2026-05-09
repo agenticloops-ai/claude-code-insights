@@ -1,16 +1,16 @@
 # 03-with-mcp
 
-**Started:** 2026-05-04T18:29:10.423252  
-**Ended:** 2026-05-04T18:29:33.981009  
+**Started:** 2026-05-05T17:10:22.802290  
+**Ended:** 2026-05-05T17:10:31.641463  
 **Requests:** 1  
-**Tokens:** 1,582 (in: 3 / out: 1,579)  
-**Cost:** $0.1710  
+**Tokens:** 53 (in: 3 / out: 50)  
+**Cost:** $0.0279  
 **Models:** claude-opus-4-6  
 **Providers:** anthropic  
 
 ---
 
-## Request #1 — claude-opus-4-6 (anthropic) — 15.9s | thinking
+## Request #1 — claude-opus-4-6 (anthropic) — 2.5s
 
 ### System Prompt
 
@@ -144,12 +144,150 @@ Assistant knowledge cutoff is May 2025.
 Fast mode for Claude Code uses the same Claude Opus 4.6 model with faster output. It does NOT switch to a different model. It can be toggled with /fast.
 </fast_mode_info>
 
-# MCP Server Instructions
+When working with tool results, write down any important information you might need later in your response, as the original tool result may be cleared later.
+```
 
-The following MCP servers have provided instructions for how to use their tools and resources:
+### Tools
 
+#### `ToolSearch`
+
+```
+Search for or select deferred tools to make them available for use.
+
+**MANDATORY PREREQUISITE - THIS IS A HARD REQUIREMENT**
+
+You MUST use this tool to load deferred tools BEFORE calling them directly.
+
+This is a BLOCKING REQUIREMENT - deferred tools are NOT available until you load them using this tool. Look for <available-deferred-tools> messages in the conversation for the list of tools you can discover. Both query modes (keyword search and direct selection) load the returned tools — once a tool appears in the results, it is immediately available to call.
+
+**Why this is non-negotiable:**
+- Deferred tools are not loaded until discovered via this tool
+- Calling a deferred tool without first loading it will fail
+
+**Query modes:**
+
+1. **Keyword search** - Use keywords when you're unsure which tool to use or need to discover multiple tools at once:
+   - "list directory" - find tools for listing directories
+   - "notebook jupyter" - find notebook editing tools
+   - "slack message" - find slack messaging tools
+   - Returns up to 5 matching tools ranked by relevance
+   - All returned tools are immediately available to call — no further selection step needed
+
+2. **Direct selection** - Use `select:<tool_name>` when you know the exact tool name:
+   - "select:mcp__slack__read_channel"
+   - "select:NotebookEdit"
+   - "select:Read,Edit,Grep" - load multiple tools at once with comma separation
+   - Returns the named tool(s) if they exist
+
+**IMPORTANT:** Both modes load tools equally. Do NOT follow up a keyword search with `select:` calls for tools already returned — they are already loaded.
+
+3. **Required keyword** - Prefix with `+` to require a match:
+   - "+linear create issue" - only tools from "linear", ranked by "create"/"issue"
+   - "+slack send" - only "slack" tools, ranked by "send"
+   - Useful when you know the service name but not the exact tool
+
+**CORRECT Usage Patterns:**
+
+<example>
+User: I need to work with slack somehow
+Assistant: Let me search for slack tools.
+[Calls ToolSearch with query: "slack"]
+Assistant: Found several options including mcp__slack__read_channel.
+[Calls mcp__slack__read_channel directly — it was loaded by the keyword search]
+</example>
+
+<example>
+User: Edit the Jupyter notebook
+Assistant: Let me load the notebook editing tool.
+[Calls ToolSearch with query: "select:NotebookEdit"]
+[Calls NotebookEdit]
+</example>
+
+<example>
+User: List files in the src directory
+Assistant: I can see mcp__filesystem__list_directory in the available tools. Let me select it.
+[Calls ToolSearch with query: "select:mcp__filesystem__list_directory"]
+[Calls the tool]
+</example>
+
+**INCORRECT Usage Patterns - NEVER DO THESE:**
+
+<bad-example>
+User: Read my slack messages
+Assistant: [Directly calls mcp__slack__read_channel without loading it first]
+WRONG - You must load the tool FIRST using this tool
+</bad-example>
+
+<bad-example>
+Assistant: [Calls ToolSearch with query: "slack", gets back mcp__slack__read_channel]
+Assistant: [Calls ToolSearch with query: "select:mcp__slack__read_channel"]
+WRONG - The keyword search already loaded the tool. The select call is redundant.
+</bad-example>
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `query` | string | yes | Query to find deferred tools. Use "select:<tool_name>" for direct selection, or keywords to search. |
+| `max_results` | number | yes | Maximum number of results to return (default: 5) |
+
+
+**User:**
+
+```
+<available-deferred-tools>
+Agent
+AskUserQuestion
+Bash
+CronCreate
+CronDelete
+CronList
+Edit
+EnterPlanMode
+EnterWorktree
+ExitPlanMode
+Glob
+Grep
+NotebookEdit
+Read
+SendMessage
+Skill
+TaskOutput
+TaskStop
+TeamCreate
+TeamDelete
+TodoWrite
+WebFetch
+WebSearch
+Write
+mcp__fixture__tool_001
+mcp__fixture__tool_002
+mcp__fixture__tool_003
+</available-deferred-tools>
+```
+
+---
+
+**User:**
+
+```
+<system-reminder>
+The following skills are available for use with the Skill tool:
+
+- keybindings-help: Use when the user wants to customize keyboard shortcuts, rebind keys, add chord bindings, or modify ~/.claude/keybindings.json. Examples: "rebind ctrl+s", "add a chord shortcut", "change the submit key", "customize keybindings".
+- simplify: Review changed code for reuse, quality, and efficiency, then fix any issues found.
+- loop: Run a prompt or slash command on a recurring interval (e.g. /loop 5m /foo, defaults to 10m) - When the user wants to set up a recurring task, poll for status, or run something repeatedly on an interval (e.g. "check the deploy every 5 minutes", "keep running /babysit-prs"). Do NOT invoke for one-off tasks.
+- claude-api: Build apps with the Claude API or Anthropic SDK.
+TRIGGER when: code imports `anthropic`/`@anthropic-ai/sdk`/`claude_agent_sdk`, or user asks to use Claude API, Anthropic SDKs, or Agent SDK.
+DO NOT TRIGGER when: code imports `openai`/other AI SDK, general programming, or ML/data-science tasks.
+- say-hello: Greet the user with a fixed phrase. Use this skill whenever the user asks to be greeted or asks the agent to "say hello" — exists as a deterministic skill fixture for sandbox capture scenarios.
+</system-reminder>
+```
+
+```
+<system-reminder>
+As you answer the user's questions, you can use the following context:
 # currentDate
-Today's date is 2026-05-04.
+Today's date is 2026-05-05.
 
       IMPORTANT: this context may or may not be relevant to your tasks. You should not respond to this context unless it is highly relevant to your task.
 </system-reminder>
@@ -162,21 +300,16 @@ List every MCP tool that is currently available to you. Print just the tool name
 
 **Assistant:**
 
-> *Thinking:*
-> The user wants me to list all available MCP tools. I can see them in the `<available-deferred-tools>` section. Let me filter for just the ones that start with `mcp__`.
-
 ```
-Here are all the MCP tools available:
+Based on the available deferred tools list, the MCP tools are:
 
 ```
 mcp__fixture__tool_001
 mcp__fixture__tool_002
 mcp__fixture__tool_003
 ```
-
-That's 82 MCP tools total, spanning Canva, Excalidraw, Figma, Gmail, Google Calendar, Google Drive, Mermaid Chart, tldraw, and 3 fixture tools.
 ```
 
-*Tokens: 3 in / 1,579 out (1,582 total) — Cost: $0.1710*
+*Tokens: 3 in / 50 out (53 total) — Cost: $0.0279*
 
 ---

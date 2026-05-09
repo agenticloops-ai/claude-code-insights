@@ -1,16 +1,16 @@
 # 03-with-mcp
 
-**Started:** 2026-05-04T19:01:45.183023  
-**Ended:** 2026-05-04T19:02:10.530194  
+**Started:** 2026-05-05T19:51:21.013780  
+**Ended:** 2026-05-05T19:51:27.966458  
 **Requests:** 1  
-**Tokens:** 1,548 (in: 3 / out: 1,545)  
-**Cost:** $0.1426  
+**Tokens:** 55 (in: 3 / out: 52)  
+**Cost:** $0.0274  
 **Models:** claude-opus-4-6  
 **Providers:** anthropic  
 
 ---
 
-## Request #1 — claude-opus-4-6 (anthropic) — 14.8s | thinking
+## Request #1 — claude-opus-4-6 (anthropic) — 2.5s
 
 ### System Prompt
 
@@ -240,9 +240,110 @@ You have been invoked in the following environment:
  - Claude Code is available as a CLI in the terminal, desktop app (Mac/Windows), web app (claude.ai/code), and IDE extensions (VS Code, JetBrains).
  - Fast mode for Claude Code uses the same Claude Opus 4.6 model with faster output. It does NOT switch to a different model. It can be toggled with /fast.
 
-# MCP Server Instructions
+When working with tool results, write down any important information you might need later in your response, as the original tool result may be cleared later.
+```
 
-The following MCP servers have provided instructions for how to use their tools and resources:
+### Tools
+
+#### `Agent`
+
+```
+Launch a new agent to handle complex, multi-step tasks autonomously.
+
+The Agent tool launches specialized agents (subprocesses) that autonomously handle complex tasks. Each agent type has specific capabilities and tools available to it.
+
+Available agent types and the tools they have access to:
+- general-purpose: General-purpose agent for researching complex questions, searching for code, and executing multi-step tasks. When you are searching for a keyword or file and are not confident that you will find the right match in the first few tries use this agent to perform the search for you. (Tools: *)
+- statusline-setup: Use this agent to configure the user's Claude Code status line setting. (Tools: Read, Edit)
+- Explore: Fast agent specialized for exploring codebases. Use this when you need to quickly find files by patterns (eg. "src/components/**/*.tsx"), search code for keywords (eg. "API endpoints"), or answer questions about the codebase (eg. "how do API endpoints work?"). When calling this agent, specify the desired thoroughness level: "quick" for basic searches, "medium" for moderate exploration, or "very thorough" for comprehensive analysis across multiple locations and naming conventions. (Tools: All tools except Agent, ExitPlanMode, Edit, Write, NotebookEdit)
+- Plan: Software architect agent for designing implementation plans. Use this when you need to plan the implementation strategy for a task. Returns step-by-step plans, identifies critical files, and considers architectural trade-offs. (Tools: All tools except Agent, ExitPlanMode, Edit, Write, NotebookEdit)
+
+When using the Agent tool, specify a subagent_type parameter to select which agent type to use. If omitted, the general-purpose agent is used.
+
+When NOT to use the Agent tool:
+- If you want to read a specific file path, use the Read tool or the Glob tool instead of the Agent tool, to find the match more quickly
+- If you are searching for a specific class definition like "class Foo", use the Glob tool instead, to find the match more quickly
+- If you are searching for code within a specific file or set of 2-3 files, use the Read tool instead of the Agent tool, to find the match more quickly
+- Other tasks that are not related to the agent descriptions above
+
+
+Usage notes:
+- Always include a short description (3-5 words) summarizing what the agent will do
+- Launch multiple agents concurrently whenever possible, to maximize performance; to do that, use a single message with multiple tool uses
+- When the agent is done, it will return a single message back to you. The result returned by the agent is not visible to the user. To show the user the result, you should send a text message back to the user with a concise summary of the result.
+- You can optionally run agents in the background using the run_in_background parameter. When an agent runs in the background, you will be automatically notified when it completes — do NOT sleep, poll, or proactively check on its progress. Continue with other work or respond to the user instead.
+- **Foreground vs background**: Use foreground (default) when you need the agent's results before you can proceed — e.g., research agents whose findings inform your next steps. Use background when you have genuinely independent work to do in parallel.
+- To continue a previously spawned agent, use SendMessage with the agent's ID or name as the `to` field. The agent resumes with its full context preserved. Each Agent invocation starts fresh — provide a complete task description.
+- Provide clear, detailed prompts so the agent can work autonomously and return exactly the information you need.
+- The agent's outputs should generally be trusted
+- Clearly tell the agent whether you expect it to write code or just to do research (search, file reads, web fetches, etc.), since it is not aware of the user's intent
+- If the agent description mentions that it should be used proactively, then you should try your best to use it without the user having to ask for it first. Use your judgement.
+- If the user specifies that they want you to run agents "in parallel", you MUST send a single message with multiple Agent tool use content blocks. For example, if you need to launch both a build-validator agent and a test-runner agent in parallel, send a single message with both tool calls.
+- You can optionally set `isolation: "worktree"` to run the agent in a temporary git worktree, giving it an isolated copy of the repository. The worktree is automatically cleaned up if the agent makes no changes; if changes are made, the worktree path and branch are returned in the result.
+
+Example usage:
+
+<example_agent_descriptions>
+"test-runner": use this agent after you are done writing code to run tests
+"greeting-responder": use this agent to respond to user greetings with a friendly joke
+</example_agent_descriptions>
+
+<example>
+user: "Please write a function that checks if a number is prime"
+assistant: I'm going to use the Write tool to write the following code:
+<code>
+function isPrime(n) {
+  if (n <= 1) return false
+  for (let i = 2; i * i <= n; i++) {
+    if (n % i === 0) return false
+  }
+  return true
+}
+</code>
+<commentary>
+Since a significant piece of code was written and the task was completed, now use the test-runner agent to run the tests
+</commentary>
+assistant: Uses the Agent tool to launch the test-runner agent
+</example>
+
+<example>
+user: "Hello"
+<commentary>
+Since the user is greeting, use the greeting-responder agent to respond with a friendly joke
+</commentary>
+assistant: "I'm going to use the Agent tool to launch the greeting-responder agent"
+</example>
+
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `description` | string | yes | A short (3-5 word) description of the task |
+| `prompt` | string | yes | The task for the agent to perform |
+| `subagent_type` | string | no | The type of specialized agent to use for this task |
+| `model` | string | no | Optional model override for this agent. Takes precedence over the agent definition's model frontmatter. If omitted, uses the agent definition's model, or inherits from the parent. |
+| `run_in_background` | boolean | no | Set to true to run this agent in the background. You will be notified when it completes. |
+| `name` | string | no | Name for the spawned agent. Makes it addressable via SendMessage({to: name}) while running. |
+| `team_name` | string | no | Team name for spawning. Uses current team context if omitted. |
+| `mode` | string | no | Permission mode for spawned teammate (e.g., "plan" to require plan approval). |
+| `isolation` | string | no | Isolation mode. "worktree" creates a temporary git worktree so the agent works on an isolated copy of the repo. |
+
+#### `Bash`
+
+```
+Executes a given bash command and returns its output.
+
+The working directory persists between commands, but shell state does not. The shell environment is initialized from the user's profile (bash or zsh).
+
+IMPORTANT: Avoid using this tool to run `find`, `grep`, `cat`, `head`, `tail`, `sed`, `awk`, or `echo` commands, unless explicitly instructed or after you have verified that a dedicated tool cannot accomplish your task. Instead, use the appropriate dedicated tool as this will provide a much better experience for the user:
+
+ - File search: Use Glob (NOT find or ls)
+ - Content search: Use Grep (NOT grep or rg)
+ - Read files: Use Read (NOT cat/head/tail)
+ - Edit files: Use Edit (NOT sed/awk)
+ - Write files: Use Write (NOT echo >/cat <<EOF)
+ - Communication: Output text directly (NOT echo/printf)
+While the Bash tool can do similar things, it’s better to use the built-in tools as they provide a better user experience and make it easier to review tool calls and give permission.
 
 # Instructions
  - If your command will create new directories or files, first use this tool to run `ls` to verify the parent directory exists and is the correct location.
@@ -296,7 +397,7 @@ Git Safety Protocol:
 3. Run the following commands in parallel:
    - Add relevant untracked files to the staging area.
    - Create the commit with a message ending with:
-   Co-Authored-By: Claude Opus 4.6 (1M context) <<USER_EMAIL>>
+   Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
    - Run git status after the commit completes to verify success.
    Note: git status depends on the commit completing, so run it sequentially after the commit.
 4. If the commit fails due to pre-commit hook: fix the issue and create a NEW commit
@@ -313,7 +414,7 @@ Important notes:
 git commit -m "$(cat <<'EOF'
    Commit message here.
 
-   Co-Authored-By: Claude Opus 4.6 (1M context) <<USER_EMAIL>>
+   Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
    EOF
    )"
 </example>
@@ -552,9 +653,7 @@ EnterPlanMode
 EnterWorktree
 ExitPlanMode
 ExitWorktree
-ListMcpResourcesTool
 NotebookEdit
-ReadMcpResourceTool
 RemoteTrigger
 SendMessage
 TaskOutput
@@ -595,7 +694,7 @@ DO NOT TRIGGER when: code imports `openai`/other AI SDK, general programming, or
 <system-reminder>
 As you answer the user's questions, you can use the following context:
 # currentDate
-Today's date is 2026-05-04.
+Today's date is 2026-05-05.
 
       IMPORTANT: this context may or may not be relevant to your tasks. You should not respond to this context unless it is highly relevant to your task.
 </system-reminder>
@@ -609,21 +708,16 @@ List every MCP tool that is currently available to you. Print just the tool name
 
 **Assistant:**
 
-> *Thinking:*
-> The user wants me to list all MCP tools available. I can see them in the `<available-deferred-tools>` section. Let me filter for ones that start with `mcp__`.
-
 ```
-Here are all the MCP tools currently available:
+Based on the deferred tools list, here are the MCP tools currently available:
 
 ```
 mcp__fixture__tool_001
 mcp__fixture__tool_002
 mcp__fixture__tool_003
 ```
-
-That's 81 MCP tools across 8 servers: Canva, Excalidraw, Figma, Gmail, Google Calendar, Google Drive, tldraw, and fixture.
 ```
 
-*Tokens: 3 in / 1,545 out (1,548 total) — Cost: $0.1426*
+*Tokens: 3 in / 52 out (55 total) — Cost: $0.0274*
 
 ---

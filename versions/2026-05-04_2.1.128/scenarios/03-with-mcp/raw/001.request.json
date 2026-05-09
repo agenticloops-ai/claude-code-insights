@@ -1,8 +1,8 @@
 {
   "index": 1,
-  "request_id": "cc9333ca-1484-4d1a-9fd0-63554ae7507a",
-  "session_id": "311f1d7e-70f3-4127-81b9-190a687ee832",
-  "timestamp": "2026-05-05T07:42:34.561375",
+  "request_id": "442aec43-aa21-445c-9e1a-720ef629c340",
+  "session_id": "53b3b9c5-0b1a-4174-9ee3-ac3da4156477",
+  "timestamp": "2026-05-05T20:52:51.704032",
   "provider": "anthropic",
   "method": "POST",
   "url": "https://api.anthropic.com/v1/messages?beta=true",
@@ -11,7 +11,7 @@
     "Authorization": "REDACTED",
     "Content-Type": "application/json",
     "User-Agent": "claude-cli/2.1.128 (external, sdk-cli)",
-    "X-Claude-Code-Session-Id": "19d5cb31-99ed-4bb9-8a56-e14689b16274",
+    "X-Claude-Code-Session-Id": "4d203406-719e-46ff-aaf4-6b36f1f74f35",
     "X-Stainless-Arch": "x64",
     "X-Stainless-Lang": "js",
     "X-Stainless-OS": "Linux",
@@ -20,11 +20,11 @@
     "X-Stainless-Runtime": "node",
     "X-Stainless-Runtime-Version": "v24.3.0",
     "X-Stainless-Timeout": "600",
-    "anthropic-beta": "oauth-2025-04-20,interleaved-thinking-2025-05-14,context-management-2025-06-27,prompt-caching-scope-2026-01-05,advisor-tool-2026-03-01,structured-outputs-2025-12-15,cache-diagnosis-2026-04-07",
+    "anthropic-beta": "oauth-2025-04-20,interleaved-thinking-2025-05-14,context-management-2025-06-27,prompt-caching-scope-2026-01-05,advisor-tool-2026-03-01,structured-outputs-2025-12-15",
     "anthropic-dangerous-direct-browser-access": "true",
     "anthropic-version": "2023-06-01",
     "x-app": "cli",
-    "x-client-request-id": "8313707b-50dd-496a-908c-3884c08bedf7",
+    "x-client-request-id": "2c95b026-6c16-45c9-9b0e-a001f718fc74",
     "Connection": "keep-alive",
     "Host": "api.anthropic.com",
     "Accept-Encoding": "identity",
@@ -46,7 +46,7 @@
     "system": [
       {
         "type": "text",
-        "text": "x-anthropic-billing-header: cc_version=2.1.128.1b9; cc_entrypoint=sdk-cli; cch=45e4e;"
+        "text": "x-anthropic-billing-header: cc_version=2.1.128.1b9; cc_entrypoint=sdk-cli; cch=2cd8e;"
       },
       {
         "type": "text",
@@ -59,7 +59,7 @@
     ],
     "tools": [],
     "metadata": {
-      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"19d5cb31-99ed-4bb9-8a56-e14689b16274\"}"
+      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"4d203406-719e-46ff-aaf4-6b36f1f74f35\"}"
     },
     "max_tokens": 32000,
     "temperature": 1,

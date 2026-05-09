@@ -1,6 +1,6 @@
 timestamp,provider,model,duration_ms,ttft_ms,status,stop_reason,input_tokens,output_tokens,total_tokens,cost_usd,is_streaming,has_tools,has_thinking,preview_text
-2026-05-04T20:07:25.031079,anthropic,claude-haiku-4-5-20251001,852.1280288696289,725.7311344146729,success,end_turn,353,16,369,0.0003464,True,False,False,"Use the say-hello skill. Print only its output, nothing else."
-2026-05-04T20:07:27.213830,anthropic,claude-opus-4-7,2111.410140991211,1250.2360343933105,success,tool_use,6,106,112,0.0478425,True,True,True,"<system-reminder>
+2026-05-05T20:47:00.835053,anthropic,claude-haiku-4-5-20251001,775.5856513977051,595.4165458679199,success,end_turn,353,16,369,0.0003464,True,False,False,"Use the say-hello skill. Print only its output, nothing else."
+2026-05-05T20:47:02.096720,anthropic,claude-opus-4-7,1995.4588413238525,1514.4238471984863,success,tool_use,6,67,73,0.040536,True,True,False,"<system-reminder>
 The following deferred tools are now available via ToolSearch. Their schemas are NOT loaded — calling them directly will fail with InputValidationError. Use ToolSearch with query ""se"
-2026-05-04T20:07:29.043916,anthropic,claude-opus-4-7,1803.5523891448975,1693.2792663574219,success,end_turn,5,19,24,0.0455775,True,True,True,"<system-reminder>
+2026-05-05T20:47:04.655132,anthropic,claude-opus-4-7,2543.4603691101074,2473.4342098236084,success,end_turn,5,19,24,0.037206,True,True,False,"<system-reminder>
 The following deferred tools are now available via ToolSearch. Their schemas are NOT loaded — calling them directly will fail with InputValidationError. Use ToolSearch with query ""se"

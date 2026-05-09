@@ -7,9 +7,7 @@ EnterPlanMode
 EnterWorktree
 ExitPlanMode
 ExitWorktree
-ListMcpResourcesTool
 NotebookEdit
-ReadMcpResourceTool
 RemoteTrigger
 SendMessage
 TaskOutput

@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-7",
-        "id": "msg_01BDvRoS8uhH6xZwa6iB9Bc5",
+        "id": "msg_01Bn6HmURVp7gy6E5LNtRDZf",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -15,16 +15,15 @@
         "usage": {
           "input_tokens": 6,
           "cache_creation_input_tokens": 0,
-          "cache_read_input_tokens": 26516,
+          "cache_read_input_tokens": 23595,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
             "ephemeral_1h_input_tokens": 0
           },
-          "output_tokens": 5,
+          "output_tokens": 8,
           "service_tier": "standard",
           "inference_geo": "not_available"
-        },
-        "diagnostics": null
+        }
       }
     }
   },
@@ -52,7 +51,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "Hi! What"
+        "text": "Hi! What would you like"
       }
     }
   },
@@ -63,7 +62,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": " can I help you with?"
+        "text": " to work on?"
       }
     }
   },
@@ -86,13 +85,13 @@
       "usage": {
         "input_tokens": 6,
         "cache_creation_input_tokens": 0,
-        "cache_read_input_tokens": 26516,
-        "output_tokens": 15,
+        "cache_read_input_tokens": 23595,
+        "output_tokens": 16,
         "iterations": [
           {
             "input_tokens": 6,
-            "output_tokens": 15,
-            "cache_read_input_tokens": 26516,
+            "output_tokens": 16,
+            "cache_read_input_tokens": 23595,
             "cache_creation_input_tokens": 0,
             "cache_creation": {
               "ephemeral_5m_input_tokens": 0,

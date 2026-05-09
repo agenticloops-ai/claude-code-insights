@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-6",
-        "id": "msg_01Y73zxakPSGzqLwquoSVMq6",
+        "id": "msg_01Tqa3crqc9NRnaA2x7ySNWx",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,13 +14,13 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 3,
-          "cache_creation_input_tokens": 27895,
-          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 24439,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 27895
+            "ephemeral_1h_input_tokens": 0
           },
-          "output_tokens": 2,
+          "output_tokens": 37,
           "service_tier": "standard",
           "inference_geo": "not_available"
         }
@@ -33,8 +33,9 @@
       "type": "content_block_start",
       "index": 0,
       "content_block": {
-        "type": "text",
-        "text": ""
+        "type": "thinking",
+        "thinking": "",
+        "signature": ""
       }
     }
   },
@@ -50,8 +51,8 @@
       "type": "content_block_delta",
       "index": 0,
       "delta": {
-        "type": "text_delta",
-        "text": "\n\nHi"
+        "type": "thinking_delta",
+        "thinking": "The user said \"hi\" - this is a greeting. Let me check the available skills - there's a \"say-hello\" skill described"
       }
     }
   },
@@ -61,8 +62,41 @@
       "type": "content_block_delta",
       "index": 0,
       "delta": {
-        "type": "text_delta",
-        "text": "! How can I help you today?"
+        "type": "thinking_delta",
+        "thinking": " as \"Greet the user with a fixed phrase. Use this skill whenever the user asks to be greeted or asks the agent to 'say hello'\". However, the user just"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": " said \"hi\" which is a casual greeting, not explicitly asking me to \"say hello\" or asking to"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "thinking_delta",
+        "thinking": " be greeted. I'll just respond naturally."
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "signature_delta",
+        "signature": "EsgEClkIDRgCKkC/ZjmrJX21wEZ/Kt72N/wNVQKoe6/1WJ2cn6QjDt99o5DF8GdQ/chbcYl01Bf4QtcAxzCy85/mN24O3hfV6pmkMg9jbGF1ZGUtb3B1cy00LTY4ABIM8iGebtx+XwXJM8FhGgwi0k3enfkM8dqt/wgiMIF9O09kdnIRokqW5GEGMWOiHHtduuITkmbyXaFClszy7iEj/w9n0FSRN8gSVfQqNCqcA4y7E7/ROhfPwP/sysG4JYrDTFWgifAIYR5Hwx7scBDFKDsJ1LoG0lTMI7628R+z+hpxBeJ/3dWoT3m7mCKBxnLDRPQ67UjE+RKLd9qlE193/QX4NGY+hOAqhUcDZXObuehC0ygyLBxQEBOHFWaOd0Dm0KGJJJUEl5Txuwwtv9tkRukyB/C3VcvTLuPgFHkAfxYh8bIvWpUZjEp8xcSk7rjlwz+ErahjKi2ntDOmt+laL3SEXBWkyfuYzgTEAe4m4pJ1Ex+MfT0Gis0RVxFJxCAkwTl/bkhriOUW2T617SXMsuqSwtQVqpKyNSOHrslyOXPm1BufQS/5tPhzXyHYfKyk7+PNFur7n8n7RJRWZInsIzCy2SeLr+wZCJdtp7DUTQPiVIf/l4Z98T1lQWDMrJKvmu/BS0bjbhKwFI9MZ1lr6rSiI7hfHLUpzeZlh4IAGlRG0pmfcXmYEWHlIW+p0J3gVMzK/J9BEl9QglJDC9nAdqjg+CLU9sHcXJ93wtnN1VG6Z43aj5MXbKoP58WkPuDkVo93oCkMujdXpHEYAQ=="
       }
     }
   },
@@ -71,6 +105,46 @@
     "data": {
       "type": "content_block_stop",
       "index": 0
+    }
+  },
+  {
+    "event": "content_block_start",
+    "data": {
+      "type": "content_block_start",
+      "index": 1,
+      "content_block": {
+        "type": "text",
+        "text": ""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": "Hi! How"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 1,
+      "delta": {
+        "type": "text_delta",
+        "text": " can I help you today?"
+      }
+    }
+  },
+  {
+    "event": "content_block_stop",
+    "data": {
+      "type": "content_block_stop",
+      "index": 1
     }
   },
   {
@@ -84,9 +158,9 @@
       },
       "usage": {
         "input_tokens": 3,
-        "cache_creation_input_tokens": 27895,
-        "cache_read_input_tokens": 0,
-        "output_tokens": 13
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 24439,
+        "output_tokens": 128
       },
       "context_management": {
         "applied_edits": []

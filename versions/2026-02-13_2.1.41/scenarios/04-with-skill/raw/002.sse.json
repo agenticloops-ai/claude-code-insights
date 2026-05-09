@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-6",
-        "id": "msg_01K2ZoBLT4bjpDq3VZfgQUj6",
+        "id": "msg_01RK75VC6gXcq6cZYCb7iAhF",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,11 +14,11 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 3,
-          "cache_creation_input_tokens": 26663,
-          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 478,
+          "cache_read_input_tokens": 22755,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 26663
+            "ephemeral_1h_input_tokens": 478
           },
           "output_tokens": 55,
           "service_tier": "standard",
@@ -34,7 +34,7 @@
       "index": 0,
       "content_block": {
         "type": "tool_use",
-        "id": "toolu_01PZBCodrjyNzCNBKouuj7YK",
+        "id": "toolu_01R24erop2rmQQ5gAmwtcEsY",
         "name": "Skill",
         "input": {},
         "caller": {
@@ -67,7 +67,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\"skill\": "
+        "partial_json": "{\"s"
       }
     }
   },
@@ -78,7 +78,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "\"say"
+        "partial_json": "kill\": \"say"
       }
     }
   },
@@ -89,7 +89,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "-hello"
+        "partial_json": "-h"
       }
     }
   },
@@ -100,7 +100,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "\"}"
+        "partial_json": "ello\"}"
       }
     }
   },
@@ -122,8 +122,8 @@
       },
       "usage": {
         "input_tokens": 3,
-        "cache_creation_input_tokens": 26663,
-        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 478,
+        "cache_read_input_tokens": 22755,
         "output_tokens": 55
       },
       "context_management": {

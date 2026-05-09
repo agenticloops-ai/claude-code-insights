@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-6",
-        "id": "msg_01B6AJukZo76sZ5wjWFMYuP1",
+        "id": "msg_01NS7c5NxifVQEqqxMwBEXFx",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,11 +14,11 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 3,
-          "cache_creation_input_tokens": 6954,
-          "cache_read_input_tokens": 12184,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 16975,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 6954
+            "ephemeral_1h_input_tokens": 0
           },
           "output_tokens": 55,
           "service_tier": "standard",
@@ -34,7 +34,7 @@
       "index": 0,
       "content_block": {
         "type": "tool_use",
-        "id": "toolu_015cjSwM7a1x1yahXGJJ7Tcp",
+        "id": "toolu_01DK2EPLt6j2MUG8iYhLLbT7",
         "name": "Skill",
         "input": {},
         "caller": {
@@ -67,7 +67,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\"skill\": \""
+        "partial_json": "{\""
       }
     }
   },
@@ -78,7 +78,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "say-h"
+        "partial_json": "skil"
       }
     }
   },
@@ -89,7 +89,29 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "ello\"}"
+        "partial_json": "l\":"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": " \""
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "say-hello\"}"
       }
     }
   },
@@ -111,18 +133,18 @@
       },
       "usage": {
         "input_tokens": 3,
-        "cache_creation_input_tokens": 6954,
-        "cache_read_input_tokens": 12184,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 16975,
         "output_tokens": 55,
         "iterations": [
           {
             "input_tokens": 3,
             "output_tokens": 55,
-            "cache_read_input_tokens": 12184,
-            "cache_creation_input_tokens": 6954,
+            "cache_read_input_tokens": 16975,
+            "cache_creation_input_tokens": 0,
             "cache_creation": {
               "ephemeral_5m_input_tokens": 0,
-              "ephemeral_1h_input_tokens": 6954
+              "ephemeral_1h_input_tokens": 0
             },
             "type": "message"
           }

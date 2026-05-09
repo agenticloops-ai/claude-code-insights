@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-5-20251101",
-        "id": "msg_01PzKyXMzwwD4NeAztd8ULrP",
+        "id": "msg_01MT8eEW6dgPyqe9xaYmt8De",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,10 +14,10 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 2,
-          "cache_creation_input_tokens": 22144,
-          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 335,
+          "cache_read_input_tokens": 18685,
           "cache_creation": {
-            "ephemeral_5m_input_tokens": 22144,
+            "ephemeral_5m_input_tokens": 335,
             "ephemeral_1h_input_tokens": 0
           },
           "output_tokens": 1,
@@ -34,7 +34,7 @@
       "index": 0,
       "content_block": {
         "type": "tool_use",
-        "id": "toolu_01QgnzDCf74q9GG9n31e9qFk",
+        "id": "toolu_0141XgZvm1h64XzgXvyRxLJG",
         "name": "Skill",
         "input": {},
         "caller": {
@@ -67,7 +67,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\"s"
+        "partial_json": "{\"skill"
       }
     }
   },
@@ -78,7 +78,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "kill\""
+        "partial_json": "\": \"s"
       }
     }
   },
@@ -89,40 +89,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": ": \"s"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "input_json_delta",
-        "partial_json": "ay-he"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "input_json_delta",
-        "partial_json": "ll"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "input_json_delta",
-        "partial_json": "o\"}"
+        "partial_json": "ay-hello\"}"
       }
     }
   },
@@ -144,8 +111,8 @@
       },
       "usage": {
         "input_tokens": 2,
-        "cache_creation_input_tokens": 22144,
-        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 335,
+        "cache_read_input_tokens": 18685,
         "output_tokens": 54
       }
     }

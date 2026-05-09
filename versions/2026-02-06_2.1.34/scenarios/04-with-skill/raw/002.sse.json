@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-6",
-        "id": "msg_01R1oqUyDvdGDccikmMwB8hY",
+        "id": "msg_01WHSNv7RFK4zpb6uqkKrHsa",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,11 +14,11 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 3,
-          "cache_creation_input_tokens": 26519,
-          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 3910,
+          "cache_read_input_tokens": 19179,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 26519
+            "ephemeral_1h_input_tokens": 3910
           },
           "output_tokens": 55,
           "service_tier": "standard",
@@ -34,7 +34,7 @@
       "index": 0,
       "content_block": {
         "type": "tool_use",
-        "id": "toolu_018pULBc3FvC1eaucUjrw46K",
+        "id": "toolu_01GGE1nPe52TwLNVdgpxgtcG",
         "name": "Skill",
         "input": {},
         "caller": {
@@ -67,7 +67,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\"skill\": \""
+        "partial_json": "{\"s"
       }
     }
   },
@@ -78,7 +78,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "say-h"
+        "partial_json": "kill\": \"say-"
       }
     }
   },
@@ -89,7 +89,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "ello\"}"
+        "partial_json": "hello\"}"
       }
     }
   },
@@ -111,8 +111,8 @@
       },
       "usage": {
         "input_tokens": 3,
-        "cache_creation_input_tokens": 26519,
-        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 3910,
+        "cache_read_input_tokens": 19179,
         "output_tokens": 55
       },
       "context_management": {

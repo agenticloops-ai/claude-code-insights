@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-5-20251101",
-        "id": "msg_012JKDBRYiwmds4WbHkmQWNb",
+        "id": "msg_01Syw99CPtYkMfdYTyi5GyKn",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -13,12 +13,12 @@
         "stop_sequence": null,
         "stop_details": null,
         "usage": {
-          "input_tokens": 3,
-          "cache_creation_input_tokens": 22419,
-          "cache_read_input_tokens": 0,
+          "input_tokens": 2,
+          "cache_creation_input_tokens": 3792,
+          "cache_read_input_tokens": 15337,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 22419
+            "ephemeral_1h_input_tokens": 3792
           },
           "output_tokens": 1,
           "service_tier": "standard",
@@ -33,13 +33,8 @@
       "type": "content_block_start",
       "index": 0,
       "content_block": {
-        "type": "tool_use",
-        "id": "toolu_01V8LogRkdWn3LiScco18cWZ",
-        "name": "Skill",
-        "input": {},
-        "caller": {
-          "type": "direct"
-        }
+        "type": "text",
+        "text": ""
       }
     }
   },
@@ -55,8 +50,8 @@
       "type": "content_block_delta",
       "index": 0,
       "delta": {
-        "type": "input_json_delta",
-        "partial_json": ""
+        "type": "text_delta",
+        "text": "Hello"
       }
     }
   },
@@ -66,41 +61,8 @@
       "type": "content_block_delta",
       "index": 0,
       "delta": {
-        "type": "input_json_delta",
-        "partial_json": "{\""
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "input_json_delta",
-        "partial_json": "skill\":"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "input_json_delta",
-        "partial_json": " \"say-"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 0,
-      "delta": {
-        "type": "input_json_delta",
-        "partial_json": "hello\"}"
+        "type": "text_delta",
+        "text": " from the sandbox fixture skill!"
       }
     }
   },
@@ -116,15 +78,15 @@
     "data": {
       "type": "message_delta",
       "delta": {
-        "stop_reason": "tool_use",
+        "stop_reason": "end_turn",
         "stop_sequence": null,
         "stop_details": null
       },
       "usage": {
-        "input_tokens": 3,
-        "cache_creation_input_tokens": 22419,
-        "cache_read_input_tokens": 0,
-        "output_tokens": 54
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 3792,
+        "cache_read_input_tokens": 15337,
+        "output_tokens": 10
       },
       "context_management": {
         "applied_edits": []

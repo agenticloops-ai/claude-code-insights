@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-haiku-4-5-20251001",
-        "id": "msg_019coZ68X2KR8DgYx9oHeth3",
+        "id": "msg_01F2L6HJbZcx2SzuBbBmQLHv",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -51,7 +51,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "{\"title\": \"Initial"
+        "text": "{\"title\": \"General"
       }
     }
   },
@@ -62,7 +62,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": " coding session setup\"}"
+        "text": " coding assistance session\"}"
       }
     }
   },

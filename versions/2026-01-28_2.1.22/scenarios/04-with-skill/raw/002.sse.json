@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-5-20251101",
-        "id": "msg_01Fs7N8eqpygxxDwBV6XYndA",
+        "id": "msg_01RrLpnJePoQFcJrse1sqdBb",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,11 +14,11 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 3,
-          "cache_creation_input_tokens": 22392,
-          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 18936,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 22392
+            "ephemeral_1h_input_tokens": 0
           },
           "output_tokens": 1,
           "service_tier": "standard",
@@ -34,7 +34,7 @@
       "index": 0,
       "content_block": {
         "type": "tool_use",
-        "id": "toolu_01UiCoVuFjuceTkvaVDgTBh5",
+        "id": "toolu_01YZeGqdLCR5ySk8CwAmfub5",
         "name": "Skill",
         "input": {},
         "caller": {
@@ -67,7 +67,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\""
+        "partial_json": "{\"ski"
       }
     }
   },
@@ -78,7 +78,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "skill\":"
+        "partial_json": "ll\": \"s"
       }
     }
   },
@@ -89,7 +89,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": " \"say-h"
+        "partial_json": "ay-"
       }
     }
   },
@@ -100,7 +100,18 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "ello\"}"
+        "partial_json": "he"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "llo\"}"
       }
     }
   },
@@ -122,8 +133,8 @@
       },
       "usage": {
         "input_tokens": 3,
-        "cache_creation_input_tokens": 22392,
-        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 18936,
         "output_tokens": 54
       },
       "context_management": {

@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-7",
-        "id": "msg_01Y4nUXSoUuJ7NiDCNN3Z14R",
+        "id": "msg_01Sq6TkQaiANeyPj4pyoRFpq",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,13 +14,13 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 6,
-          "cache_creation_input_tokens": 10013,
+          "cache_creation_input_tokens": 7092,
           "cache_read_input_tokens": 16331,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 10013
+            "ephemeral_1h_input_tokens": 7092
           },
-          "output_tokens": 5,
+          "output_tokens": 0,
           "service_tier": "standard",
           "inference_geo": "not_available"
         }
@@ -34,7 +34,7 @@
       "index": 0,
       "content_block": {
         "type": "tool_use",
-        "id": "toolu_01Dmx7tp88fpXujPJMk1JTZ8",
+        "id": "toolu_01SiQuDjBKwYMJ5AjtVCt9uk",
         "name": "Skill",
         "input": {},
         "caller": {
@@ -67,7 +67,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\"ski"
+        "partial_json": "{\""
       }
     }
   },
@@ -78,7 +78,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "ll\": \"sa"
+        "partial_json": "skill"
       }
     }
   },
@@ -89,7 +89,18 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "y-he"
+        "partial_json": "\": \"say-"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "he"
       }
     }
   },
@@ -122,7 +133,7 @@
       },
       "usage": {
         "input_tokens": 6,
-        "cache_creation_input_tokens": 10013,
+        "cache_creation_input_tokens": 7092,
         "cache_read_input_tokens": 16331,
         "output_tokens": 67,
         "iterations": [
@@ -130,10 +141,10 @@
             "input_tokens": 6,
             "output_tokens": 67,
             "cache_read_input_tokens": 16331,
-            "cache_creation_input_tokens": 10013,
+            "cache_creation_input_tokens": 7092,
             "cache_creation": {
               "ephemeral_5m_input_tokens": 0,
-              "ephemeral_1h_input_tokens": 10013
+              "ephemeral_1h_input_tokens": 7092
             },
             "type": "message"
           }

@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-7",
-        "id": "msg_01RnwkKthd532Sb1dHry7ZNo",
+        "id": "msg_01D5yiGfWf8VUmopx6KunDp4",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,17 +14,16 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 6,
-          "cache_creation_input_tokens": 10185,
-          "cache_read_input_tokens": 16367,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 23595,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 10185
+            "ephemeral_1h_input_tokens": 0
           },
-          "output_tokens": 8,
+          "output_tokens": 5,
           "service_tier": "standard",
           "inference_geo": "not_available"
-        },
-        "diagnostics": null
+        }
       }
     }
   },
@@ -52,7 +51,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "Hi! What would you like"
+        "text": "Hi! What"
       }
     }
   },
@@ -63,7 +62,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": " to work on?"
+        "text": " can I help you with?"
       }
     }
   },
@@ -85,18 +84,18 @@
       },
       "usage": {
         "input_tokens": 6,
-        "cache_creation_input_tokens": 10185,
-        "cache_read_input_tokens": 16367,
-        "output_tokens": 16,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 23595,
+        "output_tokens": 15,
         "iterations": [
           {
             "input_tokens": 6,
-            "output_tokens": 16,
-            "cache_read_input_tokens": 16367,
-            "cache_creation_input_tokens": 10185,
+            "output_tokens": 15,
+            "cache_read_input_tokens": 23595,
+            "cache_creation_input_tokens": 0,
             "cache_creation": {
               "ephemeral_5m_input_tokens": 0,
-              "ephemeral_1h_input_tokens": 10185
+              "ephemeral_1h_input_tokens": 0
             },
             "type": "message"
           }

@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-6",
-        "id": "msg_01YLq1VYMmcLShN3zcJ7WGxa",
+        "id": "msg_01BdQbU4BcFD7r4MdAC6dMAe",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,13 +14,13 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 2,
-          "cache_creation_input_tokens": 140,
-          "cache_read_input_tokens": 27706,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 24416,
           "cache_creation": {
-            "ephemeral_5m_input_tokens": 140,
+            "ephemeral_5m_input_tokens": 0,
             "ephemeral_1h_input_tokens": 0
           },
-          "output_tokens": 2,
+          "output_tokens": 1,
           "service_tier": "standard",
           "inference_geo": "not_available"
         }
@@ -51,7 +51,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "\n\n>"
+        "text": ">"
       }
     }
   },
@@ -84,9 +84,9 @@
       },
       "usage": {
         "input_tokens": 2,
-        "cache_creation_input_tokens": 140,
-        "cache_read_input_tokens": 27706,
-        "output_tokens": 12
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 24416,
+        "output_tokens": 11
       },
       "context_management": {
         "applied_edits": []

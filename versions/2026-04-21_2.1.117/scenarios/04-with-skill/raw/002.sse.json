@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-7",
-        "id": "msg_01QUMfAEdfcbLXY4mZ2J1NZs",
+        "id": "msg_019DG6ux27o4KWixVax4T5Uq",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,11 +14,11 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 6,
-          "cache_creation_input_tokens": 10165,
+          "cache_creation_input_tokens": 7244,
           "cache_read_input_tokens": 16331,
           "cache_creation": {
             "ephemeral_5m_input_tokens": 0,
-            "ephemeral_1h_input_tokens": 10165
+            "ephemeral_1h_input_tokens": 7244
           },
           "output_tokens": 0,
           "service_tier": "standard",
@@ -33,9 +33,13 @@
       "type": "content_block_start",
       "index": 0,
       "content_block": {
-        "type": "thinking",
-        "thinking": "",
-        "signature": ""
+        "type": "tool_use",
+        "id": "toolu_01P9P5xJ9S8BvYE2c1hGnVYG",
+        "name": "Skill",
+        "input": {},
+        "caller": {
+          "type": "direct"
+        }
       }
     }
   },
@@ -51,40 +55,6 @@
       "type": "content_block_delta",
       "index": 0,
       "delta": {
-        "type": "signature_delta",
-        "signature": "EoICClkIDRgCKkDEf0mQ0dHx3mKBYDSyLZQEwOmqvofen1HEfj9R9hEyJZmuJYJjrLfN8XW1+sG0yrGPxAAH0I53gCELQT2p0qWtMg9jbGF1ZGUtb3B1cy00LTc4ABIMAlwuLijTCxH6dqWuGgxrm5HtEOpWGG9y5D0iMM3hYFVPvdoZf8zLfI+zqVFbOa4zucb3GDe1pq3pgbdO6kW5zPGKSwRiVCgRcLefaypXc8cqaVgQ7OoQJOlnocSMZ94ykY6o6ubedCDsHU8KcPFCWrNw6gzJIiJrf/Bsqpky2G8jzTA/b37kve5Hjp1obeQh4vXL4ZhIp5kBbmVAkOTA+WkdR7ZpGAE="
-      }
-    }
-  },
-  {
-    "event": "content_block_stop",
-    "data": {
-      "type": "content_block_stop",
-      "index": 0
-    }
-  },
-  {
-    "event": "content_block_start",
-    "data": {
-      "type": "content_block_start",
-      "index": 1,
-      "content_block": {
-        "type": "tool_use",
-        "id": "toolu_018MDo7cPbhZre4C6qFMnbjE",
-        "name": "Skill",
-        "input": {},
-        "caller": {
-          "type": "direct"
-        }
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
         "type": "input_json_delta",
         "partial_json": ""
       }
@@ -94,10 +64,10 @@
     "event": "content_block_delta",
     "data": {
       "type": "content_block_delta",
-      "index": 1,
+      "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\"sk"
+        "partial_json": "{\"skill\": "
       }
     }
   },
@@ -105,10 +75,10 @@
     "event": "content_block_delta",
     "data": {
       "type": "content_block_delta",
-      "index": 1,
+      "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "ill\": \""
+        "partial_json": "\"say-hel"
       }
     }
   },
@@ -116,21 +86,10 @@
     "event": "content_block_delta",
     "data": {
       "type": "content_block_delta",
-      "index": 1,
+      "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "say-he"
-      }
-    }
-  },
-  {
-    "event": "content_block_delta",
-    "data": {
-      "type": "content_block_delta",
-      "index": 1,
-      "delta": {
-        "type": "input_json_delta",
-        "partial_json": "llo\"}"
+        "partial_json": "lo\"}"
       }
     }
   },
@@ -138,7 +97,7 @@
     "event": "content_block_stop",
     "data": {
       "type": "content_block_stop",
-      "index": 1
+      "index": 0
     }
   },
   {
@@ -152,18 +111,18 @@
       },
       "usage": {
         "input_tokens": 6,
-        "cache_creation_input_tokens": 10165,
+        "cache_creation_input_tokens": 7244,
         "cache_read_input_tokens": 16331,
-        "output_tokens": 106,
+        "output_tokens": 67,
         "iterations": [
           {
             "input_tokens": 6,
-            "output_tokens": 106,
+            "output_tokens": 67,
             "cache_read_input_tokens": 16331,
-            "cache_creation_input_tokens": 10165,
+            "cache_creation_input_tokens": 7244,
             "cache_creation": {
               "ephemeral_5m_input_tokens": 0,
-              "ephemeral_1h_input_tokens": 10165
+              "ephemeral_1h_input_tokens": 7244
             },
             "type": "message"
           }

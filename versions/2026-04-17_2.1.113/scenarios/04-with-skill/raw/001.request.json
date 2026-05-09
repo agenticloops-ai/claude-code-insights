@@ -1,8 +1,8 @@
 {
   "index": 1,
-  "request_id": "7fa35c3a-4103-4481-9263-c736e8783694",
-  "session_id": "070a4a3c-016e-4117-9ad4-d4b8f29ebff5",
-  "timestamp": "2026-05-04T19:46:21.863549",
+  "request_id": "7de5c367-f30b-4fe8-aea9-00ac99dc8255",
+  "session_id": "aeb5504e-d342-48c1-ab1d-b68847b53acf",
+  "timestamp": "2026-05-05T20:29:06.448450",
   "provider": "anthropic",
   "method": "POST",
   "url": "https://api.anthropic.com/v1/messages?beta=true",
@@ -11,7 +11,7 @@
     "Authorization": "REDACTED",
     "Content-Type": "application/json",
     "User-Agent": "claude-cli/2.1.113 (external, sdk-cli)",
-    "X-Claude-Code-Session-Id": "26a9f94f-fd1d-4dbf-934e-fa1cc6e0866d",
+    "X-Claude-Code-Session-Id": "0f6cf4f3-072f-49b1-8bc9-decffdc9305a",
     "X-Stainless-Arch": "x64",
     "X-Stainless-Lang": "js",
     "X-Stainless-OS": "Linux",
@@ -24,7 +24,7 @@
     "anthropic-dangerous-direct-browser-access": "true",
     "anthropic-version": "2023-06-01",
     "x-app": "cli",
-    "x-client-request-id": "0a196c45-021a-42dd-8400-68c319029d32",
+    "x-client-request-id": "acc10b82-f5de-4497-b0c7-271291b8e107",
     "Connection": "keep-alive",
     "Host": "api.anthropic.com",
     "Accept-Encoding": "identity",
@@ -46,7 +46,7 @@
     "system": [
       {
         "type": "text",
-        "text": "x-anthropic-billing-header: cc_version=2.1.113.257; cc_entrypoint=sdk-cli; cch=5ad93;"
+        "text": "x-anthropic-billing-header: cc_version=2.1.113.257; cc_entrypoint=sdk-cli; cch=f12b7;"
       },
       {
         "type": "text",
@@ -59,7 +59,7 @@
     ],
     "tools": [],
     "metadata": {
-      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"26a9f94f-fd1d-4dbf-934e-fa1cc6e0866d\"}"
+      "user_id": "{\"device_id\":\"dd62fc88744616cde795354b043d34645c92e7b5978fe484c7c76dd5e33d7c82\",\"account_uuid\":\"d5e57ed4-123a-49ef-8d7e-8977ec9697c8\",\"session_id\":\"0f6cf4f3-072f-49b1-8bc9-decffdc9305a\"}"
     },
     "max_tokens": 32000,
     "temperature": 1,

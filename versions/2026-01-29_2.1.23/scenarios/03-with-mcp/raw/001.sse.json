@@ -4,8 +4,8 @@
     "data": {
       "type": "message_start",
       "message": {
-        "model": "claude-opus-4-6",
-        "id": "msg_01NgQuQNAPpGAaR8V6ytisZr",
+        "model": "claude-opus-4-5-20251101",
+        "id": "msg_01F5PwFshVvMdkMhon2jF6kr",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -13,12 +13,12 @@
         "stop_sequence": null,
         "stop_details": null,
         "usage": {
-          "input_tokens": 2,
-          "cache_creation_input_tokens": 623,
-          "cache_read_input_tokens": 15931,
+          "input_tokens": 3,
+          "cache_creation_input_tokens": 3321,
+          "cache_read_input_tokens": 15591,
           "cache_creation": {
-            "ephemeral_5m_input_tokens": 623,
-            "ephemeral_1h_input_tokens": 0
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 3321
           },
           "output_tokens": 1,
           "service_tier": "standard",
@@ -51,7 +51,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": ">"
+        "text": "m"
       }
     }
   },
@@ -62,7 +62,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": " Hello from the sandbox fixture skill!"
+        "text": "cp__fixture__tool_001\nmcp__fixture__tool_002\nmcp__fixture__tool_003"
       }
     }
   },
@@ -83,10 +83,10 @@
         "stop_details": null
       },
       "usage": {
-        "input_tokens": 2,
-        "cache_creation_input_tokens": 623,
-        "cache_read_input_tokens": 15931,
-        "output_tokens": 11
+        "input_tokens": 3,
+        "cache_creation_input_tokens": 3321,
+        "cache_read_input_tokens": 15591,
+        "output_tokens": 29
       },
       "context_management": {
         "applied_edits": []

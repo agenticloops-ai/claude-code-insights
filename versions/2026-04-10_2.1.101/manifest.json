@@ -7,11 +7,11 @@
       "claude-opus-4-6"
     ],
     "tool_count": 10,
-    "deferred_tool_count": 21,
+    "deferred_tool_count": 19,
     "mcp_tool_count_advertised": 0,
     "mcp_tool_count_deferred": 0,
     "system_prompt_chars": 26300,
-    "reminder_count": 3
+    "reminder_count": 2
   },
   "scenarios": {
     "01-cli-help": {
@@ -24,79 +24,79 @@
       "version": "2.1.101",
       "dir_name": "2026-04-10_2.1.101",
       "scenario": "02-bare",
-      "captured_at": "2026-05-04T19:26:01.985388",
+      "captured_at": "2026-05-05T20:12:12.601700",
       "request_count": 1,
       "models": [
         "claude-opus-4-6"
       ],
       "tool_count_first_request": 10,
-      "deferred_tool_count": 21,
+      "deferred_tool_count": 19,
       "mcp_tool_count_advertised": 0,
       "mcp_tool_count_deferred": 0,
       "system_prompt_chars": 26300,
-      "user_prompt_chars": 383,
+      "user_prompt_chars": 342,
       "skill_count": 6,
-      "reminder_count": 3,
+      "reminder_count": 2,
       "tokens": {
         "input": 3,
         "output": 13,
         "cache_read": 12115,
-        "cache_creation": 6620,
+        "cache_creation": 4457,
         "total": 16
       },
-      "duration_ms_total": 2695
+      "duration_ms_total": 2330
     },
     "03-with-mcp": {
       "version": "2.1.101",
       "dir_name": "2026-04-10_2.1.101",
       "scenario": "03-with-mcp",
-      "captured_at": "2026-05-04T19:26:36.350141",
+      "captured_at": "2026-05-05T20:12:27.131439",
       "request_count": 1,
       "models": [
         "claude-opus-4-6"
       ],
       "tool_count_first_request": 10,
-      "deferred_tool_count": 21,
+      "deferred_tool_count": 19,
       "mcp_tool_count_advertised": 0,
       "mcp_tool_count_deferred": 0,
       "system_prompt_chars": 26300,
-      "user_prompt_chars": 383,
+      "user_prompt_chars": 342,
       "skill_count": 6,
-      "reminder_count": 3,
+      "reminder_count": 2,
       "tokens": {
         "input": 3,
-        "output": 1601,
+        "output": 51,
         "cache_read": 12115,
-        "cache_creation": 6674,
-        "total": 1604
+        "cache_creation": 4485,
+        "total": 54
       },
-      "duration_ms_total": 21718
+      "duration_ms_total": 3614
     },
     "04-with-skill": {
       "version": "2.1.101",
       "dir_name": "2026-04-10_2.1.101",
       "scenario": "04-with-skill",
-      "captured_at": "2026-05-04T19:26:54.299975",
+      "captured_at": "2026-05-05T20:12:41.689276",
       "request_count": 2,
       "models": [
         "claude-opus-4-6"
       ],
       "tool_count_first_request": 10,
-      "deferred_tool_count": 21,
+      "deferred_tool_count": 19,
       "mcp_tool_count_advertised": 0,
       "mcp_tool_count_deferred": 0,
       "system_prompt_chars": 26300,
-      "user_prompt_chars": 383,
+      "user_prompt_chars": 342,
       "skill_count": 6,
-      "reminder_count": 3,
+      "reminder_count": 2,
       "tokens": {
         "input": 5,
-        "output": 66,
-        "cache_read": 30864,
-        "cache_creation": 6774,
-        "total": 71
+        "output": 65,
+        "cache_read": 28701,
+        "cache_creation": 4611,
+        "total": 70
       },
-      "duration_ms_total": 4095
+      "duration_ms_total": 5125
     }
   }
 }

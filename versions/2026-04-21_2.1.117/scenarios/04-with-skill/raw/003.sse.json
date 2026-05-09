@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-opus-4-7",
-        "id": "msg_018ACiS3rVXCqXgRTMVo8rR2",
+        "id": "msg_01Dtt4Nc1fKjmNsKZz2HwB3h",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,13 +14,13 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 5,
-          "cache_creation_input_tokens": 228,
-          "cache_read_input_tokens": 26496,
+          "cache_creation_input_tokens": 190,
+          "cache_read_input_tokens": 23575,
           "cache_creation": {
-            "ephemeral_5m_input_tokens": 228,
-            "ephemeral_1h_input_tokens": 0
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 190
           },
-          "output_tokens": 9,
+          "output_tokens": 8,
           "service_tier": "standard",
           "inference_geo": "not_available"
         }
@@ -51,7 +51,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": "Hello from the sandbox"
+        "text": "Hello from the sandb"
       }
     }
   },
@@ -62,7 +62,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": " fixture skill!"
+        "text": "ox fixture skill!"
       }
     }
   },
@@ -84,18 +84,18 @@
       },
       "usage": {
         "input_tokens": 5,
-        "cache_creation_input_tokens": 228,
-        "cache_read_input_tokens": 26496,
+        "cache_creation_input_tokens": 190,
+        "cache_read_input_tokens": 23575,
         "output_tokens": 19,
         "iterations": [
           {
             "input_tokens": 5,
             "output_tokens": 19,
-            "cache_read_input_tokens": 26496,
-            "cache_creation_input_tokens": 228,
+            "cache_read_input_tokens": 23575,
+            "cache_creation_input_tokens": 190,
             "cache_creation": {
-              "ephemeral_5m_input_tokens": 228,
-              "ephemeral_1h_input_tokens": 0
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 190
             },
             "type": "message"
           }

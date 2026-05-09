@@ -5,7 +5,7 @@
       "type": "message_start",
       "message": {
         "model": "claude-haiku-4-5-20251001",
-        "id": "msg_01Lpqi1CqBNKaD65KRY7zoDK",
+        "id": "msg_01X7K12xLcYqfi9V79zmXKrg",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -62,7 +62,7 @@
       "index": 0,
       "delta": {
         "type": "text_delta",
-        "text": " say-hello skill and print output\"}"
+        "text": " say-hello skill\"}"
       }
     }
   },
@@ -86,11 +86,11 @@
         "input_tokens": 353,
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
-        "output_tokens": 16,
+        "output_tokens": 13,
         "iterations": [
           {
             "input_tokens": 353,
-            "output_tokens": 16,
+            "output_tokens": 13,
             "cache_read_input_tokens": 0,
             "cache_creation_input_tokens": 0,
             "cache_creation": {

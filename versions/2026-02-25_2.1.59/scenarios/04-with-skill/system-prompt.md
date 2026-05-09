@@ -124,7 +124,3 @@ Assistant knowledge cutoff is May 2025.
 <fast_mode_info>
 Fast mode for Claude Code uses the same Claude Opus 4.6 model with faster output. It does NOT switch to a different model. It can be toggled with /fast.
 </fast_mode_info>
-
-# MCP Server Instructions
-
-The following MCP servers have provided instructions for how to use their tools and resources:

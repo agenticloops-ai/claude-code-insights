@@ -1,16 +1,16 @@
 # 02-bare
 
-**Started:** 2026-05-04T17:59:04.820973  
-**Ended:** 2026-05-04T17:59:17.932228  
+**Started:** 2026-05-05T16:43:55.729407  
+**Ended:** 2026-05-05T16:44:03.858567  
 **Requests:** 1  
-**Tokens:** 15 (in: 3 / out: 12)  
-**Cost:** $0.2974  
+**Tokens:** 16 (in: 3 / out: 13)  
+**Cost:** $0.0377  
 **Models:** claude-opus-4-6  
 **Providers:** anthropic  
 
 ---
 
-## Request #1 — claude-opus-4-6 (anthropic) — 3.5s
+## Request #1 — claude-opus-4-6 (anthropic) — 2.9s
 
 ### System Prompt
 
@@ -142,10 +142,134 @@ Assistant knowledge cutoff is May 2025.
 <fast_mode_info>
 Fast mode for Claude Code uses the same Claude Opus 4.6 model with faster output. It does NOT switch to a different model. It can be toggled with /fast.
 </fast_mode_info>
+```
 
-# MCP Server Instructions
+### Tools
 
-The following MCP servers have provided instructions for how to use their tools and resources:
+#### `Task`
+
+```
+Launch a new agent to handle complex, multi-step tasks autonomously.
+
+The Task tool launches specialized agents (subprocesses) that autonomously handle complex tasks. Each agent type has specific capabilities and tools available to it.
+
+Available agent types and the tools they have access to:
+- general-purpose: General-purpose agent for researching complex questions, searching for code, and executing multi-step tasks. When you are searching for a keyword or file and are not confident that you will find the right match in the first few tries use this agent to perform the search for you. (Tools: *)
+- statusline-setup: Use this agent to configure the user's Claude Code status line setting. (Tools: Read, Edit)
+- Explore: Fast agent specialized for exploring codebases. Use this when you need to quickly find files by patterns (eg. "src/components/**/*.tsx"), search code for keywords (eg. "API endpoints"), or answer questions about the codebase (eg. "how do API endpoints work?"). When calling this agent, specify the desired thoroughness level: "quick" for basic searches, "medium" for moderate exploration, or "very thorough" for comprehensive analysis across multiple locations and naming conventions. (Tools: All tools except Task, ExitPlanMode, Edit, Write, NotebookEdit)
+- Plan: Software architect agent for designing implementation plans. Use this when you need to plan the implementation strategy for a task. Returns step-by-step plans, identifies critical files, and considers architectural trade-offs. (Tools: All tools except Task, ExitPlanMode, Edit, Write, NotebookEdit)
+
+When using the Task tool, you must specify a subagent_type parameter to select which agent type to use.
+
+When NOT to use the Task tool:
+- If you want to read a specific file path, use the Read or Glob tool instead of the Task tool, to find the match more quickly
+- If you are searching for a specific class definition like "class Foo", use the Glob tool instead, to find the match more quickly
+- If you are searching for code within a specific file or set of 2-3 files, use the Read tool instead of the Task tool, to find the match more quickly
+- Other tasks that are not related to the agent descriptions above
+
+
+Usage notes:
+- Always include a short description (3-5 words) summarizing what the agent will do
+- Launch multiple agents concurrently whenever possible, to maximize performance; to do that, use a single message with multiple tool uses
+- When the agent is done, it will return a single message back to you. The result returned by the agent is not visible to the user. To show the user the result, you should send a text message back to the user with a concise summary of the result.
+- You can optionally run agents in the background using the run_in_background parameter. When an agent runs in the background, you will be automatically notified when it completes — do NOT sleep, poll, or proactively check on its progress. Continue with other work or respond to the user instead.
+- **Foreground vs background**: Use foreground (default) when you need the agent's results before you can proceed — e.g., research agents whose findings inform your next steps. Use background when you have genuinely independent work to do in parallel.
+- Agents can be resumed using the `resume` parameter by passing the agent ID from a previous invocation. When resumed, the agent continues with its full previous context preserved. When NOT resuming, each invocation starts fresh and you should provide a detailed task description with all necessary context.
+- When the agent is done, it will return a single message back to you along with its agent ID. You can use this ID to resume the agent later if needed for follow-up work.
+- Provide clear, detailed prompts so the agent can work autonomously and return exactly the information you need.
+- Agents with "access to current context" can see the full conversation history before the tool call. When using these agents, you can write concise prompts that reference earlier context (e.g., "investigate the error discussed above") instead of repeating information. The agent will receive all prior messages and understand the context.
+- The agent's outputs should generally be trusted
+- Clearly tell the agent whether you expect it to write code or just to do research (search, file reads, web fetches, etc.), since it is not aware of the user's intent
+- If the agent description mentions that it should be used proactively, then you should try your best to use it without the user having to ask for it first. Use your judgement.
+- If the user specifies that they want you to run agents "in parallel", you MUST send a single message with multiple Task tool use content blocks. For example, if you need to launch both a build-validator agent and a test-runner agent in parallel, send a single message with both tool calls.
+- You can optionally set `isolation: "worktree"` to run the agent in a temporary git worktree, giving it an isolated copy of the repository. The worktree is automatically cleaned up if the agent makes no changes; if changes are made, the worktree path and branch are returned in the result.
+
+Example usage:
+
+<example_agent_descriptions>
+"test-runner": use this agent after you are done writing code to run tests
+"greeting-responder": use this agent to respond to user greetings with a friendly joke
+</example_agent_descriptions>
+
+<example>
+user: "Please write a function that checks if a number is prime"
+assistant: Sure let me write a function that checks if a number is prime
+assistant: First let me use the Write tool to write a function that checks if a number is prime
+assistant: I'm going to use the Write tool to write the following code:
+<code>
+function isPrime(n) {
+  if (n <= 1) return false
+  for (let i = 2; i * i <= n; i++) {
+    if (n % i === 0) return false
+  }
+  return true
+}
+</code>
+<commentary>
+Since a significant piece of code was written and the task was completed, now use the test-runner agent to run the tests
+</commentary>
+assistant: Now let me use the test-runner agent to run the tests
+assistant: Uses the Task tool to launch the test-runner agent
+</example>
+
+<example>
+user: "Hello"
+<commentary>
+Since the user is greeting, use the greeting-responder agent to respond with a friendly joke
+</commentary>
+assistant: "I'm going to use the Task tool to launch the greeting-responder agent"
+</example>
+
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `description` | string | yes | A short (3-5 word) description of the task |
+| `prompt` | string | yes | The task for the agent to perform |
+| `subagent_type` | string | yes | The type of specialized agent to use for this task |
+| `model` | string | no | Optional model to use for this agent. If not specified, inherits from parent. Prefer haiku for quick, straightforward tasks to minimize cost and latency. |
+| `resume` | string | no | Optional agent ID to resume from. If provided, the agent will continue from the previous execution transcript. |
+| `run_in_background` | boolean | no | Set to true to run this agent in the background. The tool result will include an output_file path - use Read tool or Bash tail to check on output. |
+| `max_turns` | integer | no | Maximum number of agentic turns (API round-trips) before stopping. Used internally for warmup. |
+| `name` | string | no | Name for the spawned agent |
+| `team_name` | string | no | Team name for spawning. Uses current team context if omitted. |
+| `mode` | string | no | Permission mode for spawned teammate (e.g., "plan" to require plan approval). |
+| `isolation` | string | no | Isolation mode. "worktree" creates a temporary git worktree so the agent works on an isolated copy of the repo. |
+
+#### `TaskOutput`
+
+```
+- Retrieves output from a running or completed task (background shell, agent, or remote session)
+- Takes a task_id parameter identifying the task
+- Returns the task output along with status information
+- Use block=true (default) to wait for task completion
+- Use block=false for non-blocking check of current status
+- Task IDs can be found using the /tasks command
+- Works with all task types: background shells, async agents, and remote sessions
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `task_id` | string | yes | The task ID to get output from |
+| `block` | boolean | yes | Whether to wait for completion |
+| `timeout` | number | yes | Max wait time in ms |
+
+#### `Bash`
+
+```
+Executes a given bash command and returns its output.
+
+The working directory persists between commands, but shell state does not. The shell environment is initialized from the user's profile (bash or zsh).
+
+IMPORTANT: Avoid using this tool to run `find`, `grep`, `cat`, `head`, `tail`, `sed`, `awk`, or `echo` commands, unless explicitly instructed or after you have verified that a dedicated tool cannot accomplish your task. Instead, use the appropriate dedicated tool as this will provide a much better experience for the user:
+
+ - File search: Use Glob (NOT find or ls)
+ - Content search: Use Grep (NOT grep or rg)
+ - Read files: Use Read (NOT cat/head/tail)
+ - Edit files: Use Edit (NOT sed/awk)
+ - Write files: Use Write (NOT echo >/cat <<EOF)
+ - Communication: Output text directly (NOT echo/printf)
+While the Bash tool can do similar things, it’s better to use the built-in tools as they provide a better user experience and make it easier to review tool calls and give permission.
 
 # Instructions
  - If your command will create new directories or files, first use this tool to run `ls` to verify the parent directory exists and is the correct location.
@@ -197,7 +321,7 @@ Git Safety Protocol:
 3. You can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. run the following commands:
    - Add relevant untracked files to the staging area.
    - Create the commit with a message ending with:
-   Co-Authored-By: Claude Opus 4.6 <<USER_EMAIL>>
+   Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
    - Run git status after the commit completes to verify success.
    Note: git status depends on the commit completing, so run it sequentially after the commit.
 4. If the commit fails due to pre-commit hook: fix the issue and create a NEW commit
@@ -214,7 +338,7 @@ Important notes:
 git commit -m "$(cat <<'EOF'
    Commit message here.
 
-   Co-Authored-By: Claude Opus 4.6 <<USER_EMAIL>>
+   Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
    EOF
    )"
 </example>
@@ -324,6 +448,39 @@ A powerful search tool built on ripgrep
 | `offset` | number | no | Skip first N lines/entries before applying head_limit, equivalent to "| tail -n +N | head -N". Works across all output modes. Defaults to 0. |
 | `multiline` | boolean | no | Enable multiline mode where . matches newlines and patterns can span lines (rg -U --multiline-dotall). Default: false. |
 
+#### `ExitPlanMode`
+
+```
+Use this tool when you are in plan mode and have finished writing your plan to the plan file and are ready for user approval.
+
+## How This Tool Works
+- You should have already written your plan to the plan file specified in the plan mode system message
+- This tool does NOT take the plan content as a parameter - it will read the plan from the file you wrote
+- This tool simply signals that you're done planning and ready for the user to review and approve
+- The user will see the contents of your plan file when they review it
+
+## When to Use This Tool
+IMPORTANT: Only use this tool when the task requires planning the implementation steps of a task that requires writing code. For research tasks where you're gathering information, searching files, reading files or in general trying to understand the codebase - do NOT use this tool.
+
+## Before Using This Tool
+Ensure your plan is complete and unambiguous:
+- If you have unresolved questions about requirements or approach, use AskUserQuestion first (in earlier phases)
+- Once your plan is finalized, use THIS tool to request approval
+
+**Important:** Do NOT use AskUserQuestion to ask "Is this plan okay?" or "Should I proceed?" - that's exactly what THIS tool does. ExitPlanMode inherently requests user approval of your plan.
+
+## Examples
+
+1. Initial task: "Search for and understand the implementation of vim mode in the codebase" - Do not use the exit plan mode tool because you are not planning the implementation steps of a task.
+2. Initial task: "Help me implement yank mode for vim" - Use the exit plan mode tool after you have finished planning the implementation steps of the task.
+3. Initial task: "Add a new feature to handle user authentication" - If unsure about auth method (OAuth, JWT, etc.), use AskUserQuestion first, then use exit plan mode tool after clarifying the approach.
+
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `allowedPrompts` | array | no | Prompt-based permissions needed to implement the plan. These describe categories of actions rather than specific commands. |
+
 #### `Read`
 
 ```
@@ -391,106 +548,798 @@ Usage:
 | `file_path` | string | yes | The absolute path to the file to write (must be absolute, not relative) |
 | `content` | string | yes | The content to write to the file |
 
-#### `ToolSearch`
+#### `NotebookEdit`
 
 ```
-Search for or select deferred tools to make them available for use.
-
-**MANDATORY PREREQUISITE - THIS IS A HARD REQUIREMENT**
-
-You MUST use this tool to load deferred tools BEFORE calling them directly.
-
-This is a BLOCKING REQUIREMENT - deferred tools listed below are NOT available until you load them using this tool. Both query modes (keyword search and direct selection) load the returned tools — once a tool appears in the results, it is immediately available to call.
-
-**Why this is non-negotiable:**
-- Deferred tools are not loaded until discovered via this tool
-- Calling a deferred tool without first loading it will fail
-
-**Query modes:**
-
-1. **Keyword search** - Use keywords when you're unsure which tool to use or need to discover multiple tools at once:
-   - "list directory" - find tools for listing directories
-   - "notebook jupyter" - find notebook editing tools
-   - "slack message" - find slack messaging tools
-   - Returns up to 5 matching tools ranked by relevance
-   - All returned tools are immediately available to call — no further selection step needed
-
-2. **Direct selection** - Use `select:<tool_name>` when you know the exact tool name and only need that one tool:
-   - "select:mcp__slack__read_channel"
-   - "select:NotebookEdit"
-   - Returns just that tool if it exists
-
-**IMPORTANT:** Both modes load tools equally. Do NOT follow up a keyword search with `select:` calls for tools already returned — they are already loaded.
-
-3. **Required keyword** - Prefix with `+` to require a match:
-   - "+linear create issue" - only tools from "linear", ranked by "create"/"issue"
-   - "+slack send" - only "slack" tools, ranked by "send"
-   - Useful when you know the service name but not the exact tool
-
-**CORRECT Usage Patterns:**
-
-<example>
-User: I need to work with slack somehow
-Assistant: Let me search for slack tools.
-[Calls ToolSearch with query: "slack"]
-Assistant: Found several options including mcp__slack__read_channel.
-[Calls mcp__slack__read_channel directly — it was loaded by the keyword search]
-</example>
-
-<example>
-User: Edit the Jupyter notebook
-Assistant: Let me load the notebook editing tool.
-[Calls ToolSearch with query: "select:NotebookEdit"]
-[Calls NotebookEdit]
-</example>
-
-<example>
-User: List files in the src directory
-Assistant: I can see mcp__filesystem__list_directory in the available tools. Let me select it.
-[Calls ToolSearch with query: "select:mcp__filesystem__list_directory"]
-[Calls the tool]
-</example>
-
-**INCORRECT Usage Patterns - NEVER DO THESE:**
-
-<bad-example>
-User: Read my slack messages
-Assistant: [Directly calls mcp__slack__read_channel without loading it first]
-WRONG - You must load the tool FIRST using this tool
-</bad-example>
-
-<bad-example>
-Assistant: [Calls ToolSearch with query: "slack", gets back mcp__slack__read_channel]
-Assistant: [Calls ToolSearch with query: "select:mcp__slack__read_channel"]
-WRONG - The keyword search already loaded the tool. The select call is redundant.
-</bad-example>
-
-Available deferred tools (must be loaded before use):
-TaskOutput
-ExitPlanMode
-NotebookEdit
-WebFetch
-TodoWrite
-WebSearch
-TaskStop
-AskUserQuestion
-Skill
-EnterPlanMode
-EnterWorktree
-TeamCreate
-TeamDelete
-SendMessage
-mcp__fixture__tool_001
-mcp__fixture__tool_002
-mcp__fixture__tool_003
-ListMcpResourcesTool
-ReadMcpResourceTool
+Completely replaces the contents of a specific cell in a Jupyter notebook (.ipynb file) with new source. Jupyter notebooks are interactive documents that combine code, text, and visualizations, commonly used for data analysis and scientific computing. The notebook_path parameter must be an absolute path, not a relative path. The cell_number is 0-indexed. Use edit_mode=insert to add a new cell at the index specified by cell_number. Use edit_mode=delete to delete the cell at the index specified by cell_number.
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `query` | string | yes | Query to find deferred tools. Use "select:<tool_name>" for direct selection, or keywords to search. |
-| `max_results` | number | yes | Maximum number of results to return (default: 5) |
+| `notebook_path` | string | yes | The absolute path to the Jupyter notebook file to edit (must be absolute, not relative) |
+| `cell_id` | string | no | The ID of the cell to edit. When inserting a new cell, the new cell will be inserted after the cell with this ID, or at the beginning if not specified. |
+| `new_source` | string | yes | The new source for the cell |
+| `cell_type` | string | no | The type of the cell (code or markdown). If not specified, it defaults to the current cell type. If using edit_mode=insert, this is required. |
+| `edit_mode` | string | no | The type of edit to make (replace, insert, delete). Defaults to replace. |
+
+#### `WebFetch`
+
+```
+IMPORTANT: WebFetch WILL FAIL for authenticated or private URLs. Before using this tool, check if the URL points to an authenticated service (e.g. Google Docs, Confluence, Jira, GitHub). If so, you MUST use ToolSearch first to find a specialized tool that provides authenticated access.
+
+- Fetches content from a specified URL and processes it using an AI model
+- Takes a URL and a prompt as input
+- Fetches the URL content, converts HTML to markdown
+- Processes the content with the prompt using a small, fast model
+- Returns the model's response about the content
+- Use this tool when you need to retrieve and analyze web content
+
+Usage notes:
+  - IMPORTANT: If an MCP-provided web fetch tool is available, prefer using that tool instead of this one, as it may have fewer restrictions.
+  - The URL must be a fully-formed valid URL
+  - HTTP URLs will be automatically upgraded to HTTPS
+  - The prompt should describe what information you want to extract from the page
+  - This tool is read-only and does not modify any files
+  - Results may be summarized if the content is very large
+  - Includes a self-cleaning 15-minute cache for faster responses when repeatedly accessing the same URL
+  - When a URL redirects to a different host, the tool will inform you and provide the redirect URL in a special format. You should then make a new WebFetch request with the redirect URL to fetch the content.
+  - For GitHub URLs, prefer using the gh CLI via Bash instead (e.g., gh pr view, gh issue view, gh api).
+
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `url` | string | yes | The URL to fetch content from |
+| `prompt` | string | yes | The prompt to run on the fetched content |
+
+#### `TodoWrite`
+
+```
+Use this tool to create and manage a structured task list for your current coding session. This helps you track progress, organize complex tasks, and demonstrate thoroughness to the user.
+It also helps the user understand the progress of the task and overall progress of their requests.
+
+## When to Use This Tool
+Use this tool proactively in these scenarios:
+
+1. Complex multi-step tasks - When a task requires 3 or more distinct steps or actions
+2. Non-trivial and complex tasks - Tasks that require careful planning or multiple operations
+3. User explicitly requests todo list - When the user directly asks you to use the todo list
+4. User provides multiple tasks - When users provide a list of things to be done (numbered or comma-separated)
+5. After receiving new instructions - Immediately capture user requirements as todos
+6. When you start working on a task - Mark it as in_progress BEFORE beginning work. Ideally you should only have one todo as in_progress at a time
+7. After completing a task - Mark it as completed and add any new follow-up tasks discovered during implementation
+
+## When NOT to Use This Tool
+
+Skip using this tool when:
+1. There is only a single, straightforward task
+2. The task is trivial and tracking it provides no organizational benefit
+3. The task can be completed in less than 3 trivial steps
+4. The task is purely conversational or informational
+
+NOTE that you should not use this tool if there is only one trivial task to do. In this case you are better off just doing the task directly.
+
+## Examples of When to Use the Todo List
+
+<example>
+User: I want to add a dark mode toggle to the application settings. Make sure you run the tests and build when you're done!
+Assistant: I'll help add a dark mode toggle to your application settings. Let me create a todo list to track this implementation.
+*Creates todo list with the following items:*
+1. Creating dark mode toggle component in Settings page
+2. Adding dark mode state management (context/store)
+3. Implementing CSS-in-JS styles for dark theme
+4. Updating existing components to support theme switching
+5. Running tests and build process, addressing any failures or errors that occur
+*Begins working on the first task*
+
+<reasoning>
+The assistant used the todo list because:
+1. Adding dark mode is a multi-step feature requiring UI, state management, and styling changes
+2. The user explicitly requested tests and build be run afterward
+3. The assistant inferred that tests and build need to pass by adding "Ensure tests and build succeed" as the final task
+</reasoning>
+</example>
+
+<example>
+User: Help me rename the function getCwd to getCurrentWorkingDirectory across my project
+Assistant: Let me first search through your codebase to find all occurrences of 'getCwd'.
+*Uses grep or search tools to locate all instances of getCwd in the codebase*
+Assistant: I've found 15 instances of 'getCwd' across 8 different files. Let me create a todo list to track these changes.
+*Creates todo list with specific items for each file that needs updating*
+
+<reasoning>
+The assistant used the todo list because:
+1. First, the assistant searched to understand the scope of the task
+2. Upon finding multiple occurrences across different files, it determined this was a complex task with multiple steps
+3. The todo list helps ensure every instance is tracked and updated systematically
+4. This approach prevents missing any occurrences and maintains code consistency
+</reasoning>
+</example>
+
+
+<example>
+User: I need to implement these features for my e-commerce site: user registration, product catalog, shopping cart, and checkout flow.
+Assistant: I'll help implement these features. First, let's add all the features to the todo list.
+*Creates a todo list breaking down each feature into specific tasks based on the project architecture*
+Assistant: Let's start with user registration. This will involve creating database models, API endpoints, and frontend forms that integrate with your existing authentication system.
+
+<reasoning>
+The assistant used the todo list because:
+1. The user provided multiple complex features to implement in a comma separated list
+2. The todo list helps organize these large features into manageable tasks
+3. This approach allows for tracking progress across the entire implementation
+</reasoning>
+</example>
+
+<example>
+User: Can you help optimize my React application? It's rendering slowly and has performance issues.</user>
+Assistant: I'll help optimize your React application. First, let me examine your codebase to identify potential performance bottlenecks.
+*Reviews component structure, render patterns, state management, and data fetching*
+Assistant: After analyzing your codebase, I've identified several performance issues. Let me create a todo list to track our optimization efforts.
+*Creates todo list with items like: 1) Implementing memoization for expensive calculations in ProductList, 2) Adding virtualization for long lists in Dashboard, 3) Optimizing image loading in Gallery component, 4) Fixing state update loops in ShoppingCart, 5) Reviewing bundle size and implementing code splitting*
+Let's start by implementing memoization for the expensive calculations in your ProductList component.</assistant>
+
+<reasoning>
+The assistant used the todo list because:
+1. First, the assistant examined the codebase to identify specific performance issues
+2. Based on this analysis, it identified multiple optimization opportunities
+3. Performance optimization is a non-trivial task requiring multiple steps
+4. The todo list helps methodically track improvements across different components
+5. This systematic approach ensures all performance bottlenecks are addressed
+</reasoning>
+</example>
+
+## Examples of When NOT to Use the Todo List
+
+<example>
+User: How do I print 'Hello World' in Python?
+Assistant: In Python, you can print "Hello World" with this simple code:
+
+python
+print("Hello World")
+
+This will output the text "Hello World" to the console when executed.</assistant>
+
+<reasoning>
+The assistant did not use the todo list because this is a single, trivial task that can be completed in one step. There's no need to track multiple tasks or steps for such a straightforward request.
+</reasoning>
+</example>
+
+<example>
+User: What does the git status command do?
+Assistant: The git status command shows the current state of your working directory and staging area. It displays which changes have been staged, which haven't, and which files aren't being tracked by Git. This is a fundamental command for understanding the current state of your repository before making commits.
+
+<reasoning>
+The assistant did not use the todo list because this is an informational request with no actual coding task to complete. The user is simply asking for an explanation, not for the assistant to perform multiple steps or tasks.
+</reasoning>
+</example>
+
+<example>
+User: Can you add a comment to the calculateTotal function to explain what it does?
+Assistant: Sure, let me add a comment to the calculateTotal function to explain what it does.
+* Uses the Edit tool to add a comment to the calculateTotal function *
+
+<reasoning>
+The assistant did not use the todo list because this is a single, straightforward task confined to one location in the code. Adding a comment doesn't require tracking multiple steps or systematic organization.
+</reasoning>
+</example>
+
+<example>
+User: Run npm install for me and tell me what happens.
+Assistant: I'll run the npm install command for you.
+
+*Executes: npm install*
+
+The command completed successfully. Here's the output:
+[Output of npm install command]
+
+All dependencies have been installed according to your package.json file.
+
+<reasoning>
+The assistant did not use the todo list because this is a single command execution with immediate results. There are no multiple steps to track or organize, making the todo list unnecessary for this straightforward task.
+</reasoning>
+</example>
+
+## Task States and Management
+
+1. **Task States**: Use these states to track progress:
+   - pending: Task not yet started
+   - in_progress: Currently working on (limit to ONE task at a time)
+   - completed: Task finished successfully
+
+   **IMPORTANT**: Task descriptions must have two forms:
+   - content: The imperative form describing what needs to be done (e.g., "Run tests", "Build the project")
+   - activeForm: The present continuous form shown during execution (e.g., "Running tests", "Building the project")
+
+2. **Task Management**:
+   - Update task status in real-time as you work
+   - Mark tasks complete IMMEDIATELY after finishing (don't batch completions)
+   - Exactly ONE task must be in_progress at any time (not less, not more)
+   - Complete current tasks before starting new ones
+   - Remove tasks that are no longer relevant from the list entirely
+
+3. **Task Completion Requirements**:
+   - ONLY mark a task as completed when you have FULLY accomplished it
+   - If you encounter errors, blockers, or cannot finish, keep the task as in_progress
+   - When blocked, create a new task describing what needs to be resolved
+   - Never mark a task as completed if:
+     - Tests are failing
+     - Implementation is partial
+     - You encountered unresolved errors
+     - You couldn't find necessary files or dependencies
+
+4. **Task Breakdown**:
+   - Create specific, actionable items
+   - Break complex tasks into smaller, manageable steps
+   - Use clear, descriptive task names
+   - Always provide both forms:
+     - content: "Fix authentication bug"
+     - activeForm: "Fixing authentication bug"
+
+When in doubt, use this tool. Being proactive with task management demonstrates attentiveness and ensures you complete all requirements successfully.
+
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `todos` | array | yes | The updated todo list |
+
+#### `WebSearch`
+
+```
+
+- Allows Claude to search the web and use the results to inform responses
+- Provides up-to-date information for current events and recent data
+- Returns search result information formatted as search result blocks, including links as markdown hyperlinks
+- Use this tool for accessing information beyond Claude's knowledge cutoff
+- Searches are performed automatically within a single API call
+
+CRITICAL REQUIREMENT - You MUST follow this:
+  - After answering the user's question, you MUST include a "Sources:" section at the end of your response
+  - In the Sources section, list all relevant URLs from the search results as markdown hyperlinks: [Title](URL)
+  - This is MANDATORY - never skip including sources in your response
+  - Example format:
+
+    [Your answer here]
+
+    Sources:
+    - [Source Title 1](https://example.com/1)
+    - [Source Title 2](https://example.com/2)
+
+Usage notes:
+  - Domain filtering is supported to include or block specific websites
+  - Web search is only available in the US
+
+IMPORTANT - Use the correct year in search queries:
+  - The current month is May 2026. You MUST use this year when searching for recent information, documentation, or current events.
+  - Example: If the user asks for "latest React docs", search for "React documentation" with the current year, NOT last year
+
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `query` | string | yes | The search query to use |
+| `allowed_domains` | array | no | Only include search results from these domains |
+| `blocked_domains` | array | no | Never include search results from these domains |
+
+#### `TaskStop`
+
+```
+
+- Stops a running background task by its ID
+- Takes a task_id parameter identifying the task to stop
+- Returns a success or failure status
+- Use this tool when you need to terminate a long-running task
+
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `task_id` | string | no | The ID of the background task to stop |
+| `shell_id` | string | no | Deprecated: use task_id instead |
+
+#### `AskUserQuestion`
+
+```
+Use this tool when you need to ask the user questions during execution. This allows you to:
+1. Gather user preferences or requirements
+2. Clarify ambiguous instructions
+3. Get decisions on implementation choices as you work
+4. Offer choices to the user about what direction to take.
+
+Usage notes:
+- Users will always be able to select "Other" to provide custom text input
+- Use multiSelect: true to allow multiple answers to be selected for a question
+- If you recommend a specific option, make that the first option in the list and add "(Recommended)" at the end of the label
+
+Plan mode note: In plan mode, use this tool to clarify requirements or choose between approaches BEFORE finalizing your plan. Do NOT use this tool to ask "Is my plan ready?" or "Should I proceed?" - use ExitPlanMode for plan approval. IMPORTANT: Do not reference "the plan" in your questions (e.g., "Do you have feedback about the plan?", "Does the plan look good?") because the user cannot see the plan in the UI until you call ExitPlanMode. If you need plan approval, use ExitPlanMode instead.
+
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `questions` | array | yes | Questions to ask the user (1-4 questions) |
+| `answers` | object | no | User answers collected by the permission component |
+| `annotations` | object | no | Optional per-question annotations from the user (e.g., notes on preview selections). Keyed by question text. |
+| `metadata` | object | no | Optional metadata for tracking and analytics purposes. Not displayed to user. |
+
+#### `Skill`
+
+```
+Execute a skill within the main conversation
+
+When users ask you to perform tasks, check if any of the available skills match. Skills provide specialized capabilities and domain knowledge.
+
+When users reference a "slash command" or "/<something>" (e.g., "/commit", "/review-pr"), they are referring to a skill. Use this tool to invoke it.
+
+How to invoke:
+- Use this tool with the skill name and optional arguments
+- Examples:
+  - `skill: "pdf"` - invoke the pdf skill
+  - `skill: "commit", args: "-m 'Fix bug'"` - invoke with arguments
+  - `skill: "review-pr", args: "123"` - invoke with arguments
+  - `skill: "ms-office-suite:pdf"` - invoke using fully qualified name
+
+Important:
+- Available skills are listed in system-reminder messages in the conversation
+- When a skill matches the user's request, this is a BLOCKING REQUIREMENT: invoke the relevant Skill tool BEFORE generating any other response about the task
+- NEVER mention a skill without actually calling this tool
+- Do not invoke a skill that is already running
+- Do not use this tool for built-in CLI commands (like /help, /clear, etc.)
+- If you see a <command-name> tag in the current conversation turn, the skill has ALREADY been loaded - follow the instructions directly instead of calling this tool again
+
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `skill` | string | yes | The skill name. E.g., "commit", "review-pr", or "pdf" |
+| `args` | string | no | Optional arguments for the skill |
+
+#### `EnterPlanMode`
+
+```
+Use this tool proactively when you're about to start a non-trivial implementation task. Getting user sign-off on your approach before writing code prevents wasted effort and ensures alignment. This tool transitions you into plan mode where you can explore the codebase and design an implementation approach for user approval.
+
+## When to Use This Tool
+
+**Prefer using EnterPlanMode** for implementation tasks unless they're simple. Use it when ANY of these conditions apply:
+
+1. **New Feature Implementation**: Adding meaningful new functionality
+   - Example: "Add a logout button" - where should it go? What should happen on click?
+   - Example: "Add form validation" - what rules? What error messages?
+
+2. **Multiple Valid Approaches**: The task can be solved in several different ways
+   - Example: "Add caching to the API" - could use Redis, in-memory, file-based, etc.
+   - Example: "Improve performance" - many optimization strategies possible
+
+3. **Code Modifications**: Changes that affect existing behavior or structure
+   - Example: "Update the login flow" - what exactly should change?
+   - Example: "Refactor this component" - what's the target architecture?
+
+4. **Architectural Decisions**: The task requires choosing between patterns or technologies
+   - Example: "Add real-time updates" - WebSockets vs SSE vs polling
+   - Example: "Implement state management" - Redux vs Context vs custom solution
+
+5. **Multi-File Changes**: The task will likely touch more than 2-3 files
+   - Example: "Refactor the authentication system"
+   - Example: "Add a new API endpoint with tests"
+
+6. **Unclear Requirements**: You need to explore before understanding the full scope
+   - Example: "Make the app faster" - need to profile and identify bottlenecks
+   - Example: "Fix the bug in checkout" - need to investigate root cause
+
+7. **User Preferences Matter**: The implementation could reasonably go multiple ways
+   - If you would use AskUserQuestion to clarify the approach, use EnterPlanMode instead
+   - Plan mode lets you explore first, then present options with context
+
+## When NOT to Use This Tool
+
+Only skip EnterPlanMode for simple tasks:
+- Single-line or few-line fixes (typos, obvious bugs, small tweaks)
+- Adding a single function with clear requirements
+- Tasks where the user has given very specific, detailed instructions
+- Pure research/exploration tasks (use the Task tool with explore agent instead)
+
+## What Happens in Plan Mode
+
+In plan mode, you'll:
+1. Thoroughly explore the codebase using Glob, Grep, and Read tools
+2. Understand existing patterns and architecture
+3. Design an implementation approach
+4. Present your plan to the user for approval
+5. Use AskUserQuestion if you need to clarify approaches
+6. Exit plan mode with ExitPlanMode when ready to implement
+
+## Examples
+
+### GOOD - Use EnterPlanMode:
+User: "Add user authentication to the app"
+- Requires architectural decisions (session vs JWT, where to store tokens, middleware structure)
+
+User: "Optimize the database queries"
+- Multiple approaches possible, need to profile first, significant impact
+
+User: "Implement dark mode"
+- Architectural decision on theme system, affects many components
+
+User: "Add a delete button to the user profile"
+- Seems simple but involves: where to place it, confirmation dialog, API call, error handling, state updates
+
+User: "Update the error handling in the API"
+- Affects multiple files, user should approve the approach
+
+### BAD - Don't use EnterPlanMode:
+User: "Fix the typo in the README"
+- Straightforward, no planning needed
+
+User: "Add a console.log to debug this function"
+- Simple, obvious implementation
+
+User: "What files handle routing?"
+- Research task, not implementation planning
+
+## Important Notes
+
+- This tool REQUIRES user approval - they must consent to entering plan mode
+- If unsure whether to use it, err on the side of planning - it's better to get alignment upfront than to redo work
+- Users appreciate being consulted before significant changes are made to their codebase
+
+```
+
+#### `EnterWorktree`
+
+```
+Use this tool ONLY when the user explicitly asks to work in a worktree. This tool creates an isolated git worktree and switches the current session into it.
+
+## When to Use
+
+- The user explicitly says "worktree" (e.g., "start a worktree", "work in a worktree", "create a worktree", "use a worktree")
+
+## When NOT to Use
+
+- The user asks to create a branch, switch branches, or work on a different branch — use git commands instead
+- The user asks to fix a bug or work on a feature — use normal git workflow unless they specifically mention worktrees
+- Never use this tool unless the user explicitly mentions "worktree"
+
+## Requirements
+
+- Must be in a git repository, OR have WorktreeCreate/WorktreeRemove hooks configured in settings.json
+- Must not already be in a worktree
+
+## Behavior
+
+- In a git repository: creates a new git worktree inside `.claude/worktrees/` with a new branch based on HEAD
+- Outside a git repository: delegates to WorktreeCreate/WorktreeRemove hooks for VCS-agnostic isolation
+- Switches the session's working directory to the new worktree
+- On session exit, the user will be prompted to keep or remove the worktree
+
+## Parameters
+
+- `name` (optional): A name for the worktree. If not provided, a random name is generated.
+
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `name` | string | no | Optional name for the worktree. A random name is generated if not provided. |
+
+#### `TeamCreate`
+
+```
+# TeamCreate
+
+## When to Use
+
+Use this tool proactively whenever:
+- The user explicitly asks to use a team, swarm, or group of agents
+- The user mentions wanting agents to work together, coordinate, or collaborate
+- A task is complex enough that it would benefit from parallel work by multiple agents (e.g., building a full-stack feature with frontend and backend work, refactoring a codebase while keeping tests passing, implementing a multi-step project with research, planning, and coding phases)
+
+When in doubt about whether a task warrants a team, prefer spawning a team.
+
+## Choosing Agent Types for Teammates
+
+When spawning teammates via the Task tool, choose the `subagent_type` based on what tools the agent needs for its task. Each agent type has a different set of available tools — match the agent to the work:
+
+- **Read-only agents** (e.g., Explore, Plan) cannot edit or write files. Only assign them research, search, or planning tasks. Never assign them implementation work.
+- **Full-capability agents** (e.g., general-purpose) have access to all tools including file editing, writing, and bash. Use these for tasks that require making changes.
+- **Custom agents** defined in `.claude/agents/` may have their own tool restrictions. Check their descriptions to understand what they can and cannot do.
+
+Always review the agent type descriptions and their available tools listed in the Task tool prompt before selecting a `subagent_type` for a teammate.
+
+Create a new team to coordinate multiple agents working on a project. Teams have a 1:1 correspondence with task lists (Team = TaskList).
+
+```
+{
+  "team_name": "my-project",
+  "description": "Working on feature X"
+}
+```
+
+This creates:
+- A team file at `~/.claude/teams/{team-name}.json`
+- A corresponding task list directory at `~/.claude/tasks/{team-name}/`
+
+## Team Workflow
+
+1. **Create a team** with TeamCreate - this creates both the team and its task list
+2. **Create tasks** using the Task tools (TaskCreate, TaskList, etc.) - they automatically use the team's task list
+3. **Spawn teammates** using the Task tool with `team_name` and `name` parameters to create teammates that join the team
+4. **Assign tasks** using TaskUpdate with `owner` to give tasks to idle teammates
+5. **Teammates work on assigned tasks** and mark them completed via TaskUpdate
+6. **Teammates go idle between turns** - after each turn, teammates automatically go idle and send a notification. IMPORTANT: Be patient with idle teammates! Don't comment on their idleness until it actually impacts your work.
+7. **Shutdown your team** - when the task is completed, gracefully shut down your teammates via SendMessage with type: "shutdown_request".
+
+## Task Ownership
+
+Tasks are assigned using TaskUpdate with the `owner` parameter. Any agent can set or change task ownership via TaskUpdate.
+
+## Automatic Message Delivery
+
+**IMPORTANT**: Messages from teammates are automatically delivered to you. You do NOT need to manually check your inbox.
+
+When you spawn teammates:
+- They will send you messages when they complete tasks or need help
+- These messages appear automatically as new conversation turns (like user messages)
+- If you're busy (mid-turn), messages are queued and delivered when your turn ends
+- The UI shows a brief notification with the sender's name when messages are waiting
+
+Messages will be delivered automatically.
+
+When reporting on teammate messages, you do NOT need to quote the original message—it's already rendered to the user.
+
+## Teammate Idle State
+
+Teammates go idle after every turn—this is completely normal and expected. A teammate going idle immediately after sending you a message does NOT mean they are done or unavailable. Idle simply means they are waiting for input.
+
+- **Idle teammates can receive messages.** Sending a message to an idle teammate wakes them up and they will process it normally.
+- **Idle notifications are automatic.** The system sends an idle notification whenever a teammate's turn ends. You do not need to react to idle notifications unless you want to assign new work or send a follow-up message.
+- **Do not treat idle as an error.** A teammate sending a message and then going idle is the normal flow—they sent their message and are now waiting for a response.
+- **Peer DM visibility.** When a teammate sends a DM to another teammate, a brief summary is included in their idle notification. This gives you visibility into peer collaboration without the full message content. You do not need to respond to these summaries — they are informational.
+
+## Discovering Team Members
+
+Teammates can read the team config file to discover other team members:
+- **Team config location**: `~/.claude/teams/{team-name}/config.json`
+
+The config file contains a `members` array with each teammate's:
+- `name`: Human-readable name (**always use this** for messaging and task assignment)
+- `agentId`: Unique identifier (for reference only - do not use for communication)
+- `agentType`: Role/type of the agent
+
+**IMPORTANT**: Always refer to teammates by their NAME (e.g., "team-lead", "researcher", "tester"). Names are used for:
+- `target_agent_id` when sending messages
+- Identifying task owners
+
+Example of reading team config:
+```
+Use the Read tool to read ~/.claude/teams/{team-name}/config.json
+```
+
+## Task List Coordination
+
+Teams share a task list that all teammates can access at `~/.claude/tasks/{team-name}/`.
+
+Teammates should:
+1. Check TaskList periodically, **especially after completing each task**, to find available work or see newly unblocked tasks
+2. Claim unassigned, unblocked tasks with TaskUpdate (set `owner` to your name). **Prefer tasks in ID order** (lowest ID first) when multiple tasks are available, as earlier tasks often set up context for later ones
+3. Create new tasks with `TaskCreate` when identifying additional work
+4. Mark tasks as completed with `TaskUpdate` when done, then check TaskList for next work
+5. Coordinate with other teammates by reading the task list status
+6. If all available tasks are blocked, notify the team lead or help resolve blocking tasks
+
+**IMPORTANT notes for communication with your team**:
+- Do not use terminal tools to view your team's activity; always send a message to your teammates (and remember, refer to them by name).
+- Your team cannot hear you if you do not use the SendMessage tool. Always send a message to your teammates if you are responding to them.
+- Do NOT send structured JSON status messages like `{"type":"idle",...}` or `{"type":"task_completed",...}`. Just communicate in plain text when you need to message teammates.
+- Use TaskUpdate to mark tasks completed.
+- If you are an agent in the team, the system will automatically send idle notifications to the team lead when you stop.
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `team_name` | string | yes | Name for the new team to create. |
+| `description` | string | no | Team description/purpose. |
+| `agent_type` | string | no | Type/role of the team lead (e.g., "researcher", "test-runner"). Used for team file and inter-agent coordination. |
+
+#### `TeamDelete`
+
+```
+# TeamDelete
+
+Remove team and task directories when the swarm work is complete.
+
+This operation:
+- Removes the team directory (`~/.claude/teams/{team-name}/`)
+- Removes the task directory (`~/.claude/tasks/{team-name}/`)
+- Clears team context from the current session
+
+**IMPORTANT**: TeamDelete will fail if the team still has active members. Gracefully terminate teammates first, then call TeamDelete after all teammates have shut down.
+
+Use this when all teammates have finished their work and you want to clean up the team resources. The team name is automatically determined from the current session's team context.
+```
+
+#### `SendMessage`
+
+```
+# SendMessageTool
+
+Send messages to agent teammates and handle protocol requests/responses in a team.
+
+## Message Types
+
+### type: "message" - Send a Direct Message
+
+Send a message to a **single specific teammate**. You MUST specify the recipient.
+
+**IMPORTANT for teammates**: Your plain text output is NOT visible to the team lead or other teammates. To communicate with anyone on your team, you **MUST** use this tool. Just typing a response or acknowledgment in text is not enough.
+
+```
+{
+  "type": "message",
+  "recipient": "researcher",
+  "content": "Your message here",
+  "summary": "Brief status update on auth module"
+}
+```
+
+- **recipient**: The name of the teammate to message (required)
+- **content**: The message text (required)
+- **summary**: A 5-10 word summary shown as preview in the UI (required)
+
+### type: "broadcast" - Send Message to ALL Teammates (USE SPARINGLY)
+
+Send the **same message to everyone** on the team at once.
+
+**WARNING: Broadcasting is expensive.** Each broadcast sends a separate message to every teammate, which means:
+- N teammates = N separate message deliveries
+- Each delivery consumes API resources
+- Costs scale linearly with team size
+
+```
+{
+  "type": "broadcast",
+  "content": "Message to send to all teammates",
+  "summary": "Critical blocking issue found"
+}
+```
+
+- **content**: The message content to broadcast (required)
+- **summary**: A 5-10 word summary shown as preview in the UI (required)
+
+**CRITICAL: Use broadcast only when absolutely necessary.** Valid use cases:
+- Critical issues requiring immediate team-wide attention (e.g., "stop all work, blocking bug found")
+- Major announcements that genuinely affect every teammate equally
+
+**Default to "message" instead of "broadcast".** Use "message" for:
+- Responding to a single teammate
+- Normal back-and-forth communication
+- Following up on a task with one person
+- Sharing findings relevant to only some teammates
+- Any message that doesn't require everyone's attention
+
+### type: "shutdown_request" - Request a Teammate to Shut Down
+
+Use this to ask a teammate to gracefully shut down:
+
+```
+{
+  "type": "shutdown_request",
+  "recipient": "researcher",
+  "content": "Task complete, wrapping up the session"
+}
+```
+
+The teammate will receive a shutdown request and can either approve (exit) or reject (continue working).
+
+### type: "shutdown_response" - Respond to a Shutdown Request
+
+#### Approve Shutdown
+
+When you receive a shutdown request as a JSON message with `type: "shutdown_request"`, you **MUST** respond to approve or reject it. Do NOT just acknowledge the request in text - you must actually call this tool.
+
+```
+{
+  "type": "shutdown_response",
+  "request_id": "abc-123",
+  "approve": true
+}
+```
+
+**IMPORTANT**: Extract the `requestId` from the JSON message and pass it as `request_id` to the tool. Simply saying "I'll shut down" is not enough - you must call the tool.
+
+This will send confirmation to the leader and terminate your process.
+
+#### Reject Shutdown
+
+```
+{
+  "type": "shutdown_response",
+  "request_id": "abc-123",
+  "approve": false,
+  "content": "Still working on task #3, need 5 more minutes"
+}
+```
+
+The leader will receive your rejection with the reason.
+
+### type: "plan_approval_response" - Approve or Reject a Teammate's Plan
+
+#### Approve Plan
+
+When a teammate with `plan_mode_required` calls ExitPlanMode, they send you a plan approval request as a JSON message with `type: "plan_approval_request"`. Use this to approve their plan:
+
+```
+{
+  "type": "plan_approval_response",
+  "request_id": "abc-123",
+  "recipient": "researcher",
+  "approve": true
+}
+```
+
+After approval, the teammate will automatically exit plan mode and can proceed with implementation.
+
+#### Reject Plan
+
+```
+{
+  "type": "plan_approval_response",
+  "request_id": "abc-123",
+  "recipient": "researcher",
+  "approve": false,
+  "content": "Please add error handling for the API calls"
+}
+```
+
+The teammate will receive the rejection with your feedback and can revise their plan.
+
+## Important Notes
+
+- Messages from teammates are automatically delivered to you. You do NOT need to manually check your inbox.
+- When reporting on teammate messages, you do NOT need to quote the original message - it's already rendered to the user.
+- **IMPORTANT**: Always refer to teammates by their NAME (e.g., "team-lead", "researcher", "tester"), never by UUID.
+- Do NOT send structured JSON status messages. Use TaskUpdate to mark tasks completed and the system will automatically send idle notifications when you stop.
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `type` | string | yes | Message type: "message" for DMs, "broadcast" to all teammates, "shutdown_request" to request shutdown, "shutdown_response" to respond to shutdown, "plan_approval_response" to approve/reject plans |
+| `recipient` | string | no | Agent name of the recipient (required for message, shutdown_request, plan_approval_response) |
+| `content` | string | no | Message text, reason, or feedback |
+| `summary` | string | no | A 5-10 word summary of the message, shown as a preview in the UI (required for message, broadcast) |
+| `request_id` | string | no | Request ID to respond to (required for shutdown_response, plan_approval_response) |
+| `approve` | boolean | no | Whether to approve the request (required for shutdown_response, plan_approval_response) |
+
+#### `mcp__fixture__tool_001` (MCP: fixture)
+
+```
+Synthetic fixture tool #1. Echoes the supplied 'text' argument in its response. Exists only so claude-code registers a deterministic, version-comparable MCP tool.
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `text` | string | yes | Text to echo back. |
+
+#### `mcp__fixture__tool_002` (MCP: fixture)
+
+```
+Synthetic fixture tool #2. Echoes the supplied 'text' argument in its response. Exists only so claude-code registers a deterministic, version-comparable MCP tool.
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `text` | string | yes | Text to echo back. |
+
+#### `mcp__fixture__tool_003` (MCP: fixture)
+
+```
+Synthetic fixture tool #3. Echoes the supplied 'text' argument in its response. Exists only so claude-code registers a deterministic, version-comparable MCP tool.
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `text` | string | yes | Text to echo back. |
 
 
 **User:**
@@ -521,7 +1370,7 @@ CRITICAL: Check the existing code's imports FIRST. If it imports `openai` or ano
 <system-reminder>
 As you answer the user's questions, you can use the following context:
 # currentDate
-Today's date is 2026-05-04.
+Today's date is 2026-05-05.
 
       IMPORTANT: this context may or may not be relevant to your tasks. You should not respond to this context unless it is highly relevant to your task.
 </system-reminder>
@@ -538,6 +1387,6 @@ hi
 Hi! How can I help you today?
 ```
 
-*Tokens: 3 in / 12 out (15 total) — Cost: $0.2974*
+*Tokens: 3 in / 13 out (16 total) — Cost: $0.0377*
 
 ---

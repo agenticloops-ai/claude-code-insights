@@ -4,8 +4,8 @@
     "data": {
       "type": "message_start",
       "message": {
-        "model": "claude-opus-4-6",
-        "id": "msg_011XvrCqFLWRytSSwCvF8Rzi",
+        "model": "claude-opus-4-5-20251101",
+        "id": "msg_015CXzVmB35u2T94hiNQxwHb",
         "type": "message",
         "role": "assistant",
         "content": [],
@@ -14,13 +14,13 @@
         "stop_details": null,
         "usage": {
           "input_tokens": 3,
-          "cache_creation_input_tokens": 571,
-          "cache_read_input_tokens": 7356,
+          "cache_creation_input_tokens": 3652,
+          "cache_read_input_tokens": 15337,
           "cache_creation": {
-            "ephemeral_5m_input_tokens": 571,
-            "ephemeral_1h_input_tokens": 0
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 3652
           },
-          "output_tokens": 55,
+          "output_tokens": 1,
           "service_tier": "standard",
           "inference_geo": "not_available"
         }
@@ -34,7 +34,7 @@
       "index": 0,
       "content_block": {
         "type": "tool_use",
-        "id": "toolu_01QxzTXkzCwtQnpcuUbW8nVG",
+        "id": "toolu_01DjrJpo6aWBLnSNhsYrkcKp",
         "name": "Skill",
         "input": {},
         "caller": {
@@ -67,7 +67,7 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\"skill\": \""
+        "partial_json": "{\"sk"
       }
     }
   },
@@ -78,7 +78,40 @@
       "index": 0,
       "delta": {
         "type": "input_json_delta",
-        "partial_json": "say-hello\"}"
+        "partial_json": "il"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "l\": "
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "\"say"
+      }
+    }
+  },
+  {
+    "event": "content_block_delta",
+    "data": {
+      "type": "content_block_delta",
+      "index": 0,
+      "delta": {
+        "type": "input_json_delta",
+        "partial_json": "-hello\"}"
       }
     }
   },
@@ -100,9 +133,9 @@
       },
       "usage": {
         "input_tokens": 3,
-        "cache_creation_input_tokens": 571,
-        "cache_read_input_tokens": 7356,
-        "output_tokens": 55
+        "cache_creation_input_tokens": 3652,
+        "cache_read_input_tokens": 15337,
+        "output_tokens": 54
       },
       "context_management": {
         "applied_edits": []

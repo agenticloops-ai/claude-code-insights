@@ -16,10 +16,6 @@
     "description": "Run a prompt or slash command on a recurring interval (e.g. /loop 5m /foo, defaults to 10m) - When the user wants to set up a recurring task, poll for status, or run something repeatedly on an interval (e.g. \"check the deploy every 5 minutes\", \"keep running /babysit-prs\"). Do NOT invoke for one-off tasks."
   },
   {
-    "name": "schedule",
-    "description": "Create, update, list, or run scheduled remote agents (triggers) that execute on a cron schedule. - When the user wants to schedule a recurring remote agent, set up automated tasks, create a cron job for Claude Code, or manage their scheduled agents/triggers."
-  },
-  {
     "name": "claude-api",
     "description": "Build apps with the Claude API or Anthropic SDK."
   }

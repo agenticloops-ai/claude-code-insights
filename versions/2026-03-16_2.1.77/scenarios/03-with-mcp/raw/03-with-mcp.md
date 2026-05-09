@@ -1,16 +1,16 @@
 # 03-with-mcp
 
-**Started:** 2026-05-04T18:44:37.662474  
-**Ended:** 2026-05-04T18:45:02.213607  
+**Started:** 2026-05-05T19:42:51.722979  
+**Ended:** 2026-05-05T19:42:58.558757  
 **Requests:** 1  
-**Tokens:** 1,483 (in: 3 / out: 1,480)  
-**Cost:** $0.1654  
+**Tokens:** 53 (in: 3 / out: 50)  
+**Cost:** $0.1008  
 **Models:** claude-opus-4-6  
 **Providers:** anthropic  
 
 ---
 
-## Request #1 — claude-opus-4-6 (anthropic) — 13.6s | thinking
+## Request #1 — claude-opus-4-6 (anthropic) — 1.9s
 
 ### System Prompt
 
@@ -144,12 +144,91 @@ Assistant knowledge cutoff is May 2025.
 Fast mode for Claude Code uses the same Claude Opus 4.6 model with faster output. It does NOT switch to a different model. It can be toggled with /fast.
 </fast_mode_info>
 
-# MCP Server Instructions
+When working with tool results, write down any important information you might need later in your response, as the original tool result may be cleared later.
+```
 
-The following MCP servers have provided instructions for how to use their tools and resources:
+### Tools
 
+#### `ToolSearch`
+
+```
+Fetches full schema definitions for deferred tools so they can be called.
+
+Deferred tools appear by name in <available-deferred-tools> messages. Until fetched, only the name is known — there is no parameter schema, so the tool cannot be invoked. This tool takes a query, matches it against the deferred tool list, and returns the matched tools' complete JSONSchema definitions inside a <functions> block. Once a tool's schema appears in that result, it is callable exactly like any tool defined at the top of the prompt.
+
+Result format: each matched tool appears as one <function>{"description": "...", "name": "...", "parameters": {...}}</function> line inside the <functions> block — the same encoding as the tool list at the top of this prompt.
+
+Query forms:
+- "select:Read,Edit,Grep" — fetch these exact tools by name
+- "notebook jupyter" — keyword search, up to max_results best matches
+- "+slack send" — require "slack" in the name, rank by remaining terms
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `query` | string | yes | Query to find deferred tools. Use "select:<tool_name>" for direct selection, or keywords to search. |
+| `max_results` | number | yes | Maximum number of results to return (default: 5) |
+
+
+**User:**
+
+```
+<available-deferred-tools>
+Agent
+AskUserQuestion
+Bash
+CronCreate
+CronDelete
+CronList
+Edit
+EnterPlanMode
+EnterWorktree
+ExitPlanMode
+ExitWorktree
+Glob
+Grep
+NotebookEdit
+Read
+SendMessage
+Skill
+TaskOutput
+TaskStop
+TeamCreate
+TeamDelete
+TodoWrite
+WebFetch
+WebSearch
+Write
+mcp__fixture__tool_001
+mcp__fixture__tool_002
+mcp__fixture__tool_003
+</available-deferred-tools>
+```
+
+---
+
+**User:**
+
+```
+<system-reminder>
+The following skills are available for use with the Skill tool:
+
+- update-config: Use this skill to configure the Claude Code harness via settings.json. Automated behaviors ("from now on when X", "each time X", "whenever X", "before/after X") require hooks configured in settings.json - the harness executes these, not Claude, so memory/preferences cannot fulfill them. Also use for: permissions ("allow X", "add permission", "move permission to"), env vars ("set X=Y"), hook troubleshooting, or any changes to settings.json/settings.local.json files. Examples: "allow npm commands", "add bq permission to global settings", "move permission to user settings", "set DEBUG=true", "when claude stops show X". For simple settings like theme/model, use Config tool.
+- keybindings-help: Use when the user wants to customize keyboard shortcuts, rebind keys, add chord bindings, or modify ~/.claude/keybindings.json. Examples: "rebind ctrl+s", "add a chord shortcut", "change the submit key", "customize keybindings".
+- simplify: Review changed code for reuse, quality, and efficiency, then fix any issues found.
+- loop: Run a prompt or slash command on a recurring interval (e.g. /loop 5m /foo, defaults to 10m) - When the user wants to set up a recurring task, poll for status, or run something repeatedly on an interval (e.g. "check the deploy every 5 minutes", "keep running /babysit-prs"). Do NOT invoke for one-off tasks.
+- claude-api: Build apps with the Claude API or Anthropic SDK.
+TRIGGER when: code imports `anthropic`/`@anthropic-ai/sdk`/`claude_agent_sdk`, or user asks to use Claude API, Anthropic SDKs, or Agent SDK.
+DO NOT TRIGGER when: code imports `openai`/other AI SDK, general programming, or ML/data-science tasks.
+- say-hello: Greet the user with a fixed phrase. Use this skill whenever the user asks to be greeted or asks the agent to "say hello" — exists as a deterministic skill fixture for sandbox capture scenarios.
+</system-reminder>
+```
+
+```
+<system-reminder>
+As you answer the user's questions, you can use the following context:
 # currentDate
-Today's date is 2026-05-04.
+Today's date is 2026-05-05.
 
       IMPORTANT: this context may or may not be relevant to your tasks. You should not respond to this context unless it is highly relevant to your task.
 </system-reminder>
@@ -162,17 +241,16 @@ List every MCP tool that is currently available to you. Print just the tool name
 
 **Assistant:**
 
-> *Thinking:*
-> The user wants me to list all MCP tools available. I can see them in the available-deferred-tools list.
+```
+Based on the available deferred tools, here are the MCP tools:
 
 ```
-Here are all the MCP tools currently available:
-
 mcp__fixture__tool_001
 mcp__fixture__tool_002
 mcp__fixture__tool_003
 ```
+```
 
-*Tokens: 3 in / 1,480 out (1,483 total) — Cost: $0.1654*
+*Tokens: 3 in / 50 out (53 total) — Cost: $0.1008*
 
 ---
