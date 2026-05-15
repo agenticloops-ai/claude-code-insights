@@ -1,0 +1,20 @@
+[
+  {
+    "index": 1,
+    "model": "claude-haiku-4-5-20251001",
+    "duration_ms": 1047.4803447723389,
+    "tool_count": 0,
+    "stop_reason": "end_turn",
+    "input_tokens": 367,
+    "output_tokens": 13
+  },
+  {
+    "index": 2,
+    "model": "claude-opus-4-7",
+    "duration_ms": 2068.188190460205,
+    "tool_count": 11,
+    "stop_reason": "end_turn",
+    "input_tokens": 6,
+    "output_tokens": 42
+  }
+]

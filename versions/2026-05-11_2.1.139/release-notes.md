@@ -2,7 +2,7 @@
 
 - **published:** 2026-05-11
 - **source:** [CHANGELOG.md#21139](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21139)
-- **fetched:** 2026-05-12
+- **fetched:** 2026-05-14
 
 - Added agent view (Research Preview): a single list of every Claude Code session — running, blocked on you, or done. Run `claude agents` to get started. See https://code.claude.com/docs/en/agent-view
 - Added `/goal` command: set a completion condition and Claude keeps working across turns until it's met. Works in interactive, `-p`, and Remote Control. Shows live elapsed/turns/tokens as an overlay panel

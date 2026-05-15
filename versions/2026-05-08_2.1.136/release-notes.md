@@ -2,7 +2,7 @@
 
 - **published:** 2026-05-08
 - **source:** [CHANGELOG.md#21136](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21136)
-- **fetched:** 2026-05-12
+- **fetched:** 2026-05-14
 
 - Added `CLAUDE_CODE_ENABLE_FEEDBACK_SURVEY_FOR_OTEL` to re-enable the session quality survey for enterprises capturing responses through OpenTelemetry
 - Added `settings.autoMode.hard_deny` for auto mode classifier rules that block unconditionally regardless of user intent or allow exceptions

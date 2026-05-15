@@ -1,0 +1,21 @@
+[
+  "CronCreate",
+  "CronDelete",
+  "CronList",
+  "EnterPlanMode",
+  "EnterWorktree",
+  "ExitPlanMode",
+  "ExitWorktree",
+  "Monitor",
+  "NotebookEdit",
+  "PushNotification",
+  "RemoteTrigger",
+  "SendMessage",
+  "TaskOutput",
+  "TaskStop",
+  "TeamCreate",
+  "TeamDelete",
+  "TodoWrite",
+  "WebFetch",
+  "WebSearch"
+]
