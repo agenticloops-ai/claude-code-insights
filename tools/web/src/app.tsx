@@ -1,14 +1,25 @@
 import { useEffect, useMemo, useState } from "preact/hooks";
+import type { ParsedDiff } from "diff";
 import type { VersionBundle, VersionRow } from "./types.ts";
 import { diffBundles } from "./diff.ts";
 
+// In dev (`vite`), data is served by the cci-versions-api middleware under
+// /api/*. In prod (`vite build`), the cci-data-emit plugin writes the same
+// payloads as static JSON under <BASE>/data/.
+const DATA_BASE = import.meta.env.DEV ? "/api" : `${import.meta.env.BASE_URL}data`;
+
 async function fetchVersions(): Promise<VersionRow[]> {
-  const r = await fetch("/api/versions");
+  const url = import.meta.env.DEV ? `${DATA_BASE}/versions` : `${DATA_BASE}/versions.json`;
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(`failed: ${r.status}`);
   return r.json();
 }
 
 async function fetchBundle(dirName: string): Promise<VersionBundle> {
-  const r = await fetch(`/api/v/${encodeURIComponent(dirName)}`);
+  const url = import.meta.env.DEV
+    ? `${DATA_BASE}/v/${encodeURIComponent(dirName)}`
+    : `${DATA_BASE}/v/${encodeURIComponent(dirName)}.json`;
+  const r = await fetch(url);
   if (!r.ok) throw new Error(`failed: ${r.status}`);
   return r.json();
 }
@@ -28,8 +39,8 @@ export function App() {
         setVersions(vs);
         const captured = vs.filter((v) => v.captured);
         if (captured.length >= 2) {
-          setFromDir(captured[captured.length - 2].dirName);
-          setToDir(captured[captured.length - 1].dirName);
+          setFromDir(captured[1].dirName);
+          setToDir(captured[0].dirName);
         }
       })
       .catch((e) => setError(String(e)));
@@ -51,6 +62,8 @@ export function App() {
     );
   }, [versions, filter]);
 
+  const capturedCount = useMemo(() => versions.filter((v) => v.captured).length, [versions]);
+
   const diff = useMemo(() => {
     if (!fromBundle || !toBundle) return null;
     return diffBundles(fromBundle, toBundle);
@@ -60,10 +73,24 @@ export function App() {
     <div class="layout">
       <aside class="sidebar">
         <header>
-          <h1>cci</h1>
-          <p class="muted">claude-code-insights</p>
+          <h1 class="brand">
+            cci<span class="brandDot" aria-hidden="true" />
+          </h1>
+          <p class="brandSub">claude·code·insights / version delta archive</p>
+          <div class="brandStats">
+            <span><strong>{capturedCount.toLocaleString()}</strong> captured</span>
+            <span class="sep">/</span>
+            <span><strong>{versions.length.toLocaleString()}</strong> total releases</span>
+          </div>
         </header>
-        <input type="search" placeholder="filter…" value={filter} onInput={(e) => setFilter((e.target as HTMLInputElement).value)} />
+        <div class="searchWrap">
+          <input
+            type="search"
+            placeholder="filter releases…"
+            value={filter}
+            onInput={(e) => setFilter((e.target as HTMLInputElement).value)}
+          />
+        </div>
         <ul class="versionList">
           {filtered.map((v) => (
             <li
@@ -80,6 +107,7 @@ export function App() {
                 }
               }}
             >
+              <span class="rowDot" aria-hidden="true" />
               <span class="rowVer">{v.version}</span>
               <span class="rowDate">{v.date}</span>
               <span class="rowMark">
@@ -89,13 +117,15 @@ export function App() {
           ))}
         </ul>
         <footer>
-          <small>click two: A=from, B=to</small>
+          <small>click two — A=baseline · B=compare</small>
         </footer>
       </aside>
       <main class="main">
         {error && <div class="error">{error}</div>}
         {!fromBundle || !toBundle ? (
-          <div class="empty">{fromDir ? "loading bundles…" : "pick two versions on the left"}</div>
+          <div class="empty">
+            {fromDir ? "loading bundles…" : "select two versions on the left to open a delta."}
+          </div>
         ) : (
           <DiffView from={fromBundle} to={toBundle} diff={diff!} />
         )}
@@ -104,19 +134,71 @@ export function App() {
   );
 }
 
+const TAB_LABELS: Record<string, string> = {
+  overview: "overview",
+  tools: "tools",
+  skills: "skills",
+  systemPrompt: "system prompt",
+  userPrompt: "user prompt",
+};
+
+function fmtDelta(n: number, suffix = ""): string {
+  if (!n) return "0" + suffix;
+  return (n > 0 ? "+" : "") + n.toLocaleString() + suffix;
+}
+
 function DiffView(props: { from: VersionBundle; to: VersionBundle; diff: ReturnType<typeof diffBundles> }) {
   const { from, to, diff } = props;
   const [tab, setTab] = useState<"overview" | "tools" | "skills" | "systemPrompt" | "userPrompt">("overview");
+  const tabs = ["overview", "tools", "skills", "systemPrompt", "userPrompt"] as const;
+
+  const fromV = from.dirName.split("_").pop() ?? from.dirName;
+  const toV = to.dirName.split("_").pop() ?? to.dirName;
+  const fromDate = from.dirName.split("_")[0];
+  const toDate = to.dirName.split("_")[0];
+
+  const m = (key: string) => diff.metrics.find((x) => x.metric === key);
+  const stat = (label: string, metricKey: string, suffix = "") => {
+    const row = m(metricKey);
+    const cls = row && row.delta > 0 ? "pos" : row && row.delta < 0 ? "neg" : "";
+    return (
+      <span class="stat" key={metricKey}>
+        <em>{label}</em>
+        <strong class={cls}>{row ? fmtDelta(row.delta, suffix) : "—"}</strong>
+      </span>
+    );
+  };
+
   return (
     <>
       <header class="mainHeader">
-        <h2>
-          {from.dirName} <span class="arrow">→</span> {to.dirName}
-        </h2>
+        <div class="cmdLine">
+          <span class="cmdPrompt">$</span>
+          <span class="cmdName">cci diff</span>
+          <span class="cmdArg from">{fromV}</span>
+          <span class="cmdArg arrow">→</span>
+          <span class="cmdArg to">{toV}</span>
+          <span class="cmdMeta">
+            <span>{fromDate}</span>
+            <span class="sep">→</span>
+            <span>{toDate}</span>
+          </span>
+        </div>
+        <div class="strip">
+          {stat("tools", "tools (advertised)")}
+          {stat("deferred", "tools (deferred)")}
+          {stat("skills", "skills")}
+          {stat("sys_prompt", "system_prompt chars", "c")}
+          {stat("usr_prompt", "user_prompt chars", "c")}
+        </div>
         <nav class="tabs">
-          {(["overview", "tools", "skills", "systemPrompt", "userPrompt"] as const).map((t) => (
-            <button class={tab === t ? "active" : ""} onClick={() => setTab(t)}>
-              {t}
+          {tabs.map((t, i) => (
+            <button
+              data-i={String(i + 1).padStart(2, "0")}
+              class={tab === t ? "active" : ""}
+              onClick={() => setTab(t)}
+            >
+              {TAB_LABELS[t]}
             </button>
           ))}
         </nav>
@@ -124,8 +206,8 @@ function DiffView(props: { from: VersionBundle; to: VersionBundle; diff: ReturnT
       {tab === "overview" && <OverviewTab from={from} to={to} diff={diff} />}
       {tab === "tools" && <ToolsTab diff={diff} />}
       {tab === "skills" && <SkillsTab diff={diff} />}
-      {tab === "systemPrompt" && <DiffTab patch={diff.systemPromptUnified} />}
-      {tab === "userPrompt" && <DiffTab patch={diff.userPromptUnified} />}
+      {tab === "systemPrompt" && <DiffTab patch={diff.systemPromptDiff} />}
+      {tab === "userPrompt" && <DiffTab patch={diff.userPromptDiff} />}
     </>
   );
 }
@@ -145,13 +227,13 @@ function OverviewTab({ from, to, diff }: { from: VersionBundle; to: VersionBundl
           </tr>
         </thead>
         <tbody>
-          {diff.metrics.map((m) => (
-            <tr key={m.metric}>
-              <td>{m.metric}</td>
-              <td>{m.from}</td>
-              <td>{m.to}</td>
-              <td class={m.delta > 0 ? "pos" : m.delta < 0 ? "neg" : ""}>
-                {m.delta > 0 ? `+${m.delta}` : m.delta || ""}
+          {diff.metrics.map((mr) => (
+            <tr key={mr.metric}>
+              <td>{mr.metric}</td>
+              <td>{mr.from.toLocaleString()}</td>
+              <td>{mr.to.toLocaleString()}</td>
+              <td class={mr.delta > 0 ? "pos" : mr.delta < 0 ? "neg" : ""}>
+                {mr.delta ? (mr.delta > 0 ? `+${mr.delta.toLocaleString()}` : mr.delta.toLocaleString()) : ""}
               </td>
             </tr>
           ))}
@@ -180,7 +262,7 @@ function ToolsTab({ diff }: { diff: ReturnType<typeof diffBundles> }) {
     names.length ? (
       <div class={`toolGroup ${kind}`}>
         <h3>
-          {label} <span class="muted">({names.length})</span>
+          {label} <span class="muted">{names.length}</span>
         </h3>
         <ul>
           {names.map((n) => (
@@ -202,14 +284,14 @@ function ToolsTab({ diff }: { diff: ReturnType<typeof diffBundles> }) {
       {t.modified.length > 0 && (
         <div class="toolGroup change">
           <h3>
-            modified <span class="muted">({t.modified.length})</span>
+            modified <span class="muted">{t.modified.length}</span>
           </h3>
           <ul>
-            {t.modified.map((m) => (
-              <li key={m.name}>
-                <code>{m.name}</code>{" "}
+            {t.modified.map((mod) => (
+              <li key={mod.name}>
+                <code>{mod.name}</code>
                 <small class="muted">
-                  {[m.descriptionChanged && "desc", m.schemaChanged && "schema"].filter(Boolean).join(", ")}
+                  {[mod.descriptionChanged && "desc", mod.schemaChanged && "schema"].filter(Boolean).join(" · ")}
                 </small>
               </li>
             ))}
@@ -232,11 +314,12 @@ function SkillsTab({ diff }: { diff: ReturnType<typeof diffBundles> }) {
     <section class="skills">
       {s.added.length > 0 && (
         <div class="toolGroup add">
-          <h3>added ({s.added.length})</h3>
+          <h3>added <span class="muted">{s.added.length}</span></h3>
           <ul>
             {s.added.map((sk) => (
               <li key={sk.name}>
-                <code>{sk.name}</code>: <span class="muted">{sk.description}</span>
+                <code>{sk.name}</code>
+                <span class="muted">{sk.description}</span>
               </li>
             ))}
           </ul>
@@ -244,7 +327,7 @@ function SkillsTab({ diff }: { diff: ReturnType<typeof diffBundles> }) {
       )}
       {s.removed.length > 0 && (
         <div class="toolGroup remove">
-          <h3>removed ({s.removed.length})</h3>
+          <h3>removed <span class="muted">{s.removed.length}</span></h3>
           <ul>
             {s.removed.map((sk) => (
               <li key={sk.name}>
@@ -256,7 +339,7 @@ function SkillsTab({ diff }: { diff: ReturnType<typeof diffBundles> }) {
       )}
       {s.descriptionChanged.length > 0 && (
         <div class="toolGroup change">
-          <h3>description changed ({s.descriptionChanged.length})</h3>
+          <h3>description changed <span class="muted">{s.descriptionChanged.length}</span></h3>
           <ul>
             {s.descriptionChanged.map((sk) => (
               <li key={sk.name}>
@@ -277,22 +360,50 @@ function SkillsTab({ diff }: { diff: ReturnType<typeof diffBundles> }) {
   );
 }
 
-function DiffTab({ patch }: { patch: string }) {
-  if (!patch || patch.split("\n").length < 5) return <div class="empty">no changes</div>;
+function DiffTab({ patch }: { patch: ParsedDiff }) {
+  if (!patch || !patch.hunks || patch.hunks.length === 0) {
+    return <div class="empty">no changes</div>;
+  }
   return (
-    <pre class="unifiedDiff">
-      {patch.split("\n").map((line, i) => {
-        let cls = "";
-        if (line.startsWith("+++") || line.startsWith("---")) cls = "diffHeader";
-        else if (line.startsWith("@@")) cls = "diffHunk";
-        else if (line.startsWith("+")) cls = "diffAdd";
-        else if (line.startsWith("-")) cls = "diffRemove";
+    <div class="unifiedDiff">
+      {patch.hunks.map((h, hi) => {
+        let oldLn = h.oldStart;
+        let newLn = h.newStart;
         return (
-          <div key={i} class={cls}>
-            {line}
+          <div class="diffBlock" key={hi}>
+            <div class="diffHunk">
+              @@ -{h.oldStart},{h.oldLines} +{h.newStart},{h.newLines} @@
+            </div>
+            {h.lines.map((line, li) => {
+              const c = line[0] ?? " ";
+              const text = line.slice(1);
+              let oldStr = "";
+              let newStr = "";
+              let cls = "diffContext";
+              if (c === " ") {
+                oldStr = String(oldLn++);
+                newStr = String(newLn++);
+              } else if (c === "-") {
+                oldStr = String(oldLn++);
+                cls = "diffRemove";
+              } else if (c === "+") {
+                newStr = String(newLn++);
+                cls = "diffAdd";
+              } else if (c === "\\") {
+                cls = "diffMeta";
+              }
+              return (
+                <div class={`diffLine ${cls}`} key={li}>
+                  <span class="lnOld">{oldStr}</span>
+                  <span class="lnNew">{newStr}</span>
+                  <span class="lnSign">{c === " " ? "" : c}</span>
+                  <span class="lnText">{text}</span>
+                </div>
+              );
+            })}
           </div>
         );
       })}
-    </pre>
+    </div>
   );
 }

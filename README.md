@@ -14,6 +14,12 @@ What actually changes inside Claude Code from one release to the next — system
 
 </div>
 
+| Tools added at 2.1 | System prompt rewrite at 2.1 |
+|---|---|
+| [![tools diff: 2.0.76 → 2.1.0](docs/tools.png)](versions/2026-01-07_2.1.0/diff-from-2025-12-22_2.0.76.md) | [![system prompt diff: 2.0.76 → 2.1.0](docs/prompt.png)](versions/2026-01-07_2.1.0/diff-from-2025-12-22_2.0.76.md) |
+
+<div align="center"><sub>One release, side by side: 16 new top-level tools and a 12k → 26k char system prompt rewrite. Click either image for the full diff.</sub></div>
+
 > **You don't need leaked source code to understand Claude Code.** The interesting part isn't the TypeScript — it's the **prompts and tool use**. Both travel over the wire on every request, in plaintext, on their way to `api.anthropic.com`. Pin a version, capture the traffic, diff against the next. That's the changelog Anthropic doesn't publish.
 >
 > New to *why* prompts and tool use matter? Read [**How agents work — the patterns behind**](https://open.substack.com/pub/agenticloopsai/p/how-agents-work-the-patterns-behind?r=1lm8w&utm_medium=ios) first. Then come back here for the receipts.
