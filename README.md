@@ -16,11 +16,9 @@ What actually changes inside Claude Code from one release to the next — system
 
 </div>
 
-| Tools tab | System prompt diff |
+| | |
 |---|---|
-| [![tools tab: 2.0.56 → 2.0.76](docs/tools.png)](https://agenticloops-ai.github.io/claude-code-insights/) | [![system prompt diff: 2.0.56 → 2.0.76](docs/prompt.png)](https://agenticloops-ai.github.io/claude-code-insights/) |
-
-<div align="center"><sub>The live browser comparing 2.0.56 → 2.0.76 — tools tab (left), system prompt diff with line-numbered gutter (right). <a href="https://agenticloops-ai.github.io/claude-code-insights/">Click either image to open it</a>.</sub></div>
+| [![tools tab](docs/tools.png)](https://agenticloops-ai.github.io/claude-code-insights/) | [![system prompt diff](docs/prompt.png)](https://agenticloops-ai.github.io/claude-code-insights/) |
 
 > **You don't need leaked source code to understand Claude Code.** The interesting part isn't the TypeScript — it's the **prompts and tool use**. Both travel over the wire on every request, in plaintext, on their way to `api.anthropic.com`. Pin a version, capture the traffic, diff against the next. That's the changelog Anthropic doesn't publish.
 >
