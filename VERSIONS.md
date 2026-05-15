@@ -2,18 +2,20 @@
 
 All published versions of `@anthropic-ai/claude-code` on npm, newest first.
 
-- **Total versions:** 406
+- **Total versions:** 408
 - **First release:** 2025-02-24
-- **Latest release:** 2026-05-12
+- **Latest release:** 2026-05-14
 - **Source:** [npm registry](https://registry.npmjs.org/@anthropic-ai/claude-code)
 - **Upstream changelog:** [https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md)
-- **Generated:** 2026-05-12
+- **Generated:** 2026-05-14
 
 Versions without a changelog entry are usually silent patches or pre-1.0 cuts.
 
 | Version | Released | Changelog | Diff | npm |
 |---------|----------|-----------|------|-----|
-| `2.1.140` | 2026-05-12 | — | — | [![npm](https://img.shields.io/badge/npm-cb3837?logo=npm&logoColor=white)](https://www.npmjs.com/package/@anthropic-ai/claude-code/v/2.1.140) |
+| `2.1.142` | 2026-05-14 | [![changelog](https://img.shields.io/badge/changelog-blue?logo=github&logoColor=white)](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21142) | [![diff](https://img.shields.io/badge/diff-555?logo=git&logoColor=white)](versions/2026-05-14_2.1.142/diff-from-2026-05-13_2.1.141.md) | [![npm](https://img.shields.io/badge/npm-cb3837?logo=npm&logoColor=white)](https://www.npmjs.com/package/@anthropic-ai/claude-code/v/2.1.142) |
+| `2.1.141` | 2026-05-13 | [![changelog](https://img.shields.io/badge/changelog-blue?logo=github&logoColor=white)](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21141) | [![diff](https://img.shields.io/badge/diff-555?logo=git&logoColor=white)](versions/2026-05-13_2.1.141/diff-from-2026-05-04_2.1.128.md) | [![npm](https://img.shields.io/badge/npm-cb3837?logo=npm&logoColor=white)](https://www.npmjs.com/package/@anthropic-ai/claude-code/v/2.1.141) |
+| `2.1.140` | 2026-05-12 | [![changelog](https://img.shields.io/badge/changelog-blue?logo=github&logoColor=white)](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21140) | — | [![npm](https://img.shields.io/badge/npm-cb3837?logo=npm&logoColor=white)](https://www.npmjs.com/package/@anthropic-ai/claude-code/v/2.1.140) |
 | `2.1.139` | 2026-05-11 | [![changelog](https://img.shields.io/badge/changelog-blue?logo=github&logoColor=white)](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21139) | — | [![npm](https://img.shields.io/badge/npm-cb3837?logo=npm&logoColor=white)](https://www.npmjs.com/package/@anthropic-ai/claude-code/v/2.1.139) |
 | `2.1.138` | 2026-05-09 | [![changelog](https://img.shields.io/badge/changelog-blue?logo=github&logoColor=white)](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21138) | — | [![npm](https://img.shields.io/badge/npm-cb3837?logo=npm&logoColor=white)](https://www.npmjs.com/package/@anthropic-ai/claude-code/v/2.1.138) |
 | `2.1.137` | 2026-05-09 | [![changelog](https://img.shields.io/badge/changelog-blue?logo=github&logoColor=white)](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21137) | — | [![npm](https://img.shields.io/badge/npm-cb3837?logo=npm&logoColor=white)](https://www.npmjs.com/package/@anthropic-ai/claude-code/v/2.1.137) |
