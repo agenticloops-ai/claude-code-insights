@@ -73,26 +73,33 @@ def _tool_delta(a: list, b: list, a_def: list[str], b_def: list[str]) -> dict:
     """
     if a is None or b is None:
         return {}
+    a_adv = {t["name"] for t in (a or [])}
+    b_adv = {t["name"] for t in (b or [])}
     a_by = {t["name"]: t for t in (a or [])}
     b_by = {t["name"]: t for t in (b or [])}
     a_def_set = set(a_def or [])
     b_def_set = set(b_def or [])
-    a_all = set(a_by) | a_def_set
-    b_all = set(b_by) | b_def_set
-    moved_to_deferred = sorted((set(a_by) - set(b_by)) & b_def_set)
-    moved_to_advertised = sorted((set(b_by) - set(a_by)) & a_def_set)
-    deferred_added = sorted(b_def_set - a_def_set - set(moved_to_deferred))
+    a_all = a_adv | a_def_set
+    b_all = b_adv | b_def_set
+    fully_added = b_all - a_all
+    fully_removed = a_all - b_all
+    moved_to_deferred = sorted((a_adv - b_adv) & b_def_set)
+    moved_to_advertised = sorted((b_adv - a_adv) & a_def_set)
     modified = sorted(
-        n for n in set(a_by) & set(b_by)
+        n for n in a_adv & b_adv
         if json.dumps(a_by[n], sort_keys=True) != json.dumps(b_by[n], sort_keys=True)
     )
     return {
-        "added": sorted(b_all - a_all),
-        "removed": sorted(a_all - b_all),
+        # Per-surface partitions of the fully-added / fully-removed sets so the
+        # diff can report "added to advertised", "added to deferred", etc.,
+        # without a reader having to cross-reference the full tool list.
+        "added_advertised": sorted(fully_added & b_adv),
+        "added_deferred": sorted(fully_added & b_def_set),
+        "removed_advertised": sorted(fully_removed & a_adv),
+        "removed_deferred": sorted(fully_removed & a_def_set),
         "modified": modified,
         "moved_to_deferred": moved_to_deferred,
         "moved_to_advertised": moved_to_advertised,
-        "deferred_added": deferred_added,
     }
 
 
@@ -165,10 +172,26 @@ def _tools_section(va: str, vb: str, va_label: str, vb_label: str) -> str:
     lines.append("")
 
     if any(delta.values()):
-        if delta["added"]:
-            lines.append("- **added:** " + ", ".join(f"`{n}`" for n in delta["added"]))
-        if delta["removed"]:
-            lines.append("- **removed:** " + ", ".join(f"`{n}`" for n in delta["removed"]))
+        if delta["added_advertised"]:
+            lines.append(
+                "- **added to advertised:** "
+                + ", ".join(f"`{n}`" for n in delta["added_advertised"])
+            )
+        if delta["added_deferred"]:
+            lines.append(
+                "- **added to deferred (via ToolSearch):** "
+                + ", ".join(f"`{n}`" for n in delta["added_deferred"])
+            )
+        if delta["removed_advertised"]:
+            lines.append(
+                "- **removed from advertised:** "
+                + ", ".join(f"`{n}`" for n in delta["removed_advertised"])
+            )
+        if delta["removed_deferred"]:
+            lines.append(
+                "- **removed from deferred:** "
+                + ", ".join(f"`{n}`" for n in delta["removed_deferred"])
+            )
         if delta["moved_to_deferred"]:
             lines.append(
                 "- **moved to deferred (now lazy-loaded via ToolSearch):** "
@@ -178,11 +201,6 @@ def _tools_section(va: str, vb: str, va_label: str, vb_label: str) -> str:
             lines.append(
                 "- **moved to advertised (no longer deferred):** "
                 + ", ".join(f"`{n}`" for n in delta["moved_to_advertised"])
-            )
-        if delta["deferred_added"]:
-            lines.append(
-                "- **new deferred tools:** "
-                + ", ".join(f"`{n}`" for n in delta["deferred_added"])
             )
         if delta["modified"]:
             lines.append("- **modified:** " + ", ".join(f"`{n}`" for n in delta["modified"]))
@@ -232,11 +250,22 @@ def _skills_section(va: str, vb: str) -> str:
     return "\n".join(lines)
 
 
+def _fence_for(text: str) -> str:
+    """Pick an opening/closing fence longer than the longest run of backticks
+    in `text`, so embedded ```markdown / ```diff blocks don't break out of
+    the wrapping fence when the file is rendered."""
+    longest = 0
+    for m in re.finditer(r"`+", text):
+        longest = max(longest, len(m.group(0)))
+    return "`" * max(3, longest + 1)
+
+
 def _file_diff_section(title: str, a: Path, b: Path, label_a: str, label_b: str) -> str:
     text = _diff(_read(a), _read(b), label_a=label_a, label_b=label_b)
     if not text:
         return ""
-    return "## " + title + "\n\n```diff\n" + text.rstrip() + "\n```\n"
+    fence = _fence_for(text)
+    return "## " + title + "\n\n" + fence + "diff\n" + text.rstrip() + "\n" + fence + "\n"
 
 
 def _cli_section(scenario: str, va: str, vb: str, la: str, lb: str) -> str:
@@ -271,10 +300,11 @@ def _cli_section(scenario: str, va: str, vb: str, la: str, lb: str) -> str:
         label_a=f"{la}/{scenario}/output.txt",
         label_b=f"{lb}/{scenario}/output.txt",
     )
+    fence = _fence_for(text_diff)
     out.append("<details><summary>full diff</summary>\n")
-    out.append("```diff")
+    out.append(fence + "diff")
     out.append(text_diff.rstrip())
-    out.append("```")
+    out.append(fence)
     out.append("</details>\n")
     return "\n".join(out)
 
