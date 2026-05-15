@@ -8,6 +8,11 @@ import { diffBundles } from "./diff.ts";
 // payloads as static JSON under <BASE>/data/.
 const DATA_BASE = import.meta.env.DEV ? "/api" : `${import.meta.env.BASE_URL}data`;
 
+const REPO_BASE = "https://github.com/agenticloops-ai/claude-code-insights";
+const repoFolder = (dirName: string) => `${REPO_BASE}/tree/main/versions/${dirName}`;
+const repoFile = (dirName: string, file: string) =>
+  `${REPO_BASE}/blob/main/versions/${dirName}/${file}`;
+
 async function fetchVersions(): Promise<VersionRow[]> {
   const url = import.meta.env.DEV ? `${DATA_BASE}/versions` : `${DATA_BASE}/versions.json`;
   const r = await fetch(url);
@@ -175,9 +180,25 @@ function DiffView(props: { from: VersionBundle; to: VersionBundle; diff: ReturnT
         <div class="cmdLine">
           <span class="cmdPrompt">$</span>
           <span class="cmdName">cci diff</span>
-          <span class="cmdArg from">{fromV}</span>
+          <a
+            class="cmdArg from"
+            href={repoFolder(from.dirName)}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={`view ${from.dirName} on github`}
+          >
+            {fromV}
+          </a>
           <span class="cmdArg arrow">→</span>
-          <span class="cmdArg to">{toV}</span>
+          <a
+            class="cmdArg to"
+            href={repoFolder(to.dirName)}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={`view ${to.dirName} on github`}
+          >
+            {toV}
+          </a>
           <span class="cmdMeta">
             <span>{fromDate}</span>
             <span class="sep">→</span>
@@ -204,11 +225,71 @@ function DiffView(props: { from: VersionBundle; to: VersionBundle; diff: ReturnT
         </nav>
       </header>
       {tab === "overview" && <OverviewTab from={from} to={to} diff={diff} />}
-      {tab === "tools" && <ToolsTab diff={diff} />}
-      {tab === "skills" && <SkillsTab diff={diff} />}
-      {tab === "systemPrompt" && <DiffTab patch={diff.systemPromptDiff} />}
-      {tab === "userPrompt" && <DiffTab patch={diff.userPromptDiff} />}
+      {tab === "tools" && (
+        <ToolsTab from={from} to={to} diff={diff} />
+      )}
+      {tab === "skills" && (
+        <SkillsTab from={from} to={to} diff={diff} />
+      )}
+      {tab === "systemPrompt" && (
+        <>
+          <SourceLinks from={from} to={to} files={["system-prompt.md"]} />
+          <DiffTab patch={diff.systemPromptDiff} />
+        </>
+      )}
+      {tab === "userPrompt" && (
+        <>
+          <SourceLinks from={from} to={to} files={["user-prompt.md"]} />
+          <DiffTab patch={diff.userPromptDiff} />
+        </>
+      )}
     </>
+  );
+}
+
+function SourceLinks({
+  from,
+  to,
+  files,
+}: {
+  from: VersionBundle;
+  to: VersionBundle;
+  files: string[];
+}) {
+  const fromV = from.dirName.split("_").pop() ?? from.dirName;
+  const toV = to.dirName.split("_").pop() ?? to.dirName;
+  return (
+    <div class="sourceLinks">
+      <span class="srcLabel">source on github</span>
+      <span class="srcSide">
+        <em>A · {fromV}</em>
+        {files.map((f) => (
+          <a
+            key={"a-" + f}
+            href={repoFile(from.dirName, f)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {f}
+            <span class="ext" aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </span>
+      <span class="srcSide">
+        <em>B · {toV}</em>
+        {files.map((f) => (
+          <a
+            key={"b-" + f}
+            href={repoFile(to.dirName, f)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {f}
+            <span class="ext" aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </span>
+    </div>
   );
 }
 
@@ -217,6 +298,7 @@ function OverviewTab({ from, to, diff }: { from: VersionBundle; to: VersionBundl
   const tb = to.manifest?.baseline;
   return (
     <section class="overview">
+      <SourceLinks from={from} to={to} files={["manifest.json", "stats.md", "release-notes.md"]} />
       <table class="metricsTable">
         <thead>
           <tr>
@@ -256,7 +338,15 @@ function OverviewTab({ from, to, diff }: { from: VersionBundle; to: VersionBundl
   );
 }
 
-function ToolsTab({ diff }: { diff: ReturnType<typeof diffBundles> }) {
+function ToolsTab({
+  from,
+  to,
+  diff,
+}: {
+  from: VersionBundle;
+  to: VersionBundle;
+  diff: ReturnType<typeof diffBundles>;
+}) {
   const t = diff.tools;
   const Group = ({ label, names, kind }: { label: string; names: string[]; kind: string }) =>
     names.length ? (
@@ -275,6 +365,7 @@ function ToolsTab({ diff }: { diff: ReturnType<typeof diffBundles> }) {
     ) : null;
   return (
     <section class="tools">
+      <SourceLinks from={from} to={to} files={["tools.json", "deferred-tools.json"]} />
       <Group label="added" names={t.added} kind="add" />
       <Group label="removed" names={t.removed} kind="remove" />
       <Group label="moved to deferred" names={t.movedToDeferred} kind="move" />
@@ -305,13 +396,21 @@ function ToolsTab({ diff }: { diff: ReturnType<typeof diffBundles> }) {
   );
 }
 
-function SkillsTab({ diff }: { diff: ReturnType<typeof diffBundles> }) {
+function SkillsTab({
+  from,
+  to,
+  diff,
+}: {
+  from: VersionBundle;
+  to: VersionBundle;
+  diff: ReturnType<typeof diffBundles>;
+}) {
   const s = diff.skills;
-  if (s.added.length + s.removed.length + s.descriptionChanged.length === 0) {
-    return <div class="empty">no skill changes</div>;
-  }
+  const empty = s.added.length + s.removed.length + s.descriptionChanged.length === 0;
   return (
     <section class="skills">
+      <SourceLinks from={from} to={to} files={["skills.json"]} />
+      {empty && <div class="empty">no skill changes</div>}
       {s.added.length > 0 && (
         <div class="toolGroup add">
           <h3>added <span class="muted">{s.added.length}</span></h3>
