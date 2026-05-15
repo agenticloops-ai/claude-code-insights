@@ -50,3 +50,4 @@ Written to the scenario root `versions/<v>/scenarios/<s>/`:
 - The capture pipeline always wipes the scenario dir before each run, so there is exactly one session JSON to extract from. To pin a specific historical capture, archive the directory before re-running.
 - Do not modify `scripts/extract.py` when the user just wants extraction; only edit it if they want to change *what* is extracted.
 - Built-in vs MCP separation is intentional — `tools.json` and `deferred-tools.json` exclude MCP tools so cross-version diffs aren't polluted by per-scenario fixtures. MCP counts still surface in `stats.json`.
+- After re-extracting a previously-captured version, run `python3 scripts/summarize-version.py <v>` even if `manifest.json` already exists. Summarize regenerates every `diff-from-*.md` that references this version, so the diffs reflect the new extracted state instead of going stale.

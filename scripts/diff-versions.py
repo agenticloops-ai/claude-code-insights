@@ -319,6 +319,19 @@ def main(argv: list[str]) -> int:
     va_label = version_from_dir(va)
     vb_label = version_from_dir(vb)
 
+    # Refuse to diff against a release-notes-only stub. Without manifest.json
+    # the baseline section reads None for every metric and the body diffs
+    # render the entire `to` artifact as added — visually plausible noise
+    # that doesn't reflect a real version-to-version change.
+    for v, label in ((va, va_label), (vb, vb_label)):
+        if not (VERSIONS_DIR / v / "manifest.json").exists():
+            print(
+                f"refusing to diff: {label} has no extracted artifacts "
+                f"(versions/{v}/manifest.json missing — run capture+extract+summarize first)",
+                file=sys.stderr,
+            )
+            return 2
+
     out_path = VERSIONS_DIR / vb / f"diff-from-{va}.md"
     out_path.parent.mkdir(parents=True, exist_ok=True)
 

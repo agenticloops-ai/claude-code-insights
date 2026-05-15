@@ -18,6 +18,7 @@ from __future__ import annotations
 import argparse
 import json
 import shutil
+import subprocess
 import sys
 from pathlib import Path
 
@@ -145,7 +146,48 @@ def main() -> int:
     (vroot / "stats.md").write_text("\n".join(lines) + "\n")
 
     print(f"summarized {vroot.relative_to(REPO_DIR)} (baseline: {args.baseline})")
+
+    # Diffs are derived state — regenerate any that reference this version so
+    # a scrubber change, recapture, or extraction-logic update doesn't leave
+    # stale `diff-from-*.md` files pointing at content this version no longer has.
+    regenerated = _regen_touching_diffs(dir_name, npm_version)
+    if regenerated:
+        print(f"regenerated {len(regenerated)} diff(s) touching {npm_version}: "
+              + ", ".join(regenerated))
     return 0
+
+
+def _regen_touching_diffs(dir_name: str, npm_version: str) -> list[str]:
+    """Re-run diff-versions.py for every existing diff file where this
+    version appears on either side. Skips pairs whose other side is a
+    release-notes-only stub (no manifest.json) — diff-versions.py refuses
+    those, and we don't want to delete an out-of-band artifact silently."""
+    script = Path(__file__).resolve().parent / "diff-versions.py"
+    pairs: set[tuple[str, str]] = set()
+    # This version's own diff-from-* files (uses npm_version as `to`).
+    for f in (VERSIONS_DIR / dir_name).glob("diff-from-*.md"):
+        from_dir = f.stem[len("diff-from-"):]
+        pairs.add((from_dir.split("_", 1)[-1], npm_version))
+    # Other versions whose diff references this version as `from`.
+    suffix_token = dir_name  # diff-from-<full-dir-name>.md
+    for d in VERSIONS_DIR.iterdir():
+        if not d.is_dir() or d.name == dir_name:
+            continue
+        for f in d.glob(f"diff-from-{suffix_token}.md"):
+            pairs.add((npm_version, d.name.split("_", 1)[-1]))
+    regenerated: list[str] = []
+    for from_ver, to_ver in sorted(pairs):
+        result = subprocess.run(
+            [sys.executable, str(script), from_ver, to_ver],
+            capture_output=True, text=True,
+        )
+        if result.returncode == 0:
+            regenerated.append(f"{from_ver}->{to_ver}")
+        else:
+            # Surface the refusal/error but don't fail summarize.
+            err = (result.stderr or result.stdout).strip()
+            print(f"warn: diff {from_ver}->{to_ver} skipped: {err}", file=sys.stderr)
+    return regenerated
 
 
 if __name__ == "__main__":

@@ -15,11 +15,11 @@ Compare two `claude-code` versions that have already been processed by `extract-
 
 ## How to run
 
-1. Confirm both versions are extracted:
+1. Confirm both versions are extracted. The fast check is `versions/<v>/manifest.json` — that file only exists after `summarize-version.py` ran, which is the gate `diff-versions.py` also uses:
    ```bash
-   ls versions/<from>/scenarios/*/stats.json versions/<to>/scenarios/*/stats.json 2>/dev/null | head
+   ls versions/<from>/manifest.json versions/<to>/manifest.json
    ```
-   If either version is missing `stats.json` files, run the `extract-capture` skill on it first (or `/process-version` end-to-end).
+   If either is missing, the side is a release-notes-only stub. Run the `extract-capture` skill on it first (or `/process-version` end-to-end). `diff-versions.py` refuses (exit 2) rather than producing a diff against an empty baseline.
 2. Generate the diff:
    ```bash
    python3 scripts/diff-versions.py <from> <to>
@@ -43,7 +43,7 @@ Each shared scenario gets:
 | ...
 
 ### built-in skills        (added / removed / description-changed)
-### tools                  (added / removed / moved-to-deferred / moved-to-advertised / new-deferred / modified)
+### tools                  (added-to-advertised / added-to-deferred / removed-from-advertised / removed-from-deferred / moved-to-deferred / moved-to-advertised / modified)
 ### system prompt          (unified diff)
 ### user prompt (incl. system-reminder blocks)   (unified diff)
 ```
@@ -55,3 +55,4 @@ The local-mode CLI scenario (`01-cli-help`) also gets diffed: parsed added/remov
 - The diff is purely textual on the *extracted* artifacts. If a scenario's `stats.json` looks identical but the diff body is empty, that's expected — nothing observable changed.
 - Scenarios present in only one version are listed at the top under "only in `<version>`" and not diffed.
 - The diff reads only from `versions/`; the raw `<scenario>.json` session captures and per-request `001.*.json` files are not consulted.
+- Diffs are derived state: `summarize-version.py` regenerates every `diff-from-*.md` touching a version after re-extract. Don't hand-edit diff files — the next summarize will overwrite them.

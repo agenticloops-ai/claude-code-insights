@@ -10,7 +10,7 @@ Single entry point for capturing and analyzing one `claude-code` release. The sk
 ## Inputs
 
 - `<version>` — the npm version of `@anthropic-ai/claude-code` (e.g. `2.1.126`). Required.
-- `--diff-from <prev>` — optional previous version to diff against (e.g. `2.1.59`).
+- `--diff-from <prev>` — optional previous version to diff against (e.g. `2.1.59`). When omitted, step 6 auto-picks the most recent *captured* prior version (one with `manifest.json`, not just a release-notes stub). Pass it explicitly only when you want a baseline that isn't the immediate predecessor.
 
 ## Pipeline
 
@@ -62,9 +62,15 @@ python3 scripts/summarize-version.py <version>
 
 Promotes the baseline scenario's extracted artifacts to `versions/<version>/` root and writes `manifest.json` + `stats.md`. If `02-bare` extraction is missing this script will `sys.exit`; that's why step 3 must guarantee it's present.
 
-### 6. Diff (only if `--diff-from <prev>` given)
+Side effect: any existing `diff-from-*.md` file that references this version (as either side) is automatically regenerated. This keeps diffs in sync after a recapture, a scrubber change, or an extraction-logic update — they are derived state, not committed records.
 
-Invoke the **`diff-versions`** skill via the Skill tool with `(prev, version)`. The skill runs `scripts/diff-versions.py prev version`, which writes `versions/<version>/diff-from-<prev>.md`.
+### 6. Diff
+
+Determine `<prev>`:
+- If the user passed `--diff-from <prev>`, use that.
+- Otherwise auto-pick: list `versions/*/manifest.json`, sort by directory name (which sorts chronologically by capture date), and pick the most recent one with a version less than `<version>`. **Skip stub directories with only `release-notes.md`** — those aren't real captures and would produce a useless empty-baseline diff. If no captured predecessor exists, skip this step and note it in the final report.
+
+Then invoke the **`diff-versions`** skill via the Skill tool with `(prev, version)`. The skill runs `scripts/diff-versions.py prev version`, which writes `versions/<version>/diff-from-<prev>.md`. `diff-versions.py` refuses (exit 2) if either side lacks `manifest.json`; treat that as a configuration error in the auto-pick logic, not a transient failure.
 
 ## Final report
 
@@ -76,7 +82,7 @@ After all steps, emit a short summary (no file dumps):
 - `capture: <N> passed, <M> failed (<list>)`
 - `extract: <N> succeeded, <M> failed (<list>)`
 - `manifest: versions/<version>/manifest.json`
-- `diff: versions/<version>/diff-from-<prev>.md` (only when `--diff-from` was given)
+- `diff: versions/<version>/diff-from-<prev>.md` (note if auto-picked vs explicit, or "no captured predecessor" if skipped)
 
 If anything failed, end with the next concrete action the user can take (e.g. "re-run scenario X with `CAPTURE_KEEP_STATE=1` to keep state for debugging").
 
